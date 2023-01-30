@@ -101,13 +101,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     }
 
     /// <inheritdoc />
-    public Task<TEntity?> FindAsync(TKey key)
-    {
-        return GetAsync(key);
-    }
-
-    /// <inheritdoc />
-    public TEntity Insert(TEntity entity)
+    public TEntity Add(TEntity entity)
     {
         Context.Add(entity);
         return entity;
@@ -121,7 +115,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     }
 
     /// <inheritdoc />
-    public TEntity Remove(TEntity entity)
+    public TEntity Delete(TEntity entity)
     {
         Context.Remove(entity);
         return entity;

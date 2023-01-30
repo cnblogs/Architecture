@@ -3,6 +3,8 @@
 /// <summary>
 ///     定义 UnitOfWork。
 /// </summary>
+/// <typeparam name="TEntity">实体类型。</typeparam>
+/// <typeparam name="TKey">主键类型。</typeparam>
 public interface IUnitOfWork<TEntity, TKey>
     where TEntity : EntityBase, IAggregateRoot
     where TKey : IComparable<TKey>
@@ -12,7 +14,7 @@ public interface IUnitOfWork<TEntity, TKey>
     /// </summary>
     /// <param name="key">主键。</param>
     /// <returns>获取到的实体。</returns>
-    Task<TEntity?> FindAsync(TKey key);
+    Task<TEntity?> GetAsync(TKey key);
 
     /// <summary>
     ///     添加实体，调用 <see cref="SaveEntitiesAsync"/> 或 <see cref="SaveChangesAsync"/> 后才会写入数据库。
@@ -20,7 +22,7 @@ public interface IUnitOfWork<TEntity, TKey>
     /// <param name="entity">要添加实体。</param>
     /// <typeparam name="TEntity">实体类型。</typeparam>
     /// <returns>被添加的实体。</returns>
-    TEntity Insert(TEntity entity);
+    TEntity Add(TEntity entity);
 
     /// <summary>
     ///     更新实体，调用 <see cref="SaveEntitiesAsync"/> 或 <see cref="SaveChangesAsync"/> 后才会写入数据库。
@@ -36,7 +38,7 @@ public interface IUnitOfWork<TEntity, TKey>
     /// <param name="entity">要删除的实体。</param>
     /// <typeparam name="TEntity">实体类型。</typeparam>
     /// <returns></returns>
-    TEntity Remove(TEntity entity);
+    TEntity Delete(TEntity entity);
 
     /// <summary>
     ///     提交所有更改（但不发布领域事件）。

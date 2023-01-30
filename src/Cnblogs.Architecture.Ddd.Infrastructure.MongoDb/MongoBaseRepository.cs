@@ -151,13 +151,7 @@ public class MongoBaseRepository<TContext, TEntity, TKey> : IRepository<TEntity,
     private static void EnsureBeforeUpdateCalled(TEntity entity) => entity.BeforeUpdate();
 
     /// <inheritdoc />
-    public Task<TEntity?> FindAsync(TKey key)
-    {
-        return GetAsync(key);
-    }
-
-    /// <inheritdoc />
-    public TEntity Insert(TEntity entity)
+    public TEntity Add(TEntity entity)
     {
         if (_toDelete != null && _toDelete.ContainsKey(entity.Id))
         {
@@ -206,7 +200,7 @@ public class MongoBaseRepository<TContext, TEntity, TKey> : IRepository<TEntity,
     }
 
     /// <inheritdoc />
-    public TEntity Remove(TEntity entity)
+    public TEntity Delete(TEntity entity)
     {
         if (_toAdd != null && _toAdd.ContainsKey(entity.Id))
         {

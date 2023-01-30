@@ -133,7 +133,7 @@ public class MongoBaseRepositoryTests
 
         // Act
         var uow = repository.UnitOfWork;
-        uow.Insert(blog);
+        uow.Add(blog);
         var response = await uow.SaveEntitiesAsync();
 
         // Assert
@@ -164,8 +164,8 @@ public class MongoBaseRepositoryTests
 
         // Act
         var uow = repository.UnitOfWork;
-        uow.Insert(blog);
-        uow.Remove(blog);
+        uow.Add(blog);
+        uow.Delete(blog);
         var response = await uow.SaveEntitiesAsync();
 
         // Assert
@@ -193,8 +193,8 @@ public class MongoBaseRepositoryTests
 
         // Act
         var uow = repository.UnitOfWork;
-        uow.Remove(blog);
-        uow.Insert(blog);
+        uow.Delete(blog);
+        uow.Add(blog);
         var response = await uow.SaveEntitiesAsync();
 
         // Assert
@@ -222,7 +222,7 @@ public class MongoBaseRepositoryTests
 
         // Act
         var uow = repository.UnitOfWork;
-        uow.Remove(blog);
+        uow.Delete(blog);
         var act = () => uow.Update(blog);
 
         // Assert
@@ -240,7 +240,7 @@ public class MongoBaseRepositoryTests
         // Act
         var uow = repository.UnitOfWork;
         uow.Update(blog);
-        var act = () => uow.Insert(blog);
+        var act = () => uow.Add(blog);
 
         // Assert
         act.Should().ThrowExactly<InvalidOperationException>();
@@ -256,7 +256,7 @@ public class MongoBaseRepositoryTests
 
         // Act
         var uow = repository.UnitOfWork;
-        uow.Remove(blog);
+        uow.Delete(blog);
         var response = await uow.SaveEntitiesAsync();
 
         // Assert
