@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <DevelopmentDependency>true</DevelopmentDependency>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="MongoDB.Analyzer" Version="1.1.0" PrivateAssets="None" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="build\**" Pack="true" PackagePath="build\" />
+        <None Include="mongodb.analyzer.json" Pack="true" PackagePath="\" />
+    </ItemGroup>
+
+</Project>

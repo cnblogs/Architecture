@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <MongoAnalyzerRuleSetVersion>0.0.0</MongoAnalyzerRuleSetVersion>
+        <MongoAnalyzerRuleSetLocation Condition=" '$(NuGetPackageRoot)' != '' ">$(NuGetPackageRoot)\cnblogs.architecture.ddd.cqrs.mongodb.analyzer\$(MongoAnalyzerRuleSetVersion)</MongoAnalyzerRuleSetLocation>
+        <MongoAnalyzerRuleSetLocation Condition=" '$(MongoAnalyzerRuleSetLocation)' == '' and '$(SolutionDir)' != '' ">$(SolutionDir)\packages\cnblogs.architecture.ddd.cqrs.mongodb.analyzer.$(MongoAnalyzerRuleSetVersion)</MongoAnalyzerRuleSetLocation>
+        <MongoAnalyzerRuleSetLocation Condition=" '$(MongoAnalyzerRuleSetLocation)' == '' ">$([System.IO.Path]::GetDirectoryName($(MSBuildProjectDirectory)))\packages\cnblogs.architecture.ddd.cqrs.mongodb.analyzer.$(MongoAnalyzerRuleSetVersion)</MongoAnalyzerRuleSetLocation>
+    </PropertyGroup>
+    <ItemGroup>
+        <AdditionalFiles Include="$(MongoAnalyzerRuleSetLocation)\mongodb.analyzer.json" Link="mongodb.analyzer.json" />
+    </ItemGroup>
+</Project>

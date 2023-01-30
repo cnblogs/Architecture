@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj" />
+        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.MongoDb\Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.csproj" />
+    </ItemGroup>
+</Project>

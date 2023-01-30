@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.EventBus.Abstractions\Cnblogs.Architecture.Ddd.EventBus.Abstractions.csproj" />
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Dapr.AspNetCore" Version="1.9.0" />
+    </ItemGroup>
+</Project>

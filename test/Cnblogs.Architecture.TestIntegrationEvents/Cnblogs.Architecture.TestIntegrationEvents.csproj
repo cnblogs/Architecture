@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.EventBus.Dapr\Cnblogs.Architecture.Ddd.EventBus.Dapr.csproj" />
+    </ItemGroup>
+
+</Project>

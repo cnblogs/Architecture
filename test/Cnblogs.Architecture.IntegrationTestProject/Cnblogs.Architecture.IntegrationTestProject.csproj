@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
+    </ItemGroup>
+
+</Project>
