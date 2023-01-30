@@ -4,6 +4,9 @@
         <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Authors>Cnblogs</Authors>
+        <Product>Cnblogs.Architecture</Product>
+        <PackageProjectUrl>https://github.com/cnblogs/Architecture</PackageProjectUrl>
     </PropertyGroup>
 
     <ItemGroup>
