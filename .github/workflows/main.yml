@@ -10,7 +10,7 @@ jobs:
     environment: nuget
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3.0.3
         with:
           dotnet-version: '7'
