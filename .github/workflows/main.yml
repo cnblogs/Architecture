@@ -20,4 +20,4 @@ jobs:
           dotnet build -c Release
           sed -i "s/\(<MongoAnalyzerRuleSetVersion>\)[^<]*\(<\/MongoAnalyzerRuleSetVersion>\)/\1$version\2/" src/Cnblogs.Architecture.Ddd.Cqrs.MongoDb.Analyzer/build/Cnblogs.Architecture.Ddd.Cqrs.MongoDb.Analyzer.props
           dotnet pack Cnblogs.Architecture.sln -p:Version="${Version:1}" -c Release -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg --include-source -o "output"
-          nuget push ./output/*.nupkg -NonInteractive -Source https://api.nuget.org/v3/index.json
+          dotnet nuget push ./output/*.* -s https://api.nuget.org/v3/index.json
