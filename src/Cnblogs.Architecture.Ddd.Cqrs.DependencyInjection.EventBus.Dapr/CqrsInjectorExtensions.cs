@@ -46,7 +46,7 @@ public static class CqrsInjectorExtensions
     ///      Register <see cref="DaprClient"/> and <see cref="IEventBus"/>.
     /// </summary>
     /// <param name="services"><see cref="IServiceCollection"/></param>
-    /// <param name="appName">app name used by event bus</param>
+    /// <param name="appName">The app name used when publishing integration events.</param>
     /// <returns></returns>
     public static IServiceCollection AddDaprEventBus(this IServiceCollection services, string appName)
     {
