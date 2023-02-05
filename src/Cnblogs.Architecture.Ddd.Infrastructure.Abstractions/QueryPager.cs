@@ -1,4 +1,7 @@
-﻿namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
+﻿using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
+
+// ReSharper disable once CheckNamespace
+namespace System.Linq;
 
 /// <summary>
 ///     <see cref="PagingParams" /> 用于 <see cref="IQueryable{T}" /> 的扩展方法。
@@ -14,7 +17,7 @@ public static class QueryPager
     /// <returns>分页后的列表。</returns>
     public static IQueryable<T> Paging<T>(this IQueryable<T> queryable, PagingParams pagingParams)
     {
-        (var pageIndex, var pageSize) = pagingParams;
+        var (pageIndex, pageSize) = pagingParams;
         return queryable.Paging(pageIndex, pageSize);
     }
 

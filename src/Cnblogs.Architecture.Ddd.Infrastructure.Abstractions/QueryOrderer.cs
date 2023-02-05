@@ -1,6 +1,8 @@
 ﻿using System.Linq.Expressions;
+using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
-namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
+// ReSharper disable once CheckNamespace
+namespace System.Linq;
 
 /// <summary>
 ///     <see cref="OrderBySegment" /> 用于 <see cref="IQueryable{T}" /> 的扩展方法。
@@ -26,7 +28,7 @@ public static class QueryOrderer
     /// <returns>排好序的 <see cref="IQueryable{T}" />。</returns>
     public static IQueryable<TSource> OrderBy<TSource>(this IQueryable<TSource> queryable, OrderBySegment segment)
     {
-        (var isDesc, var exp) = segment;
+        var (isDesc, exp) = segment;
         var method = GetOrderByMethodName(isDesc);
         Type[] types = { queryable.ElementType, exp.Body.Type };
         var rs = Expression.Call(typeof(Queryable), method, types, queryable.Expression, exp);
@@ -62,7 +64,7 @@ public static class QueryOrderer
         IEnumerable<OrderBySegment> segments)
     {
         var isFirst = true;
-        foreach ((var isDesc, var exp) in segments)
+        foreach (var (isDesc, exp) in segments)
         {
             var method = isFirst ? GetOrderByMethodName(isDesc) : GetThenByMethodName(isDesc);
             Type[] types = { queryable.ElementType, exp.Body.Type };

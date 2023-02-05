@@ -1,9 +1,8 @@
 ﻿using Asp.Versioning;
 using Asp.Versioning.Conventions;
 
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
 /// Api Versioning 注入扩展

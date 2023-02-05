@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Hosting;
-
 using Serilog;
 
-namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.Hosting;
 
 /// <summary>
 /// 注入 Serilog 的扩展方法。
