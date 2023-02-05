@@ -1,8 +1,5 @@
 ﻿using System.Reflection;
-
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
-using Cnblogs.Architecture.Ddd.EventBus.Dapr;
-
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
@@ -40,19 +37,5 @@ public static class CqrsInjectorExtensions
     {
         cqrsInjector.Services.AddDaprEventBus(appName);
         return cqrsInjector;
-    }
-
-    /// <summary>
-    ///      Register <see cref="DaprClient"/> and <see cref="IEventBus"/>.
-    /// </summary>
-    /// <param name="services"><see cref="IServiceCollection"/></param>
-    /// <param name="appName">The app name used when publishing integration events.</param>
-    /// <returns></returns>
-    public static IServiceCollection AddDaprEventBus(this IServiceCollection services, string appName)
-    {
-        services.Configure<DaprOptions>(o => o.AppName = appName);
-        services.AddControllers().AddDapr();
-        services.AddScoped<IEventBus, DaprEventBus>();
-        return services;
     }
 }
