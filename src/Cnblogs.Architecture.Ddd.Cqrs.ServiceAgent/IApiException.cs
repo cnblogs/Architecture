@@ -31,7 +31,7 @@ public interface IApiException<out TException>
     /// <param name="message">错误信息。</param>
     /// <param name="userFriendlyMessage">给用户显示的错误信息。</param>
     [DoesNotReturn]
-    abstract static void Throw(int statusCode = -1, string message = "", string? userFriendlyMessage = null);
+    static abstract void Throw(int statusCode = -1, string message = "", string? userFriendlyMessage = null);
 
     /// <summary>
     ///    创建异常。
@@ -40,5 +40,5 @@ public interface IApiException<out TException>
     /// <param name="message">错误信息。</param>
     /// <param name="userFriendlyMessage">给用户显示的错误信息。</param>
     /// <returns></returns>
-    abstract static TException Create(int statusCode = -1, string message = "", string? userFriendlyMessage = null);
+    static abstract TException Create(int statusCode = -1, string message = "", string? userFriendlyMessage = null);
 }

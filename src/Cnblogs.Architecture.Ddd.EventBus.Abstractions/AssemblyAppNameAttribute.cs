@@ -6,7 +6,10 @@
 [AttributeUsage(AttributeTargets.Assembly)]
 public class AssemblyAppNameAttribute : Attribute
 {
-    /// <inheritdoc />
+    /// <summary>
+    ///     配置应用名称。
+    /// </summary>
+    /// <param name="name">应用名称。</param>
     public AssemblyAppNameAttribute(string name)
     {
         Name = name;

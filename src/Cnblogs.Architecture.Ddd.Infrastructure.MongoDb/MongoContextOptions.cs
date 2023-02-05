@@ -7,6 +7,7 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.MongoDb;
 ///     MongoContext 的配置文件。
 /// </summary>
 /// <typeparam name="TContext">要配置的 MongoContext。</typeparam>
+// ReSharper disable once UnusedTypeParameter
 public class MongoContextOptions<TContext> : MongoContextOptions
     where TContext : MongoContext
 {

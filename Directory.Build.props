@@ -7,6 +7,7 @@
         <Authors>Cnblogs</Authors>
         <Product>Cnblogs.Architecture</Product>
         <PackageProjectUrl>https://github.com/cnblogs/Architecture</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>

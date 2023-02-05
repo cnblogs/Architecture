@@ -2,4 +2,4 @@
 
 namespace Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
 
-public record GetStringQuery() : IQuery<string>;
+public record GetStringQuery : IQuery<string>;

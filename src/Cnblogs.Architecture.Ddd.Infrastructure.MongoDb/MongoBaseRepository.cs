@@ -78,7 +78,7 @@ public class MongoBaseRepository<TContext, TEntity, TKey> : IRepository<TEntity,
         return entity;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="IRepository{TEntity,TKey}.GetAsync" />
     public async Task<TEntity?> GetAsync(TKey key)
     {
         return await Context.Set<TEntity>().Find(Builders<TEntity>.Filter.Eq(x => x.Id, key)).FirstOrDefaultAsync();

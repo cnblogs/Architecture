@@ -8,7 +8,7 @@ indent_style = space
 indent_size = 4
 
 # Microsoft .NET properties
-csharp_preferred_modifier_order = public, private, protected, internal, abstract, virtual, sealed, override, static, new, readonly, extern, unsafe, volatile, async:suggestion
+csharp_preferred_modifier_order = public, private, protected, internal, static, abstract, virtual, sealed, override, new, readonly, extern, unsafe, volatile, async:suggestion
 csharp_style_var_elsewhere = true:suggestion
 csharp_style_var_for_built_in_types = true:suggestion
 csharp_style_var_when_type_is_apparent = true:suggestion
@@ -45,7 +45,7 @@ resharper_keep_existing_initializer_arrangement = false
 resharper_keep_existing_invocation_parens_arrangement = false
 resharper_keep_existing_switch_expression_arrangement = false
 resharper_max_initializer_elements_on_line = 2
-resharper_modifiers_order = public private protected internal abstract virtual sealed override static new readonly extern unsafe volatile async
+resharper_modifiers_order = public private protected internal static abstract virtual sealed override new readonly extern unsafe volatile async
 resharper_place_accessorholder_attribute_on_same_line = false
 resharper_place_field_attribute_on_same_line = false
 resharper_place_linq_into_on_new_line = false
