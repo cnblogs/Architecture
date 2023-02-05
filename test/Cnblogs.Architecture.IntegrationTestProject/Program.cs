@@ -33,7 +33,7 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Subscribe<TestIntegrationEvent>(appName);
+app.Subscribe<TestIntegrationEvent>();
 
 var apis = app.NewVersionedApi();
 var v1 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(1);
