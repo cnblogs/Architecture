@@ -1,3 +1,3 @@
 ﻿using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 
-[assembly:AssemblyAppName("test")]
+[assembly: AssemblyAppName("test")]

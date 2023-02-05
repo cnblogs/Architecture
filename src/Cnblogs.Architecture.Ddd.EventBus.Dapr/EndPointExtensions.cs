@@ -2,6 +2,7 @@
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.AspNetCore.Routing;
@@ -62,6 +63,14 @@ public static class EndPointExtensions
         where TEvent : IntegrationEvent
     {
         EnsureDaprSubscribeHandlerMapped(builder);
+
+        var serviceCheck = builder.ServiceProvider.GetRequiredService<IServiceProviderIsService>();
+        if (!serviceCheck.IsService(typeof(IEventBus)))
+        {
+            throw new InvalidOperationException(
+                $"{nameof(IEventBus)} has not been registered. Please using AddDaprEventBus to register.");
+        }
+
         var result = builder
             .MapPost(route, (TEvent receivedEvent, IEventBus eventBus) => eventBus.ReceiveAsync(receivedEvent))
             .WithTopic(DaprOptions.PubSubName, DaprUtils.GetDaprTopicName<TEvent>(appName));
