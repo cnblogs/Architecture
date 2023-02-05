@@ -14,11 +14,13 @@ public class DaprTests
     }
 
     [Fact]
-    public async Task Dapr_subscribe_endpoint_is_ok()
+    public async Task Dapr_SubscribeEndpoint_OkAsync()
     {
+        // Act
         var response = await _httpClient.GetAsync("/dapr/subscribe");
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
 
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.OK);
         var responseText = await response.Content.ReadAsStringAsync();
         responseText.Should().Contain("pubsub");
     }
