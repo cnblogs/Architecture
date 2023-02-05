@@ -38,9 +38,21 @@ public static class CqrsInjectorExtensions
     /// <returns></returns>
     public static CqrsInjector AddDaprEventBus(this CqrsInjector cqrsInjector, string appName)
     {
-        cqrsInjector.Services.Configure<DaprOptions>(o => o.AppName = appName);
-        cqrsInjector.Services.AddControllers().AddDapr();
-        cqrsInjector.Services.AddScoped<IEventBus, DaprEventBus>();
+        cqrsInjector.Services.AddDaprEventBus(appName);
         return cqrsInjector;
+    }
+
+    /// <summary>
+    ///      Register DaprClient and IEventBus
+    /// </summary>
+    /// <param name="services"><see cref="IServiceCollection"/></param>
+    /// <param name="appName">app name used by event bus</param>
+    /// <returns></returns>
+    public static IServiceCollection AddDaprEventBus(this IServiceCollection services, string appName)
+    {
+        services.Configure<DaprOptions>(o => o.AppName = appName);
+        services.AddControllers().AddDapr();
+        services.AddScoped<IEventBus, DaprEventBus>();
+        return services;
     }
 }

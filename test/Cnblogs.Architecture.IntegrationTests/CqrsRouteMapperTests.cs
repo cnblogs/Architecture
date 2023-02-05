@@ -3,6 +3,7 @@ using Cnblogs.Architecture.IntegrationTestProject;
 using FluentAssertions;
 
 using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net.Http.Json;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 
