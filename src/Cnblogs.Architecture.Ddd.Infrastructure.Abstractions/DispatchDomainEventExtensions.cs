@@ -1,8 +1,7 @@
 ﻿using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 
-using MediatR;
-
-namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
+// ReSharper disable once CheckNamespace
+namespace MediatR;
 
 /// <summary>
 ///     发布领域时间的拓展方法。

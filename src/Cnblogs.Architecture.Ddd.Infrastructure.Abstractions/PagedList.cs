@@ -42,7 +42,7 @@ public record PagedList<T>
     {
         Items = items;
         TotalCount = totalCount;
-        (var pageIndex, var pageSize) = pagingParams;
+        var (pageIndex, pageSize) = pagingParams;
         PageIndex = pageIndex;
         PageSize = pageSize;
     }

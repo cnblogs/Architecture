@@ -1,8 +1,8 @@
-﻿using Cnblogs.Architecture.Ddd.Infrastructure.Dapper;
+﻿using Cnblogs.Architecture.Ddd.Cqrs.Dapper;
+using Cnblogs.Architecture.Ddd.Infrastructure.Dapper;
 
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Cnblogs.Architecture.Ddd.Cqrs.Dapper;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
 ///     ServiceCollection 注入类。
