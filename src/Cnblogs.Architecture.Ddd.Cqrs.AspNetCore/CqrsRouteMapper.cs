@@ -69,6 +69,7 @@ public static class CqrsRouteMapper
     /// </code>
     /// </example>
     /// <returns></returns>
+    // ReSharper disable once UnusedTypeParameter
     public static IEndpointConventionBuilder MapCommand<T>(
         this IEndpointRouteBuilder app,
         [StringSyntax("Route")] string route,

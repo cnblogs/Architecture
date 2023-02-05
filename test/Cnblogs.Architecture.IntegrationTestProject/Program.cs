@@ -41,6 +41,7 @@ app.Run();
 
 namespace Cnblogs.Architecture.IntegrationTestProject
 {
+    // ReSharper disable once PartialTypeWithSinglePart
     public partial class Program
     {
     }

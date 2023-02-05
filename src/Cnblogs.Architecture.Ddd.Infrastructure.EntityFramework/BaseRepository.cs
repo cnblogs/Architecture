@@ -66,7 +66,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
         return entities;
     }
 
-    /// <inheritdoc />
+    /// <inheritdoc cref="IRepository{TEntity,TKey}.GetAsync" />
     public async Task<TEntity?> GetAsync(TKey key)
     {
         return await Context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id.Equals(key));
