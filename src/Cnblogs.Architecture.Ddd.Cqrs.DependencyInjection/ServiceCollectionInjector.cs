@@ -1,12 +1,11 @@
 ﻿using System.Reflection;
 
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
-
+using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using MediatR;
 
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
 ///     依赖注入扩展方法。

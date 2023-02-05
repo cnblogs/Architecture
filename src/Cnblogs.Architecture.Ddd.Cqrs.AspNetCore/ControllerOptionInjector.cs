@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
+using Microsoft.AspNetCore.Mvc;
 
-namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
 /// 用于注入 Model Binder 的扩展方法。

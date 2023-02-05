@@ -1,5 +1,4 @@
 ﻿using Cnblogs.Architecture.Ddd.Domain.Abstractions;
-using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using MediatR;
 using MongoDB.Driver;
 

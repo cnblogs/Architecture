@@ -1,9 +1,10 @@
 ﻿using System.Reflection;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
+using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Routing;
 
-namespace Cnblogs.Architecture.Ddd.EventBus.Dapr;
+// ReSharper disable once CheckNamespace
+namespace Microsoft.AspNetCore.Routing;
 
 /// <summary>
 /// 用于事件订阅的扩展方法。

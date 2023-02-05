@@ -1,4 +1,4 @@
-﻿using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
+using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
