@@ -63,9 +63,7 @@ public static class EndPointExtensions
         string appName)
         where TEvent : IntegrationEvent
     {
-        var daprOptions = builder.ServiceProvider.GetRequiredService<IOptions<DaprOptions>>().Value;
-        EnsureDaprSubscribeHandlerMapped(builder, daprOptions);
-        EnsureEventBusRegistered(builder, daprOptions);
+        builder.EnsureDaprEventBus();
 
         var result = builder
             .MapPost(route, (TEvent receivedEvent, IEventBus eventBus) => eventBus.ReceiveAsync(receivedEvent))
@@ -80,6 +78,8 @@ public static class EndPointExtensions
     /// <param name="assemblies"><see cref="Assembly"/></param>
     public static void Subscribe(this IEndpointRouteBuilder builder, params Assembly[] assemblies)
     {
+        builder.EnsureDaprEventBus();
+
         var method = typeof(EndPointExtensions).GetMethod(
             nameof(Subscribe),
             new[] { typeof(IEndpointRouteBuilder), typeof(string) })!;
@@ -100,7 +100,7 @@ public static class EndPointExtensions
         }
     }
 
-    private static void EnsureEventBusRegistered(IEndpointRouteBuilder builder, DaprOptions daprOptions)
+    private static void EnsureEventBusRegistered(this IEndpointRouteBuilder builder, DaprOptions daprOptions)
     {
         if (daprOptions.IsEventBusRegistered)
         {
@@ -115,9 +115,10 @@ public static class EndPointExtensions
         }
 
         daprOptions.IsEventBusRegistered = true;
+        return;
     }
 
-    private static void EnsureDaprSubscribeHandlerMapped(IEndpointRouteBuilder builder, DaprOptions daprOptions)
+    private static void EnsureDaprSubscribeHandlerMapped(this IEndpointRouteBuilder builder, DaprOptions daprOptions)
     {
         if (daprOptions.IsDaprSubscribeHandlerMapped)
         {
@@ -131,5 +132,16 @@ public static class EndPointExtensions
 
         builder.MapSubscribeHandler();
         daprOptions.IsDaprSubscribeHandlerMapped = true;
+        return;
+    }
+
+    private static DaprOptions GetDaprOptions(this IEndpointRouteBuilder builder)
+        => builder.ServiceProvider.GetRequiredService<IOptions<DaprOptions>>().Value;
+
+    private static void EnsureDaprEventBus(this IEndpointRouteBuilder builder)
+    {
+        var options = builder.GetDaprOptions();
+        builder.EnsureDaprSubscribeHandlerMapped(options);
+        builder.EnsureEventBusRegistered(options);
     }
 }
