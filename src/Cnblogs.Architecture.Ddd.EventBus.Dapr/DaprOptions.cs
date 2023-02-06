@@ -18,5 +18,7 @@ public class DaprOptions
     /// <summary>
     ///     是否调用过 <c>app.MapSubscribeHandler()</c>
     /// </summary>
-    internal static bool IsDaprSubscribeHandlerMapped { get; set; }
+    internal bool IsDaprSubscribeHandlerMapped { get; set; }
+
+    internal bool IsEventBusRegistered { get; set; }
 }

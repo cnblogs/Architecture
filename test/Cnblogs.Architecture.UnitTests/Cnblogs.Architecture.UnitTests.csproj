@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr.csproj" />
         <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.EntityFramework\Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.csproj" />
         <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.MongoDb\Cnblogs.Architecture.Ddd.Cqrs.MongoDb.csproj" />
         <ProjectReference Include="..\Cnblogs.Architecture.TestIntegrationEvents\Cnblogs.Architecture.TestIntegrationEvents.csproj" />

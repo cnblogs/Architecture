@@ -1,7 +1,5 @@
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
-using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
-using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
