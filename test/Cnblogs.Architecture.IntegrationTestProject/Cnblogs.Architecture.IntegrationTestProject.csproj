@@ -6,6 +6,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
+      <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr.csproj" />
+      <ProjectReference Include="..\Cnblogs.Architecture.TestIntegrationEvents\Cnblogs.Architecture.TestIntegrationEvents.csproj" />
     </ItemGroup>
 
 </Project>

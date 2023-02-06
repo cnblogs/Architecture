@@ -1,8 +1,5 @@
 ﻿using System.Reflection;
-
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
-using Cnblogs.Architecture.Ddd.EventBus.Dapr;
-
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
@@ -38,9 +35,7 @@ public static class CqrsInjectorExtensions
     /// <returns></returns>
     public static CqrsInjector AddDaprEventBus(this CqrsInjector cqrsInjector, string appName)
     {
-        cqrsInjector.Services.Configure<DaprOptions>(o => o.AppName = appName);
-        cqrsInjector.Services.AddControllers().AddDapr();
-        cqrsInjector.Services.AddScoped<IEventBus, DaprEventBus>();
+        cqrsInjector.Services.AddDaprEventBus(appName);
         return cqrsInjector;
     }
 }

@@ -1,7 +1,7 @@
-﻿using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
+﻿using System.Net.Http.Json;
+using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject;
 using FluentAssertions;
-
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Cnblogs.Architecture.IntegrationTests;
