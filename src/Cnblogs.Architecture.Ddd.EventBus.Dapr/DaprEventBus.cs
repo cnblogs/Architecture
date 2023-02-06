@@ -51,11 +51,11 @@ public class DaprEventBus : IEventBus
             eventName,
             @event,
             @event.TraceId ?? @event.Id);
-        var eventToSend = @event.TraceId = TraceId;
+        @event.TraceId = TraceId;
         await _daprClient.PublishEventAsync(
             DaprOptions.PubSubName,
             DaprUtils.GetDaprTopicName(_daprOptions.AppName, eventName),
-            eventToSend);
+            @event);
     }
 
     /// <inheritdoc />
