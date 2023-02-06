@@ -3,6 +3,7 @@ using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.AspNetCore.Routing;
@@ -62,14 +63,9 @@ public static class EndPointExtensions
         string appName)
         where TEvent : IntegrationEvent
     {
-        EnsureDaprSubscribeHandlerMapped(builder);
-
-        var serviceCheck = builder.ServiceProvider.GetRequiredService<IServiceProviderIsService>();
-        if (!serviceCheck.IsService(typeof(IEventBus)))
-        {
-            throw new InvalidOperationException(
-                $"{nameof(IEventBus)} has not been registered. Did you forget to call IServiceCollection.AddDaprEventBus()?");
-        }
+        var daprOptions = builder.ServiceProvider.GetRequiredService<IOptions<DaprOptions>>().Value;
+        EnsureDaprSubscribeHandlerMapped(builder, daprOptions);
+        EnsureEventBusRegistered(builder, daprOptions);
 
         var result = builder
             .MapPost(route, (TEvent receivedEvent, IEventBus eventBus) => eventBus.ReceiveAsync(receivedEvent))
@@ -104,9 +100,26 @@ public static class EndPointExtensions
         }
     }
 
-    private static void EnsureDaprSubscribeHandlerMapped(IEndpointRouteBuilder builder)
+    private static void EnsureEventBusRegistered(IEndpointRouteBuilder builder, DaprOptions daprOptions)
     {
-        if (DaprOptions.IsDaprSubscribeHandlerMapped)
+        if (daprOptions.IsEventBusRegistered)
+        {
+            return;
+        }
+
+        var serviceCheck = builder.ServiceProvider.GetRequiredService<IServiceProviderIsService>();
+        if (!serviceCheck.IsService(typeof(IEventBus)))
+        {
+            throw new InvalidOperationException(
+                $"{nameof(IEventBus)} has not been registered. Did you forget to call IServiceCollection.AddDaprEventBus()?");
+        }
+
+        daprOptions.IsEventBusRegistered = true;
+    }
+
+    private static void EnsureDaprSubscribeHandlerMapped(IEndpointRouteBuilder builder, DaprOptions daprOptions)
+    {
+        if (daprOptions.IsDaprSubscribeHandlerMapped)
         {
             return;
         }
@@ -117,6 +130,6 @@ public static class EndPointExtensions
         }
 
         builder.MapSubscribeHandler();
-        DaprOptions.IsDaprSubscribeHandlerMapped = true;
+        daprOptions.IsDaprSubscribeHandlerMapped = true;
     }
 }
