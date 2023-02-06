@@ -38,7 +38,7 @@ public class DaprTests
     }
 
     [Fact]
-    public async Task Dapr_Subscribe_Without_Any_Assembly_OkAsync()
+    public async Task Dapr_SubscribeWithoutAnyAssembly_OkAsync()
     {
         // Arrange
         var builder = WebApplication.CreateBuilder();
