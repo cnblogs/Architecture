@@ -32,8 +32,9 @@ public class DaprTests
         var response = await httpClient.GetAsync("/dapr/subscribe");
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        response.Should().BeSuccessful();
         var responseText = await response.Content.ReadAsStringAsync();
+        Debug.WriteLine(responseText);
         responseText.Should().Contain(nameof(TestIntegrationEvent));
     }
 
