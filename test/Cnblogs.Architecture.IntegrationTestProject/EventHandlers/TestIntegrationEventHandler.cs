@@ -1,17 +1,19 @@
-﻿using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
+﻿using System.Diagnostics;
+using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using MediatR;
-using System.Diagnostics;
 
 namespace Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 
 public class TestIntegrationEventHandler : IIntegrationEventHandler<TestIntegrationEvent>
 {
     private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly ILogger _logger;
 
-    public TestIntegrationEventHandler(IHttpContextAccessor httpContextAccessor)
+    public TestIntegrationEventHandler(IHttpContextAccessor httpContextAccessor, ILogger<TestIntegrationEventHandler> logger)
     {
         _httpContextAccessor = httpContextAccessor;
+        _logger = logger;
     }
 
     public Task Handle(TestIntegrationEvent notification, CancellationToken cancellationToken)
@@ -23,7 +25,7 @@ public class TestIntegrationEventHandler : IIntegrationEventHandler<TestIntegrat
             return Task.CompletedTask;
         });
 
-        Debug.WriteLine($"notification message: " + notification.Message);
+        _logger.LogInformation("Handled integration event {event}.", notification);
 
         return Task.CompletedTask;
     }
