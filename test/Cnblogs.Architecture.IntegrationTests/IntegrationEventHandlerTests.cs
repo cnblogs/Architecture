@@ -1,20 +1,24 @@
 ﻿using System.Net.Http.Json;
 using Cnblogs.Architecture.IntegrationTestProject;
+using Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using FluentAssertions;
+using MediatR;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.DependencyInjection;
 using Xunit.Abstractions;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 
-[Collection(IntegrationTestCollection.Name)]
 public class IntegrationEventHandlerTests
 {
-    private readonly IntegrationTestFactory _factory;
     private readonly ITestOutputHelper _testOutputHelper;
 
-    public IntegrationEventHandlerTests(IntegrationTestFactory factory, ITestOutputHelper testOutputHelper)
+    public IntegrationEventHandlerTests(ITestOutputHelper testOutputHelper)
     {
-        _factory = factory;
         _testOutputHelper = testOutputHelper;
     }
 
@@ -22,7 +26,15 @@ public class IntegrationEventHandlerTests
     public async Task IntegrationEventHandler_TestIntegrationEvent_SuccessAsync()
     {
         // Arrange
-        var client = _factory.CreateClient();
+        var builder = WebApplication.CreateBuilder();
+        builder.Services
+            .AddDaprEventBus(nameof(IntegrationEventHandlerTests), typeof(TestIntegrationEventHandler).Assembly)
+            .AddHttpContextAccessor();
+        builder.WebHost.UseTestServer();
+        var app = builder.Build();
+        app.Subscribe<TestIntegrationEvent>();
+        await app.StartAsync();
+        var client = app.GetTestClient();
         var @event = new TestIntegrationEvent(Guid.NewGuid(), DateTimeOffset.Now, "Hello World!");
 
         // Act

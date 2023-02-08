@@ -9,11 +9,9 @@ using Cnblogs.Architecture.TestIntegrationEvents;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCqrs(
-    Assembly.GetExecutingAssembly(),
-    typeof(TestIntegrationEvent).Assembly)
-    .AddDefaultDateTimeAndRandomProvider();
-builder.Services.AddDaprEventBus(Constants.AppName);
+builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
+    .AddDefaultDateTimeAndRandomProvider()
+    .AddDaprEventBus(Constants.AppName);
 builder.Services.AddControllers().AddCqrsModelBinderProvider();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
