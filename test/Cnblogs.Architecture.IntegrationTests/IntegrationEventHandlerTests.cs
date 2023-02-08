@@ -17,10 +17,13 @@ namespace Cnblogs.Architecture.IntegrationTests;
 public class IntegrationEventHandlerTests
 {
     private readonly IntegrationTestFactory _factory;
+    private readonly ITestOutputHelper _testOutputHelper;
 
-    public IntegrationEventHandlerTests(IntegrationTestFactory factory)
+    public IntegrationEventHandlerTests(IntegrationTestFactory factory, ITestOutputHelper testOutputHelper)
     {
         _factory = factory;
+        _factory.TestOutputHelper = testOutputHelper;
+        _testOutputHelper = testOutputHelper;
     }
 
     [Fact]
@@ -28,28 +31,17 @@ public class IntegrationEventHandlerTests
     {
         // Arrange
         var client = _factory.CreateClient();
+        var @event = new TestIntegrationEvent(Guid.NewGuid(), DateTimeOffset.Now, "Hello World!");
 
         // Act
         var subscriptions = await client.GetFromJsonAsync<Subscription[]>("/dapr/subscribe");
-
-        // Assert
-        subscriptions.Should().NotBeNullOrEmpty();
-
-        // Act
-        var sub = subscriptions.FirstOrDefault(s => s.Route.Contains(nameof(TestIntegrationEvent)));
-
-        // Assert
-        sub.Should().NotBeNull();
-
-        Debug.WriteLine("Subscription Route: " + sub.Route);
-
-        // Act
-        var @event = new TestIntegrationEvent(Guid.NewGuid(), DateTimeOffset.Now, "Hello World!");
+        var sub = subscriptions.First(x => x.Route.Contains(nameof(TestIntegrationEvent)));
         var response = await client.PostAsJsonAsync(sub.Route, @event);
+        _testOutputHelper.WriteLine("Subscription Route: " + sub.Route);
 
         // Assert
         response.Should().BeSuccessful();
-        Assert.True(response.Headers.TryGetValues(Constants.IntegrationEventIdHeaderName, out var values));
-        values.First().Should().Be(@event.Id.ToString());
+        response.Headers.Should().ContainKey(Constants.IntegrationEventIdHeaderName)
+            .WhoseValue.First().Should().Be(@event.Id.ToString());
     }
 }
