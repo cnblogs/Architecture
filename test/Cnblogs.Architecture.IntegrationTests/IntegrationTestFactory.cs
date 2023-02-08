@@ -3,6 +3,6 @@ using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 
-public class DddWebTestFactory : WebApplicationFactory<Program>
+public class IntegrationTestFactory : WebApplicationFactory<Program>
 {
 }

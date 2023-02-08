@@ -2,4 +2,4 @@
 
 namespace Cnblogs.Architecture.TestIntegrationEvents;
 
-public record TestIntegrationEvent(Guid Id, DateTimeOffset CreatedTime) : IntegrationEvent(Id, CreatedTime);
+public record TestIntegrationEvent(Guid Id, DateTimeOffset CreatedTime, string Message) : IntegrationEvent(Id, CreatedTime);

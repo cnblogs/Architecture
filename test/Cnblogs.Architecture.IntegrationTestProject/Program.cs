@@ -1,22 +1,25 @@
+﻿using System.Reflection;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
+using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
 using Cnblogs.Architecture.TestIntegrationEvents;
 
-const string appName = "test-web";
-
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCqrs(typeof(Cnblogs.Architecture.IntegrationTestProject.Program).Assembly)
+builder.Services.AddCqrs(
+    Assembly.GetExecutingAssembly(),
+    typeof(TestIntegrationEvent).Assembly)
     .AddDefaultDateTimeAndRandomProvider();
-builder.Services.AddDaprEventBus(appName);
+builder.Services.AddDaprEventBus(Constants.AppName);
 builder.Services.AddControllers().AddCqrsModelBinderProvider();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddCnblogsApiVersioning();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

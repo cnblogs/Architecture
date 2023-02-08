@@ -1,13 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-    <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
-      <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr.csproj" />
-      <ProjectReference Include="..\Cnblogs.Architecture.TestIntegrationEvents\Cnblogs.Architecture.TestIntegrationEvents.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
+    <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr.csproj" />
+    <ProjectReference Include="..\Cnblogs.Architecture.TestIntegrationEvents\Cnblogs.Architecture.TestIntegrationEvents.csproj" />
+  </ItemGroup>
 
 </Project>
