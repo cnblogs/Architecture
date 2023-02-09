@@ -52,7 +52,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     public async Task<TEntity> AddAsync(TEntity entity)
     {
         await Context.AddAsync(entity);
-        await SaveEntitiesInternalAsync(true);
+        await SaveEntitiesInternalAsync();
         return entity;
     }
 
@@ -61,7 +61,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
         where TEnumerable : IEnumerable<TEntity>
     {
         await Context.AddRangeAsync(entities);
-        await SaveEntitiesInternalAsync(true);
+        await SaveEntitiesInternalAsync();
         return entities;
     }
 
@@ -80,14 +80,14 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     /// <inheritdoc />
     public async Task<TEntity> UpdateAsync(TEntity entity)
     {
-        await SaveEntitiesInternalAsync(true);
+        await SaveEntitiesInternalAsync();
         return entity;
     }
 
     /// <inheritdoc />
     public async Task<IEnumerable<TEntity>> UpdateRangeAsync(IEnumerable<TEntity> entities)
     {
-        await SaveEntitiesInternalAsync(true);
+        await SaveEntitiesInternalAsync();
         return entities;
     }
 
@@ -95,7 +95,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     public async Task<TEntity> DeleteAsync(TEntity entity)
     {
         Context.Remove(entity);
-        await SaveEntitiesInternalAsync(true);
+        await SaveEntitiesInternalAsync();
         return entity;
     }
 
@@ -130,7 +130,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     /// <inheritdoc />
     public Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
     {
-        return SaveEntitiesInternalAsync(false, cancellationToken);
+        return SaveEntitiesInternalAsync(true, cancellationToken);
     }
 
     /// <summary>
@@ -145,7 +145,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     }
 
     private async Task<bool> SaveEntitiesInternalAsync(
-        bool dispatchDomainEventFirst,
+        bool dispatchDomainEventFirst = false,
         CancellationToken cancellationToken = default)
     {
         var entities = Context.ExtractDomainEventSources();
