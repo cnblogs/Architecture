@@ -115,7 +115,6 @@ public static class EndPointExtensions
         }
 
         daprOptions.IsEventBusRegistered = true;
-        return;
     }
 
     private static void EnsureDaprSubscribeHandlerMapped(this IEndpointRouteBuilder builder, DaprOptions daprOptions)
@@ -132,7 +131,6 @@ public static class EndPointExtensions
 
         builder.MapSubscribeHandler();
         daprOptions.IsDaprSubscribeHandlerMapped = true;
-        return;
     }
 
     private static DaprOptions GetDaprOptions(this IEndpointRouteBuilder builder)

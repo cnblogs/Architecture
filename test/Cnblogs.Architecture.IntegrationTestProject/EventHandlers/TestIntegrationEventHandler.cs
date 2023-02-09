@@ -1,7 +1,5 @@
-﻿using System.Diagnostics;
-using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
+﻿using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.TestIntegrationEvents;
-using MediatR;
 
 namespace Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 
