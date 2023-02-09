@@ -1,10 +1,11 @@
-﻿using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
+﻿using System.Reflection;
+using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Dapr.Client;
 using MediatR;
-using System.Reflection;
 
+// ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
@@ -36,5 +37,4 @@ public static class DaprEventBusServiceCollectionExtensions
 
         return services;
     }
-
 }

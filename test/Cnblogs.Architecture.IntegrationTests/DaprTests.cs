@@ -3,7 +3,6 @@ using System.Net;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -148,22 +148,27 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
         bool dispatchDomainEventFirst = false,
         CancellationToken cancellationToken = default)
     {
-        var entities = Context.ExtractDomainEventSources();
-        var domainEvents = entities.SelectMany(x => x.DomainEvents!.OfType<DomainEvent>()).ToList();
-        entities.ForEach(x => x.ClearDomainEvents());
         if (dispatchDomainEventFirst)
         {
+            await ExtraAndPublishDomainEventsAsync();
             await SaveChangesAsync(cancellationToken);
         }
-
-        await BeforeDispatchDomainEventAsync(domainEvents, Context);
-        await _mediator.DispatchDomainEventsAsync(domainEvents);
-        if (dispatchDomainEventFirst == false)
+        else
         {
             await SaveChangesAsync(cancellationToken);
+            await ExtraAndPublishDomainEventsAsync();
         }
 
         return true;
+    }
+
+    private async Task ExtraAndPublishDomainEventsAsync()
+    {
+        var entities = Context.ExtractDomainEventSources();
+        var domainEvents = entities.SelectMany(x => x.DomainEvents!.OfType<DomainEvent>()).ToList();
+        entities.ForEach(x => x.ClearDomainEvents());
+        await BeforeDispatchDomainEventAsync(domainEvents, Context);
+        await _mediator.DispatchDomainEventsAsync(domainEvents);
     }
 
     private void CallBeforeUpdate()

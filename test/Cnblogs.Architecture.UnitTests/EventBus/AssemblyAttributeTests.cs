@@ -1,7 +1,6 @@
 ﻿using Cnblogs.Architecture.TestIntegrationEvents;
 using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Cnblogs.Architecture.UnitTests.EventBus;
