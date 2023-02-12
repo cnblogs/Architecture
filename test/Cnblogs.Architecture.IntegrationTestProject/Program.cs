@@ -17,7 +17,6 @@ builder.Services.AddControllers().AddCqrsModelBinderProvider();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddCnblogsApiVersioning();
 builder.Services.AddSwaggerGen();
-builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

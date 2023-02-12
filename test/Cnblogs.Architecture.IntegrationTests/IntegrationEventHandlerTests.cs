@@ -6,7 +6,12 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Sinks.InMemory;
+using Serilog.Sinks.InMemory.Assertions;
 using Xunit.Abstractions;
+using static Cnblogs.Architecture.IntegrationTestProject.Constants;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 
@@ -24,15 +29,15 @@ public class IntegrationEventHandlerTests
     {
         // Arrange
         var builder = WebApplication.CreateBuilder();
+        builder.Logging.AddSerilog(logger => logger.WriteTo.InMemory().WriteTo.Console());
         builder.Services
-            .AddDaprEventBus(nameof(IntegrationEventHandlerTests), typeof(TestIntegrationEventHandler).Assembly)
-            .AddHttpContextAccessor();
+            .AddDaprEventBus(nameof(IntegrationEventHandlerTests), typeof(TestIntegrationEventHandler).Assembly);
         builder.WebHost.UseTestServer();
         var app = builder.Build();
         app.Subscribe<TestIntegrationEvent>();
         await app.StartAsync();
         var client = app.GetTestClient();
-        var @event = new TestIntegrationEvent(Guid.NewGuid(), DateTimeOffset.Now, "Hello World!");
+        var @event = new TestIntegrationEvent(Guid.NewGuid(), DateTimeOffset.Now, $"Hello World! {Guid.NewGuid()}");
 
         // Act
         var subscriptions = await client.GetFromJsonAsync<Subscription[]>("/dapr/subscribe");
@@ -42,7 +47,8 @@ public class IntegrationEventHandlerTests
 
         // Assert
         response.Should().BeSuccessful();
-        response.Headers.Should().ContainKey(Constants.IntegrationEventIdHeaderName)
-            .WhoseValue.First().Should().Be(@event.Id.ToString());
+        InMemorySink.Instance
+            .Should().HaveMessage(LogTemplates.HandledIntegratonEvent).Appearing().Once()
+            .WithProperty("event").HavingADestructuredObject().WithProperty("Id").WithValue(@event.Id);
     }
 }
