@@ -1,5 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
+    <PackageReference Include="Cnblogs.Serilog.Extensions" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="7.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.1" />
     <PackageReference Include="xunit" Version="2.4.2" />
@@ -20,6 +21,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Cnblogs.Architecture.IntegrationTestProject\Cnblogs.Architecture.IntegrationTestProject.csproj" />
     <ProjectReference Include="..\Cnblogs.Architecture.TestShared\Cnblogs.Architecture.TestShared.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Serilog.Sinks.InMemory" Version="0.11.0" />
+    <PackageReference Include="Serilog.Sinks.InMemory.Assertions" Version="0.11.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
   </ItemGroup>
 
   <ItemGroup>
