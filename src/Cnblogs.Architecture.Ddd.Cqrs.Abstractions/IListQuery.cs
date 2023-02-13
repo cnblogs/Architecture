@@ -3,9 +3,9 @@
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     定义返回多个结果的查询。
+///     Represents a query returns a list of items.
 /// </summary>
-/// <typeparam name="TList">查询结果类型，通常是一个列表类型。</typeparam>
+/// <typeparam name="TList">The list to return, usually a <see cref="List{T}"/>.</typeparam>
 public interface IListQuery<TList> : IRequest<TList>
 {
 }

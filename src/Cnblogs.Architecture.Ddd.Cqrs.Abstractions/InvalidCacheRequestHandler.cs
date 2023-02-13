@@ -9,7 +9,7 @@ using Microsoft.Extensions.Options;
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     清除缓存。
+///     The default handler for <see cref="InvalidCacheRequest"/>.
 /// </summary>
 public class InvalidCacheRequestHandler : IRequestHandler<InvalidCacheRequest>
 {
@@ -20,12 +20,12 @@ public class InvalidCacheRequestHandler : IRequestHandler<InvalidCacheRequest>
     private readonly ILogger<InvalidCacheRequestHandler> _logger;
 
     /// <summary>
-    ///     构建一个 <see cref="CacheableRequestBehavior{TRequest,TResponse}" />。
+    ///     Create a <see cref="CacheableRequestBehavior{TRequest,TResponse}" />.
     /// </summary>
-    /// <param name="providers">缓存提供器。</param>
-    /// <param name="dateTimeProvider">时间提供器。</param>
-    /// <param name="options">缓存配置。</param>
-    /// <param name="logger">日志记录器。</param>
+    /// <param name="providers">Cache providers.</param>
+    /// <param name="dateTimeProvider">Datetime providers.</param>
+    /// <param name="options">Cache options.</param>
+    /// <param name="logger">log provider.</param>
     public InvalidCacheRequestHandler(
         IEnumerable<ICacheProvider> providers,
         IDateTimeProvider dateTimeProvider,

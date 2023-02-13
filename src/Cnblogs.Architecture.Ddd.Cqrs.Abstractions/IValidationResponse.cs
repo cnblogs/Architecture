@@ -1,22 +1,22 @@
 ﻿namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     <see cref="IValidatable" /> 的返回类型。
+///     Represents response for <see cref="IValidatable" />.
 /// </summary>
 public interface IValidationResponse
 {
     /// <summary>
-    ///     验证是否失败。
+    ///     Indicates whether validation is failed.
     /// </summary>
     bool IsValidationError { get; init; }
 
     /// <summary>
-    ///     错误信息。
+    ///     Contain error message if validation fails.
     /// </summary>
     string ErrorMessage { get; init; }
 
     /// <summary>
-    /// 错误信息对象。
+    ///     The validation results, null if validation was passed.
     /// </summary>
     ValidationError? ValidationError { get; init; }
 }

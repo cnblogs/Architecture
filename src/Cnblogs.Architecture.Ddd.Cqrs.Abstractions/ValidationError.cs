@@ -1,8 +1,8 @@
 ﻿namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-/// 验证错误。
+///     A Validation error returned by <see cref="IValidatable"/>.
 /// </summary>
-/// <param name="Message">错误信息。</param>
-/// <param name="ParameterName">参数名称。</param>
+/// <param name="Message">The error message.</param>
+/// <param name="ParameterName">The parameter name that failed to validate.</param>
 public record ValidationError(string Message, string? ParameterName);

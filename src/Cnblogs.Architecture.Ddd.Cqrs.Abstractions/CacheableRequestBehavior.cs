@@ -9,12 +9,12 @@ using Microsoft.Extensions.Options;
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     对实现了 <see cref="ICacheableRequest" /> 的请求进行处理。
+///     Handler for <see cref="ICachableRequest" />.
 /// </summary>
-/// <typeparam name="TRequest">实现了 <see cref="ICacheableRequest" /> 的请求。</typeparam>
-/// <typeparam name="TResponse"><typeparamref name="TRequest" /> 请求的结果。</typeparam>
+/// <typeparam name="TRequest">Request that implements <see cref="ICachableRequest" />.</typeparam>
+/// <typeparam name="TResponse">Cached result for <typeparamref name="TRequest" />.</typeparam>
 public class CacheableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : ICacheableRequest, IRequest<TResponse>
+    where TRequest : ICachableRequest, IRequest<TResponse>
 {
     private readonly IDateTimeProvider _dateTimeProvider;
     private readonly ILocalCacheProvider? _local;
@@ -23,12 +23,12 @@ public class CacheableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<T
     private readonly ILogger<CacheableRequestBehavior<TRequest, TResponse>> _logger;
 
     /// <summary>
-    ///     构建一个 <see cref="CacheableRequestBehavior{TRequest,TResponse}" />。
+    ///     Create <see cref="CacheableRequestBehavior{TRequest,TResponse}" />.
     /// </summary>
-    /// <param name="providers">缓存提供器。</param>
-    /// <param name="dateTimeProvider">时间提供器。</param>
-    /// <param name="options">缓存配置项。</param>
-    /// <param name="logger">日志记录器。</param>
+    /// <param name="providers">Cache providers.</param>
+    /// <param name="dateTimeProvider">Datetime provider.</param>
+    /// <param name="options">Options for cache behavior.</param>
+    /// <param name="logger">logger.</param>
     public CacheableRequestBehavior(
         IEnumerable<ICacheProvider> providers,
         IDateTimeProvider dateTimeProvider,

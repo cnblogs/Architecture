@@ -10,10 +10,6 @@ namespace Cnblogs.Architecture.IntegrationTests;
 
 public class DaprTests
 {
-    public DaprTests()
-    {
-    }
-
     [Fact]
     public async Task Dapr_SubscribeEndpoint_OkAsync()
     {

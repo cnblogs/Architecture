@@ -8,6 +8,8 @@
         <Product>Cnblogs.Architecture</Product>
         <PackageProjectUrl>https://github.com/cnblogs/Architecture</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/cnblogs/Architecture</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>

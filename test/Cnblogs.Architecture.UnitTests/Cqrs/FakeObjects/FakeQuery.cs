@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Cnblogs.Architecture.UnitTests.Cqrs.FakeObjects;
 
-public class FakeQuery<TResponse> : ICacheableRequest, IRequest<TResponse>, IValidatable
+public class FakeQuery<TResponse> : ICachableRequest, IRequest<TResponse>, IValidatable
 {
     private readonly string? _cacheGroupKey;
     private readonly string _cacheKey;
