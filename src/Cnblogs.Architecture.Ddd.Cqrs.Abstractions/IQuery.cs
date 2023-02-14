@@ -3,9 +3,9 @@
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     定义获取单个结果的查询。
+///     Represents query for single item.
 /// </summary>
-/// <typeparam name="TView">结果类型。</typeparam>
+/// <typeparam name="TView">The type of item to query.</typeparam>
 public interface IQuery<TView> : IRequest<TView?>
 {
 }

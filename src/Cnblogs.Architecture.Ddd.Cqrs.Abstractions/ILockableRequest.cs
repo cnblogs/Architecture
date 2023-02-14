@@ -1,13 +1,13 @@
 ﻿namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     定义需要分布式锁的请求
+///     Represents a request that needs distributed locks.
 /// </summary>
 public interface ILockableRequest
 {
     /// <summary>
-    ///   获取锁的 Key。
+    ///     Get the key of distributed lock.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The key of distributed lock.</returns>
     string GetLockKey();
 }

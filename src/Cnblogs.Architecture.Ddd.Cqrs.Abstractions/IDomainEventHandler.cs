@@ -5,9 +5,9 @@ using MediatR;
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     领域事件处理器。
+///     Definitions of handler for <see cref="DomainEvent"/>.
 /// </summary>
-/// <typeparam name="TDomainEvent">要订阅的领域事件。</typeparam>
+/// <typeparam name="TDomainEvent">The domain event type for this handler to handle.</typeparam>
 public interface IDomainEventHandler<TDomainEvent> : INotificationHandler<TDomainEvent>
     where TDomainEvent : DomainEvent
 {

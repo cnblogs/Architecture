@@ -1,48 +1,48 @@
 ﻿namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     定义可缓存的请求
+///     Definition for cachable request.
 /// </summary>
-public interface ICacheableRequest
+public interface ICachableRequest
 {
     /// <summary>
-    ///     本地缓存配置。
+    ///     Configuration for local cache provider.
     /// </summary>
     CacheBehavior LocalCacheBehavior { get; set; }
 
     /// <summary>
-    ///     远程缓存配置。
+    ///     Configuration for remote cache provider.
     /// </summary>
     CacheBehavior RemoteCacheBehavior { get; set; }
 
     /// <summary>
-    ///     本地缓存过期时间。
+    ///     The expire time for local cache.
     /// </summary>
     TimeSpan? LocalExpires { get; set; }
 
     /// <summary>
-    ///     远程缓存过期时间。
+    ///     The expire time for remote cache.
     /// </summary>
     TimeSpan? RemoteExpires { get; set; }
 
     /// <summary>
-    ///     获取缓存分组键，<c>null</c> 代表不分组。
+    ///     Generate key for cache group, return <c>null</c> for no group.
     /// </summary>
     /// <returns></returns>
     string? CacheGroupKey();
 
     /// <summary>
-    ///     获取缓存键。
+    ///     Generate cache key for each request.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The cache key for current request.</returns>
     string CacheKey()
     {
         return string.Join('-', GetCacheKeyParameters().Select(p => p?.ToString()?.ToLower()));
     }
 
     /// <summary>
-    ///     获取组成缓存键的参数。
+    ///     Get parameters for generating cache key, will call <see cref="object.ToString"/> to each object been provided.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The parameter array.</returns>
     object?[] GetCacheKeyParameters();
 }

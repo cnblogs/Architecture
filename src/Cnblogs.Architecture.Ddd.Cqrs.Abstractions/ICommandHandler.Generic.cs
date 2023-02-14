@@ -5,11 +5,11 @@ using MediatR;
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     定义 <see cref="ICommand{TError}" /> 的实际处理逻辑。
+///     Definitions of handler that handles <see cref="ICommand{TView, TError}" />。
 /// </summary>
-/// <typeparam name="TCommand">该 Handler 能够处理的命令类型。</typeparam>
-/// <typeparam name="TView">命令返回的结果类型。</typeparam>
-/// <typeparam name="TError">该 Handler 返回的错误码类型。</typeparam>
+/// <typeparam name="TCommand">The command type for this handler.</typeparam>
+/// <typeparam name="TView">The result type for this handler.</typeparam>
+/// <typeparam name="TError">The error type for this handler.</typeparam>
 public interface ICommandHandler<TCommand, TView, TError> : IRequestHandler<TCommand, CommandResponse<TView, TError>>
     where TCommand : ICommand<TView, TError>
     where TError : Enumeration

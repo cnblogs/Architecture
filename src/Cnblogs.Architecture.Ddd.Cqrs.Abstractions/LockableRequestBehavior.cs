@@ -7,10 +7,10 @@ using Microsoft.Extensions.Logging;
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     处理需要分布式锁的请求。
+///     Handle requests that require distributed lock.
 /// </summary>
-/// <typeparam name="TRequest">请求类型。</typeparam>
-/// <typeparam name="TResponse">响应类型。</typeparam>
+/// <typeparam name="TRequest">The type of request.</typeparam>
+/// <typeparam name="TResponse">The type of response.</typeparam>
 public class LockableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : ILockableRequest, IRequest<TResponse>
     where TResponse : ILockableResponse, new()
@@ -19,10 +19,10 @@ public class LockableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TR
     private readonly ILogger<LockableRequestBehavior<TRequest, TResponse>> _logger;
 
     /// <summary>
-    ///     创建一个新的 <see cref="LockableRequestBehavior{TRequest, TResponse}" /> 实例。
+    ///     Create a new <see cref="LockableRequestBehavior{TRequest, TResponse}" /> instance.
     /// </summary>
-    /// <param name="distributedLockProvider">分布式锁提供器。</param>
-    /// <param name="logger">日志记录器。</param>
+    /// <param name="distributedLockProvider">Distributed lock provider.</param>
+    /// <param name="logger">log provider.</param>
     public LockableRequestBehavior(
         IDistributedLockProvider distributedLockProvider,
         ILogger<LockableRequestBehavior<TRequest, TResponse>> logger)

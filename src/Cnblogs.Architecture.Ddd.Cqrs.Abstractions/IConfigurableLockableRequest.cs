@@ -1,12 +1,12 @@
 ﻿namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     可配置的分布式锁请求。
+///     Definitions of a <see cref="ILockableRequest"/> with some configurations.
 /// </summary>
 public interface IConfigurableLockableRequest : ILockableRequest
 {
     /// <summary>
-    ///     锁过期时间。
+    ///     The maximum waiting time for requiring a lock.
     /// </summary>
     TimeSpan ExpiresIn { get; }
 }

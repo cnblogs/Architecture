@@ -3,23 +3,26 @@
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     命令返回的结果。
+///     Response returned by <see cref="ICommand{TError}"/>.
 /// </summary>
 public abstract record CommandResponse : IValidationResponse, ILockableResponse
 {
     /// <summary>
-    ///     是否出现验证错误。
+    ///     Check if validation fails.
     /// </summary>
     public bool IsValidationError { get; init; }
 
     /// <summary>
-    /// 是否出现并发错误。
+    ///     Check if concurrent error happened.
     /// </summary>
     public bool IsConcurrentError { get; init; }
 
     /// <summary>
-    ///     错误信息。
+    ///     The error message returned by handler, return empty if no error or no error message.
     /// </summary>
+    /// <remarks>
+    ///     Do not rely on this property to determine if executed successful, use <see cref="IsSuccess"/> for this purpose.
+    /// </remarks>
     public string ErrorMessage { get; init; } = string.Empty;
 
     /// <inheritdoc />
@@ -29,30 +32,30 @@ public abstract record CommandResponse : IValidationResponse, ILockableResponse
     public bool LockAcquired { get; set; }
 
     /// <summary>
-    ///     执行是否成功。
+    ///     Check if command executed successfully.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Return true if executed successfully, else return false.</returns>
     public virtual bool IsSuccess()
     {
         return IsValidationError == false && string.IsNullOrEmpty(ErrorMessage) && IsConcurrentError == false;
     }
 
     /// <summary>
-    ///     获取错误信息。
+    ///     Get error message.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The error message, return <see cref="string.Empty"/> if no error.</returns>
     public virtual string GetErrorMessage() => ErrorMessage;
 }
 
 /// <summary>
-///     命令返回的结果。
+///     Response returned by <see cref="ICommand{TError}"/>.
 /// </summary>
-/// <typeparam name="TError">错误枚举类型。</typeparam>
+/// <typeparam name="TError">The enumeration presenting errors.</typeparam>
 public record CommandResponse<TError> : CommandResponse
     where TError : Enumeration
 {
     /// <summary>
-    ///     构造一个 <see cref="CommandResponse{TError}" />。
+    ///     Create a successful <see cref="CommandResponse{TError}" />.
     /// </summary>
     public CommandResponse()
     {
@@ -60,24 +63,24 @@ public record CommandResponse<TError> : CommandResponse
     }
 
     /// <summary>
-    ///     构造一个 <see cref="CommandResponse{TError}" />。
+    ///     Create a <see cref="CommandResponse{TError}" /> with given error.
     /// </summary>
-    /// <param name="errorCode">错误码。</param>
+    /// <param name="errorCode">The error.</param>
     public CommandResponse(TError errorCode)
     {
         ErrorCode = errorCode;
     }
 
     /// <summary>
-    ///     错误码。
+    ///     The error returned by handler, can be null if execution succeeded.
     /// </summary>
     public TError? ErrorCode { get; set; }
 
     /// <summary>
-    ///     构造一个代表命令执行失败的 <see cref="CommandResponse{TError}" />
+    ///     Create a failed <see cref="CommandResponse{TError}" /> with given error.
     /// </summary>
-    /// <param name="errorCode">错误码。</param>
-    /// <returns>代表命令执行失败的 <see cref="CommandResponse{TError}" /></returns>
+    /// <param name="errorCode">The error.</param>
+    /// <returns>A failed <see cref="CommandResponse{TError}" /> with given error.</returns>
     public static CommandResponse<TError> Fail(TError errorCode)
     {
         return new CommandResponse<TError>(errorCode);
@@ -96,9 +99,9 @@ public record CommandResponse<TError> : CommandResponse
     }
 
     /// <summary>
-    ///     构造一个代表命令执行成功的 <see cref="CommandResponse{TError}" />。
+    ///     Create a successful <see cref="CommandResponse{TError}" />.
     /// </summary>
-    /// <returns>代表命令执行成功的 <see cref="CommandResponse{TError}" /></returns>
+    /// <returns>A successful <see cref="CommandResponse{TError}" />.</returns>
     public static CommandResponse<TError> Success()
     {
         return new CommandResponse<TError>();
@@ -106,67 +109,70 @@ public record CommandResponse<TError> : CommandResponse
 }
 
 /// <summary>
-///     命令返回的结果。
+///     Response returned by <see cref="ICommand{TError}"/>.
 /// </summary>
-/// <typeparam name="TView">命令执行成功时返回的结果类型。</typeparam>
-/// <typeparam name="TError">错误类型。</typeparam>
+/// <typeparam name="TView">The model type been returned if execution completed without error.</typeparam>
+/// <typeparam name="TError">The enumeration type representing errors.</typeparam>
 public record CommandResponse<TView, TError> : CommandResponse<TError>, IObjectResponse
     where TError : Enumeration
 {
     /// <summary>
-    ///     构造一个 <see cref="CommandResponse{TView,TError}" />。
+    ///     Create a <see cref="CommandResponse{TView,TError}" />.
     /// </summary>
     public CommandResponse()
     {
     }
 
     /// <summary>
-    ///     构造一个 <see cref="CommandResponse{TError}" />。
+    ///     Create a <see cref="CommandResponse{TError}" /> with given error.
     /// </summary>
-    /// <param name="errorCode">错误码。</param>
+    /// <param name="errorCode">The error.</param>
     public CommandResponse(TError errorCode)
         : base(errorCode)
     {
     }
 
     /// <summary>
-    ///     构造一个 <see cref="CommandResponse{TError}" />。
+    ///     Create a <see cref="CommandResponse{TError}" /> with given model.
     /// </summary>
-    /// <param name="response">命令返回结果。</param>
+    /// <param name="response">The execution result.</param>
     private CommandResponse(TView response)
     {
         Response = response;
     }
 
     /// <summary>
-    ///     命令执行结果。
+    ///     The result been returned by command handler.
     /// </summary>
+    /// <remarks>
+    ///     This property can be null even if execution completed with no error.
+    /// </remarks>
     public TView? Response { get; }
 
     /// <summary>
-    ///     构造一个代表执行失败的 <see cref="CommandResponse{TView,TError}" />。
+    ///     Create a <see cref="CommandResponse{TView,TError}" /> with given error.
     /// </summary>
-    /// <param name="errorCode">错误码。</param>
-    /// <returns></returns>
+    /// <param name="errorCode">The error.</param>
+    /// <returns>A <see cref="CommandResponse{TView, TError}"/> with given error.</returns>
     public static new CommandResponse<TView, TError> Fail(TError errorCode)
     {
         return new CommandResponse<TView, TError>(errorCode);
     }
 
     /// <summary>
-    ///     构造一个代表执行成功的 <see cref="CommandResponse{TView,TError}" />。
+    ///     Create a <see cref="CommandResponse{TView,TError}" /> with no result nor error.
     /// </summary>
-    /// <returns>代表执行成功的 <see cref="CommandResponse{TView,TError}" />。</returns>
+    /// <returns>The <see cref="CommandResponse{TView,TError}" />。</returns>
     public static new CommandResponse<TView, TError> Success()
     {
         return new CommandResponse<TView, TError>();
     }
 
     /// <summary>
-    ///     构造一个代表执行成功的 <see cref="CommandResponse{TView,TError}" />。
+    ///     Create a <see cref="CommandResponse{TView,TError}" /> with given result.
     /// </summary>
-    /// <param name="view">执行结果。</param>
-    /// <returns></returns>
+    /// <param name="view">The model to return.</param>
+    /// <returns>A <see cref="CommandResponse{TView, TError}"/> with given result.</returns>
     public static CommandResponse<TView, TError> Success(TView view)
     {
         return new CommandResponse<TView, TError>(view);

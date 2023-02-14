@@ -251,7 +251,7 @@ public class CacheBehaviorTests
     private static CacheableRequestBehavior<TRequest, TResponse> GetBehavior<TRequest, TResponse>(
         List<ICacheProvider> providers,
         Action<CacheableRequestOptions>? optionConfigure = null)
-        where TRequest : ICacheableRequest, IRequest<TResponse>
+        where TRequest : ICachableRequest, IRequest<TResponse>
     {
         var option = new CacheableRequestOptions();
         optionConfigure?.Invoke(option);

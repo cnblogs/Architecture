@@ -1,17 +1,17 @@
 ﻿namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     缓存行为定义。
+///     Options for handing <see cref="ICachableRequest"/>.
 /// </summary>
 public enum CacheBehavior
 {
     /// <summary>
-    ///     不存在时获取新的。
+    ///     Update cache after cache missed, this is the default behavior.
     /// </summary>
     UpdateCacheIfMiss = 1,
 
     /// <summary>
-    ///     不使用缓存。
+    ///     Do not cache this request.
     /// </summary>
     DisabledCache = 2
 }

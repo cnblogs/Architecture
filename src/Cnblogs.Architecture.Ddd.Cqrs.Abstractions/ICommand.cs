@@ -5,14 +5,17 @@ using MediatR;
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     定义 CQRS 中的命令相关的行为。
+///     Definition for command.
 /// </summary>
-/// <typeparam name="TError">命令失败时返回的错误码类型。</typeparam>
+/// <typeparam name="TError">The error type when command execution failed.</typeparam>
 public interface ICommand<TError> : IRequest<CommandResponse<TError>>
     where TError : Enumeration
 {
     /// <summary>
-    ///     命令是否只执行验证。
+    ///     Only execute validation logic.
     /// </summary>
+    /// <remarks>
+    ///     This logic must be implemented manually in command handler and not guaranteed by framework.
+    /// </remarks>
     public bool ValidateOnly { get; }
 }

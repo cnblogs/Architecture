@@ -65,7 +65,7 @@ public class CqrsInjector
     }
 
     /// <summary>
-    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICacheableRequest" /> 接口的请求。
+    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICachableRequest" /> 接口的请求。
     /// </summary>
     /// <typeparam name="TLocal">本地缓存提供器。</typeparam>
     /// <param name="configure">缓存配置。</param>
@@ -79,7 +79,7 @@ public class CqrsInjector
     }
 
     /// <summary>
-    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICacheableRequest" /> 接口的请求。
+    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICachableRequest" /> 接口的请求。
     /// </summary>
     /// <typeparam name="TLocal">本地缓存提供器。</typeparam>
     /// <typeparam name="TRemote">远程缓存提供器。</typeparam>
@@ -96,7 +96,7 @@ public class CqrsInjector
     }
 
     /// <summary>
-    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICacheableRequest" /> 接口的请求。
+    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICachableRequest" /> 接口的请求。
     /// </summary>
     /// <typeparam name="TRemote">远程缓存提供器。</typeparam>
     /// <param name="configure">缓存配置。</param>

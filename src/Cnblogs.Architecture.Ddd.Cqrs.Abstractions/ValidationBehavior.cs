@@ -5,10 +5,10 @@ using Microsoft.Extensions.Logging;
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     对实现了 <see cref="IValidatable" /> 的 <see cref="IRequest" /> 进行验证。
+///     Validate requests that implements <see cref="IValidatable" />.
 /// </summary>
-/// <typeparam name="TRequest">请求类型。</typeparam>
-/// <typeparam name="TResponse">结果类型。</typeparam>
+/// <typeparam name="TRequest">The type of request.</typeparam>
+/// <typeparam name="TResponse">The type of response.</typeparam>
 public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IValidatable, IRequest<TResponse>
     where TResponse : IValidationResponse, new()
@@ -16,9 +16,9 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
     private readonly ILogger<ValidationBehavior<TRequest, TResponse>> _logger;
 
     /// <summary>
-    ///     构造一个 <see cref="ValidationBehavior{TRequest,TResponse}" />。
+    ///     Create a new <see cref="ValidationBehavior{TRequest,TResponse}" />.
     /// </summary>
-    /// <param name="logger"></param>
+    /// <param name="logger">The log provider.</param>
     public ValidationBehavior(ILogger<ValidationBehavior<TRequest, TResponse>> logger)
     {
         _logger = logger;

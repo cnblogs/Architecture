@@ -3,10 +3,10 @@
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     定义 <see cref="IListQuery{TList}" /> 的处理逻辑。
+///     Represents a handler for <see cref="IListQuery{TList}" />.
 /// </summary>
-/// <typeparam name="TQuery">该 Handler 能够处理的 <see cref="IListQuery{TList}" /> 类型。</typeparam>
-/// <typeparam name="TList">查询结果类型。</typeparam>
+/// <typeparam name="TQuery">The <see cref="IListQuery{TList}" /> been handled.</typeparam>
+/// <typeparam name="TList">The result type of <typeparamref name="TQuery"/>.</typeparam>
 public interface IListQueryHandler<TQuery, TList> : IRequestHandler<TQuery, TList>
     where TQuery : IListQuery<TList>
 {

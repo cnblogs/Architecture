@@ -5,11 +5,11 @@ using Mapster;
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 /// <summary>
-///     用于实现 <see cref="IPageableQueryHandler{TQuery,TView}" /> 的基类。
+///     Base class for implementing <see cref="IPageableQueryHandler{TQuery,TView}" />.
 /// </summary>
-/// <typeparam name="TQuery">查询类型。</typeparam>
-/// <typeparam name="TEntity">实体类型。</typeparam>
-/// <typeparam name="TView">返回类型。</typeparam>
+/// <typeparam name="TQuery">The type of query.</typeparam>
+/// <typeparam name="TEntity">The type of entity to query.</typeparam>
+/// <typeparam name="TView">The type of projected view model.</typeparam>
 public abstract class PageableQueryHandlerBase<TQuery, TEntity, TView> : IPageableQueryHandler<TQuery, TView>
     where TQuery : IPageableQuery<TView>
 {
@@ -45,54 +45,54 @@ public abstract class PageableQueryHandlerBase<TQuery, TEntity, TView> : IPageab
     }
 
     /// <summary>
-    ///     获取总数的查询。
+    ///     Query for total count.
     /// </summary>
-    /// <param name="query">查询条件。</param>
-    /// <param name="queryable">过滤好的 <see cref="IQueryable{T}" />。</param>
-    /// <returns>总数。</returns>
+    /// <param name="query">The query parameters.</param>
+    /// <param name="queryable">Filtered <see cref="IQueryable{T}" />.</param>
+    /// <returns>The total count of items.</returns>
     protected abstract Task<int> CountAsync(TQuery query, IQueryable<TEntity> queryable);
 
     /// <summary>
-    ///     默认的排序条件，如果没有指定 <see cref="OrderBySegment" />，将会使用这一语句。
+    ///     The default order by field, used when <see cref="OrderBySegment" /> is not present.
     /// </summary>
-    /// <param name="query">查询条件。</param>
-    /// <param name="queryable"><see cref="Filter" />返回的<see cref="IQueryable{TEntity}" />。</param>
-    /// <returns>排序好的 <see cref="IQueryable{T}" />。</returns>
+    /// <param name="query">The query parameters.</param>
+    /// <param name="queryable"><see cref="IQueryable{TEntity}" /> returned by <see cref="Filter" />.</param>
+    /// <returns>Ordered <see cref="IQueryable{T}" />.</returns>
     protected abstract IQueryable<TEntity> DefaultOrderBy(TQuery query, IQueryable<TEntity> queryable);
 
     /// <summary>
-    ///     获取并过滤，返回 <see cref="IQueryable{T}" />
+    ///     Create queryable and apply filter, return filtered <see cref="IQueryable{T}" />.
     /// </summary>
-    /// <param name="query">输入的查询条件。</param>
-    /// <returns>过滤后的 <see cref="IQueryable{T}" />。</returns>
+    /// <param name="query">The query parameter.</param>
+    /// <returns>Filtered <see cref="IQueryable{T}" />.</returns>
     protected abstract IQueryable<TEntity> Filter(TQuery query);
 
     /// <summary>
-    ///     获取并过滤，返回 <see cref="IQueryable{T}" />
+    ///     Create queryable and apply filter asynchronously, return filtered <see cref="IQueryable{T}" />.
     /// </summary>
-    /// <param name="query">输入的查询条件。</param>
-    /// <returns>过滤后的 <see cref="IQueryable{T}" />。</returns>
+    /// <param name="query">The query parameter.</param>
+    /// <returns>Filtered <see cref="IQueryable{T}" />.</returns>
     protected virtual Task<IQueryable<TEntity>> FilterAsync(TQuery query)
     {
         return Task.FromResult(Filter(query));
     }
 
     /// <summary>
-    ///     投射结果，返回 <see cref="IQueryable{TView}" />。
+    ///     Project item to view model, return projected <see cref="IQueryable{TView}" />.
     /// </summary>
-    /// <param name="query">查询条件。</param>
-    /// <param name="queryable">过滤并排序完成的 <see cref="IQueryable{T}" />。</param>
-    /// <returns>投射好的 <see cref="IQueryable" />。</returns>
+    /// <param name="query">The query parameter.</param>
+    /// <param name="queryable">Filtered and ordered <see cref="IQueryable{T}" />.</param>
+    /// <returns>Projected <see cref="IQueryable" />.</returns>
     protected virtual IQueryable<TView> ProjectToView(TQuery query, IQueryable<TEntity> queryable)
     {
         return queryable.ProjectToType<TView>();
     }
 
     /// <summary>
-    ///     执行实际的查询。
+    ///     Execute query and projections, get the actual results.
     /// </summary>
-    /// <param name="query">查询条件。</param>
-    /// <param name="queryable">投射好的 <see cref="IQueryable{T}" /></param>
-    /// <returns>查询结果。</returns>
+    /// <param name="query">The query parameter.</param>
+    /// <param name="queryable">Projected <see cref="IQueryable{T}" />.</param>
+    /// <returns>The query result.</returns>
     protected abstract Task<List<TView>> ToListAsync(TQuery query, IQueryable<TView> queryable);
 }
