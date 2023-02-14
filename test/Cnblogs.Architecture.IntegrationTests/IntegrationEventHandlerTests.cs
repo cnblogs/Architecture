@@ -1,5 +1,4 @@
 ﻿using System.Net.Http.Json;
-using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using FluentAssertions;
