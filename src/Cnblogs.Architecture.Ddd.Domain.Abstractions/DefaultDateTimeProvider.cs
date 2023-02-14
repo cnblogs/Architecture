@@ -12,6 +12,13 @@ public class DefaultDateTimeProvider : IDateTimeProvider
     }
 
     /// <inheritdoc />
+    public DateTimeOffset Today()
+    {
+        var now = Now();
+        return new DateTimeOffset(now.Year, now.Month, now.Day, 0, 0, 0, now.Offset);
+    }
+
+    /// <inheritdoc />
     public long UnixSeconds()
     {
         return Now().ToUnixTimeSeconds();

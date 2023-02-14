@@ -1,19 +1,25 @@
 ﻿namespace Cnblogs.Architecture.Ddd.Domain.Abstractions;
 
 /// <summary>
-///     时间生成器。
+///     Provides system date time.
 /// </summary>
 public interface IDateTimeProvider
 {
     /// <summary>
-    ///     获取当前时间。
+    ///     Get current time.
     /// </summary>
-    /// <returns>当前时间。</returns>
+    /// <returns>Current time.</returns>
     DateTimeOffset Now();
 
     /// <summary>
-    ///     获取当前距离 1970-01-01T00:00:00Z 的秒数。
+    ///     Get <see cref="DateTimeOffset"/> today's date.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>Today's date.</returns>
+    DateTimeOffset Today();
+
+    /// <summary>
+    ///     Get number of seconds that have elapsed since 1970-01-01T00:00:00Z.
+    /// </summary>
+    /// <returns>The number of seconds that have elapsed since 1970-01-01T00:00:00Z.</returns>
     long UnixSeconds();
 }
