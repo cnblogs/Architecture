@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Net;
+using Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
@@ -10,16 +11,29 @@ namespace Cnblogs.Architecture.IntegrationTests;
 
 public class DaprTests
 {
-    [Fact]
-    public async Task Dapr_SubscribeEndpoint_OkAsync()
+    [Theory]
+    [InlineData(SubscribeType.ByEvent)]
+    [InlineData(SubscribeType.ByEventAssemblies)]
+    [InlineData(SubscribeType.ByEventHandler)]
+    [InlineData(SubscribeType.ByEventHandlerAssemblies)]
+    public async Task Dapr_SubscribeEndpoint_OkAsync(SubscribeType subscribeType)
     {
         // Arrange
         var builder = WebApplication.CreateBuilder();
         builder.Services.AddDaprEventBus(nameof(DaprTests));
         builder.WebHost.UseTestServer();
 
-        var app = builder.Build();
-        app.Subscribe<TestIntegrationEvent>();
+        using var app = builder.Build();
+
+        _ = subscribeType switch
+        {
+            SubscribeType.ByEvent => app.Subscribe<TestIntegrationEvent>().Subscribe<BlogPostCreatedIntegrationEvent>(),
+            SubscribeType.ByEventAssemblies => app.Subscribe(typeof(TestIntegrationEvent).Assembly),
+            SubscribeType.ByEventHandler => app.SubscribeByEventHandler<TestIntegrationEventHandler>(),
+            SubscribeType.ByEventHandlerAssemblies => app.SubscribeByEventHandler(typeof(TestIntegrationEventHandler).Assembly),
+            _ => app
+        };
+
         await app.StartAsync();
         var httpClient = app.GetTestClient();
 
@@ -29,8 +43,8 @@ public class DaprTests
         // Assert
         response.Should().BeSuccessful();
         var responseText = await response.Content.ReadAsStringAsync();
-        Debug.WriteLine(responseText);
         responseText.Should().Contain(nameof(TestIntegrationEvent));
+        responseText.Should().Contain(nameof(BlogPostCreatedIntegrationEvent));
     }
 
     [Fact]
