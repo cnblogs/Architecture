@@ -56,7 +56,7 @@ public class InvalidCacheRequestHandler : IRequestHandler<InvalidCacheRequest>
     }
 
     /// <inheritdoc />
-    public async Task<Unit> Handle(InvalidCacheRequest request, CancellationToken cancellationToken)
+    public async Task Handle(InvalidCacheRequest request, CancellationToken cancellationToken)
     {
         try
         {
@@ -94,7 +94,5 @@ public class InvalidCacheRequestHandler : IRequestHandler<InvalidCacheRequest>
                 throw;
             }
         }
-
-        return Unit.Value;
     }
 }
