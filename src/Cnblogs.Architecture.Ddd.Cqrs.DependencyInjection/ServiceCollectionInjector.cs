@@ -22,7 +22,7 @@ public static class ServiceCollectionInjector
     {
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-        services.AddMediatR(assemblies);
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
         return new CqrsInjector(services);
     }
 }
