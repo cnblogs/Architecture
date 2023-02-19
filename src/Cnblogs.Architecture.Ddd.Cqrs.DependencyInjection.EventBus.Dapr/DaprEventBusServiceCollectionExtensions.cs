@@ -3,7 +3,6 @@ using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Dapr.Client;
-using MediatR;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
@@ -32,7 +31,7 @@ public static class DaprEventBusServiceCollectionExtensions
 
         if (assemblies.Length > 0)
         {
-            services.AddMediatR(assemblies);
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
         }
 
         return services;
