@@ -1,6 +1,7 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
+using MediatR;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -19,20 +20,11 @@ public static class EndPointExtensions
     /// <param name="builder"><see cref="IEndpointRouteBuilder"/></param>
     /// <typeparam name="TEvent">事件类型。</typeparam>
     /// <returns><see cref="IEndpointConventionBuilder"/></returns>
-    public static IEndpointConventionBuilder Subscribe<TEvent>(this IEndpointRouteBuilder builder)
+    public static IEndpointRouteBuilder Subscribe<TEvent>(this IEndpointRouteBuilder builder)
         where TEvent : IntegrationEvent
     {
-        var attr = typeof(TEvent).Assembly
-            .GetCustomAttributes(typeof(AssemblyAppNameAttribute), false)
-            .Cast<AssemblyAppNameAttribute>()
-            .FirstOrDefault();
-        if (attr is null || string.IsNullOrEmpty(attr.Name))
-        {
-            throw new InvalidOperationException(
-                $"No AppName was configured in assembly for event: {typeof(TEvent).Name}, either use Subscribe<TEvent>(string appName) method to set AppName manually or add [assembly:AssemblyAppName()] to the Assembly that {typeof(TEvent).Name} belongs to");
-        }
-
-        return builder.Subscribe<TEvent>(attr.Name);
+        var appName = typeof(TEvent).Assembly.GetAppName();
+        return builder.Subscribe<TEvent>(appName);
     }
 
     /// <summary>
@@ -42,7 +34,7 @@ public static class EndPointExtensions
     /// <param name="appName">事件隶属名称。</param>
     /// <typeparam name="TEvent">事件类型。</typeparam>
     /// <returns></returns>
-    public static IEndpointConventionBuilder Subscribe<TEvent>(this IEndpointRouteBuilder builder, string appName)
+    public static IEndpointRouteBuilder Subscribe<TEvent>(this IEndpointRouteBuilder builder, string appName)
         where TEvent : IntegrationEvent
     {
         var eventName = typeof(TEvent).Name;
@@ -57,7 +49,7 @@ public static class EndPointExtensions
     /// <param name="appName">应用名称。</param>
     /// <typeparam name="TEvent">事件类型。</typeparam>
     /// <returns></returns>
-    public static IEndpointConventionBuilder Subscribe<TEvent>(
+    public static IEndpointRouteBuilder Subscribe<TEvent>(
         this IEndpointRouteBuilder builder,
         string route,
         string appName)
@@ -68,7 +60,8 @@ public static class EndPointExtensions
         var result = builder
             .MapPost(route, (TEvent receivedEvent, IEventBus eventBus) => eventBus.ReceiveAsync(receivedEvent))
             .WithTopic(DaprOptions.PubSubName, DaprUtils.GetDaprTopicName<TEvent>(appName));
-        return result;
+
+        return builder;
     }
 
     /// <summary>
@@ -76,28 +69,69 @@ public static class EndPointExtensions
     /// </summary>
     /// <param name="builder"><see cref="IEndpointRouteBuilder"/></param>
     /// <param name="assemblies"><see cref="Assembly"/></param>
-    public static void Subscribe(this IEndpointRouteBuilder builder, params Assembly[] assemblies)
+    public static IEndpointRouteBuilder Subscribe(this IEndpointRouteBuilder builder, params Assembly[] assemblies)
     {
         builder.EnsureDaprEventBus();
 
-        var method = typeof(EndPointExtensions).GetMethod(
-            nameof(Subscribe),
-            new[] { typeof(IEndpointRouteBuilder), typeof(string) })!;
+        var method = GetSubscribeMethod();
+
         foreach (var assembly in assemblies)
         {
             var events = assembly.GetTypes().Where(x => x.IsSubclassOf(typeof(IntegrationEvent))).ToList();
-            var attr = assembly
-                .GetCustomAttributes(typeof(AssemblyAppNameAttribute), false)
-                .Cast<AssemblyAppNameAttribute>()
-                .FirstOrDefault();
-            if (attr is null || string.IsNullOrEmpty(attr.Name))
-            {
-                throw new InvalidOperationException(
-                    $"No AppName was configured in assembly: {assembly.FullName}, either use Subscribe<TEvent>(string appName) method to set AppName manually or add [assembly:AssemblyAppName()] to the Assembly");
-            }
-
-            events.ForEach(e => method.MakeGenericMethod(e).Invoke(null, new object[] { builder, attr.Name }));
+            var appName = assembly.GetAppName();
+            events.ForEach(e => method.InvokeSubscribe(e, builder, appName));
         }
+
+        return builder;
+    }
+
+    /// <summary>
+    /// Subscribes integration events that the TEventHandler implements
+    /// </summary>
+    /// <typeparam name="TEventHandler">The integration event handler that implements <![CDATA[IIntegrationEventHandler<TEvent>]]></typeparam>
+    /// <param name="builder"><see cref="IEndpointRouteBuilder"/></param>
+    public static IEndpointRouteBuilder SubscribeByEventHandler<TEventHandler>(this IEndpointRouteBuilder builder)
+        where TEventHandler : IEventBusHandler
+    {
+        return builder.SubscribeByEventHandler(typeof(TEventHandler));
+    }
+
+    /// <summary>
+    /// Subscribes integration events that event handlers implement in assemblies
+    /// </summary>
+    /// <param name="builder"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="assemblies">assemblies that event handlers reside</param>
+    /// <returns></returns>
+    public static IEndpointRouteBuilder SubscribeByEventHandler(this IEndpointRouteBuilder builder, params Assembly[] assemblies)
+    {
+        foreach (var assembly in assemblies)
+        {
+            foreach (Type type in assembly.GetTypes())
+            {
+                builder.SubscribeByEventHandler(type);
+            }
+        }
+
+        return builder;
+    }
+
+    private static IEndpointRouteBuilder SubscribeByEventHandler(this IEndpointRouteBuilder builder, Type type)
+    {
+        var interfaces = type.GetInterfaces()
+            .Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IIntegrationEventHandler<>));
+
+        foreach (var handlerInterface in interfaces)
+        {
+            var eventType = handlerInterface.GetGenericArguments().FirstOrDefault();
+            if (eventType != null)
+            {
+                var assembly = eventType.Assembly;
+                var appName = assembly.GetAppName();
+                GetSubscribeMethod().InvokeSubscribe(eventType, builder, appName);
+            }
+        }
+
+        return builder;
     }
 
     private static void EnsureEventBusRegistered(this IEndpointRouteBuilder builder, DaprOptions daprOptions)
@@ -141,5 +175,33 @@ public static class EndPointExtensions
         var options = builder.GetDaprOptions();
         builder.EnsureDaprSubscribeHandlerMapped(options);
         builder.EnsureEventBusRegistered(options);
+    }
+
+    private static MethodInfo GetSubscribeMethod()
+    {
+        return typeof(EndPointExtensions).GetMethod(
+            nameof(Subscribe),
+            new[] { typeof(IEndpointRouteBuilder), typeof(string) })!;
+    }
+
+    private static void InvokeSubscribe(this MethodInfo method, Type eventType, IEndpointRouteBuilder builder, string appName)
+    {
+        method.MakeGenericMethod(eventType).Invoke(null, new object[] { builder, appName });
+    }
+
+    private static string GetAppName(this Assembly assembly)
+    {
+        var appName = assembly
+            .GetCustomAttributes(typeof(AssemblyAppNameAttribute), false)
+            .Cast<AssemblyAppNameAttribute>()
+            .FirstOrDefault()?.Name;
+
+        if (string.IsNullOrEmpty(appName))
+        {
+            throw new InvalidOperationException(
+                $"No AppName was configured in assembly: {assembly.FullName}, either use Subscribe<TEvent>(string appName) method to set AppName manually or add [assembly:AssemblyAppName()] to the Assembly");
+        }
+
+        return appName;
     }
 }

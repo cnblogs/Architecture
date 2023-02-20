@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 
 namespace Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 
@@ -6,7 +6,7 @@ namespace Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 /// 集成事件处理器。
 /// </summary>
 /// <typeparam name="TEvent">集成事件。</typeparam>
-public interface IIntegrationEventHandler<TEvent> : INotificationHandler<TEvent>
+public interface IIntegrationEventHandler<TEvent> : INotificationHandler<TEvent>, IEventBusHandler
     where TEvent : IntegrationEvent
 {
 }
