@@ -3,42 +3,42 @@
 namespace Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent;
 
 /// <summary>
-///     API 异常接口
+///     Defines exceptions threw when doing an API call.
 /// </summary>
-/// <typeparam name="TException">异常类型。</typeparam>
+/// <typeparam name="TException">The type of this API exception.</typeparam>
 public interface IApiException<out TException>
     where TException : Exception, IApiException<TException>
 {
     /// <summary>
-    ///     HTTP 状态码，不适用则为 -1。
+    ///     The HTTP status code, -1 if not applied.
     /// </summary>
     int StatusCode { get; }
 
     /// <summary>
-    ///     错误信息。
+    ///     The raw error message.
     /// </summary>
     string Message { get; }
 
     /// <summary>
-    ///     显示给用户的错误信息。
+    ///     The error message to display, can be null if such message is not available.
     /// </summary>
     string? UserFriendlyMessage { get; }
 
     /// <summary>
-    ///     抛出异常。
+    ///     Throw a <see cref="TException"/>.
     /// </summary>
-    /// <param name="statusCode">HTTP 状态码，若不适用则为 -1。</param>
-    /// <param name="message">错误信息。</param>
-    /// <param name="userFriendlyMessage">给用户显示的错误信息。</param>
+    /// <param name="statusCode">HTTP status code, -1 if not available.</param>
+    /// <param name="message">The error message.</param>
+    /// <param name="userFriendlyMessage">The error message to display, can be null if such message is not available.</param>
     [DoesNotReturn]
     static abstract void Throw(int statusCode = -1, string message = "", string? userFriendlyMessage = null);
 
     /// <summary>
-    ///    创建异常。
+    ///    Create(but not throw) a <see cref="TException"/>.
     /// </summary>
-    /// <param name="statusCode">HTTP 状态码，若不适用则为 -1。</param>
-    /// <param name="message">错误信息。</param>
-    /// <param name="userFriendlyMessage">给用户显示的错误信息。</param>
-    /// <returns></returns>
+    /// <param name="statusCode">HTTP status code, -1 if not available.</param>
+    /// <param name="message">The error message.</param>
+    /// <param name="userFriendlyMessage">The error message to display, can be null if such message is not available.</param>
+    /// <returns>A new instance of <see cref="TException"/>.</returns>
     static abstract TException Create(int statusCode = -1, string message = "", string? userFriendlyMessage = null);
 }
