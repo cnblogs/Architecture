@@ -91,7 +91,7 @@ public static class EndPointExtensions
     /// <typeparam name="TEventHandler">The integration event handler that implements <![CDATA[IIntegrationEventHandler<TEvent>]]></typeparam>
     /// <param name="builder"><see cref="IEndpointRouteBuilder"/></param>
     public static IEndpointRouteBuilder SubscribeByEventHandler<TEventHandler>(this IEndpointRouteBuilder builder)
-        where TEventHandler : IIntegrationEventHandler
+        where TEventHandler : IEventBusHandler
     {
         return builder.SubscribeByEventHandler(typeof(TEventHandler));
     }
