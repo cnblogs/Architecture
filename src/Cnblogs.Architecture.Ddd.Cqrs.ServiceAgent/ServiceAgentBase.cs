@@ -1,38 +1,37 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Net;
 using System.Net.Http.Json;
-
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent;
 
 /// <summary>
-/// ServiceAgent 的基础类。
+///     Base class for service agent.
 /// </summary>
-/// <typeparam name="TException">异常类型。</typeparam>
+/// <typeparam name="TException">The type of exception that this service agent throws.</typeparam>
 public abstract class ServiceAgentBase<TException>
     where TException : Exception, IApiException<TException>
 {
     /// <summary>
-    /// 构造一个 <see cref="ServiceAgentBase{TException}"/>
+    ///     Create a <see cref="ServiceAgentBase{TException}"/>.
     /// </summary>
-    /// <param name="httpClient">用于访问 API 的 <see cref="HttpClient"/>。</param>
+    /// <param name="httpClient">The underlying <see cref="HttpClient"/> used to access the API.</param>
     protected ServiceAgentBase(HttpClient httpClient)
     {
         HttpClient = httpClient;
     }
 
     /// <summary>
-    /// 用于访问 API 的 <see cref="HttpClient"/>。
+    ///     The underlying <see cref="HttpClient"/>.
     /// </summary>
     protected HttpClient HttpClient { get; }
 
     /// <summary>
-    ///     发送一个 DELETE 请求。
+    ///     Execute a command with DELETE method.
     /// </summary>
-    /// <param name="url">目标 API 路径。</param>
-    /// <typeparam name="TResponse">返回结果类型。</typeparam>
-    /// <returns>返回结果。</returns>
+    /// <param name="url">The url.</param>
+    /// <typeparam name="TResponse">Response type.</typeparam>
+    /// <returns>The response.</returns>
     public async Task<TResponse?> DeleteCommandAsync<TResponse>(string url)
     {
         try
@@ -47,9 +46,9 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     发起一个 DELETE 请求。
+    ///     Execute a command with DELETE method.
     /// </summary>
-    /// <param name="url">API 路径。</param>
+    /// <param name="url">The route of the API.</param>
     public async Task DeleteCommandAsync(string url)
     {
         HttpResponseMessage response;
@@ -71,9 +70,9 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     发起一个 POST 请求。
+    ///     Execute a command with POST method.
     /// </summary>
-    /// <param name="url">路径。</param>
+    /// <param name="url">The route of the API.</param>
     public async Task PostCommandAsync(string url)
     {
         HttpResponseMessage response;
@@ -95,11 +94,11 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     发起一个带 Body 的 POST 请求。
+    ///     Execute a command with POST method and payload.
     /// </summary>
-    /// <param name="url">路径。</param>
-    /// <param name="payload">请求。</param>
-    /// <typeparam name="TPayload">请求类型。</typeparam>
+    /// <param name="url">The route of the API.</param>
+    /// <param name="payload">The request body.</param>
+    /// <typeparam name="TPayload">The type of request body.</typeparam>
     public async Task PostCommandAsync<TPayload>(string url, TPayload payload)
     {
         HttpResponseMessage response;
@@ -121,13 +120,13 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     发起一个带 Body 的 POST 请求。
+    ///     Execute a command with POST method and payload.
     /// </summary>
-    /// <param name="url">路径。</param>
-    /// <param name="payload">请求。</param>
-    /// <typeparam name="TResponse">返回类型。</typeparam>
-    /// <typeparam name="TPayload">请求类型。</typeparam>
-    /// <returns></returns>
+    /// <param name="url">The route of the API.</param>
+    /// <param name="payload">The request body.</param>
+    /// <typeparam name="TResponse">The type of response body.</typeparam>
+    /// <typeparam name="TPayload">The type of request body.</typeparam>
+    /// <returns>The response body.</returns>
     public async Task<TResponse> PostCommandAsync<TResponse, TPayload>(string url, TPayload payload)
     {
         HttpResponseMessage response;
@@ -160,13 +159,63 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     发起一个 PUT 请求。
+    ///     Execute a command with PUT method and payload.
     /// </summary>
-    /// <param name="url">路径。</param>
-    /// <param name="payload">请求内容。</param>
-    /// <typeparam name="TResponse">返回结果类型。</typeparam>
-    /// <typeparam name="TPayload">请求类型。</typeparam>
-    /// <returns></returns>
+    /// <param name="url">The route of API.</param>
+    public async Task PutCommandAsync(string url)
+    {
+        HttpResponseMessage response;
+        try
+        {
+            response = await HttpClient.PutAsync(url, new StringContent(string.Empty));
+        }
+        catch (Exception e)
+        {
+            ThrowApiException(HttpMethod.Put, url, e);
+            return;
+        }
+
+        if (response.IsSuccessStatusCode == false)
+        {
+            var content = await response.Content.ReadAsStringAsync();
+            ThrowApiException(HttpMethod.Put, response.StatusCode, url, content);
+        }
+    }
+
+    /// <summary>
+    ///     Execute a command with PUT method and payload.
+    /// </summary>
+    /// <param name="url">The route of API.</param>
+    /// <param name="payload">The request body.</param>
+    /// <typeparam name="TPayload">The type of request body.</typeparam>
+    public async Task PutCommandAsync<TPayload>(string url, TPayload payload)
+    {
+        HttpResponseMessage response;
+        try
+        {
+            response = await HttpClient.PutAsJsonAsync(url, payload);
+        }
+        catch (Exception e)
+        {
+            ThrowApiException(HttpMethod.Put, url, payload, e);
+            return;
+        }
+
+        if (response.IsSuccessStatusCode == false)
+        {
+            var content = await response.Content.ReadAsStringAsync();
+            ThrowApiException(HttpMethod.Put, response.StatusCode, url, payload, content);
+        }
+    }
+
+    /// <summary>
+    ///     Execute a command with PUT method and payload.
+    /// </summary>
+    /// <param name="url">The route of API.</param>
+    /// <param name="payload">The request body.</param>
+    /// <typeparam name="TResponse">The type of response body.</typeparam>
+    /// <typeparam name="TPayload">The type of request body.</typeparam>
+    /// <returns>The response body.</returns>
     public async Task<TResponse> PutCommandAsync<TResponse, TPayload>(string url, TPayload payload)
     {
         HttpResponseMessage response;
@@ -199,10 +248,11 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     获取内容。
+    ///     Query item with GET method.
     /// </summary>
-    /// <param name="url">路径。</param>
-    /// <typeparam name="T">结果类型。</typeparam>
+    /// <param name="url">The route of the API.</param>
+    /// <typeparam name="T">The type of item to get.</typeparam>
+    /// <returns>The query result, can be null if item does not exists or status code is 404.</returns>
     public async Task<T?> GetItemAsync<T>(string url)
     {
         try
@@ -222,14 +272,14 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     批量获取实体。
+    ///     Batch get items with GET method.
     /// </summary>
-    /// <param name="url">路径。</param>
-    /// <param name="paramName">参数名称。</param>
-    /// <param name="ids">主键列表。</param>
-    /// <typeparam name="TResponse">返回类型。</typeparam>
-    /// <typeparam name="TId">主键类型。</typeparam>
-    /// <returns></returns>
+    /// <param name="url">The route of the API.</param>
+    /// <param name="paramName">The name of id field.</param>
+    /// <param name="ids">The id list.</param>
+    /// <typeparam name="TResponse">The type of the query result item.</typeparam>
+    /// <typeparam name="TId">The type of the id.</typeparam>
+    /// <returns>A list of items that contains id that in <paramref name="ids"/>, the order or count of the items are not guaranteed.</returns>
     public async Task<List<TResponse>> BatchGetItemsAsync<TResponse, TId>(
         string url,
         string paramName,
@@ -260,13 +310,13 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     获取分页列表。
+    ///     Get paged list of items based on url.
     /// </summary>
-    /// <param name="url">路径。</param>
-    /// <param name="pagingParams">页码。</param>
-    /// <param name="orderByString">分页大小。</param>
-    /// <typeparam name="TItem">实体类型。</typeparam>
-    /// <returns></returns>
+    /// <param name="url">The route of the API.</param>
+    /// <param name="pagingParams">The paging parameters, including page size and page index.</param>
+    /// <param name="orderByString">Specifies the order of items to return.</param>
+    /// <typeparam name="TItem">The type of items to query.</typeparam>
+    /// <returns>The paged list of items. An empty list is returned when there is no result.</returns>
     public async Task<PagedList<TItem>> ListPagedItemsAsync<TItem>(
         string url,
         PagingParams? pagingParams = null,
@@ -276,13 +326,14 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     获取分页列表。
+    ///     Get paged list of items based on url.
     /// </summary>
-    /// <param name="url">路径。</param>
-    /// <param name="pageIndex">页码。</param>
-    /// <param name="pageSize">分页大小。</param>
-    /// <param name="orderByString">排序字符串。</param>
-    /// <typeparam name="TItem">实体类型。</typeparam>
+    /// <param name="url">The route of the API.</param>
+    /// <param name="pageIndex">The page index.</param>
+    /// <param name="pageSize">The page size.</param>
+    /// <param name="orderByString">Specifies the order of items to return.</param>
+    /// <typeparam name="TItem">The type of items to query.</typeparam>
+    /// <returns>The paged list of items. An empty list is returned when there is no result.</returns>
     public async Task<PagedList<TItem>> ListPagedItemsAsync<TItem>(
         string url,
         int? pageIndex,
@@ -315,14 +366,14 @@ public abstract class ServiceAgentBase<TException>
     }
 
     /// <summary>
-    ///     处理抛出异常的情况。
+    ///     Throw exceptions.
     /// </summary>
-    /// <param name="method">请求方法。</param>
-    /// <param name="statusCode">状态码，若不适用则是 -1。</param>
-    /// <param name="url">请求的 Url</param>
-    /// <param name="requestBody">请求内容。</param>
-    /// <param name="response">返回内容。</param>
-    /// <param name="e">异常。</param>
+    /// <param name="method">The method for this request.</param>
+    /// <param name="statusCode">HTTP status code, -1 if not available.</param>
+    /// <param name="url">The URL to request.</param>
+    /// <param name="requestBody">The request body.</param>
+    /// <param name="response">The response body.</param>
+    /// <param name="e">The exception.</param>
     [DoesNotReturn]
     protected virtual void ThrowApiException(
         HttpMethod method,
