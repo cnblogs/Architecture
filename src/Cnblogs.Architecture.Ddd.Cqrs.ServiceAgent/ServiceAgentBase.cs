@@ -384,7 +384,7 @@ public abstract class ServiceAgentBase<TException>
         Exception? e)
     {
         var message = response ?? e?.Message;
-        throw TException.Create(statusCode, $"{method} {url} failed with error: {message}");
+        throw TException.Create(statusCode, $"{method} {url} failed with error: {message}", message);
     }
 
     private void ThrowApiException(HttpMethod method, HttpStatusCode statusCode, string url, string responseString)
