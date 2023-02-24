@@ -1,17 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+  <PropertyGroup>
+    <Description>
+      Provides SQL server provider for dapper to use.
+    </Description>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Dapper\Cnblogs.Architecture.Ddd.Cqrs.Dapper.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Dapper\Cnblogs.Architecture.Ddd.Cqrs.Dapper.csproj"/>
+  </ItemGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.0"/>
+  </ItemGroup>
 
 </Project>

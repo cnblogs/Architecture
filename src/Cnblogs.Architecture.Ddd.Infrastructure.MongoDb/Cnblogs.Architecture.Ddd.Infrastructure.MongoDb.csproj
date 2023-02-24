@@ -1,5 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup>
+    <Description>
+      Provides implementations for persistence layer of DDD with MongoDb.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContext
+      Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository
+    </Description>
+  </PropertyGroup>
+
     <ItemGroup>
       <PackageReference Include="MongoDB.Driver" Version="2.19.0" />
     </ItemGroup>

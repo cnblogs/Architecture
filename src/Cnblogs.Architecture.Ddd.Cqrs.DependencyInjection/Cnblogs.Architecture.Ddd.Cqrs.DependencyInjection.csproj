@@ -1,7 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>
+      CQRS extensions for ASP.NET Core.
+    </Description>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj"/>
+  </ItemGroup>
 
 </Project>

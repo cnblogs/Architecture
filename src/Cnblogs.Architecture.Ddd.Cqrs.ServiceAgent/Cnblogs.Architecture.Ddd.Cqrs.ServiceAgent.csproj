@@ -1,8 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>
+      Provides abstrations for implementing service agent.
+    </Description>
+  </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj" />
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj"/>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0"/>
   </ItemGroup>
 </Project>

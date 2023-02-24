@@ -1,11 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
-    </ItemGroup>
+  <PropertyGroup>
+    <Description>
+      Provides implementations for persistence layer of DDD with EntityFramework Core.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository
+    </Description>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.csproj"/>
+  </ItemGroup>
 
 </Project>

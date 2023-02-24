@@ -1,4 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <Description>
+      Provides distributed lock with RedLock.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockDistributionLockProvider
+    </Description>
+  </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.csproj" />

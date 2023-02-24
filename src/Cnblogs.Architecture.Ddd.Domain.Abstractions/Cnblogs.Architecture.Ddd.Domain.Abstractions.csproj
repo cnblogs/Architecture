@@ -1,7 +1,20 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <ItemGroup>
-        <PackageReference Include="MediatR" Version="12.0.1" />
-    </ItemGroup>
+  <PropertyGroup>
+    <Description>
+      Provides abstractions for implementing DDD patterns.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Domain.Abstrations.Entity
+      Cnblogs.Architecture.Ddd.Domain.Abstrations.DomainEvent
+      Cnblogs.Architecture.Ddd.Domain.Abstrations.IRepository
+      Cnblogs.Architecture.Ddd.Domain.Abstrations.IAggregateRoot
+      Cnblogs.Architecture.Ddd.Domain.Abstrations.IDateTimeProvider
+      Cnblogs.Architecture.Ddd.Domain.Abstrations.IRandomProvider
+    </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.0.1"/>
+  </ItemGroup>
 
 </Project>
