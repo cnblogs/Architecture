@@ -1,14 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
+  <PropertyGroup>
+    <Description>
+      Provides implementations for persistence layer of DDD with Dapper.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DapperContext
+    </Description>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Dapper" Version="2.0.123" />
-      <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123"/>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1"/>
+  </ItemGroup>
 
 </Project>

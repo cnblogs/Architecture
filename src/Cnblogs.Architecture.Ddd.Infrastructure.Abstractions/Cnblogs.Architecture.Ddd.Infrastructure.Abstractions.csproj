@@ -1,9 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>
+      Provides abstractions for implementing infrastructure layer in DDD pattern.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Infratstructure.Abstractions.PagingParams
+      Cnblogs.Architecture.Ddd.Infratstructure.Abstractions.QueryStringBuilder
+      Cnblogs.Architecture.Ddd.Infratstructure.Abstractions.IRemoteCacheProvider
+    </Description>
+  </PropertyGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Domain.Abstractions\Cnblogs.Architecture.Ddd.Domain.Abstractions.csproj" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>

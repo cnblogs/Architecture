@@ -1,8 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj"/>
-        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework\Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.csproj"/>
-    </ItemGroup>
+  <PropertyGroup>
+    <Description>
+      Provides pageable query handler with EntityFramework.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler
+    </Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj"/>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework\Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.csproj"/>
+  </ItemGroup>
 
 </Project>

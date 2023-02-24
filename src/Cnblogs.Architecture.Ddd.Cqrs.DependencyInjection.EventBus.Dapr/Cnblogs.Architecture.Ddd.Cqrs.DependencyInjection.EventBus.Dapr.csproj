@@ -1,4 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>
+      Provides extensions for inject DaprEventBus to DI container.
+    </Description>
+  </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj" />

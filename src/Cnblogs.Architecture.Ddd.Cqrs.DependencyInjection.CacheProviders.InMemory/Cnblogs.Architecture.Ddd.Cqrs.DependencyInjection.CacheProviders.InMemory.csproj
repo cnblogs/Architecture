@@ -1,8 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <ItemGroup>
-      <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj" />
-      <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory\Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.csproj" />
-    </ItemGroup>
+  <PropertyGroup>
+    <Description>
+      Extension methods to inject InMemoryCacheProvider into DI container.
+    </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj"/>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory\Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.csproj"/>
+  </ItemGroup>
 
 </Project>

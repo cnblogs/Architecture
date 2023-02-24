@@ -2,7 +2,11 @@
 
   <PropertyGroup>
     <Description>
-      Provides building blocks to archive CQRS pattern, including ICommand, IQuery, IPageableQuery, etc.
+      Provides building blocks to archive CQRS pattern.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand
+      Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery
+      Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery
     </Description>
   </PropertyGroup>
 

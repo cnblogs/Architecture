@@ -1,6 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
-    <ItemGroup>
-        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj" />
-        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Dapper\Cnblogs.Architecture.Ddd.Infrastructure.Dapper.csproj" />
-    </ItemGroup>
+  <PropertyGroup>
+    <Description>
+      Provides extensions to use dapper as ORM in commands and queries.
+    </Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference
+      Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj" />
+    <ProjectReference
+      Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Dapper\Cnblogs.Architecture.Ddd.Infrastructure.Dapper.csproj" />
+  </ItemGroup>
 </Project>

@@ -1,16 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <DevelopmentDependency>true</DevelopmentDependency>
-    </PropertyGroup>
-    
-    <ItemGroup>
-        <PackageReference Include="MongoDB.Analyzer" Version="1.2.0" PrivateAssets="None" />
-    </ItemGroup>
+  <PropertyGroup>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <Description>
+        Provide mongodb analyzer with Cnblogs flavored configuration.
+    </Description>
+  </PropertyGroup>
 
-    <ItemGroup>
-        <None Include="build\**" Pack="true" PackagePath="build\" />
-        <None Include="mongodb.analyzer.json" Pack="true" PackagePath="\" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Analyzer" Version="1.2.0" PrivateAssets="None"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="build\**" Pack="true" PackagePath="build\"/>
+    <None Include="mongodb.analyzer.json" Pack="true" PackagePath="\"/>
+  </ItemGroup>
 
 </Project>
