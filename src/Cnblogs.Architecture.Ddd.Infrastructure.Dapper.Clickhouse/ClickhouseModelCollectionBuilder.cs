@@ -15,9 +15,15 @@ public class ClickhouseModelCollectionBuilder
     public ClickhouseModelBuilder<T> Entity<T>()
         where T : class
     {
-        var builder = new ClickhouseModelBuilder<T>();
-        _builders.Add(typeof(T), builder);
-        return builder;
+        var type = typeof(T);
+        if (_builders.TryGetValue(type, out var builder))
+        {
+            return (ClickhouseModelBuilder<T>)builder;
+        }
+
+        var modelBuilder = new ClickhouseModelBuilder<T>();
+        _builders.Add(typeof(T), modelBuilder);
+        return modelBuilder;
     }
 
     internal void Build(ClickhouseContextOptions options)
