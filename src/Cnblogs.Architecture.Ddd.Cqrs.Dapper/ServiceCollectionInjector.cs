@@ -15,10 +15,10 @@ public static class ServiceCollectionInjector
     /// <param name="services"><see cref="ServiceCollection"/>。</param>
     /// <typeparam name="TContext"><see cref="DapperContext"/> 的实现类型。</typeparam>
     /// <returns></returns>
-    public static DapperConfigurationBuilder AddDapperContext<TContext>(this IServiceCollection services)
+    public static DapperConfigurationBuilder<TContext> AddDapperContext<TContext>(this IServiceCollection services)
         where TContext : DapperContext
     {
         services.AddScoped<TContext>();
-        return new DapperConfigurationBuilder(typeof(TContext).Name, services);
+        return new DapperConfigurationBuilder<TContext>(services);
     }
 }

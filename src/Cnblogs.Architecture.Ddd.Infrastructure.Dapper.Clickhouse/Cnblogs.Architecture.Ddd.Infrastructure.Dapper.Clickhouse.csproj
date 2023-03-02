@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <Description>
+      Provides implementation for persistance layer of DDD with Dapper and Clickhouse.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Infrasturcture.Dapper.Clickhouse.ClickhouseDapperContext
+    </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Dapper\Cnblogs.Architecture.Ddd.Infrastructure.Dapper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClickHouse.Client" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>
