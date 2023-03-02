@@ -7,20 +7,20 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Dapper;
 /// <summary>
 ///     Dapper 配置类。
 /// </summary>
-public class DapperConfigurationBuilder
+/// <typeparam name="TContext">The context type been configured.</typeparam>
+public class DapperConfigurationBuilder<TContext>
+    where TContext : DapperContext
 {
-    private readonly IServiceCollection _services;
     private readonly string _dapperContextTypeName;
 
     /// <summary>
     ///     创建一个 DapperConfigurationBuilder。
     /// </summary>
-    /// <param name="dapperContextTypeName">正在配置的 DapperContext 名称。</param>
     /// <param name="services"><see cref="ServiceCollection"/></param>
-    public DapperConfigurationBuilder(string dapperContextTypeName, IServiceCollection services)
+    public DapperConfigurationBuilder(IServiceCollection services)
     {
-        _dapperContextTypeName = dapperContextTypeName;
-        _services = services;
+        _dapperContextTypeName = typeof(TContext).Name;
+        Services = services;
     }
 
     /// <summary>
@@ -31,7 +31,12 @@ public class DapperConfigurationBuilder
     public void UseDbConnectionFactory<TFactory>(TFactory factory)
         where TFactory : IDbConnectionFactory
     {
-        _services.Configure<DbConnectionFactoryCollection>(
+        Services.Configure<DbConnectionFactoryCollection>(
             c => c.AddDbConnectionFactory(_dapperContextTypeName, factory));
     }
+
+    /// <summary>
+    ///     The underlying <see cref="IServiceCollection"/>.
+    /// </summary>
+    public IServiceCollection Services { get; }
 }

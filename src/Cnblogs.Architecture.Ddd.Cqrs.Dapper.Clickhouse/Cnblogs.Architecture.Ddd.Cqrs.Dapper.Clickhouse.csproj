@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <Description>
+      Provides clickhouse dapper integration.
+    </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Dapper\Cnblogs.Architecture.Ddd.Cqrs.Dapper.csproj" />
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse\Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.csproj" />
+  </ItemGroup>
+
+</Project>
