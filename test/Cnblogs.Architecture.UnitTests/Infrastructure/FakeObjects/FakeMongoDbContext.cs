@@ -41,6 +41,8 @@ public class FakeMongoDbContext : MongoContext
     protected override void ConfigureModels(MongoModelBuilder builder)
     {
         builder.Entity<FakeBlog>("fakeBlog");
+        builder.Entity<FakePost>("fakePost");
+        builder.Entity<FakeTag>("fakeTag");
     }
 
     private static Mock<IMongoContextOptions> MockOptions()

@@ -9,4 +9,5 @@ public class FakePost : Entity<int>
 
     // navigations
     public FakeBlog Blog { get; set; } = null!;
+    public List<FakeTag> Tags { get; set; } = null!;
 }
