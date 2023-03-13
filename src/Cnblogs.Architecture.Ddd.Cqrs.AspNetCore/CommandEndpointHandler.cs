@@ -61,7 +61,7 @@ public class CommandEndpointHandler : IEndpointFilter
     {
         if (response.IsValidationError)
         {
-            return Results.BadRequest(response.ValidationError!.Message);
+            return Results.Text(response.ValidationError!.Message, statusCode: 400);
         }
 
         if (response is { IsConcurrentError: true, LockAcquired: false })
@@ -69,6 +69,6 @@ public class CommandEndpointHandler : IEndpointFilter
             return Results.StatusCode(429);
         }
 
-        return Results.BadRequest(response.GetErrorMessage());
+        return Results.Text(response.GetErrorMessage(), statusCode: 400);
     }
 }
