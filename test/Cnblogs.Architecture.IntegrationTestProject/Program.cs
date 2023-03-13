@@ -37,8 +37,8 @@ var apis = app.NewVersionedApi();
 var v1 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(1);
 v1.MapQuery<GetStringQuery>("strings/{id:int}");
 v1.MapQuery<ListStringsQuery>("strings");
-v1.MapCommand<CreateCommand>("strings", (CreatePayload payload) => new CreateCommand(payload.NeedError));
-v1.MapCommand<UpdateCommand>(
+v1.MapCommand("strings", (CreatePayload payload) => new CreateCommand(payload.NeedError));
+v1.MapCommand(
     "strings/{id:int}",
     (int id, UpdatePayload payload) => new UpdateCommand(id, payload.NeedError));
 v1.MapCommand<DeleteCommand>("strings/{id:int}");

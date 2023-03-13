@@ -1,20 +1,18 @@
 ﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
-
 using MediatR;
-
 using Microsoft.AspNetCore.Http;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
 /// <summary>
-///     命令执行器，自动将返回内容提交给 mediator 并返回结果。
+///     Execute command returned by endpoint handler, and then map command response to HTTP response.
 /// </summary>
 public class CommandEndpointHandler : IEndpointFilter
 {
     private readonly IMediator _mediator;
 
     /// <summary>
-    ///     构造一个命令执行器。
+    ///     Create a command endpoint handler.
     /// </summary>
     /// <param name="mediator"><see cref="IMediator"/></param>
     public CommandEndpointHandler(IMediator mediator)

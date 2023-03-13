@@ -1,21 +1,20 @@
 ﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
-
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
 /// <summary>
-/// Controller 基类，提供自动处理 <see cref="CommandResponse{TError}"/> 的方法。
+///     A base class for an API controller with methods that return <see cref="IActionResult"/> based ons <see cref="CommandResponse{TError}"/>.
 /// </summary>
 [ApiController]
 public class ApiControllerBase : ControllerBase
 {
     /// <summary>
-    /// 处理 CommandResponse 并返回对应的状态码，成功-204，错误-400。
+    ///     Handle command response and return 204 if success, 400 if error.
     /// </summary>
-    /// <param name="response">任务结果。</param>
-    /// <typeparam name="TError">错误类型。</typeparam>
+    /// <param name="response">The command response.</param>
+    /// <typeparam name="TError">The type of error.</typeparam>
     /// <returns><see cref="IActionResult"/></returns>
     protected IActionResult HandleCommandResponse<TError>(CommandResponse<TError> response)
         where TError : Enumeration
@@ -29,11 +28,11 @@ public class ApiControllerBase : ControllerBase
     }
 
     /// <summary>
-    /// 自动处理命令返回的结果，成功-200，失败-400。
+    ///     Handle command response and return 204 if success, 400 if error.
     /// </summary>
-    /// <param name="response">命令执行结果。</param>
-    /// <typeparam name="TResponse">返回类型。</typeparam>
-    /// <typeparam name="TError">错误类型。</typeparam>
+    /// <param name="response">The command response.</param>
+    /// <typeparam name="TResponse">The response type when success.</typeparam>
+    /// <typeparam name="TError">The error type.</typeparam>
     /// <returns><see cref="IActionResult"/></returns>
     protected IActionResult HandleCommandResponse<TResponse, TError>(CommandResponse<TResponse, TError> response)
         where TError : Enumeration
@@ -54,7 +53,7 @@ public class ApiControllerBase : ControllerBase
             return BadRequest(response.ValidationError!.Message);
         }
 
-        if (response.IsConcurrentError && response.LockAcquired == false)
+        if (response is { IsConcurrentError: true, LockAcquired: false })
         {
             return StatusCode(429);
         }

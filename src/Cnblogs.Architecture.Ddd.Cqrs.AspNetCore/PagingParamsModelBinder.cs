@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
 /// <summary>
-/// Model Binder for <see cref="PagingParams"/>
+///     Model Binder for <see cref="PagingParams"/>
 /// </summary>
 public class PagingParamsModelBinder : IModelBinder
 {

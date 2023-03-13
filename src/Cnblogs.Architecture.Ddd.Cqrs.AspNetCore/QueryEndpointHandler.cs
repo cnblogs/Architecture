@@ -5,16 +5,16 @@ using Microsoft.AspNetCore.Http;
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
 /// <summary>
-///     查询执行器，自动将返回内容提交给 mediator 并返回结果。
+///     The query executor, auto send query to <see cref="IMediator"/>.
 /// </summary>
 public class QueryEndpointHandler : IEndpointFilter
 {
     private readonly IMediator _mediator;
 
     /// <summary>
-    ///     创建一个查询执行器。
+    ///     Create a <see cref="QueryEndpointHandler"/>.
     /// </summary>
-    /// <param name="mediator"></param>
+    /// <param name="mediator">The mediator to use.</param>
     public QueryEndpointHandler(IMediator mediator)
     {
         _mediator = mediator;

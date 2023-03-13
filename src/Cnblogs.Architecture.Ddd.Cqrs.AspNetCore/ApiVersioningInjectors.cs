@@ -5,12 +5,12 @@ using Asp.Versioning.Conventions;
 namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// Api Versioning 注入扩展
+///     Extension methods to inject api versioning.
 /// </summary>
 public static class ApiVersioningInjectors
 {
     /// <summary>
-    /// 添加 API Versioning，默认使用 <see cref="VersionByNamespaceConvention"/>
+    /// Add API Versioning, use <see cref="VersionByNamespaceConvention"/> by default.
     /// </summary>
     /// <param name="services"><see cref="IServiceCollection"/></param>
     /// <returns></returns>
