@@ -78,7 +78,7 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     }
 
     /// <inheritdoc />
-    public async Task<TEntity?> GetAsync(TKey key, params string[] includes)
+    public async Task<TEntity?> GetAsync(TKey key, IEnumerable<string> includes)
     {
         return await Context.Set<TEntity>().AggregateIncludes(includes).FirstOrDefaultAsync(e => e.Id.Equals(key));
     }

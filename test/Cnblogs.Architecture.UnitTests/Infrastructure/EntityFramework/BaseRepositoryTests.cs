@@ -55,7 +55,7 @@ public class BaseRepositoryTests
         var repository = new TestRepository(Mock.Of<IMediator>(), db);
 
         // Act
-        var got = await repository.GetAsync(entity.Id, nameof(entity.Posts));
+        var got = await repository.GetAsync(entity.Id, new List<string>() { nameof(entity.Posts) });
 
         // Assert
         got.Should().NotBeNull();
@@ -82,7 +82,7 @@ public class BaseRepositoryTests
         var repository = new TestRepository(Mock.Of<IMediator>(), db);
 
         // Act
-        var got = await repository.GetAsync(entity.Id, "Posts.Tags");
+        var got = await repository.GetAsync(entity.Id, new List<string>() { "Posts.Tags" });
 
         // Assert
         got.Should().NotBeNull();
