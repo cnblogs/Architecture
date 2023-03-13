@@ -25,5 +25,5 @@ public interface INavigationRepository<TEntity, TKey> : IRepository<TEntity, TKe
     /// <param name="key">The key of entity.</param>
     /// <param name="includes">Include strings.</param>
     /// <returns>The entity with key equals to <paramref name="key"/>.</returns>
-    Task<TEntity?> GetAsync(TKey key, params string[] includes);
+    Task<TEntity?> GetAsync(TKey key, IEnumerable<string> includes);
 }
