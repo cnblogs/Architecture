@@ -60,4 +60,14 @@ public class ApiControllerBase : ControllerBase
 
         return BadRequest(response.ErrorCode?.Name ?? response.ErrorMessage);
     }
+
+    private static IActionResult BadRequest(string text)
+    {
+        return new ContentResult
+        {
+            Content = text,
+            ContentType = "text/plain",
+            StatusCode = 400
+        };
+    }
 }
