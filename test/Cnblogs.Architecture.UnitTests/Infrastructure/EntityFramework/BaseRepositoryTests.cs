@@ -1,19 +1,94 @@
 ﻿using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.TestShared;
 using Cnblogs.Architecture.UnitTests.Infrastructure.FakeObjects;
-
 using FluentAssertions;
-
 using MediatR;
-
 using Microsoft.EntityFrameworkCore;
-
 using Moq;
 
 namespace Cnblogs.Architecture.UnitTests.Infrastructure.EntityFramework;
 
 public class BaseRepositoryTests
 {
+    [Fact]
+    public async Task GetEntityAsync_Include_GetEntityAsync()
+    {
+        // Arrange
+        var entity = new EntityGenerator<FakeBlog>(new FakeBlog())
+            .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1))
+            .HasManyForEachEntity(
+                x => x.Posts,
+                x => x.Blog,
+                new EntityGenerator<FakePost>(new FakePost())
+                    .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
+            .GenerateSingle();
+        var db = new FakeDbContext(
+            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        db.Add(entity);
+        await db.SaveChangesAsync();
+        var repository = new TestRepository(Mock.Of<IMediator>(), db);
+
+        // Act
+        var got = await repository.GetAsync(entity.Id, e => e.Posts);
+
+        // Assert
+        got.Should().NotBeNull();
+        got!.Posts.Should().BeEquivalentTo(entity.Posts);
+    }
+
+    [Fact]
+    public async Task GetEntityAsync_StringBasedInclude_NotNullAsync()
+    {
+        // Arrange
+        var entity = new EntityGenerator<FakeBlog>(new FakeBlog())
+            .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1))
+            .HasManyForEachEntity(
+                x => x.Posts,
+                x => x.Blog,
+                new EntityGenerator<FakePost>(new FakePost())
+                    .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
+            .GenerateSingle();
+        var db = new FakeDbContext(
+            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        db.Add(entity);
+        await db.SaveChangesAsync();
+        var repository = new TestRepository(Mock.Of<IMediator>(), db);
+
+        // Act
+        var got = await repository.GetAsync(entity.Id, nameof(entity.Posts));
+
+        // Assert
+        got.Should().NotBeNull();
+        got!.Posts.Should().BeEquivalentTo(entity.Posts);
+    }
+
+    [Fact]
+    public async Task GetEntityAsync_ThenInclude_NotNullAsync()
+    {
+        // Arrange
+        var entity = new EntityGenerator<FakeBlog>(new FakeBlog())
+            .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1))
+            .HasManyForEachEntity(
+                x => x.Posts,
+                x => x.Blog,
+                new EntityGenerator<FakePost>(new FakePost())
+                    .HasManyForEachEntity(x => x.Tags, new EntityGenerator<FakeTag>(new FakeTag()))
+                    .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
+            .GenerateSingle();
+        var db = new FakeDbContext(
+            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        db.Add(entity);
+        await db.SaveChangesAsync();
+        var repository = new TestRepository(Mock.Of<IMediator>(), db);
+
+        // Act
+        var got = await repository.GetAsync(entity.Id, "Posts.Tags");
+
+        // Assert
+        got.Should().NotBeNull();
+        got!.Posts.Should().BeEquivalentTo(entity.Posts);
+    }
+
     [Fact]
     public async Task SaveEntitiesAsync_CallBeforeUpdateForRelatedEntityAsync()
     {
@@ -69,10 +144,14 @@ public class BaseRepositoryTests
 
         // Assert
         mediator.Verify(
-            x => x.Publish(It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1), It.IsAny<CancellationToken>()),
+            x => x.Publish(
+                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1),
+                It.IsAny<CancellationToken>()),
             Times.Once);
         mediator.Verify(
-            x => x.Publish(It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2), It.IsAny<CancellationToken>()),
+            x => x.Publish(
+                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2),
+                It.IsAny<CancellationToken>()),
             Times.Once);
     }
 
@@ -104,10 +183,14 @@ public class BaseRepositoryTests
 
         // Assert
         mediator.Verify(
-            x => x.Publish(It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1), It.IsAny<CancellationToken>()),
+            x => x.Publish(
+                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1),
+                It.IsAny<CancellationToken>()),
             Times.Once);
         mediator.Verify(
-            x => x.Publish(It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2), It.IsAny<CancellationToken>()),
+            x => x.Publish(
+                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2),
+                It.IsAny<CancellationToken>()),
             Times.Once);
     }
 

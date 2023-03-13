@@ -18,4 +18,12 @@ public interface INavigationRepository<TEntity, TKey> : IRepository<TEntity, TKe
     /// <param name="includes">要额外加载的其他实体。</param>
     /// <returns><paramref name="key" /> 对应的实体。</returns>
     Task<TEntity?> GetAsync(TKey key, params Expression<Func<TEntity, object?>>[] includes);
+
+    /// <summary>
+    ///     Get entity by key.
+    /// </summary>
+    /// <param name="key">The key of entity.</param>
+    /// <param name="includes">Include strings.</param>
+    /// <returns>The entity with key equals to <paramref name="key"/>.</returns>
+    Task<TEntity?> GetAsync(TKey key, params string[] includes);
 }

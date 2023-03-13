@@ -23,4 +23,19 @@ public static class QueryableExtensions
     {
         return includes.Aggregate(query, (queryable, include) => queryable.Include(include));
     }
+
+    /// <summary>
+    ///     Apply multiple includes to <paramref name="query"/>.
+    /// </summary>
+    /// <param name="query">The source queryable.</param>
+    /// <param name="includes">Include strings.</param>
+    /// <typeparam name="TEntity">The type of entity.</typeparam>
+    /// <returns></returns>
+    public static IQueryable<TEntity> AggregateIncludes<TEntity>(
+        this IQueryable<TEntity> query,
+        IEnumerable<string> includes)
+        where TEntity : class
+    {
+        return includes.Aggregate(query, (queryable, include) => queryable.Include(include));
+    }
 }

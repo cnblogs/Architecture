@@ -18,5 +18,9 @@ public class FakeDbContext : DbContext
 
         modelBuilder.Entity<FakePost>().HasKey(x => x.Id);
         modelBuilder.Entity<FakePost>().Property(x => x.Id).ValueGeneratedOnAdd();
+        modelBuilder.Entity<FakePost>().HasMany(x => x.Tags).WithOne().HasForeignKey(x => x.PostId);
+
+        modelBuilder.Entity<FakeTag>().HasKey(x => x.Id);
+        modelBuilder.Entity<FakeTag>().Property(x => x.Id).ValueGeneratedOnAdd();
     }
 }
