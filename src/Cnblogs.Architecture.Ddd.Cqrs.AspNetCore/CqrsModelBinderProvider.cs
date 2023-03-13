@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
 /// <summary>
-/// Model Binder Provider for custom types
+///     Model Binder Provider for custom types used in CQRS.
 /// </summary>
 public class CqrsModelBinderProvider : IModelBinderProvider
 {
