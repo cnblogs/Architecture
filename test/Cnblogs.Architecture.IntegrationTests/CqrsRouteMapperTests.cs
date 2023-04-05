@@ -77,4 +77,23 @@ public class CqrsRouteMapperTests
         // Assert
         response.Should().BeSuccessful();
     }
+
+    [Fact]
+    public async Task GetItem_NullableRouteValue_SuccessAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var responses = new List<HttpResponseMessage>
+        {
+            await builder.CreateClient().GetAsync("/api/v1/apps/-/strings/-/value"),
+            await builder.CreateClient().GetAsync("/api/v1/apps/-/strings/1/value"),
+            await builder.CreateClient().GetAsync("/api/v1/apps/someApp/strings/-/value"),
+            await builder.CreateClient().GetAsync("/api/v1/apps/someApp/strings/1/value")
+        };
+
+        // Assert
+        responses.Should().Match(x => x.All(y => y.IsSuccessStatusCode));
+    }
 }
