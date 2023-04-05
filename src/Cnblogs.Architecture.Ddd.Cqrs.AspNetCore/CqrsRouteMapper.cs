@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-
+using System.Reflection;
+using System.Text.RegularExpressions;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
-
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.AspNetCore.Routing.Patterns;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
@@ -22,13 +23,112 @@ public static class CqrsRouteMapper
     /// </summary>
     /// <param name="app"><see cref="IApplicationBuilder"/></param>
     /// <param name="route">The route template for API.</param>
+    /// <param name="mapNullableRouteParameters">Multiple routes should be mapped when for nullable route parameters.</param>
+    /// <param name="nullRouteParameterPattern">Replace route parameter with given string to represent null.</param>
     /// <typeparam name="T">The type of the query.</typeparam>
     /// <returns></returns>
+    /// <example>
+    /// The following code:
+    /// <code>
+    ///     app.MapQuery&lt;ItemQuery&gt;("apps/{appName}/instance/{instanceId}/roles", true);
+    /// </code>
+    /// would register following routes:
+    /// <code>
+    /// apps/-/instance/-/roles
+    /// apps/{appName}/instance/-/roles
+    /// apps/-/instance/{instanceId}/roles
+    /// apps/{appName}/instance/{instanceId}/roles
+    /// </code>
+    /// </example>
     public static IEndpointConventionBuilder MapQuery<T>(
         this IEndpointRouteBuilder app,
-        [StringSyntax("Route")] string route)
+        [StringSyntax("Route")] string route,
+        bool mapNullableRouteParameters = false,
+        string nullRouteParameterPattern = "-")
     {
-        return app.MapQuery(route, ([AsParameters] T query) => query);
+        return app.MapQuery(
+            route,
+            ([AsParameters] T query) => query,
+            mapNullableRouteParameters,
+            nullRouteParameterPattern);
+    }
+
+    /// <summary>
+    ///     Map a query API, using GET method.
+    /// </summary>
+    /// <param name="app"><see cref="ApplicationBuilder"/></param>
+    /// <param name="route">The route template.</param>
+    /// <param name="handler">The delegate that returns a <see cref="IQuery{TView}"/> instance.</param>
+    /// <param name="mapNullableRouteParameters">Multiple routes should be mapped when for nullable route parameters.</param>
+    /// <param name="nullRouteParameterPattern">Replace route parameter with given string to represent null.</param>
+    /// <returns></returns>
+    /// <example>
+    /// The following code:
+    /// <code>
+    ///     app.MapQuery("apps/{appName}/instance/{instanceId}/roles", (string? appName, string? instanceId) => new ItemQuery(appName, instanceId), true);
+    /// </code>
+    /// would register following routes:
+    /// <code>
+    /// apps/-/instance/-/roles
+    /// apps/{appName}/instance/-/roles
+    /// apps/-/instance/{instanceId}/roles
+    /// apps/{appName}/instance/{instanceId}/roles
+    /// </code>
+    /// </example>
+    public static IEndpointConventionBuilder MapQuery(
+        this IEndpointRouteBuilder app,
+        [StringSyntax("Route")] string route,
+        Delegate handler,
+        bool mapNullableRouteParameters = false,
+        string nullRouteParameterPattern = "-")
+    {
+        var isQuery = handler.Method.ReturnType.GetInterfaces().Where(x => x.IsGenericType)
+            .Any(x => QueryTypes.Contains(x.GetGenericTypeDefinition()));
+        if (isQuery == false)
+        {
+            throw new ArgumentException(
+                "delegate does not return a query, please make sure it returns object that implement IQuery<> or IListQuery<> or interface that inherit from them");
+        }
+
+        if (mapNullableRouteParameters == false)
+        {
+            return app.MapGet(route, handler).AddEndpointFilter<QueryEndpointHandler>();
+        }
+
+        if (string.IsNullOrWhiteSpace(nullRouteParameterPattern))
+        {
+            throw new ArgumentNullException(
+                nameof(nullRouteParameterPattern),
+                "argument must not be null or empty");
+        }
+
+        var parsedRoute = RoutePatternFactory.Parse(route);
+        var context = new NullabilityInfoContext();
+        var nullableRouteProperties = handler.Method.ReturnType.GetProperties()
+            .Where(
+                p => p.GetMethod != null
+                     && p.SetMethod != null
+                     && context.Create(p.GetMethod.ReturnParameter).ReadState == NullabilityState.Nullable)
+            .ToList();
+        var nullableRoutePattern = parsedRoute.Parameters
+            .Where(
+                x => nullableRouteProperties.Any(
+                    y => string.Equals(x.Name, y.Name, StringComparison.OrdinalIgnoreCase)))
+            .ToList();
+        var subsets = GetNotEmptySubsets(nullableRoutePattern);
+        foreach (var subset in subsets)
+        {
+            var newRoute = subset.Aggregate(
+                route,
+                (r, x) =>
+                {
+                    var regex = new Regex("{" + x.Name + "[^}]*?}", RegexOptions.IgnoreCase);
+                    return regex.Replace(r, nullRouteParameterPattern);
+                });
+            app.MapGet(newRoute, handler).AddEndpointFilter<QueryEndpointHandler>();
+        }
+
+        return app.MapGet(route, handler).AddEndpointFilter<QueryEndpointHandler>();
     }
 
     /// <summary>
@@ -51,29 +151,6 @@ public static class CqrsRouteMapper
         [StringSyntax("Route")] string route)
     {
         return app.MapCommand(route, ([AsParameters] T command) => command);
-    }
-
-    /// <summary>
-    ///     Map a query API, using GET method.
-    /// </summary>
-    /// <param name="app"><see cref="ApplicationBuilder"/></param>
-    /// <param name="route">The route template.</param>
-    /// <param name="handler">The delegate that returns a <see cref="IQuery{TView}"/> instance.</param>
-    /// <returns></returns>
-    public static IEndpointConventionBuilder MapQuery(
-        this IEndpointRouteBuilder app,
-        [StringSyntax("Route")] string route,
-        Delegate handler)
-    {
-        var isQuery = handler.Method.ReturnType.GetInterfaces().Where(x => x.IsGenericType)
-            .Any(x => QueryTypes.Contains(x.GetGenericTypeDefinition()));
-        if (isQuery == false)
-        {
-            throw new ArgumentException(
-                "delegate does not return a query, please make sure it returns object that implement IQuery<> or IListQuery<> or interface that inherit from them");
-        }
-
-        return app.MapGet(route, handler).AddEndpointFilter<QueryEndpointHandler>();
     }
 
     /// <summary>
@@ -173,5 +250,19 @@ public static class CqrsRouteMapper
             throw new ArgumentException(
                 "handler does not return command, check if delegate returns type that implements ICommand<> or ICommand<,>");
         }
+    }
+
+    private static List<T[]> GetNotEmptySubsets<T>(ICollection<T> items)
+    {
+        var subsetCount = 1 << items.Count;
+        var results = new List<T[]>(subsetCount);
+        for (var i = 1; i < subsetCount; i++)
+        {
+            var index = i;
+            var subset = items.Where((_, j) => (index & (1 << j)) > 0).ToArray();
+            results.Add(subset);
+        }
+
+        return results;
     }
 }
