@@ -35,7 +35,7 @@ app.Subscribe<TestIntegrationEvent>();
 
 var apis = app.NewVersionedApi();
 var v1 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(1);
-v1.MapQuery<GetStringQuery>("apps/{appId}/strings/{stringId:int}/value", true);
+v1.MapQuery<GetStringQuery>("apps/{appId}/strings/{stringId:int}/value", MapNullableRouteParameter.Enable);
 v1.MapQuery<GetStringQuery>("strings/{id:int}");
 v1.MapQuery<ListStringsQuery>("strings");
 v1.MapCommand("strings", (CreatePayload payload) => new CreateCommand(payload.NeedError));

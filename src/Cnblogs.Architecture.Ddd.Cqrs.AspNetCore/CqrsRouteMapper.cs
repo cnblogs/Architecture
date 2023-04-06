@@ -43,7 +43,7 @@ public static class CqrsRouteMapper
     public static IEndpointConventionBuilder MapQuery<T>(
         this IEndpointRouteBuilder app,
         [StringSyntax("Route")] string route,
-        bool mapNullableRouteParameters = false,
+        MapNullableRouteParameter mapNullableRouteParameters = MapNullableRouteParameter.Disable,
         string nullRouteParameterPattern = "-")
     {
         return app.MapQuery(
@@ -79,7 +79,7 @@ public static class CqrsRouteMapper
         this IEndpointRouteBuilder app,
         [StringSyntax("Route")] string route,
         Delegate handler,
-        bool mapNullableRouteParameters = false,
+        MapNullableRouteParameter mapNullableRouteParameters = MapNullableRouteParameter.Disable,
         string nullRouteParameterPattern = "-")
     {
         var isQuery = handler.Method.ReturnType.GetInterfaces().Where(x => x.IsGenericType)
@@ -90,7 +90,7 @@ public static class CqrsRouteMapper
                 "delegate does not return a query, please make sure it returns object that implement IQuery<> or IListQuery<> or interface that inherit from them");
         }
 
-        if (mapNullableRouteParameters == false)
+        if (mapNullableRouteParameters is MapNullableRouteParameter.Disable)
         {
             return app.MapGet(route, handler).AddEndpointFilter<QueryEndpointHandler>();
         }
