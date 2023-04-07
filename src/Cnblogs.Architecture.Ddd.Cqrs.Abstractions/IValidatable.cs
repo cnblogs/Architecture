@@ -6,7 +6,8 @@
 public interface IValidatable
 {
     /// <summary>
-    ///     Validate the object, return <see cref="ValidationError"/> if fails or <code>null</code> if passed.
+    ///     Validate the object, validate will pass if <paramref name="validationErrors"/> is empty.
     /// </summary>
-    ValidationError? Validate();
+    /// <param name="validationErrors">The validation error collection.</param>
+    void Validate(ValidationErrors validationErrors);
 }

@@ -95,9 +95,11 @@ public class ApiControllerBase : ControllerBase
     {
         if (response.IsValidationError)
         {
-            ModelState.AddModelError(
-                response.ValidationError!.ParameterName ?? "command",
-                response.ValidationError!.Message);
+            foreach (var (message, parameterName) in response.ValidationErrors)
+            {
+                ModelState.AddModelError(parameterName ?? "command", message);
+            }
+
             return ValidationProblem();
         }
 
@@ -118,7 +120,7 @@ public class ApiControllerBase : ControllerBase
     {
         if (response.IsValidationError)
         {
-            return BadRequest(response.ValidationError!.Message);
+            return BadRequest(string.Join('\n', response.ValidationErrors.Select(x => x.Message)));
         }
 
         if (response is { IsConcurrentError: true, LockAcquired: false })

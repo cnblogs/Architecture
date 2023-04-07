@@ -55,8 +55,12 @@ public class FakeQuery<TResponse> : ICachableRequest, IRequest<TResponse>, IVali
     }
 
     /// <inheritdoc />
-    public ValidationError? Validate()
+    public void Validate(ValidationErrors validationErrors)
     {
-        return ValidateFunction.Invoke();
+        var error = ValidateFunction.Invoke();
+        if (error is not null)
+        {
+            validationErrors.Add(error);
+        }
     }
 }

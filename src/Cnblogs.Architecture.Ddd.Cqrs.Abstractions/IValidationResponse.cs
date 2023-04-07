@@ -16,7 +16,7 @@ public interface IValidationResponse
     string ErrorMessage { get; init; }
 
     /// <summary>
-    ///     The validation results, null if validation was passed.
+    ///     The validation results, empty if validation was passed.
     /// </summary>
-    ValidationError? ValidationError { get; init; }
+    ValidationErrors ValidationErrors { get; init; }
 }

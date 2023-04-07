@@ -31,8 +31,9 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
         CancellationToken cancellationToken)
     {
         _logger.LogInformation("----- Validating request {RequestType}", request.GetType().Name);
-        var error = request.Validate();
-        if (error is null)
+        var errors = new ValidationErrors();
+        request.Validate(errors);
+        if (errors.Count == 0)
         {
             return await next();
         }
@@ -41,13 +42,13 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
             "----- Validation failed with error, type: {RequestType}, Request: {Request}, Message: {Message}",
             request.GetType().Name,
             request,
-            error.Message);
+            errors.First().Message);
 
         return new TResponse
         {
             IsValidationError = true,
-            ErrorMessage = error.Message,
-            ValidationError = error
+            ErrorMessage = errors.First().Message,
+            ValidationErrors = errors
         };
     }
 }
