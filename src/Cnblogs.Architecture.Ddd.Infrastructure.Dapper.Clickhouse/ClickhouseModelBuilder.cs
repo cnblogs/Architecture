@@ -16,7 +16,7 @@ public class ClickhouseModelBuilder<T> : IClickhouseModelBuilder
     {
         _tableName = typeof(T).Name;
         _propertyBuilders = typeof(T).GetProperties().Where(x => x.GetGetMethod() != null)
-            .Select(x => new ClickhouseModelPropertyBuilder<T>(this, x)).ToDictionary(x => x.PropertyInfo.Name, x => x);
+            .Select(x => new ClickhouseModelPropertyBuilder<T>(x)).ToDictionary(x => x.PropertyInfo.Name, x => x);
     }
 
     /// <summary>

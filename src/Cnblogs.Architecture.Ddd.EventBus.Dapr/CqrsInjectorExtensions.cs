@@ -1,8 +1,9 @@
 ﻿using System.Reflection;
+using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
+namespace Cnblogs.Architecture.Ddd.EventBus.Dapr;
 
 /// <summary>
 ///     添加 Dapr 到 <see cref="CqrsInjector"/>

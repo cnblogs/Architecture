@@ -186,14 +186,7 @@ public class MongoBaseRepository<TContext, TEntity, TKey> : IRepository<TEntity,
         }
 
         _toUpdate ??= new Dictionary<TKey, TEntity>();
-        if (_toUpdate.ContainsKey(entity.Id))
-        {
-            _toUpdate[entity.Id] = entity;
-        }
-        else
-        {
-            _toUpdate.Add(entity.Id, entity);
-        }
+        _toUpdate[entity.Id] = entity;
 
         return entity;
     }
@@ -209,14 +202,7 @@ public class MongoBaseRepository<TContext, TEntity, TKey> : IRepository<TEntity,
         }
 
         _toDelete ??= new Dictionary<TKey, TEntity>();
-        if (_toDelete.ContainsKey(entity.Id))
-        {
-            _toDelete[entity.Id] = entity;
-        }
-        else
-        {
-            _toDelete.Add(entity.Id, entity);
-        }
+        _toDelete[entity.Id] = entity;
 
         return entity;
     }

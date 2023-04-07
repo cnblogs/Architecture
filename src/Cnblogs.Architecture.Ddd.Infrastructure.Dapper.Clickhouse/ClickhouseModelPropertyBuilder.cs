@@ -11,9 +11,8 @@ public class ClickhouseModelPropertyBuilder<TEntity>
     /// <summary>
     ///     Create a ClickhouseModelPropertyBuilder from entity builder.
     /// </summary>
-    /// <param name="entityBuilder">The parent entity builder.</param>
     /// <param name="propertyInfo">The property been configured.</param>
-    public ClickhouseModelPropertyBuilder(ClickhouseModelBuilder<TEntity> entityBuilder, PropertyInfo propertyInfo)
+    public ClickhouseModelPropertyBuilder(PropertyInfo propertyInfo)
     {
         PropertyInfo = propertyInfo;
         ColumnName = propertyInfo.Name;

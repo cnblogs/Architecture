@@ -4,6 +4,7 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse;
 ///     The options for clickhouse context.
 /// </summary>
 /// <typeparam name="TContext">The type of <see cref="ClickhouseDapperContext"/> been configured.</typeparam>
+// ReSharper disable once UnusedTypeParameter
 public class ClickhouseContextOptions<TContext> : ClickhouseContextOptions
     where TContext : ClickhouseDapperContext
 {

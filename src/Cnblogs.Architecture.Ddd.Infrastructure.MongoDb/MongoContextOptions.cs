@@ -51,14 +51,7 @@ public abstract class MongoContextOptions : IMongoContextOptions
     public void MapEntity<TEntity>(string collectionName)
     {
         var type = typeof(TEntity);
-        if (_collectionMap.ContainsKey(type))
-        {
-            _collectionMap[type] = collectionName;
-        }
-        else
-        {
-            _collectionMap.Add(type, collectionName);
-        }
+        _collectionMap[type] = collectionName;
     }
 
     /// <inheritdoc />
