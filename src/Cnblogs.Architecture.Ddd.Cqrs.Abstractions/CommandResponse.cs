@@ -26,7 +26,7 @@ public abstract record CommandResponse : IValidationResponse, ILockableResponse
     public string ErrorMessage { get; init; } = string.Empty;
 
     /// <inheritdoc />
-    public ValidationError? ValidationError { get; init; }
+    public ValidationErrors ValidationErrors { get; init; } = new();
 
     /// <inheritdoc />
     public bool LockAcquired { get; set; }

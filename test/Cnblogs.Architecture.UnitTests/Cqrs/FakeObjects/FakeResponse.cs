@@ -11,5 +11,5 @@ public class FakeResponse : IValidationResponse
     public string ErrorMessage { get; init; } = string.Empty;
 
     /// <inheritdoc />
-    public ValidationError? ValidationError { get; init; }
+    public ValidationErrors ValidationErrors { get; init; } = new();
 }

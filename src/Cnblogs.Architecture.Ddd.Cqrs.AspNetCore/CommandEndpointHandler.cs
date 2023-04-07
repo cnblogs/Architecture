@@ -78,7 +78,7 @@ public class CommandEndpointHandler : IEndpointFilter
     {
         if (response.IsValidationError)
         {
-            return Results.Text(response.ValidationError!.Message, statusCode: 400);
+            return Results.Text(string.Join('\n', response.ValidationErrors.Select(x => x.Message)), statusCode: 400);
         }
 
         if (response is { IsConcurrentError: true, LockAcquired: false })
@@ -93,12 +93,9 @@ public class CommandEndpointHandler : IEndpointFilter
     {
         if (response.IsValidationError)
         {
-            var errors = new Dictionary<string, string[]>
-            {
-                {
-                    response.ValidationError!.ParameterName ?? "command", new[] { response.ValidationError!.Message }
-                }
-            };
+            var errors = response.ValidationErrors
+                .GroupBy(x => x.ParameterName ?? "command")
+                .ToDictionary(x => x.Key, x => x.Select(y => y.Message).ToArray());
             return Results.ValidationProblem(errors, statusCode: 400);
         }
 

@@ -11,13 +11,11 @@ public record UpdateCommand(
     : ICommand<TestError>, IValidatable
 {
     /// <inheritdoc />
-    public ValidationError? Validate()
+    public void Validate(ValidationErrors errors)
     {
         if (NeedValidationError)
         {
-            return new ValidationError("need validation error", nameof(NeedValidationError));
+            errors.Add(new ValidationError("need validation error", nameof(NeedValidationError)));
         }
-
-        return null;
     }
 }
