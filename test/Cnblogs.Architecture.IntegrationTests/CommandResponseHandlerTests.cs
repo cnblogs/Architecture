@@ -1,39 +1,167 @@
 using System.Net.Http.Json;
+using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Cnblogs.Architecture.IntegrationTestProject;
+using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Errors;
+using Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
 using FluentAssertions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 
 public class CommandResponseHandlerTests
 {
-    [Fact]
-    public async Task HandleCommandResponse_HavingError_BadRequestAsync()
+    public static IEnumerable<object[]> ErrorPayloads { get; } = new List<object[]>
+    {
+        new object[] { true, false }, new object[] { false, true }
+    };
+
+    [Theory]
+    [MemberData(nameof(ErrorPayloads))]
+    public async Task MinimalApi_HavingError_BadRequestAsync(bool needValidationError, bool needExecutionError)
     {
         // Arrange
         var builder = new WebApplicationFactory<Program>();
 
         // Act
-        var response = await builder.CreateClient().PutAsJsonAsync("/api/v1/strings/1", new UpdatePayload(true));
+        var response = await builder.CreateClient().PutAsJsonAsync(
+            "/api/v1/strings/1",
+            new UpdatePayload(needValidationError, needExecutionError));
         var content = await response.Content.ReadAsStringAsync();
 
         // Assert
         response.Should().HaveClientError();
-        content.Should().Be(TestError.Default.Name);
+        content.Should().NotBeNullOrEmpty();
     }
 
     [Fact]
-    public async Task HandleCommandResponse_Success_OkAsync()
+    public async Task MinimalApi_Success_OkAsync()
     {
         // Arrange
         var builder = new WebApplicationFactory<Program>();
 
         // Act
-        var response = await builder.CreateClient().PutAsJsonAsync("/api/v1/strings/1", new UpdatePayload(false));
+        var response = await builder.CreateClient().PutAsJsonAsync("/api/v1/strings/1", new UpdatePayload());
 
         // Assert
         response.Should().BeSuccessful();
+    }
+
+    [Theory]
+    [MemberData(nameof(ErrorPayloads))]
+    public async Task MinimalApi_HavingError_ProblemDetailsAsync(bool needValidationError, bool needExecutionError)
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>().WithWebHostBuilder(
+            w => w.ConfigureTestServices(s => s.AddCqrs(typeof(GetStringQuery).Assembly).UseProblemDetails()));
+
+        // Act
+        var response = await builder.CreateClient().PutAsJsonAsync(
+            "/api/v1/strings/1",
+            new UpdatePayload(needValidationError, needExecutionError));
+        var content = await response.Content.ReadFromJsonAsync<ProblemDetails>();
+
+        // Assert
+        response.Should().HaveClientError();
+        content.Should().NotBeNull();
+    }
+
+    [Theory]
+    [MemberData(nameof(ErrorPayloads))]
+    public async Task MinimalApi_HavingError_CustomContentAsync(bool needValidationError, bool needExecutionError)
+    {
+        // Arrange
+        var error = new TestError(1, "testError");
+        var builder = new WebApplicationFactory<Program>().WithWebHostBuilder(
+            w => w.ConfigureTestServices(
+                s => s.AddCqrs(typeof(GetStringQuery).Assembly)
+                    .UseCustomCommandErrorResponseMapper((_, _) => Results.BadRequest(error))));
+
+        // Act
+        var response = await builder.CreateClient().PutAsJsonAsync(
+            "/api/v1/strings/1",
+            new UpdatePayload(needValidationError, needExecutionError));
+        var content = await response.Content.ReadFromJsonAsync<TestError>();
+
+        // Assert
+        response.Should().HaveClientError();
+        content.Should().BeEquivalentTo(error);
+    }
+
+    [Fact]
+    public async Task Mvc_Success_OkAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var response = await builder.CreateClient().PutAsJsonAsync("/api/v1/mvc/strings/1", new UpdatePayload());
+
+        // Assert
+        response.Should().BeSuccessful();
+    }
+
+    [Theory]
+    [MemberData(nameof(ErrorPayloads))]
+    public async Task Mvc_HavingError_TextAsync(bool needValidationError, bool needExecutionError)
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var response = await builder.CreateClient().PutAsJsonAsync(
+            "/api/v1/mvc/strings/1",
+            new UpdatePayload(needValidationError, needExecutionError));
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        response.Should().HaveClientError();
+        content.Should().NotBeNullOrEmpty();
+    }
+
+    [Theory]
+    [MemberData(nameof(ErrorPayloads))]
+    public async Task Mvc_HavingError_ProblemDetailAsync(bool needValidationError, bool needExecutionError)
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>().WithWebHostBuilder(
+            w => w.ConfigureTestServices(s => s.AddCqrs(typeof(UpdateCommand).Assembly).UseProblemDetails()));
+
+        // Act
+        var response = await builder.CreateClient().PutAsJsonAsync(
+            "/api/v1/mvc/strings/1",
+            new UpdatePayload(needValidationError, needExecutionError));
+        var content = await response.Content.ReadFromJsonAsync<ProblemDetails>();
+
+        // Assert
+        response.Should().HaveClientError();
+        content.Should().NotBeNull();
+    }
+
+    [Theory]
+    [MemberData(nameof(ErrorPayloads))]
+    public async Task Mvc_HavingError_CustomContentAsync(bool needValidationError, bool needExecutionError)
+    {
+        // Arrange
+        var error = TestError.Default;
+        var builder = new WebApplicationFactory<Program>().WithWebHostBuilder(
+            w => w.ConfigureTestServices(
+                s => s.AddCqrs(typeof(UpdateCommand).Assembly)
+                    .UseCustomCommandErrorResponseMapper((_, _) => Results.BadRequest(error))));
+
+        // Act
+        var response = await builder.CreateClient().PutAsJsonAsync(
+            "/api/v1/mvc/strings/1",
+            new UpdatePayload(needValidationError, needExecutionError));
+        var content = await response.Content.ReadFromJsonAsync<TestError>();
+
+        // Assert
+        response.Should().HaveClientError();
+        content.Should().BeEquivalentTo(error);
     }
 }

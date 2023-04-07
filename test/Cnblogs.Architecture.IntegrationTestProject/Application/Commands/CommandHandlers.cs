@@ -18,7 +18,7 @@ public class CommandHandlers
     /// <inheritdoc />
     public Task<CommandResponse<TestError>> Handle(UpdateCommand request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(request.NeedError
+        return Task.FromResult(request.NeedExecutionError
             ? CommandResponse<TestError>.Fail(TestError.Default)
             : CommandResponse<TestError>.Success());
     }

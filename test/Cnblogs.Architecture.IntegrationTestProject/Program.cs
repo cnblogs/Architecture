@@ -41,7 +41,7 @@ v1.MapQuery<ListStringsQuery>("strings");
 v1.MapCommand("strings", (CreatePayload payload) => new CreateCommand(payload.NeedError));
 v1.MapCommand(
     "strings/{id:int}",
-    (int id, UpdatePayload payload) => new UpdateCommand(id, payload.NeedError));
+    (int id, UpdatePayload payload) => new UpdateCommand(id, payload.NeedValidationError, payload.NeedExecutionError));
 v1.MapCommand<DeleteCommand>("strings/{id:int}");
 
 app.Run();
