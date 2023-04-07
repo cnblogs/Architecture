@@ -1,15 +1,12 @@
-﻿using Cnblogs.Architecture.Ddd.Infrastructure.RedLock;
-
+﻿using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-
 using RedLockNet.SERedis;
 using RedLockNet.SERedis.Configuration;
-
 using StackExchange.Redis;
 
-namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.RedLock;
+namespace Cnblogs.Architecture.Ddd.Infrastructure.RedLock;
 
 /// <summary>
 ///     用于向 <see cref="CqrsInjector" /> 注入 RedLock 的扩展方法。

@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.EventBus.Dapr;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Dapr.Client;

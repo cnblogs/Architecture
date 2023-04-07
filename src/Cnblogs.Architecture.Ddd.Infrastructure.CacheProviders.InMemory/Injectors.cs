@@ -1,7 +1,7 @@
 ﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
-using Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory;
+using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 
-namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CacheProviders.InMemory;
+namespace Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory;
 
 /// <summary>
 /// <see cref="CqrsInjector"/> 的扩展方法。
