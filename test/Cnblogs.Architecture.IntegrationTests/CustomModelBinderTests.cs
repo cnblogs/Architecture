@@ -18,7 +18,7 @@ public class CustomModelBinderTests
 
         // Act
         var response = await builder.CreateClient()
-            .GetFromJsonAsync<PagingParams>("/api/v1/paging?pageIndex=1&pageSize=30");
+            .GetFromJsonAsync<PagingParams>("/api/v1/mvc/paging?pageIndex=1&pageSize=30");
 
         // Assert
         response.Should().BeEquivalentTo(new PagingParams(1, 30));
@@ -34,7 +34,7 @@ public class CustomModelBinderTests
         var builder = new WebApplicationFactory<Program>();
 
         // Act
-        var response = await builder.CreateClient().GetAsync($"/api/v1/paging{query}");
+        var response = await builder.CreateClient().GetAsync($"/api/v1/mvc/paging{query}");
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.NoContent);
@@ -49,7 +49,7 @@ public class CustomModelBinderTests
         var builder = new WebApplicationFactory<Program>();
 
         // Act
-        var response = await builder.CreateClient().GetAsync($"/api/v1/paging?pageIndex={pageIndex}&pageSize=10");
+        var response = await builder.CreateClient().GetAsync($"/api/v1/mvc/paging?pageIndex={pageIndex}&pageSize=10");
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
@@ -64,7 +64,7 @@ public class CustomModelBinderTests
         var builder = new WebApplicationFactory<Program>();
 
         // Act
-        var response = await builder.CreateClient().GetAsync($"/api/v1/paging?pageIndex=1&pageSize={pageSize}");
+        var response = await builder.CreateClient().GetAsync($"/api/v1/mvc/paging?pageIndex=1&pageSize={pageSize}");
 
         // Assert
         response.StatusCode.Should().Be(HttpStatusCode.BadRequest);

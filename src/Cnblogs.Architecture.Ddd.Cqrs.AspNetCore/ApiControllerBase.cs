@@ -1,6 +1,8 @@
 ﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
@@ -10,6 +12,17 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 [ApiController]
 public class ApiControllerBase : ControllerBase
 {
+    private CqrsHttpOptions? _cqrsHttpOptions;
+
+    private CqrsHttpOptions CqrsHttpOptions
+    {
+        get
+        {
+            _cqrsHttpOptions ??= HttpContext.RequestServices.GetRequiredService<IOptions<CqrsHttpOptions>>().Value;
+            return _cqrsHttpOptions;
+        }
+    }
+
     /// <summary>
     ///     Handle command response and return 204 if success, 400 if error.
     /// </summary>
@@ -46,6 +59,61 @@ public class ApiControllerBase : ControllerBase
     }
 
     private IActionResult HandleErrorCommandResponse<TError>(CommandResponse<TError> response)
+        where TError : Enumeration
+    {
+        return CqrsHttpOptions.CommandErrorResponseType switch
+        {
+            ErrorResponseType.PlainText => MapErrorCommandResponseToPlainText(response),
+            ErrorResponseType.ProblemDetails => MapErrorCommandResponseToProblemDetails(response),
+            ErrorResponseType.Custom => CustomErrorCommandResponseMap(response),
+            _ => throw new ArgumentOutOfRangeException(
+                $"Unsupported CommandErrorResponseType: {CqrsHttpOptions.CommandErrorResponseType}")
+        };
+    }
+
+    /// <summary>
+    ///     Provides custom map logic that mapping error <see cref="CommandResponse{TError}"/> to <see cref="IActionResult"/> when <see cref="CqrsHttpOptions.CommandErrorResponseType"/> is <see cref="ErrorResponseType.Custom"/>.
+    ///     The <c>CqrsHttpOptions.CustomCommandErrorResponseMapper</c> will be used as default implementation if configured. PlainText mapper will be used as the final fallback.
+    /// </summary>
+    /// <param name="response">The <see cref="CommandResponse{TError}"/> in error state.</param>
+    /// <typeparam name="TError">The error type.</typeparam>
+    /// <returns></returns>
+    protected virtual IActionResult CustomErrorCommandResponseMap<TError>(CommandResponse<TError> response)
+        where TError : Enumeration
+    {
+        if (CqrsHttpOptions.CustomCommandErrorResponseMapper != null)
+        {
+            var result = CqrsHttpOptions.CustomCommandErrorResponseMapper.Invoke(response, HttpContext);
+            return new HttpActionResult(result);
+        }
+
+        return MapErrorCommandResponseToPlainText(response);
+    }
+
+    private IActionResult MapErrorCommandResponseToProblemDetails<TError>(CommandResponse<TError> response)
+        where TError : Enumeration
+    {
+        if (response.IsValidationError)
+        {
+            ModelState.AddModelError(
+                response.ValidationError!.ParameterName ?? "command",
+                response.ValidationError!.Message);
+            return ValidationProblem();
+        }
+
+        if (response is { IsConcurrentError: true, LockAcquired: false })
+        {
+            return Problem(
+                "The lock can not be acquired within time limit, please try later.",
+                null,
+                429,
+                "Concurrent error");
+        }
+
+        return Problem(response.GetErrorMessage(), null, 400, "Execution failed");
+    }
+
+    private IActionResult MapErrorCommandResponseToPlainText<TError>(CommandResponse<TError> response)
         where TError : Enumeration
     {
         if (response.IsValidationError)
