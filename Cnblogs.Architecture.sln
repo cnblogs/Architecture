@@ -60,6 +60,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cnblogs.Architecture.Ddd.Cq
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse", "src\Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse\Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.csproj", "{4BD98FBF-FB98-4172-B352-BB7BF8761FCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss", "src\Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss\Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.csproj", "{9C76E136-1D79-408C-A17F-FD63632B00A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +93,7 @@ Global
 		{3B22F0CC-9A61-4D95-8ED9-F41B7FCBFC6F} = {772497F8-2CB1-4EA6-AEB8-482C3ECD0A9D}
 		{73665E32-3D10-4F71-B893-4C65F36332D0} = {D3A6DF01-017E-4088-936C-B3791F41DF53}
 		{4BD98FBF-FB98-4172-B352-BB7BF8761FCB} = {D3A6DF01-017E-4088-936C-B3791F41DF53}
+		{9C76E136-1D79-408C-A17F-FD63632B00A9} = {D3A6DF01-017E-4088-936C-B3791F41DF53}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{54D9D850-1CFC-485E-97FE-87F41C220523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -193,5 +196,9 @@ Global
 		{4BD98FBF-FB98-4172-B352-BB7BF8761FCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BD98FBF-FB98-4172-B352-BB7BF8761FCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BD98FBF-FB98-4172-B352-BB7BF8761FCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C76E136-1D79-408C-A17F-FD63632B00A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C76E136-1D79-408C-A17F-FD63632B00A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C76E136-1D79-408C-A17F-FD63632B00A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C76E136-1D79-408C-A17F-FD63632B00A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

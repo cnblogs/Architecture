@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <ItemGroup>
+      <PackageReference Include="aliyun.sdk.oss" Version="0.3.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj" />
+      <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.csproj" />
+    </ItemGroup>
+
+</Project>
