@@ -1,9 +1,7 @@
 ﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
-
 using MediatR;
-
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -106,6 +104,27 @@ public class CqrsInjector
     {
         AddCacheBehaviorPipeline(configure);
         Services.AddScoped<ICacheProvider, TRemote>();
+        return this;
+    }
+
+    /// <summary>
+    ///     Use default implementation of <see cref="IFileProvider"/> that accesses file system directly.
+    /// </summary>
+    /// <returns></returns>
+    public CqrsInjector UseDefaultFileProvider()
+    {
+        return UseFileProvider<DefaultFileProvider>();
+    }
+
+    /// <summary>
+    ///     Use given implementation of <see cref="IFileProvider"/>.
+    /// </summary>
+    /// <typeparam name="TProvider">The implementation type.</typeparam>
+    /// <returns></returns>
+    public CqrsInjector UseFileProvider<TProvider>()
+        where TProvider : class, IFileProvider
+    {
+        Services.AddScoped<IFileProvider, TProvider>();
         return this;
     }
 
