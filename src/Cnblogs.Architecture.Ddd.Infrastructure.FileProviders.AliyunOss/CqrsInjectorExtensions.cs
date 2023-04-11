@@ -23,6 +23,7 @@ public static class CqrsInjectorExtensions
         string configurationSectionName = "ossClient")
     {
         injector.Services.AddOssClient(configuration, configurationSectionName);
+        injector.Services.Configure<AliyunOssOptions>(configuration.GetSection(configurationSectionName));
         return injector.UseFileProvider<AliyunOssFileProvider>();
     }
 }
