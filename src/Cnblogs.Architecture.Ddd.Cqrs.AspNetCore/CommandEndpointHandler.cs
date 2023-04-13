@@ -34,6 +34,12 @@ public class CommandEndpointHandler : IEndpointFilter
                 "Expected ICommand<>, but got null, check if your delegate in MapCommand(route, delegate) returned non-null command");
         }
 
+        if (command is not IBaseRequest)
+        {
+            // not command, return as-is
+            return command;
+        }
+
         var response = await _mediator.Send(command);
         if (response is null)
         {
