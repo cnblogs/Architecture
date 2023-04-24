@@ -8,22 +8,22 @@ public interface ICachableRequest
     /// <summary>
     ///     Configuration for local cache provider.
     /// </summary>
-    CacheBehavior LocalCacheBehavior { get; set; }
+    CacheBehavior LocalCacheBehavior { get; }
 
     /// <summary>
     ///     Configuration for remote cache provider.
     /// </summary>
-    CacheBehavior RemoteCacheBehavior { get; set; }
+    CacheBehavior RemoteCacheBehavior { get; }
 
     /// <summary>
     ///     The expire time for local cache.
     /// </summary>
-    TimeSpan? LocalExpires { get; set; }
+    TimeSpan? LocalExpires { get; }
 
     /// <summary>
     ///     The expire time for remote cache.
     /// </summary>
-    TimeSpan? RemoteExpires { get; set; }
+    TimeSpan? RemoteExpires { get; }
 
     /// <summary>
     ///     Generate key for cache group, return <c>null</c> for no group.
