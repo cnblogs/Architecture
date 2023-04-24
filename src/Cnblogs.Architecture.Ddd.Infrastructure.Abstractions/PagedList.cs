@@ -38,13 +38,21 @@ public record PagedList<T>
     /// <param name="items">包含的元素。</param>
     /// <param name="pagingParams">分页参数。</param>
     /// <param name="totalCount">元素总数。</param>
-    public PagedList(IReadOnlyCollection<T> items, PagingParams pagingParams, int totalCount)
+    public PagedList(IReadOnlyCollection<T> items, PagingParams? pagingParams, int totalCount)
     {
         Items = items;
         TotalCount = totalCount;
-        var (pageIndex, pageSize) = pagingParams;
-        PageIndex = pageIndex;
-        PageSize = pageSize;
+        if (pagingParams is null)
+        {
+            PageIndex = 1;
+            PageSize = totalCount;
+        }
+        else
+        {
+            var (pageIndex, pageSize) = pagingParams;
+            PageIndex = pageIndex;
+            PageSize = pageSize;
+        }
     }
 
     /// <summary>

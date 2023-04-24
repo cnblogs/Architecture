@@ -29,6 +29,11 @@ public class QueryEndpointHandler : IEndpointFilter
             return query;
         }
 
+        if (query is not IBaseRequest)
+        {
+            return query;
+        }
+
         var response = await _mediator.Send(query);
         return response;
     }
