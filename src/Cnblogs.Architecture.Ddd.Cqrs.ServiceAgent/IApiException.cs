@@ -6,6 +6,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent;
 ///     Defines exceptions threw when doing an API call.
 /// </summary>
 /// <typeparam name="TException">The type of this API exception.</typeparam>
+[Obsolete("Try migrate to CqrsServiceAgent")]
 public interface IApiException<out TException>
     where TException : Exception, IApiException<TException>
 {

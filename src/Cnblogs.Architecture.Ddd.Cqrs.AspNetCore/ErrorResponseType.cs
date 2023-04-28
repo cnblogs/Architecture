@@ -1,3 +1,5 @@
+using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
+
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
 /// <summary>
@@ -14,6 +16,11 @@ public enum ErrorResponseType
     ///     Returns <see cref="ProblemDetails"/>.
     /// </summary>
     ProblemDetails,
+
+    /// <summary>
+    ///     Returns <see cref="CommandResponse"/>
+    /// </summary>
+    Cqrs,
 
     /// <summary>
     ///     Handles command error by custom logic.

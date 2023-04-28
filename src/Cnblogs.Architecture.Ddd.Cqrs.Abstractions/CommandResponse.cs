@@ -69,6 +69,7 @@ public record CommandResponse<TError> : CommandResponse
     public CommandResponse(TError errorCode)
     {
         ErrorCode = errorCode;
+        ErrorMessage = errorCode.Name;
     }
 
     /// <summary>
@@ -173,9 +174,9 @@ public record CommandResponse<TView, TError> : CommandResponse<TError>, IObjectR
     /// </summary>
     /// <param name="view">The model to return.</param>
     /// <returns>A <see cref="CommandResponse{TView, TError}"/> with given result.</returns>
-    public static CommandResponse<TView, TError> Success(TView view)
+    public static CommandResponse<TView, TError> Success(TView? view)
     {
-        return new CommandResponse<TView, TError>(view);
+        return view is null ? Success() : new CommandResponse<TView, TError>(view);
     }
 
     /// <inheritdoc />

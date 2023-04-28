@@ -9,6 +9,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent;
 ///     Base class for service agent.
 /// </summary>
 /// <typeparam name="TException">The type of exception that this service agent throws.</typeparam>
+[Obsolete("Try migrate to CqrsServiceAgent")]
 public abstract class ServiceAgentBase<TException>
     where TException : Exception, IApiException<TException>
 {
