@@ -5,7 +5,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// <summary>
 ///     Response returned by <see cref="ICommand{TError}"/>.
 /// </summary>
-public abstract record CommandResponse : IValidationResponse, ILockableResponse
+public record CommandResponse : IValidationResponse, ILockableResponse
 {
     /// <summary>
     ///     Check if validation fails.

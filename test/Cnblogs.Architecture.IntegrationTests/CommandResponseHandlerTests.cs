@@ -1,4 +1,6 @@
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
@@ -31,7 +33,7 @@ public class CommandResponseHandlerTests
         // Act
         var response = await builder.CreateClient().PutAsJsonAsync(
             "/api/v1/strings/1",
-            new UpdatePayload(needValidationError, needExecutionError));
+            new UpdatePayload(needExecutionError, needValidationError));
         var content = await response.Content.ReadAsStringAsync();
 
         // Assert
@@ -63,12 +65,33 @@ public class CommandResponseHandlerTests
         // Act
         var response = await builder.CreateClient().PutAsJsonAsync(
             "/api/v1/strings/1",
-            new UpdatePayload(needValidationError, needExecutionError));
+            new UpdatePayload(needExecutionError, needValidationError));
         var content = await response.Content.ReadFromJsonAsync<ProblemDetails>();
 
         // Assert
         response.Should().HaveClientError();
         content.Should().NotBeNull();
+    }
+
+    [Theory]
+    [MemberData(nameof(ErrorPayloads))]
+    public async Task MinimalApi_HavingError_CommandResponseAsync(bool needValidationError, bool needExecutionError)
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var client = builder.CreateClient();
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+        var response = await client.PutAsJsonAsync(
+            "/api/v1/strings/1",
+            new UpdatePayload(needExecutionError, needValidationError));
+        var commandResponse = await response.Content.ReadFromJsonAsync<CommandResponse>();
+
+        // Assert
+        response.Should().HaveClientError();
+        commandResponse.Should().NotBeNull();
+        commandResponse!.IsSuccess().Should().BeFalse();
     }
 
     [Theory]
@@ -141,6 +164,27 @@ public class CommandResponseHandlerTests
         // Assert
         response.Should().HaveClientError();
         content.Should().NotBeNull();
+    }
+
+    [Theory]
+    [MemberData(nameof(ErrorPayloads))]
+    public async Task Mvc_HavingError_CommandResponseAsync(bool needValidationError, bool needExecutionError)
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var client = builder.CreateClient();
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+        var response = await client.PutAsJsonAsync(
+            "/api/v1/mvc/strings/1",
+            new UpdatePayload(needValidationError, needExecutionError));
+        var content = await response.Content.ReadFromJsonAsync<CommandResponse>();
+
+        // Assert
+        response.Should().HaveClientError();
+        content.Should().NotBeNull();
+        content!.IsSuccess().Should().BeFalse();
     }
 
     [Theory]
