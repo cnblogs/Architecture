@@ -69,15 +69,27 @@ public class CommandEndpointHandler : IEndpointFilter
 
     private IResult HandleErrorCommandResponse(CommandResponse response, HttpContext context)
     {
-        return _options.CommandErrorResponseType switch
+        var errorResponseType = _options.CommandErrorResponseType;
+        if (context.Request.Headers.Accept.Contains("application/cqrs"))
+        {
+            errorResponseType = ErrorResponseType.Cqrs;
+        }
+
+        return errorResponseType switch
         {
             ErrorResponseType.PlainText => HandleErrorCommandResponseWithPlainText(response),
             ErrorResponseType.ProblemDetails => HandleErrorCommandResponseWithProblemDetails(response),
+            ErrorResponseType.Cqrs => HandleErrorCommandResponseWithCqrs(response),
             ErrorResponseType.Custom => _options.CustomCommandErrorResponseMapper?.Invoke(response, context)
                                         ?? HandleErrorCommandResponseWithPlainText(response),
             _ => throw new ArgumentOutOfRangeException(
                 $"Unsupported CommandErrorResponseType: {_options.CommandErrorResponseType}")
         };
+    }
+
+    private static IResult HandleErrorCommandResponseWithCqrs(CommandResponse response)
+    {
+        return Results.BadRequest(response);
     }
 
     private static IResult HandleErrorCommandResponseWithPlainText(CommandResponse response)
