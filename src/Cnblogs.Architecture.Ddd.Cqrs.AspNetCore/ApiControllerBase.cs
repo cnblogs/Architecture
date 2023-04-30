@@ -61,10 +61,17 @@ public class ApiControllerBase : ControllerBase
     private IActionResult HandleErrorCommandResponse<TError>(CommandResponse<TError> response)
         where TError : Enumeration
     {
-        return CqrsHttpOptions.CommandErrorResponseType switch
+        var errorResponseType = CqrsHttpOptions.CommandErrorResponseType;
+        if (Request.Headers.Accept.Contains("application/cqrs"))
+        {
+            errorResponseType = ErrorResponseType.Cqrs;
+        }
+
+        return errorResponseType switch
         {
             ErrorResponseType.PlainText => MapErrorCommandResponseToPlainText(response),
             ErrorResponseType.ProblemDetails => MapErrorCommandResponseToProblemDetails(response),
+            ErrorResponseType.Cqrs => MapErrorCommandResponseToCqrsResponse(response),
             ErrorResponseType.Custom => CustomErrorCommandResponseMap(response),
             _ => throw new ArgumentOutOfRangeException(
                 $"Unsupported CommandErrorResponseType: {CqrsHttpOptions.CommandErrorResponseType}")
@@ -88,6 +95,12 @@ public class ApiControllerBase : ControllerBase
         }
 
         return MapErrorCommandResponseToPlainText(response);
+    }
+
+    private IActionResult MapErrorCommandResponseToCqrsResponse<TError>(CommandResponse<TError> response)
+        where TError : Enumeration
+    {
+        return BadRequest(response);
     }
 
     private IActionResult MapErrorCommandResponseToProblemDetails<TError>(CommandResponse<TError> response)
