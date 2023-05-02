@@ -18,6 +18,11 @@ public static class DispatchDomainEventExtensions
         Exception? e = null;
         foreach (var domainEvent in events)
         {
+            if (domainEvent == null)
+            {
+                continue;
+            }
+
             try
             {
                 await mediator.Publish(domainEvent);
