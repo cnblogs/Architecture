@@ -16,7 +16,8 @@ public static class DispatchDomainEventExtensions
     public static async Task DispatchDomainEventsAsync(this IMediator mediator, IEnumerable<IDomainEvent> events)
     {
         Exception? e = null;
-        foreach (var domainEvent in events)
+
+        foreach (var domainEvent in events ?? Enumerable.Empty<IDomainEvent>())
         {
             if (domainEvent == null)
             {
@@ -25,7 +26,14 @@ public static class DispatchDomainEventExtensions
 
             try
             {
-                await mediator.Publish(domainEvent);
+                if (domainEvent is INotification notification)
+                {
+                    await mediator.Publish(notification);
+                }
+                else
+                {
+                    await mediator.Publish(domainEvent);
+                }
             }
             catch (Exception exception)
             {
