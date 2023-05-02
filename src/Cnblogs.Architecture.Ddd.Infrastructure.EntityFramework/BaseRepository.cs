@@ -1,4 +1,4 @@
-﻿using System.Linq.Expressions;
+using System.Linq.Expressions;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -173,6 +173,12 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
         var entities = Context.ExtractDomainEventSources();
         var domainEvents = entities.SelectMany(x => x.DomainEvents!.OfType<DomainEvent>()).ToList();
         entities.ForEach(x => x.ClearDomainEvents());
+
+        if (domainEvents is null || domainEvents.Any() == false)
+        {
+            return;
+        }
+
         await BeforeDispatchDomainEventAsync(domainEvents, Context);
         await _mediator.DispatchDomainEventsAsync(domainEvents);
     }
