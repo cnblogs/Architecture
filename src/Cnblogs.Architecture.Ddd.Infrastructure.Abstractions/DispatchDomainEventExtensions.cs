@@ -1,4 +1,4 @@
-﻿using Cnblogs.Architecture.Ddd.Domain.Abstractions;
+using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 
 // ReSharper disable once CheckNamespace
 namespace MediatR;
