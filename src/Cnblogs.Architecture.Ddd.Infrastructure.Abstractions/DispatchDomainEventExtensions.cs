@@ -1,3 +1,4 @@
+using System.Runtime.ExceptionServices;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 
 // ReSharper disable once CheckNamespace
@@ -30,7 +31,7 @@ public static class DispatchDomainEventExtensions
 
         if (e is not null)
         {
-            throw e;
+            ExceptionDispatchInfo.Capture(e).Throw();
         }
     }
 }
