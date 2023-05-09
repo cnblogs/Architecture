@@ -1,4 +1,3 @@
-using System.Runtime.ExceptionServices;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 
 // ReSharper disable once CheckNamespace
@@ -16,7 +15,7 @@ public static class DispatchDomainEventExtensions
     /// <param name="events">要发布的领域事件。</param>
     public static async Task DispatchDomainEventsAsync(this IMediator mediator, IEnumerable<IDomainEvent> events)
     {
-        Exception? e = null;
+        List<Exception>? exceptions = null;
         foreach (var domainEvent in events)
         {
             try
@@ -25,13 +24,14 @@ public static class DispatchDomainEventExtensions
             }
             catch (Exception exception)
             {
-                e ??= exception;
+                exceptions ??= new List<Exception>();
+                exceptions.Add(exception);
             }
         }
 
-        if (e is not null)
+        if (exceptions?.Count > 0)
         {
-            ExceptionDispatchInfo.Capture(e).Throw();
+            throw new AggregateException(exceptions);
         }
     }
 }

@@ -1,11 +1,9 @@
-﻿using MediatR;
-
-namespace Cnblogs.Architecture.Ddd.Domain.Abstractions;
+﻿namespace Cnblogs.Architecture.Ddd.Domain.Abstractions;
 
 /// <summary>
 ///     领域事件基类。
 /// </summary>
-public abstract record DomainEvent : IDomainEvent, INotification
+public abstract record DomainEvent : IDomainEvent
 {
     /// <summary>
     ///     领域事件生成时间。
