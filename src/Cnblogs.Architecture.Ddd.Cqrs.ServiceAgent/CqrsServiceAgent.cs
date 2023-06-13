@@ -147,6 +147,29 @@ public abstract class CqrsServiceAgent
     }
 
     /// <summary>
+    ///     Query item with HEAD method.
+    /// </summary>
+    /// <param name="url">The route of the API.</param>
+    /// <returns>True if status code is 2xx, False if status code is 404.</returns>
+    public async Task<bool> HasItemAsync(string url)
+    {
+        var request = new HttpRequestMessage(HttpMethod.Head, url);
+        var response = await HttpClient.SendAsync(request);
+        if (response.IsSuccessStatusCode)
+        {
+            return true;
+        }
+
+        if (response.StatusCode == HttpStatusCode.NotFound)
+        {
+            return false;
+        }
+
+        response.EnsureSuccessStatusCode(); // throw for other status code
+        return false;
+    }
+
+    /// <summary>
     ///     Batch get items with GET method.
     /// </summary>
     /// <param name="url">The route of the API.</param>

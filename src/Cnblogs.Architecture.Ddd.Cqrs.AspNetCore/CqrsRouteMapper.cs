@@ -18,6 +18,8 @@ public static class CqrsRouteMapper
 
     private static readonly List<Type> CommandTypes = new() { typeof(ICommand<>), typeof(ICommand<,>) };
 
+    private static readonly string[] GetAndHeadMethods = { "GET", "HEAD" };
+
     /// <summary>
     ///     Map a query API, using GET method. <typeparamref name="T"/> would been constructed from route and query string.
     /// </summary>
@@ -25,6 +27,7 @@ public static class CqrsRouteMapper
     /// <param name="route">The route template for API.</param>
     /// <param name="mapNullableRouteParameters">Multiple routes should be mapped when for nullable route parameters.</param>
     /// <param name="nullRouteParameterPattern">Replace route parameter with given string to represent null.</param>
+    /// <param name="enableHead">Map HEAD method for the same routes.</param>
     /// <typeparam name="T">The type of the query.</typeparam>
     /// <returns></returns>
     /// <example>
@@ -44,13 +47,15 @@ public static class CqrsRouteMapper
         this IEndpointRouteBuilder app,
         [StringSyntax("Route")] string route,
         MapNullableRouteParameter mapNullableRouteParameters = MapNullableRouteParameter.Disable,
-        string nullRouteParameterPattern = "-")
+        string nullRouteParameterPattern = "-",
+        bool enableHead = false)
     {
         return app.MapQuery(
             route,
             ([AsParameters] T query) => query,
             mapNullableRouteParameters,
-            nullRouteParameterPattern);
+            nullRouteParameterPattern,
+            enableHead);
     }
 
     /// <summary>
@@ -61,6 +66,7 @@ public static class CqrsRouteMapper
     /// <param name="handler">The delegate that returns a <see cref="IQuery{TView}"/> instance.</param>
     /// <param name="mapNullableRouteParameters">Multiple routes should be mapped when for nullable route parameters.</param>
     /// <param name="nullRouteParameterPattern">Replace route parameter with given string to represent null.</param>
+    /// <param name="enableHead">Allow HEAD for the same routes.</param>
     /// <returns></returns>
     /// <example>
     /// The following code:
@@ -80,7 +86,8 @@ public static class CqrsRouteMapper
         [StringSyntax("Route")] string route,
         Delegate handler,
         MapNullableRouteParameter mapNullableRouteParameters = MapNullableRouteParameter.Disable,
-        string nullRouteParameterPattern = "-")
+        string nullRouteParameterPattern = "-",
+        bool enableHead = false)
     {
         var isQuery = handler.Method.ReturnType.GetInterfaces().Where(x => x.IsGenericType)
             .Any(x => QueryTypes.Contains(x.GetGenericTypeDefinition()));
@@ -92,7 +99,7 @@ public static class CqrsRouteMapper
 
         if (mapNullableRouteParameters is MapNullableRouteParameter.Disable)
         {
-            return app.MapGet(route, handler).AddEndpointFilter<QueryEndpointHandler>();
+            return MapRoutes(route);
         }
 
         if (string.IsNullOrWhiteSpace(nullRouteParameterPattern))
@@ -125,10 +132,16 @@ public static class CqrsRouteMapper
                     var regex = new Regex("{" + x.Name + "[^}]*?}", RegexOptions.IgnoreCase);
                     return regex.Replace(r, nullRouteParameterPattern);
                 });
-            app.MapGet(newRoute, handler).AddEndpointFilter<QueryEndpointHandler>();
+            MapRoutes(newRoute);
         }
 
-        return app.MapGet(route, handler).AddEndpointFilter<QueryEndpointHandler>();
+        return MapRoutes(route);
+
+        IEndpointConventionBuilder MapRoutes(string r)
+        {
+            var endpoint = enableHead ? app.MapMethods(r, GetAndHeadMethods, handler) : app.MapGet(r, handler);
+            return endpoint.AddEndpointFilter<QueryEndpointHandler>();
+        }
     }
 
     /// <summary>

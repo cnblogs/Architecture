@@ -96,4 +96,26 @@ public class CqrsRouteMapperTests
         // Assert
         responses.Should().Match(x => x.All(y => y.IsSuccessStatusCode));
     }
+
+    [Fact]
+    public async Task GetItem_MapHeadAndGet_SuccessAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var uris = new[]
+        {
+            "/api/v1/apps/-/strings/-/value", "/api/v1/apps/-/strings/1/value",
+            "/api/v1/apps/someApp/strings/-/value", "/api/v1/apps/someApp/strings/1/value"
+        }.Select(x => new HttpRequestMessage(HttpMethod.Head, x));
+        var responses = new List<HttpResponseMessage>();
+        foreach (var uri in uris)
+        {
+            responses.Add(await builder.CreateClient().SendAsync(uri, HttpCompletionOption.ResponseHeadersRead));
+        }
+
+        // Assert
+        responses.Should().Match(x => x.All(y => y.IsSuccessStatusCode));
+    }
 }
