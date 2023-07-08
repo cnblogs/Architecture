@@ -7,6 +7,6 @@ public class GetStringQueryHandler : IQueryHandler<GetStringQuery, string>
     /// <inheritdoc />
     public Task<string?> Handle(GetStringQuery request, CancellationToken cancellationToken)
     {
-        return Task.FromResult((string?)"Hello");
+        return request.Found ? Task.FromResult((string?)"Hello") : Task.FromResult((string?)null);
     }
 }

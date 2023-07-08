@@ -35,6 +35,6 @@ public class QueryEndpointHandler : IEndpointFilter
         }
 
         var response = await _mediator.Send(query);
-        return response;
+        return response == null ? Results.NotFound() : Results.Ok(response);
     }
 }
