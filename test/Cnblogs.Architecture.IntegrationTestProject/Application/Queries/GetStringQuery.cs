@@ -2,4 +2,4 @@
 
 namespace Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
 
-public record GetStringQuery(string? AppId = null, int? StringId = null) : IQuery<string>;
+public record GetStringQuery(string? AppId = null, int? StringId = null, bool Found = true) : IQuery<string>;

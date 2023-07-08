@@ -13,7 +13,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cnblogs.CodeQuality" Version="1.6.8">
+        <PackageReference Include="Cnblogs.CodeQuality" Version="1.7.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>

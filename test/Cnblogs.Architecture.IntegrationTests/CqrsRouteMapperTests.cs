@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Net;
+using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject;
 using FluentAssertions;
@@ -21,6 +22,19 @@ public class CqrsRouteMapperTests
         // Assert
         response.Should().BeSuccessful();
         content.Should().NotBeNullOrEmpty();
+    }
+
+    [Fact]
+    public async Task GetItem_NotFondAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var response = await builder.CreateClient().GetAsync("/api/v1/strings/1?found=false");
+
+        // Assert
+        response.StatusCode.Should().Be(HttpStatusCode.NotFound);
     }
 
     [Fact]
