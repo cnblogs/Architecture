@@ -1,3 +1,3 @@
 ﻿namespace Cnblogs.Architecture.IntegrationTestProject.Payloads;
 
-public record CreatePayload(bool NeedError);
+public record CreatePayload(bool NeedError, string? Data);

@@ -1,4 +1,6 @@
 ﻿using System.Net;
+using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
+using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using FluentAssertions;
@@ -19,10 +21,10 @@ public class DaprTests
     {
         // Arrange
         var builder = WebApplication.CreateBuilder();
-        builder.Services.AddDaprEventBus(nameof(DaprTests));
+        builder.Services.AddEventBus(o => o.UseDapr(nameof(DaprTests)));
         builder.WebHost.UseTestServer();
 
-        using var app = builder.Build();
+        await using var app = builder.Build();
 
         _ = subscribeType switch
         {
@@ -51,7 +53,7 @@ public class DaprTests
     {
         // Arrange
         var builder = WebApplication.CreateBuilder();
-        builder.Services.AddDaprEventBus(nameof(DaprTests));
+        builder.Services.AddEventBus(o => o.UseDapr(nameof(DaprTests)));
         builder.WebHost.UseTestServer();
 
         var app = builder.Build();

@@ -111,9 +111,9 @@ public class CqrsInjector
     ///     Use default implementation of <see cref="IFileProvider"/> that accesses file system directly.
     /// </summary>
     /// <returns></returns>
-    public CqrsInjector UseDefaultFileProvider()
+    public CqrsInjector AddDefaultFileProvider()
     {
-        return UseFileProvider<DefaultFileProvider>();
+        return AddFileProvider<DefaultFileProvider>();
     }
 
     /// <summary>
@@ -121,7 +121,7 @@ public class CqrsInjector
     /// </summary>
     /// <typeparam name="TProvider">The implementation type.</typeparam>
     /// <returns></returns>
-    public CqrsInjector UseFileProvider<TProvider>()
+    public CqrsInjector AddFileProvider<TProvider>()
         where TProvider : class, IFileProvider
     {
         Services.AddScoped<IFileProvider, TProvider>();

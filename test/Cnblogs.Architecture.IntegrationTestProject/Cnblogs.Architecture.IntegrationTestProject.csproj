@@ -9,4 +9,7 @@
     <ProjectReference Include="..\Cnblogs.Architecture.TestIntegrationEvents\Cnblogs.Architecture.TestIntegrationEvents.csproj" />
   </ItemGroup>
 
+
+
+
 </Project>

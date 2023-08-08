@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
+using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
     .AddDefaultDateTimeAndRandomProvider()
-    .AddDaprEventBus(Constants.AppName);
+    .AddEventBus(o => o.UseDapr(Constants.AppName));
 builder.Services.AddControllers().AddCqrsModelBinderProvider();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -38,7 +39,7 @@ var v1 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(1);
 v1.MapQuery<GetStringQuery>("apps/{appId}/strings/{stringId:int}/value", MapNullableRouteParameter.Enable, enableHead: true);
 v1.MapQuery<GetStringQuery>("strings/{id:int}");
 v1.MapQuery<ListStringsQuery>("strings");
-v1.MapCommand("strings", (CreatePayload payload) => new CreateCommand(payload.NeedError));
+v1.MapCommand("strings", (CreatePayload payload) => new CreateCommand(payload.NeedError, payload.Data));
 v1.MapCommand(
     "strings/{id:int}",
     (int id, UpdatePayload payload) => new UpdateCommand(id, payload.NeedValidationError, payload.NeedExecutionError));

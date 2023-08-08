@@ -1,10 +1,11 @@
 ﻿using System.Net.Http.Json;
+using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
+using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.TestHost;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using Serilog.Sinks.InMemory;
@@ -29,8 +30,9 @@ public class IntegrationEventHandlerTests
         // Arrange
         var builder = WebApplication.CreateBuilder();
         builder.Logging.AddSerilog(logger => logger.WriteTo.InMemory().WriteTo.Console());
-        builder.Services
-            .AddDaprEventBus(nameof(IntegrationEventHandlerTests), typeof(TestIntegrationEventHandler).Assembly);
+        builder.Services.AddEventBus(
+            o => o.UseDapr(nameof(IntegrationEventHandlerTests)),
+            typeof(TestIntegrationEventHandler).Assembly);
         builder.WebHost.UseTestServer();
         var app = builder.Build();
         app.Subscribe<TestIntegrationEvent>();
