@@ -24,6 +24,6 @@ public static class CqrsInjectorExtensions
     {
         injector.Services.AddOssClient(configuration, configurationSectionName);
         injector.Services.Configure<AliyunOssOptions>(configuration.GetSection(configurationSectionName));
-        return injector.UseFileProvider<AliyunOssFileProvider>();
+        return injector.AddFileProvider<AliyunOssFileProvider>();
     }
 }

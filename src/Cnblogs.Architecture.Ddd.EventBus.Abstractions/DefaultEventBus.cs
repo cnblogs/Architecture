@@ -1,61 +1,44 @@
-﻿using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
-using Dapr.Client;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
-namespace Cnblogs.Architecture.Ddd.EventBus.Dapr;
+namespace Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 
 /// <summary>
-///     Dapr EventBus 实现。
+///     Default implementation for <see cref="IEventBus"/>
 /// </summary>
-public class DaprEventBus : IEventBus
+public class DefaultEventBus : IEventBus
 {
-    private readonly DaprClient _daprClient;
-    private readonly DaprOptions _daprOptions;
+    private readonly IEventBuffer _eventBuffer;
     private readonly IMediator _mediator;
-    private readonly ILogger<DaprEventBus> _logger;
+    private readonly ILogger<DefaultEventBus> _logger;
 
     /// <summary>
-    ///     创建一个 DaprEventBus
+    ///     Create a <see cref="DefaultEventBus"/> instance.
     /// </summary>
-    /// <param name="daprOptions"><see cref="DaprOptions"/></param>
-    /// <param name="daprClient"><see cref="DaprClient"/></param>
-    /// <param name="logger">日志记录器。</param>
-    /// <param name="mediator"><see cref="IMediator"/></param>
-    public DaprEventBus(
-        IOptions<DaprOptions> daprOptions,
-        DaprClient daprClient,
-        IMediator mediator,
-        ILogger<DaprEventBus> logger)
+    /// <param name="eventBuffer">The underlying event buffer.</param>
+    /// <param name="mediator">The IMediator.</param>
+    /// <param name="logger">The logger.</param>
+    public DefaultEventBus(IEventBuffer eventBuffer, IMediator mediator, ILogger<DefaultEventBus> logger)
     {
-        _daprClient = daprClient;
+        _eventBuffer = eventBuffer;
         _logger = logger;
         _mediator = mediator;
-        _daprOptions = daprOptions.Value;
     }
 
     /// <inheritdoc />
-    public async Task PublishAsync<TEvent>(TEvent @event)
+    public Task PublishAsync<TEvent>(TEvent @event)
         where TEvent : IntegrationEvent
     {
-        await PublishAsync(typeof(TEvent).Name, @event);
+        return PublishAsync(typeof(TEvent).Name, @event);
     }
 
     /// <inheritdoc />
-    public async Task PublishAsync<TEvent>(string eventName, TEvent @event)
+    public Task PublishAsync<TEvent>(string eventName, TEvent @event)
         where TEvent : IntegrationEvent
     {
-        _logger.LogInformation(
-            "Publishing IntegrationEvent, Name: {EventName}, Body: {Event}, TraceId: {TraceId}",
-            eventName,
-            @event,
-            @event.TraceId ?? @event.Id);
         @event.TraceId = TraceId;
-        await _daprClient.PublishEventAsync(
-            DaprOptions.PubSubName,
-            DaprUtils.GetDaprTopicName(_daprOptions.AppName, eventName),
-            @event);
+        _eventBuffer.Add(eventName, @event);
+        return Task.CompletedTask;
     }
 
     /// <inheritdoc />

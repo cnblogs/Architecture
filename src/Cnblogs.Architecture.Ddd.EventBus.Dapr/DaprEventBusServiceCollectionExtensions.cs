@@ -19,20 +19,13 @@ public static class DaprEventBusServiceCollectionExtensions
     /// <param name="appName">The app name used when publishing integration events.</param>
     /// <param name="assemblies">Assemblies to scan by MediatR</param>
     /// <returns></returns>
+    [Obsolete("use services.AddEventBus(o => o.UseDapr(), assemblies) instead.", true)]
     public static IServiceCollection AddDaprEventBus(
         this IServiceCollection services,
         string appName,
         params Assembly[] assemblies)
     {
-        services.Configure<DaprOptions>(o => o.AppName = appName);
-        services.AddControllers().AddDapr();
-        services.AddScoped<IEventBus, DaprEventBus>();
-
-        if (assemblies.Length > 0)
-        {
-            services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
-        }
-
+        services.AddEventBus(o => o.UseDapr(appName), assemblies);
         return services;
     }
 }
