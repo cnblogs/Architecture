@@ -50,11 +50,14 @@ public sealed class PublishIntegrationEventHostedService : BackgroundService
                 await PublishEventAsync();
                 watch.Stop();
                 var afterCount = _eventBuffer.Count;
-                _logger.LogInformation(
-                    "Published {PublishedEventCount} events in {Duration} ms, resting count: {RestingEventCount}",
-                    beforeCount - afterCount,
-                    watch.ElapsedMilliseconds,
-                    afterCount);
+                if (afterCount - beforeCount > 0)
+                {
+                    _logger.LogInformation(
+                        "Published {PublishedEventCount} events in {Duration} ms, resting count: {RestingEventCount}",
+                        beforeCount - afterCount,
+                        watch.ElapsedMilliseconds,
+                        afterCount);
+                }
             }
             catch (Exception e)
             {
