@@ -38,53 +38,83 @@ public sealed class PublishIntegrationEventHostedService : BackgroundService
     /// <inheritdoc />
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _logger.LogInformation("Integration event publisher running.");
+        _logger.LogInformation("Integration event publisher running");
         var watch = new Stopwatch();
-        using var timer = new PeriodicTimer(TimeSpan.FromMicroseconds(_options.Interval));
-        while (await timer.WaitForNextTickAsync(stoppingToken))
+        var failureCounter = 0;
+        var successCounter = 0;
+        using var normalTimer = new PeriodicTimer(TimeSpan.FromMilliseconds(_options.Interval));
+        using var failedTimer = new PeriodicTimer(TimeSpan.FromMilliseconds(_options.DowngradeInterval));
+        var currentTimer = normalTimer;
+        var downgraded = false;
+        while (await currentTimer.WaitForNextTickAsync(stoppingToken))
         {
             try
             {
                 watch.Restart();
-                var beforeCount = _eventBuffer.Count;
-                await PublishEventAsync();
+                var sent = await PublishEventAsync();
                 watch.Stop();
                 var afterCount = _eventBuffer.Count;
-                if (afterCount - beforeCount > 0)
+                if (sent > 0)
                 {
+                    successCounter++;
                     _logger.LogInformation(
                         "Published {PublishedEventCount} events in {Duration} ms, resting count: {RestingEventCount}",
-                        beforeCount - afterCount,
+                        sent,
                         watch.ElapsedMilliseconds,
                         afterCount);
                 }
             }
             catch (Exception e)
             {
-                _logger.LogError(e, "Publish integration event failed, pending count: {Count}", _eventBuffer.Count);
+                failureCounter++;
+                _logger.LogWarning(
+                    e,
+                    "Publish integration event failed, pending count: {Count}, failure count: {FailureCount}",
+                    _eventBuffer.Count,
+                    failureCounter);
+            }
+
+            if (downgraded == false && failureCounter >= _options.FailureCountBeforeDowngrade)
+            {
+                _logger.LogError("Integration event publisher downgraded");
+                downgraded = true;
+                currentTimer = failedTimer;
+                successCounter = 0;
+            }
+
+            if (downgraded && successCounter > _options.SuccessCountBeforeRecover)
+            {
+                downgraded = false;
+                currentTimer = normalTimer;
+                failureCounter = 0;
+                _logger.LogWarning("Integration event publisher recovered from downgrade");
             }
         }
     }
 
-    private async Task PublishEventAsync()
+    private async Task<int> PublishEventAsync()
     {
         if (_eventBuffer.Count == 0)
         {
-            return;
+            return 0;
         }
 
         using var scope = _serviceProvider.CreateScope();
         var provider = scope.ServiceProvider.GetRequiredService<IEventBusProvider>();
-        while (_eventBuffer.Count > 0)
+        var publishedEventCount = 0;
+        while (_eventBuffer.Count > 0 && publishedEventCount != _options.MaximumBatchSize)
         {
             var buffered = _eventBuffer.Peek();
             if (buffered is null)
             {
-                return;
+                break;
             }
 
             await provider.PublishAsync(buffered.Name, buffered.Event);
             _eventBuffer.Pop();
+            publishedEventCount++;
         }
+
+        return publishedEventCount;
     }
 }
