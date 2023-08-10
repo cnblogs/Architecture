@@ -42,4 +42,83 @@ public class IntegrationEventPublishTests
             x => x.PublishAsync(It.IsAny<string>(), It.Is<TestIntegrationEvent>(t => t.Message == data)),
             Times.Once);
     }
+
+    [Fact]
+    public async Task EventBus_Downgrading_DowngradeAsync()
+    {
+        // Arrange
+        const string data = "hello";
+        var builder = new WebApplicationFactory<Program>();
+        var eventBusMock = new Mock<IEventBusProvider>();
+        builder = builder.WithWebHostBuilder(
+            b => b.ConfigureServices(
+                services =>
+                {
+                    services.RemoveAll<IEventBusProvider>();
+                    services.AddScoped<IEventBusProvider>(_ => eventBusMock.Object);
+                    services.Configure<EventBusOptions>(
+                        o =>
+                        {
+                            o.FailureCountBeforeDowngrade = 1;
+                            o.DowngradeInterval = 3000;
+                        });
+                }));
+        eventBusMock.Setup(x => x.PublishAsync(It.IsAny<string>(), It.IsAny<IntegrationEvent>()))
+            .ThrowsAsync(new InvalidOperationException());
+
+        // Act
+        var response = await builder.CreateClient().PostAsJsonAsync(
+            "/api/v1/strings",
+            new CreatePayload(false, data));
+        var content = await response.Content.ReadAsStringAsync();
+        await Task.Delay(3000); // hit at 1000ms and 3000ms
+
+        // Assert
+        response.Should().BeSuccessful();
+        content.Should().BeNullOrEmpty();
+        eventBusMock.Verify(
+            x => x.PublishAsync(It.IsAny<string>(), It.Is<TestIntegrationEvent>(t => t.Message == data)),
+            Times.Exactly(2));
+    }
+
+    [Fact]
+    public async Task EventBus_DowngradeThenRecover_RecoverAsync()
+    {
+        // Arrange
+        const string data = "hello";
+        var builder = new WebApplicationFactory<Program>();
+        var eventBusMock = new Mock<IEventBusProvider>();
+        builder = builder.WithWebHostBuilder(
+            b => b.ConfigureServices(
+                services =>
+                {
+                    services.RemoveAll<IEventBusProvider>();
+                    services.AddScoped<IEventBusProvider>(_ => eventBusMock.Object);
+                    services.Configure<EventBusOptions>(
+                        o =>
+                        {
+                            o.FailureCountBeforeDowngrade = 1;
+                            o.DowngradeInterval = 4000;
+                        });
+                }));
+        eventBusMock.Setup(x => x.PublishAsync(It.IsAny<string>(), It.IsAny<IntegrationEvent>()))
+            .ThrowsAsync(new InvalidOperationException());
+        await builder.CreateClient().PostAsJsonAsync(
+            "/api/v1/strings",
+            new CreatePayload(false, data));
+        await Task.Delay(1000); // failed, now it is downgraded
+
+        // Act
+        eventBusMock.Reset();
+        await Task.Delay(2000); // recover
+        await builder.CreateClient().PostAsJsonAsync(
+            "/api/v1/strings",
+            new CreatePayload(false, data));
+        await Task.Delay(1000);
+
+        // Assert
+        eventBusMock.Verify(
+            x => x.PublishAsync(It.IsAny<string>(), It.Is<TestIntegrationEvent>(t => t.Message == data)),
+            Times.Exactly(2));
+    }
 }
