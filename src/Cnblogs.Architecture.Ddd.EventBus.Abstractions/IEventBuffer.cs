@@ -16,6 +16,7 @@ public interface IEventBuffer
     /// <param name="name">The name of integration event.</param>
     /// <param name="event">The event.</param>
     /// <typeparam name="TEvent">The type of integration event.</typeparam>
+    /// <exception cref="EventBufferOverflowException">Throws when the number of events in buffer exceeds <see cref="EventBusOptions.MaximumBufferSize"/>.</exception>
     void Add<TEvent>(string name, TEvent @event)
         where TEvent : IntegrationEvent;
 

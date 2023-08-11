@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using Microsoft.Extensions.Options;
 
 namespace Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 
@@ -8,6 +9,16 @@ namespace Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 public class InMemoryEventBuffer : IEventBuffer
 {
     private readonly ConcurrentQueue<BufferedIntegrationEvent> _queue = new();
+    private readonly EventBusOptions _options;
+
+    /// <summary>
+    ///     Creates an <see cref="InMemoryEventBuffer"/>.
+    /// </summary>
+    /// <param name="options">The Eventbus options.</param>
+    public InMemoryEventBuffer(IOptions<EventBusOptions> options)
+    {
+        _options = options.Value;
+    }
 
     /// <inheritdoc />
     public int Count => _queue.Count;
@@ -16,6 +27,11 @@ public class InMemoryEventBuffer : IEventBuffer
     public void Add<TEvent>(string name, TEvent @event)
         where TEvent : IntegrationEvent
     {
+        if (_queue.Count >= _options.MaximumBufferSize)
+        {
+            throw new EventBufferOverflowException();
+        }
+
         _queue.Enqueue(new BufferedIntegrationEvent(name, @event));
     }
 
