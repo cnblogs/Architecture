@@ -18,6 +18,11 @@ public class EventBusOptions
     public int? MaximumBatchSize { get; set; }
 
     /// <summary>
+    ///     Maximum number of events that can be stored in buffer. An <see cref="EventBufferOverflowException"/> would be thrown when the number of events in buffer exceeds this limit. Pass <c>null</c> to disable limit. Defaults to <c>null</c>.
+    /// </summary>
+    public int? MaximumBufferSize { get; set; }
+
+    /// <summary>
     ///     The maximum number of failure before downgrade. Defaults to 5.
     /// </summary>
     public int FailureCountBeforeDowngrade { get; set; } = 5;
