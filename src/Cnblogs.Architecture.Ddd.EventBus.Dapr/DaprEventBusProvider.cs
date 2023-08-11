@@ -34,13 +34,16 @@ public class DaprEventBusProvider : IEventBusProvider
     public async Task PublishAsync(string eventName, IntegrationEvent @event)
     {
         _logger.LogInformation(
-            "Publishing IntegrationEvent, Name: {EventName}, Body: {Event}, TraceId: {TraceId}",
+            "Publishing IntegrationEvent, PubSub: {PubSubName}, TopicName: {TopicName}, Name: {EventName}, Body: {Event}, TraceId: {TraceId}",
+            DaprOptions.PubSubName,
+            DaprUtils.GetDaprTopicName(_daprOptions.AppName, eventName),
             eventName,
             @event,
             @event.TraceId ?? @event.Id);
+        object data = @event;   // do not provide type information to serializer since it's base class.
         await _daprClient.PublishEventAsync(
             DaprOptions.PubSubName,
             DaprUtils.GetDaprTopicName(_daprOptions.AppName, eventName),
-            @event);
+            data);
     }
 }
