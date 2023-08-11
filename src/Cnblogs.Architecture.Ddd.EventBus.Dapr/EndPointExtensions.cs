@@ -144,7 +144,7 @@ public static class EndPointExtensions
         if (!serviceCheck.IsService(typeof(IEventBus)))
         {
             throw new InvalidOperationException(
-                $"{nameof(IEventBus)} has not been registered. Did you forget to call IServiceCollection.AddDaprEventBus()?");
+                $"{nameof(IEventBus)} has not been registered. Did you forget to call IServiceCollection.AddEventBus()?");
         }
 
         daprOptions.IsEventBusRegistered = true;

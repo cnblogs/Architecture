@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Text.Json;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
