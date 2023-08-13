@@ -2,7 +2,7 @@
 using Cnblogs.Architecture.UnitTests.Infrastructure.FakeObjects;
 using FluentAssertions;
 using MongoDB.Driver;
-using Moq;
+using NSubstitute;
 
 namespace Cnblogs.Architecture.UnitTests.Infrastructure.MongoDb;
 
@@ -21,12 +21,13 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().NotBeNull();
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty)).Verify(
-            x => x.InsertOneAsync(It.IsAny<FakeBlog>(), It.IsAny<InsertOneOptions>(), It.IsAny<CancellationToken>()),
-            Times.Once);
-        repository.MediatorMock.Verify(
-            x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()),
-            Times.Once);
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
+            .Received(1)
+            .InsertOneAsync(
+                Arg.Any<FakeBlog>(),
+                Arg.Any<InsertOneOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(1).Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -42,16 +43,14 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().HaveSameCount(blogs);
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty))
-            .Verify(
-                x => x.InsertManyAsync(
-                    It.IsAny<IEnumerable<FakeBlog>>(),
-                    It.IsAny<InsertManyOptions>(),
-                    It.IsAny<CancellationToken>()),
-                Times.Once);
-        repository.MediatorMock.Verify(
-            x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()),
-            Times.Exactly(blogs.Count));
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
+            .Received(1)
+            .InsertManyAsync(
+                Arg.Any<IEnumerable<FakeBlog>>(),
+                Arg.Any<InsertManyOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(blogs.Count)
+            .Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -67,11 +66,10 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().NotBeNull();
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty))
-            .Verify(
-                x => x.DeleteOneAsync(It.IsAny<FilterDefinition<FakeBlog>>(), It.IsAny<CancellationToken>()),
-                Times.Once);
-        repository.MediatorMock.Verify(x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()));
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
+            .Received(1)
+            .DeleteOneAsync(Arg.Any<FilterDefinition<FakeBlog>>(), Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received().Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -87,15 +85,14 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().NotBeNull();
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty))
-            .Verify(
-                x => x.ReplaceOneAsync(
-                    It.IsAny<FilterDefinition<FakeBlog>>(),
-                    It.IsAny<FakeBlog>(),
-                    It.IsAny<ReplaceOptions>(),
-                    It.IsAny<CancellationToken>()),
-                Times.Once);
-        repository.MediatorMock.Verify(x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()));
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
+            .Received(1)
+            .ReplaceOneAsync(
+                Arg.Any<FilterDefinition<FakeBlog>>(),
+                Arg.Any<FakeBlog>(),
+                Arg.Any<ReplaceOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received().Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -111,16 +108,13 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().HaveSameCount(blogs);
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty))
-            .Verify(
-                x => x.BulkWriteAsync(
-                    It.IsAny<IEnumerable<WriteModel<FakeBlog>>>(),
-                    It.IsAny<BulkWriteOptions>(),
-                    It.IsAny<CancellationToken>()),
-                Times.Once);
-        repository.MediatorMock.Verify(
-            x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()),
-            Times.Exactly(blogs.Count));
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
+            .BulkWriteAsync(
+                Arg.Any<IEnumerable<WriteModel<FakeBlog>>>(),
+                Arg.Any<BulkWriteOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(blogs.Count)
+            .Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -138,20 +132,15 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().BeTrue();
-        repository.MongoDbContext.ClientSessionHandleMock.Verify(
-            x => x.CommitTransactionAsync(It.IsAny<CancellationToken>()),
-            Times.Once);
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty))
-            .Verify(
-                x => x.BulkWriteAsync(
-                    It.IsAny<IClientSessionHandle>(),
-                    It.IsAny<IEnumerable<WriteModel<FakeBlog>>>(),
-                    It.IsAny<BulkWriteOptions>(),
-                    It.IsAny<CancellationToken>()),
-                Times.Once);
-        repository.MediatorMock.Verify(
-            x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()),
-            Times.Once);
+        await repository.MongoDbContext.ClientSessionHandleMock.Received(1)
+            .CommitTransactionAsync(Arg.Any<CancellationToken>());
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
+            .BulkWriteAsync(
+                Arg.Any<IClientSessionHandle>(),
+                Arg.Any<IEnumerable<WriteModel<FakeBlog>>>(),
+                Arg.Any<BulkWriteOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(1).Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -170,17 +159,13 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().BeTrue();
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty))
-            .Verify(
-                x => x.BulkWriteAsync(
-                    It.IsAny<IClientSessionHandle>(),
-                    It.IsAny<IEnumerable<WriteModel<FakeBlog>>>(),
-                    It.IsAny<BulkWriteOptions>(),
-                    It.IsAny<CancellationToken>()),
-                Times.Never);
-        repository.MediatorMock.Verify(
-            x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()),
-            Times.Never);
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(0)
+            .BulkWriteAsync(
+                Arg.Any<IClientSessionHandle>(),
+                Arg.Any<IEnumerable<WriteModel<FakeBlog>>>(),
+                Arg.Any<BulkWriteOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(0).Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -199,17 +184,13 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().BeTrue();
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty))
-            .Verify(
-                x => x.BulkWriteAsync(
-                    It.IsAny<IClientSessionHandle>(),
-                    It.Is<IEnumerable<WriteModel<FakeBlog>>>(y => y.Any(z => z is ReplaceOneModel<FakeBlog>)),
-                    It.IsAny<BulkWriteOptions>(),
-                    It.IsAny<CancellationToken>()),
-                Times.Once);
-        repository.MediatorMock.Verify(
-            x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()),
-            Times.Once);
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
+            .BulkWriteAsync(
+                Arg.Any<IClientSessionHandle>(),
+                Arg.Is<IEnumerable<WriteModel<FakeBlog>>>(y => y.Any(z => z is ReplaceOneModel<FakeBlog>)),
+                Arg.Any<BulkWriteOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(1).Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -261,19 +242,14 @@ public class MongoBaseRepositoryTests
 
         // Assert
         response.Should().BeTrue();
-        repository.MongoDbContext.ClientSessionHandleMock.Verify(
-            x => x.CommitTransactionAsync(It.IsAny<CancellationToken>()),
-            Times.Once);
-        Mock.Get(repository.MongoDbContext.MongoDatabaseMock.Object.GetCollection<FakeBlog>(string.Empty))
-            .Verify(
-                x => x.BulkWriteAsync(
-                    It.IsAny<IClientSessionHandle>(),
-                    It.IsAny<IEnumerable<WriteModel<FakeBlog>>>(),
-                    It.IsAny<BulkWriteOptions>(),
-                    It.IsAny<CancellationToken>()),
-                Times.Once);
-        repository.MediatorMock.Verify(
-            x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()),
-            Times.Once);
+        await repository.MongoDbContext.ClientSessionHandleMock.Received(1)
+            .CommitTransactionAsync(Arg.Any<CancellationToken>());
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
+            .BulkWriteAsync(
+                Arg.Any<IClientSessionHandle>(),
+                Arg.Any<IEnumerable<WriteModel<FakeBlog>>>(),
+                Arg.Any<BulkWriteOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(1).Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
     }
 }

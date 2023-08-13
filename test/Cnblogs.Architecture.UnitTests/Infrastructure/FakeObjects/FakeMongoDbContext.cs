@@ -1,40 +1,38 @@
 ﻿using Cnblogs.Architecture.Ddd.Infrastructure.MongoDb;
 using MongoDB.Driver;
-using Moq;
+using NSubstitute;
 
 namespace Cnblogs.Architecture.UnitTests.Infrastructure.FakeObjects;
 
 public class FakeMongoDbContext : MongoContext
 {
-    public Mock<IMongoDatabase> MongoDatabaseMock { get; }
-    public Mock<IMongoClient> MongoClientMock { get; }
-    public Mock<IClientSessionHandle> ClientSessionHandleMock { get; }
-    public Mock<IMongoContextOptions> OptionsMock { get; }
+    public IMongoDatabase MongoDatabaseMock { get; }
+    public IMongoClient MongoClientMock { get; }
+    public IClientSessionHandle ClientSessionHandleMock { get; }
+    public IMongoContextOptions OptionsMock { get; }
 
     public FakeMongoDbContext()
         : this(MockOptions())
     {
     }
 
-    public FakeMongoDbContext(Mock<IMongoContextOptions> mockOptionsMock)
+    public FakeMongoDbContext(IMongoContextOptions mockOptionsMock)
         : this(mockOptionsMock, MockDatabase(mockOptionsMock))
     {
     }
 
-    public FakeMongoDbContext(Mock<IMongoContextOptions> mockOptionsMock, Mock<IMongoDatabase> mongoDatabase)
-        : base(mockOptionsMock.Object)
+    public FakeMongoDbContext(IMongoContextOptions mockOptionsMock, IMongoDatabase mongoDatabase)
+        : base(mockOptionsMock)
     {
         OptionsMock = mockOptionsMock;
         MongoDatabaseMock = mongoDatabase;
-        ClientSessionHandleMock = new Mock<IClientSessionHandle>();
-        MongoClientMock = new Mock<IMongoClient>();
-        MongoClientMock
-            .Setup(x => x.StartSessionAsync(It.IsAny<ClientSessionOptions>(), It.IsAny<CancellationToken>()))
-            .ReturnsAsync(ClientSessionHandleMock.Object);
-        MongoDatabaseMock.Setup(x => x.Client).Returns(MongoClientMock.Object);
-        MongoDatabaseMock
-            .Setup(x => x.GetCollection<FakeBlog>(It.IsAny<string>(), null))
-            .Returns(Mock.Of<IMongoCollection<FakeBlog>>());
+        ClientSessionHandleMock = Substitute.For<IClientSessionHandle>();
+        MongoClientMock = Substitute.For<IMongoClient>();
+        MongoClientMock.StartSessionAsync(Arg.Any<ClientSessionOptions>(), Arg.Any<CancellationToken>())
+            .Returns(ClientSessionHandleMock);
+        MongoDatabaseMock.Client.Returns(MongoClientMock);
+        MongoDatabaseMock.GetCollection<FakeBlog>(Arg.Any<string>())
+            .Returns(Substitute.For<IMongoCollection<FakeBlog>>());
     }
 
     /// <inheritdoc />
@@ -45,15 +43,15 @@ public class FakeMongoDbContext : MongoContext
         builder.Entity<FakeTag>("fakeTag");
     }
 
-    private static Mock<IMongoContextOptions> MockOptions()
+    private static IMongoContextOptions MockOptions()
     {
-        return new Mock<IMongoContextOptions>();
+        return Substitute.For<IMongoContextOptions>();
     }
 
-    private static Mock<IMongoDatabase> MockDatabase(Mock<IMongoContextOptions> mongoContextOptionsMock)
+    private static IMongoDatabase MockDatabase(IMongoContextOptions mongoContextOptionsMock)
     {
-        var mock = new Mock<IMongoDatabase>();
-        mongoContextOptionsMock.Setup(x => x.GetDatabase()).Returns(mock.Object);
+        var mock = Substitute.For<IMongoDatabase>();
+        mongoContextOptionsMock.GetDatabase().Returns(mock);
         return mock;
     }
 }

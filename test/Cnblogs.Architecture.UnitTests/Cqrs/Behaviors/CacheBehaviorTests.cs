@@ -9,8 +9,8 @@ using MediatR;
 
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-
-using Moq;
+using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 
 namespace Cnblogs.Architecture.UnitTests.Cqrs.Behaviors;
 
@@ -20,9 +20,11 @@ public class CacheBehaviorTests
     public async Task CacheBehavior_DisableCache_NotCacheAsync()
     {
         // Arrange
-        var local = new Mock<ICacheProvider>();
+        var local = Substitute.For<ILocalCacheProvider>();
         local.AddCacheValue("cacheKey", "cacheValue");
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local.Object });
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        remote.AddCacheValue("cacheKey", "cacheValue");
+        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local, remote });
 
         // Act
         var result = await behavior.Handle(
@@ -42,8 +44,8 @@ public class CacheBehaviorTests
     public async Task CacheBehavior_EnableLocal_NoCache_UpdateAsync()
     {
         // Arrange
-        var local = new Mock<ILocalCacheProvider>();
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local.Object });
+        var local = Substitute.For<ILocalCacheProvider>();
+        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local });
 
         // Act
         var result = await behavior.Handle(
@@ -58,17 +60,17 @@ public class CacheBehaviorTests
 
         // Assert
         result.Should().Be("noCache");
-        local.Verify(x => x.UpdateAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<TimeSpan>()), Times.Once);
+        await local.Received(1).UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>());
     }
 
     [Fact]
     public async Task CacheBehavior_EnableLocal_HasCache_UseCacheAsync()
     {
         // Arrange
-        var local = new Mock<ICacheProvider>();
+        var local = Substitute.For<ILocalCacheProvider>();
         local.AddCacheValue("cacheKey", "cacheValue");
-        var remote = new Mock<IRemoteCacheProvider>();
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local.Object, remote.Object });
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local, remote });
 
         // Act
         var result = await behavior.Handle(
@@ -83,17 +85,17 @@ public class CacheBehaviorTests
 
         // Assert
         result.Should().Be("cacheValue");
-        local.Verify(x => x.UpdateAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<TimeSpan>()), Times.Never);
-        remote.Verify(x => x.GetAsync<string>(It.IsAny<string>()), Times.Never);
+        await local.Received(0).UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>());
+        await remote.Received(0).GetAsync<string>(Arg.Any<string>());
     }
 
     [Fact]
     public async Task CacheBehavior_EnableRemote_NoCache_UpdateAsync()
     {
         // Arrange
-        var remote = new Mock<IRemoteCacheProvider>();
-        var local = new Mock<ILocalCacheProvider>();
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local.Object, remote.Object });
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        var local = Substitute.For<ILocalCacheProvider>();
+        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local, remote });
 
         // Act
         var result = await behavior.Handle(
@@ -108,17 +110,17 @@ public class CacheBehaviorTests
 
         // Assert
         result.Should().Be("noCache");
-        local.Verify(x => x.UpdateAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<TimeSpan>()), Times.Never);
-        remote.Verify(x => x.UpdateAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<TimeSpan>()), Times.Once);
+        await local.Received(0).UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>());
+        await remote.Received(1).UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>());
     }
 
     [Fact]
     public async Task CacheBehavior_EnableRemote_HasCache_UseCacheAsync()
     {
         // Arrange
-        var remote = new Mock<IRemoteCacheProvider>().AddCacheValue("cacheKey", "cacheValue");
-        var local = new Mock<ILocalCacheProvider>();
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local.Object, remote.Object });
+        var remote = Substitute.For<IRemoteCacheProvider>().AddCacheValue("cacheKey", "cacheValue");
+        var local = Substitute.For<ILocalCacheProvider>();
+        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local, remote });
 
         // Act
         var result = await behavior.Handle(
@@ -133,17 +135,17 @@ public class CacheBehaviorTests
 
         // Assert
         result.Should().Be("cacheValue");
-        local.Verify(x => x.GetAsync<string>(It.IsAny<string>()), Times.Never);
+        await local.Received(0).GetAsync<string>(Arg.Any<string>());
     }
 
     [Fact]
     public async Task CacheBehavior_ThrowOnGet_ThrowAsync()
     {
         // Arrange
-        var remote = new Mock<IRemoteCacheProvider>();
-        remote.Setup(x => x.GetAsync<It.IsAnyType>(It.IsAny<string>())).ThrowsAsync(new Exception("test"));
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        remote.GetAsync<string>(Arg.Any<string>()).ThrowsAsync(new Exception("test"));
         var behavior = GetBehavior<FakeQuery<string>, string>(
-            new List<ICacheProvider>() { remote.Object },
+            new List<ICacheProvider>() { remote },
             o => o.ThrowIfFailedOnGet = true);
 
         // Act
@@ -165,10 +167,10 @@ public class CacheBehaviorTests
     public async Task CacheBehavior_ThrowOnGet_NoThrowAsync()
     {
         // Arrange
-        var remote = new Mock<IRemoteCacheProvider>();
-        remote.Setup(x => x.GetAsync<It.IsAnyType>(It.IsAny<string>())).ThrowsAsync(new Exception("test"));
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        remote.GetAsync<string>(Arg.Any<string>()).ThrowsAsync(new Exception("test"));
         var behavior = GetBehavior<FakeQuery<string>, string>(
-            new List<ICacheProvider>() { remote.Object },
+            new List<ICacheProvider>() { remote },
             o => o.ThrowIfFailedOnGet = false);
 
         // Act
@@ -190,11 +192,11 @@ public class CacheBehaviorTests
     public async Task CacheBehavior_ThrowOnUpdate_ThrowAsync()
     {
         // Arrange
-        var remote = new Mock<IRemoteCacheProvider>();
-        remote.Setup(x => x.UpdateAsync(It.IsAny<string>(), It.IsAny<It.IsAnyType>(), It.IsAny<TimeSpan>()))
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        remote.UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>())
             .ThrowsAsync(new Exception("test"));
         var behavior = GetBehavior<FakeQuery<string>, string>(
-            new List<ICacheProvider> { remote.Object },
+            new List<ICacheProvider> { remote },
             o => o.ThrowIfFailedOnUpdate = true);
 
         // Act
@@ -216,11 +218,11 @@ public class CacheBehaviorTests
     public async Task CacheBehavior_NotThrowOnUpdate_NotThrowAsync()
     {
         // Arrange
-        var remote = new Mock<IRemoteCacheProvider>();
-        remote.Setup(x => x.UpdateAsync(It.IsAny<string>(), It.IsAny<It.IsAnyType>(), It.IsAny<TimeSpan>()))
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        remote.UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>())
             .ThrowsAsync(new Exception("test"));
         var behavior = GetBehavior<FakeQuery<string>, string>(
-            new List<ICacheProvider> { remote.Object },
+            new List<ICacheProvider> { remote },
             o => o.ThrowIfFailedOnUpdate = false);
 
         // Act

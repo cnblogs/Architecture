@@ -7,8 +7,8 @@ using FluentAssertions;
 
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
-
-using Moq;
+using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 
 namespace Cnblogs.Architecture.UnitTests.Cqrs.Handlers;
 
@@ -18,11 +18,11 @@ public class InvalidCacheRequestHandlerTests
     public Task InvalidCache_ThrowOnRemove_ThrowAsync()
     {
         // Arrange
-        var provider = new Mock<IRemoteCacheProvider>();
-        provider.Setup(x => x.RemoveAsync(It.IsAny<string>()))
+        var provider = Substitute.For<IRemoteCacheProvider>();
+        provider.RemoveAsync(Arg.Any<string>())
             .ThrowsAsync(new InvalidOperationException());
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { provider.Object },
+            new List<ICacheProvider>() { provider },
             o => o.ThrowIfFailedOnRemove = true);
 
         // Act
@@ -31,18 +31,18 @@ public class InvalidCacheRequestHandlerTests
             CancellationToken.None);
 
         // Assert
-        return Assert.ThrowsAsync<InvalidOperationException>(act);
+        return act.Should().ThrowAsync<InvalidOperationException>();
     }
 
     [Fact]
     public Task InvalidCache_ThrowOnRemove_NotThrowAsync()
     {
         // Arrange
-        var provider = new Mock<IRemoteCacheProvider>();
-        provider.Setup(x => x.RemoveAsync(It.IsAny<string>()))
+        var provider = Substitute.For<IRemoteCacheProvider>();
+        provider.RemoveAsync(Arg.Any<string>())
             .ThrowsAsync(new InvalidOperationException());
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { provider.Object },
+            new List<ICacheProvider>() { provider },
             o => o.ThrowIfFailedOnRemove = false);
 
         // Act
@@ -58,11 +58,11 @@ public class InvalidCacheRequestHandlerTests
     public Task InvalidCache_ThrowOnRemove_OverrideByRequest_NotThrowAsync()
     {
         // Arrange
-        var provider = new Mock<IRemoteCacheProvider>();
-        provider.Setup(x => x.RemoveAsync(It.IsAny<string>()))
+        var provider = Substitute.For<IRemoteCacheProvider>();
+        provider.RemoveAsync(Arg.Any<string>())
             .ThrowsAsync(new InvalidOperationException());
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { provider.Object },
+            new List<ICacheProvider>() { provider },
             o => o.ThrowIfFailedOnRemove = true);
 
         // Act
@@ -78,10 +78,10 @@ public class InvalidCacheRequestHandlerTests
     public async Task InvalidCache_RemoveCacheAsync()
     {
         // Arrange
-        var remote = new Mock<IRemoteCacheProvider>();
-        var local = new Mock<ILocalCacheProvider>();
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        var local = Substitute.For<ILocalCacheProvider>();
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { remote.Object, local.Object },
+            new List<ICacheProvider>() { remote, local },
             o => o.ThrowIfFailedOnRemove = false);
 
         // Act
@@ -90,18 +90,18 @@ public class InvalidCacheRequestHandlerTests
             CancellationToken.None);
 
         // Assert
-        local.Verify(x => x.RemoveAsync(It.IsAny<string>()), Times.Once);
-        remote.Verify(x => x.RemoveAsync(It.IsAny<string>()), Times.Once);
+        await local.Received(1).RemoveAsync(Arg.Any<string>());
+        await remote.Received(1).RemoveAsync(Arg.Any<string>());
     }
 
     [Fact]
     public async Task InvalidCache_RemoveGroupCacheAsync()
     {
         // Arrange
-        var remote = new Mock<IRemoteCacheProvider>();
-        var local = new Mock<ILocalCacheProvider>();
+        var remote = Substitute.For<IRemoteCacheProvider>();
+        var local = Substitute.For<ILocalCacheProvider>();
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { remote.Object, local.Object },
+            new List<ICacheProvider>() { remote, local },
             o => o.ThrowIfFailedOnRemove = false);
 
         // Act
@@ -110,10 +110,10 @@ public class InvalidCacheRequestHandlerTests
             CancellationToken.None);
 
         // Assert
-        local.Verify(x => x.RemoveAsync(It.IsAny<string>()), Times.Once);
-        local.Verify(x => x.UpdateAsync(It.IsAny<string>(), It.IsAny<long>()), Times.Once);
-        remote.Verify(x => x.RemoveAsync(It.IsAny<string>()), Times.Once);
-        remote.Verify(x => x.UpdateAsync(It.IsAny<string>(), It.IsAny<long>()), Times.Once);
+        await local.Received(1).RemoveAsync(Arg.Any<string>());
+        await local.Received(1).UpdateAsync(Arg.Any<string>(), Arg.Any<long>());
+        await remote.Received(1).RemoveAsync(Arg.Any<string>());
+        await remote.Received(1).UpdateAsync(Arg.Any<string>(), Arg.Any<long>());
     }
 
     [Fact]
