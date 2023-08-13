@@ -234,7 +234,7 @@ public class BaseRepositoryTests
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
         var mediator = Substitute.For<IMediator>();
         mediator.Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>())
-            .Throws<ArgumentException>();
+            .ThrowsAsync<ArgumentException>();
         var repository = new TestRepository(mediator, db);
 
         // Act
