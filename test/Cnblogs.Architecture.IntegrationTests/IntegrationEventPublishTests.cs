@@ -8,7 +8,8 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Moq;
+using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 
@@ -20,13 +21,13 @@ public class IntegrationEventPublishTests
         // Arrange
         const string data = "hello";
         var builder = new WebApplicationFactory<Program>();
-        var eventBusMock = new Mock<IEventBusProvider>();
+        var eventBusMock = Substitute.For<IEventBusProvider>();
         builder = builder.WithWebHostBuilder(
             b => b.ConfigureServices(
                 services =>
                 {
                     services.RemoveAll<IEventBusProvider>();
-                    services.AddScoped<IEventBusProvider>(_ => eventBusMock.Object);
+                    services.AddScoped<IEventBusProvider>(_ => eventBusMock);
                 }));
 
         // Act
@@ -39,9 +40,9 @@ public class IntegrationEventPublishTests
         // Assert
         response.Should().BeSuccessful();
         content.Should().BeNullOrEmpty();
-        eventBusMock.Verify(
-            x => x.PublishAsync(It.IsAny<string>(), It.Is<TestIntegrationEvent>(t => t.Message == data)),
-            Times.Once);
+        await eventBusMock.Received(1).PublishAsync(
+            Arg.Any<string>(),
+            Arg.Is<TestIntegrationEvent>(t => t.Message == data));
     }
 
     [Fact]
@@ -50,13 +51,13 @@ public class IntegrationEventPublishTests
         // Arrange
         const string data = "hello";
         var builder = new WebApplicationFactory<Program>();
-        var eventBusMock = new Mock<IEventBusProvider>();
+        var eventBusMock = Substitute.For<IEventBusProvider>();
         builder = builder.WithWebHostBuilder(
             b => b.ConfigureServices(
                 services =>
                 {
                     services.RemoveAll<IEventBusProvider>();
-                    services.AddScoped<IEventBusProvider>(_ => eventBusMock.Object);
+                    services.AddScoped<IEventBusProvider>(_ => eventBusMock);
                     services.Configure<EventBusOptions>(
                         o =>
                         {
@@ -64,7 +65,7 @@ public class IntegrationEventPublishTests
                             o.DowngradeInterval = 3000;
                         });
                 }));
-        eventBusMock.Setup(x => x.PublishAsync(It.IsAny<string>(), It.IsAny<IntegrationEvent>()))
+        eventBusMock.PublishAsync(Arg.Any<string>(), Arg.Any<IntegrationEvent>())
             .ThrowsAsync(new InvalidOperationException());
 
         // Act
@@ -77,9 +78,9 @@ public class IntegrationEventPublishTests
         // Assert
         response.Should().BeSuccessful();
         content.Should().BeNullOrEmpty();
-        eventBusMock.Verify(
-            x => x.PublishAsync(It.IsAny<string>(), It.Is<TestIntegrationEvent>(t => t.Message == data)),
-            Times.Exactly(2));
+        await eventBusMock.Received(2).PublishAsync(
+            Arg.Any<string>(),
+            Arg.Is<TestIntegrationEvent>(t => t.Message == data));
     }
 
     [Fact]
@@ -88,13 +89,13 @@ public class IntegrationEventPublishTests
         // Arrange
         const string data = "hello";
         var builder = new WebApplicationFactory<Program>();
-        var eventBusMock = new Mock<IEventBusProvider>();
+        var eventBusMock = Substitute.For<IEventBusProvider>();
         builder = builder.WithWebHostBuilder(
             b => b.ConfigureServices(
                 services =>
                 {
                     services.RemoveAll<IEventBusProvider>();
-                    services.AddScoped<IEventBusProvider>(_ => eventBusMock.Object);
+                    services.AddScoped<IEventBusProvider>(_ => eventBusMock);
                     services.Configure<EventBusOptions>(
                         o =>
                         {
@@ -103,7 +104,7 @@ public class IntegrationEventPublishTests
                             o.DowngradeInterval = 3000;
                         });
                 }));
-        eventBusMock.Setup(x => x.PublishAsync(It.IsAny<string>(), It.IsAny<IntegrationEvent>()))
+        eventBusMock.PublishAsync(Arg.Any<string>(), Arg.Any<IntegrationEvent>())
             .ThrowsAsync(new InvalidOperationException());
         var client = builder.CreateClient();
         await client.PostAsJsonAsync(
@@ -123,13 +124,13 @@ public class IntegrationEventPublishTests
         // Arrange
         const string data = "hello";
         var builder = new WebApplicationFactory<Program>();
-        var eventBusMock = new Mock<IEventBusProvider>();
+        var eventBusMock = Substitute.For<IEventBusProvider>();
         builder = builder.WithWebHostBuilder(
             b => b.ConfigureServices(
                 services =>
                 {
                     services.RemoveAll<IEventBusProvider>();
-                    services.AddScoped<IEventBusProvider>(_ => eventBusMock.Object);
+                    services.AddScoped<IEventBusProvider>(_ => eventBusMock);
                     services.Configure<EventBusOptions>(
                         o =>
                         {
@@ -149,7 +150,7 @@ public class IntegrationEventPublishTests
         await Task.Delay(1000);
 
         // Assert
-        eventBusMock.Verify(x => x.PublishAsync(It.IsAny<string>(), It.IsAny<IntegrationEvent>()), Times.Once);
+        await eventBusMock.Received(1).PublishAsync(Arg.Any<string>(), Arg.Any<IntegrationEvent>());
     }
 
     [Fact]
@@ -158,13 +159,13 @@ public class IntegrationEventPublishTests
         // Arrange
         const string data = "hello";
         var builder = new WebApplicationFactory<Program>();
-        var eventBusMock = new Mock<IEventBusProvider>();
+        var eventBusMock = Substitute.For<IEventBusProvider>();
         builder = builder.WithWebHostBuilder(
             b => b.ConfigureServices(
                 services =>
                 {
                     services.RemoveAll<IEventBusProvider>();
-                    services.AddScoped<IEventBusProvider>(_ => eventBusMock.Object);
+                    services.AddScoped<IEventBusProvider>(_ => eventBusMock);
                     services.Configure<EventBusOptions>(
                         o =>
                         {
@@ -172,7 +173,7 @@ public class IntegrationEventPublishTests
                             o.DowngradeInterval = 4000;
                         });
                 }));
-        eventBusMock.Setup(x => x.PublishAsync(It.IsAny<string>(), It.IsAny<IntegrationEvent>()))
+        eventBusMock.PublishAsync(Arg.Any<string>(), Arg.Any<IntegrationEvent>())
             .ThrowsAsync(new InvalidOperationException());
         await builder.CreateClient().PostAsJsonAsync(
             "/api/v1/strings",
@@ -180,7 +181,8 @@ public class IntegrationEventPublishTests
         await Task.Delay(1000); // failed, now it is downgraded
 
         // Act
-        eventBusMock.Reset();
+        eventBusMock.PublishAsync(Arg.Any<string>(), Arg.Any<IntegrationEvent>()).Returns(Task.CompletedTask);
+        eventBusMock.ClearReceivedCalls();
         await Task.Delay(2000); // recover
         await builder.CreateClient().PostAsJsonAsync(
             "/api/v1/strings",
@@ -188,8 +190,7 @@ public class IntegrationEventPublishTests
         await Task.Delay(1000);
 
         // Assert
-        eventBusMock.Verify(
-            x => x.PublishAsync(It.IsAny<string>(), It.Is<TestIntegrationEvent>(t => t.Message == data)),
-            Times.Exactly(2));
+        await eventBusMock.Received(2)
+            .PublishAsync(Arg.Any<string>(), Arg.Is<TestIntegrationEvent>(t => t.Message == data));
     }
 }

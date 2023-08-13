@@ -1,9 +1,7 @@
 ﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.UnitTests.Cqrs.FakeObjects;
-
 using Microsoft.Extensions.Logging;
-
-using Moq;
+using NSubstitute;
 
 namespace Cnblogs.Architecture.UnitTests.Cqrs.Behaviors;
 
@@ -13,21 +11,56 @@ public class LoggerBehaviorTests
     public async Task LoggerBehavior_ShouldLogDebugAsync()
     {
         // Arrange
-        var logger = new Mock<ILogger<LoggingBehavior<FakeQuery<string>, string>>>();
-        var behavior = new LoggingBehavior<FakeQuery<string>, string>(logger.Object);
+        var logger = Substitute.For<ILogger<LoggingBehavior<FakeQuery<string>, string>>>();
+        var behavior =
+            new LoggingBehavior<FakeQuery<string>, string>(
+                new TestLogger<LoggingBehavior<FakeQuery<string>, string>>(logger));
         var request = new FakeQuery<string>(null, "test");
 
         // Act
         await behavior.Handle(request, () => Task.FromResult("done"), default);
 
         // Assert
-        logger.Verify(
-            x => x.Log(
-                LogLevel.Debug,
-                It.IsAny<EventId>(),
-                It.IsAny<It.IsAnyType>(),
-                It.IsAny<Exception>(),
-                It.IsAny<Func<It.IsAnyType, Exception?, string>>()),
-            Times.Exactly(2));
+        logger.Received(2).Log(
+            LogLevel.Debug,
+            Arg.Any<EventId>(),
+            Arg.Any<object>(),
+            null,
+            Arg.Any<Func<object, Exception?, string>>());
+    }
+
+    private class TestLogger<T> : ILogger<T>
+    {
+        private readonly ILogger<T> _logger;
+
+        // ReSharper disable once ContextualLoggerProblem
+        public TestLogger(ILogger<T> logger)
+        {
+            _logger = logger;
+        }
+
+        /// <inheritdoc />
+        public IDisposable? BeginScope<TState>(TState state)
+            where TState : notnull
+        {
+            return _logger.BeginScope(state);
+        }
+
+        /// <inheritdoc />
+        public virtual bool IsEnabled(LogLevel logLevel)
+        {
+            return _logger.IsEnabled(logLevel);
+        }
+
+        /// <inheritdoc />
+        public virtual void Log<TState>(
+            LogLevel logLevel,
+            EventId eventId,
+            TState state,
+            Exception? exception,
+            Func<TState, Exception?, string> formatter)
+        {
+            _logger.Log<object>(logLevel, eventId, state!, exception, (_, _) => string.Empty);
+        }
     }
 }

@@ -4,7 +4,8 @@ using Cnblogs.Architecture.UnitTests.Infrastructure.FakeObjects;
 using FluentAssertions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Moq;
+using NSubstitute;
+using NSubstitute.ExceptionExtensions;
 
 namespace Cnblogs.Architecture.UnitTests.Infrastructure.EntityFramework;
 
@@ -26,7 +27,7 @@ public class BaseRepositoryTests
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
         db.Add(entity);
         await db.SaveChangesAsync();
-        var repository = new TestRepository(Mock.Of<IMediator>(), db);
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
 
         // Act
         var got = await repository.GetAsync(entity.Id, e => e.Posts);
@@ -52,7 +53,7 @@ public class BaseRepositoryTests
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
         db.Add(entity);
         await db.SaveChangesAsync();
-        var repository = new TestRepository(Mock.Of<IMediator>(), db);
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
 
         // Act
         var got = await repository.GetAsync(entity.Id, new List<string>() { nameof(entity.Posts) });
@@ -79,7 +80,7 @@ public class BaseRepositoryTests
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
         db.Add(entity);
         await db.SaveChangesAsync();
-        var repository = new TestRepository(Mock.Of<IMediator>(), db);
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
 
         // Act
         var got = await repository.GetAsync(entity.Id, new List<string>() { "Posts.Tags" });
@@ -105,7 +106,7 @@ public class BaseRepositoryTests
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
         db.Add(entity);
         await db.SaveChangesAsync();
-        var repository = new TestRepository(Mock.Of<IMediator>(), db);
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
 
         // Act
         entity.Title = "new title";
@@ -133,8 +134,8 @@ public class BaseRepositoryTests
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
         db.Add(entity);
         await db.SaveChangesAsync();
-        var mediator = new Mock<IMediator>();
-        var repository = new TestRepository(mediator.Object, db);
+        var mediator = Substitute.For<IMediator>();
+        var repository = new TestRepository(mediator, db);
 
         // Act
         entity.Title = "new title";
@@ -143,16 +144,12 @@ public class BaseRepositoryTests
         await repository.UpdateAsync(entity);
 
         // Assert
-        mediator.Verify(
-            x => x.Publish(
-                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1),
-                It.IsAny<CancellationToken>()),
-            Times.Once);
-        mediator.Verify(
-            x => x.Publish(
-                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2),
-                It.IsAny<CancellationToken>()),
-            Times.Once);
+        await mediator.Received(1).Publish(
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1),
+            Arg.Any<CancellationToken>());
+        await mediator.Received(1).Publish(
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2),
+            Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -171,8 +168,8 @@ public class BaseRepositoryTests
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
         db.Add(entity);
         await db.SaveChangesAsync();
-        var mediator = new Mock<IMediator>();
-        var repository = new TestRepository(mediator.Object, db);
+        var mediator = Substitute.For<IMediator>();
+        var repository = new TestRepository(mediator, db);
 
         // Act
         entity.Title = "new title";
@@ -182,16 +179,12 @@ public class BaseRepositoryTests
         await repository.UpdateAsync(entity);
 
         // Assert
-        mediator.Verify(
-            x => x.Publish(
-                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1),
-                It.IsAny<CancellationToken>()),
-            Times.Once);
-        mediator.Verify(
-            x => x.Publish(
-                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2),
-                It.IsAny<CancellationToken>()),
-            Times.Once);
+        await mediator.Received(1).Publish(
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1),
+            Arg.Any<CancellationToken>());
+        await mediator.Received(1).Publish(
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2),
+            Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -208,8 +201,8 @@ public class BaseRepositoryTests
             .GenerateSingle();
         var db = new FakeDbContext(
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
-        var mediator = new Mock<IMediator>();
-        var repository = new TestRepository(mediator.Object, db);
+        var mediator = Substitute.For<IMediator>();
+        var repository = new TestRepository(mediator, db);
 
         // Act
         entity.AddDomainEvent(id => new FakeDomainEvent(id, 1));
@@ -217,16 +210,12 @@ public class BaseRepositoryTests
         await repository.AddAsync(entity);
 
         // Assert
-        mediator.Verify(
-            x => x.Publish(
-                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
-                It.IsAny<CancellationToken>()),
-            Times.Once);
-        mediator.Verify(
-            x => x.Publish(
-                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 2),
-                It.IsAny<CancellationToken>()),
-            Times.Exactly(entity.Posts.Count));
+        await mediator.Received(1).Publish(
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
+            Arg.Any<CancellationToken>());
+        await mediator.Received(entity.Posts.Count).Publish(
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 2),
+            Arg.Any<CancellationToken>());
     }
 
     [Fact]
@@ -243,10 +232,10 @@ public class BaseRepositoryTests
             .GenerateSingle();
         var db = new FakeDbContext(
             new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
-        var mediator = new Mock<IMediator>();
-        mediator.Setup(x => x.Publish(It.IsAny<IDomainEvent>(), It.IsAny<CancellationToken>()))
+        var mediator = Substitute.For<IMediator>();
+        mediator.Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>())
             .Throws<ArgumentException>();
-        var repository = new TestRepository(mediator.Object, db);
+        var repository = new TestRepository(mediator, db);
 
         // Act
         entity.AddDomainEvent(id => new FakeDomainEvent(id, 1));
@@ -257,15 +246,11 @@ public class BaseRepositoryTests
         var eventCount = 1 + entity.Posts.Count;
         (await act.Should().ThrowAsync<AggregateException>()).And.InnerExceptions.Should()
             .HaveCount(eventCount);
-        mediator.Verify(
-            x => x.Publish(
-                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
-                It.IsAny<CancellationToken>()),
-            Times.Once);
-        mediator.Verify(
-            x => x.Publish(
-                It.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 2),
-                It.IsAny<CancellationToken>()),
-            Times.Exactly(entity.Posts.Count));
+        await mediator.Received(1).Publish(
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
+            Arg.Any<CancellationToken>());
+        await mediator.Received(entity.Posts.Count).Publish(
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 2),
+            Arg.Any<CancellationToken>());
     }
 }

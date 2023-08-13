@@ -1,5 +1,3 @@
-using Microsoft.Extensions.DependencyInjection;
-
 namespace Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 
 /// <summary>
