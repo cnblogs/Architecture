@@ -208,7 +208,7 @@ public abstract class CqrsServiceAgent
     }
 
     /// <summary>
-    ///     Get paged list of items based on url.
+    ///     Get paged list of items.
     /// </summary>
     /// <param name="url">The route of the API.</param>
     /// <param name="pageIndex">The page index.</param>
@@ -229,6 +229,18 @@ public abstract class CqrsServiceAgent
         }
 
         return await HttpClient.GetFromJsonAsync<PagedList<TItem>>(url) ?? new PagedList<TItem>();
+    }
+
+    /// <summary>
+    ///     Get list of items.
+    /// </summary>
+    /// <param name="url">The url to send GET request.</param>
+    /// <typeparam name="TList">The type of list.</typeparam>
+    /// <returns>The fetched list.</returns>
+    public async Task<TList> ListItemsAsync<TList>(string url)
+        where TList : new()
+    {
+        return await HttpClient.GetFromJsonAsync<TList>(url) ?? new TList();
     }
 
     private static async Task<CommandResponse<TResponse, ServiceAgentError>> HandleCommandResponseAsync<TResponse>(
