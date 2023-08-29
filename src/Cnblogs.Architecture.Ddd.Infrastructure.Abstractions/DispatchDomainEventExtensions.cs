@@ -4,7 +4,7 @@ using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 namespace MediatR;
 
 /// <summary>
-///     发布领域时间的拓展方法。
+///     发布领域事件的拓展方法。
 /// </summary>
 public static class DispatchDomainEventExtensions
 {
