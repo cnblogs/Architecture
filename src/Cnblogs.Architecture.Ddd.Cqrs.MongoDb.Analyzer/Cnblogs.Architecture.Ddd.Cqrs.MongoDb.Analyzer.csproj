@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MongoDB.Analyzer" Version="1.2.0" PrivateAssets="None"/>
+    <PackageReference Include="MongoDB.Analyzer" Version="1.3.0" PrivateAssets="None"/>
   </ItemGroup>
 
   <ItemGroup>
