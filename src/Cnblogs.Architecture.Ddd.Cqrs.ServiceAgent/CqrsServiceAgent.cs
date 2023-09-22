@@ -131,19 +131,13 @@ public abstract class CqrsServiceAgent
     /// <returns>The query result, can be null if item does not exists or status code is 404.</returns>
     public async Task<T?> GetItemAsync<T>(string url)
     {
-        try
+        var response = await HttpClient.GetAsync(url);
+        return response.StatusCode switch
         {
-            return await HttpClient.GetFromJsonAsync<T>(url);
-        }
-        catch (HttpRequestException e)
-        {
-            if (e.StatusCode == HttpStatusCode.NotFound)
-            {
-                return default;
-            }
-
-            throw;
-        }
+            HttpStatusCode.OK => await response.Content.ReadFromJsonAsync<T>(),
+            HttpStatusCode.NotFound => default,
+            _ => default
+        };
     }
 
     /// <summary>
