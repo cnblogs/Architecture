@@ -2,6 +2,7 @@
 using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject;
+using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 
@@ -131,5 +132,49 @@ public class CqrsRouteMapperTests
 
         // Assert
         responses.Should().Match(x => x.All(y => y.IsSuccessStatusCode));
+    }
+
+    [Fact]
+    public async Task PostItem_GenericMap_SuccessAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var response = await builder.CreateClient().PostAsJsonAsync(
+            "/api/v1/generic-map/strings",
+            new CreateCommand(false, "data"));
+
+        // Assert
+        response.Should().BeSuccessful();
+    }
+
+    [Fact]
+    public async Task PutItem_GenericMap_SuccessAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var response = await builder.CreateClient().PutAsJsonAsync(
+            "/api/v1/generic-map/strings",
+            new UpdateCommand(1, false, false));
+
+        // Assert
+        response.Should().BeSuccessful();
+    }
+
+    [Fact]
+    public async Task DeleteCommand_GenericMap_SuccessAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var queryBuilder = new QueryStringBuilder().Add("needError", false);
+        var response = await builder.CreateClient().DeleteAsync("/api/v1/generic-map/strings/1" + queryBuilder.Build());
+
+        // Assert
+        response.Should().BeSuccessful();
     }
 }
