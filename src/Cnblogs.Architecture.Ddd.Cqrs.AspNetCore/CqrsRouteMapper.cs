@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Routing.Patterns;
 
@@ -207,6 +208,20 @@ public static class CqrsRouteMapper
     }
 
     /// <summary>
+    ///     Map a command API, using POST method and get command data from request body.
+    /// </summary>
+    /// <param name="app"><see cref="ApplicationBuilder"/></param>
+    /// <param name="route">The route template.</param>
+    /// <typeparam name="TCommand">The type of command.</typeparam>
+    /// <returns></returns>
+    public static IEndpointConventionBuilder MapPostCommand<TCommand>(
+        this IEndpointRouteBuilder app,
+        [StringSyntax("Route")] string route)
+    {
+        return app.MapPostCommand(route, ([FromBody] TCommand command) => command);
+    }
+
+    /// <summary>
     ///     Map a command API, using POST method.
     /// </summary>
     /// <param name="app"><see cref="ApplicationBuilder"/></param>
@@ -223,6 +238,20 @@ public static class CqrsRouteMapper
     }
 
     /// <summary>
+    ///     Map a command API, using PUT method and get command data from request body.
+    /// </summary>
+    /// <param name="app"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="route">The route template.</param>
+    /// <typeparam name="TCommand">The type of command.</typeparam>
+    /// <returns></returns>
+    public static IEndpointConventionBuilder MapPutCommand<TCommand>(
+        this IEndpointRouteBuilder app,
+        [StringSyntax("Route")] string route)
+    {
+        return app.MapPutCommand(route, ([FromBody] TCommand command) => command);
+    }
+
+    /// <summary>
     ///     Map a command API, using PUT method.
     /// </summary>
     /// <param name="app"><see cref="ApplicationBuilder"/></param>
@@ -236,6 +265,20 @@ public static class CqrsRouteMapper
     {
         EnsureDelegateReturnTypeIsCommand(handler);
         return app.MapPut(route, handler).AddEndpointFilter<CommandEndpointHandler>();
+    }
+
+    /// <summary>
+    ///     Map a command API, using DELETE method and get command from route/query parameters.
+    /// </summary>
+    /// <param name="app"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="route">The route template.</param>
+    /// <typeparam name="TCommand">The type of command.</typeparam>
+    /// <returns></returns>
+    public static IEndpointConventionBuilder MapDeleteCommand<TCommand>(
+        this IEndpointRouteBuilder app,
+        [StringSyntax("Route")] string route)
+    {
+        return app.MapDeleteCommand(route, ([AsParameters] TCommand command) => command);
     }
 
     /// <summary>

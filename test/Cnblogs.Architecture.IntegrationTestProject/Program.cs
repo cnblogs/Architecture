@@ -45,6 +45,11 @@ v1.MapCommand(
     (int id, UpdatePayload payload) => new UpdateCommand(id, payload.NeedValidationError, payload.NeedExecutionError));
 v1.MapCommand<DeleteCommand>("strings/{id:int}");
 
+// generic command map
+v1.MapPostCommand<CreateCommand>("generic-map/strings");
+v1.MapPutCommand<UpdateCommand>("generic-map/strings");
+v1.MapDeleteCommand<DeleteCommand>("generic-map/strings/{id:int}");
+
 app.Run();
 
 namespace Cnblogs.Architecture.IntegrationTestProject
