@@ -1,5 +1,8 @@
+using System.Net;
 using System.Net.Http.Headers;
 using Microsoft.Extensions.DependencyInjection;
+using Polly;
+using Polly.Extensions.Http;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent;
 
@@ -13,17 +16,22 @@ public static class InjectExtensions
     /// </summary>
     /// <param name="services">The <see cref="IServiceCollection"/>.</param>
     /// <param name="baseUri">The base uri for api.</param>
-    /// <typeparam name="T">The type of service agent</typeparam>
+    /// <param name="policy">The polly policy for underlying httpclient.</param>
+    /// <typeparam name="TClient">The type of service agent</typeparam>
     /// <returns></returns>
-    public static IHttpClientBuilder AddServiceAgent<T>(this IServiceCollection services, string baseUri)
-        where T : CqrsServiceAgent
+    public static IHttpClientBuilder AddServiceAgent<TClient>(
+        this IServiceCollection services,
+        string baseUri,
+        IAsyncPolicy<HttpResponseMessage>? policy = null)
+        where TClient : class
     {
-        return services.AddHttpClient<T>(
+        policy ??= GetDefaultPolicy();
+        return services.AddHttpClient<TClient>(
             h =>
             {
                 h.BaseAddress = new Uri(baseUri);
                 h.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
-            });
+            }).AddPolicyHandler(policy);
     }
 
     /// <summary>
@@ -31,20 +39,30 @@ public static class InjectExtensions
     /// </summary>
     /// <param name="services">The <see cref="IServiceCollection"/>.</param>
     /// <param name="baseUri">The base uri for api.</param>
+    /// <param name="policy">The polly policy for underlying httpclient.</param>
     /// <typeparam name="TClient">The type of api client.</typeparam>
     /// <typeparam name="TImplementation">The type of service agent</typeparam>
     /// <returns></returns>
     public static IHttpClientBuilder AddServiceAgent<TClient, TImplementation>(
         this IServiceCollection services,
-        string baseUri)
+        string baseUri,
+        IAsyncPolicy<HttpResponseMessage>? policy = null)
         where TClient : class
-        where TImplementation : CqrsServiceAgent, TClient
+        where TImplementation : class, TClient
     {
+        policy ??= GetDefaultPolicy();
         return services.AddHttpClient<TClient, TImplementation>(
             h =>
             {
                 h.BaseAddress = new Uri(baseUri);
                 h.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
-            });
+            }).AddPolicyHandler(policy);
+    }
+
+    private static IAsyncPolicy<HttpResponseMessage> GetDefaultPolicy()
+    {
+        return HttpPolicyExtensions.HandleTransientHttpError()
+            .OrResult(msg => msg.StatusCode == HttpStatusCode.TooManyRequests)
+            .WaitAndRetryAsync(3, _ => TimeSpan.FromMilliseconds(1500));
     }
 }
