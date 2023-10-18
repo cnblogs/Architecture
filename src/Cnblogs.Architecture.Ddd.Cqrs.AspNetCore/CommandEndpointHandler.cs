@@ -89,7 +89,12 @@ public class CommandEndpointHandler : IEndpointFilter
 
     private static IResult HandleErrorCommandResponseWithCqrs(CommandResponse response)
     {
-        return Results.BadRequest(response);
+        if (response is { IsConcurrentError: true, LockAcquired: false })
+        {
+            return Results.StatusCode(429);
+        }
+
+        return Results.BadRequest((object)response);
     }
 
     private static IResult HandleErrorCommandResponseWithPlainText(CommandResponse response)

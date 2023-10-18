@@ -100,6 +100,11 @@ public class ApiControllerBase : ControllerBase
     private IActionResult MapErrorCommandResponseToCqrsResponse<TError>(CommandResponse<TError> response)
         where TError : Enumeration
     {
+        if (response is { IsConcurrentError: true, LockAcquired: false })
+        {
+            return StatusCode(429);
+        }
+
         return BadRequest(response);
     }
 

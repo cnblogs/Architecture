@@ -1,14 +1,32 @@
 using System.Net;
 using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
+using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent;
 
 /// <summary>
+///     Base Class for CQRS Service Agent.
+/// </summary>
+public abstract class CqrsServiceAgent : CqrsServiceAgent<ServiceAgentError>
+{
+    /// <summary>
+    ///     Create a Cqrs service agent.
+    /// </summary>
+    /// <param name="httpClient">The underlying http client.</param>
+    protected CqrsServiceAgent(HttpClient httpClient)
+        : base(httpClient)
+    {
+    }
+}
+
+/// <summary>
 ///     Service Agent for CQRS
 /// </summary>
-public abstract class CqrsServiceAgent
+/// <typeparam name="TError">The type of error for this service.</typeparam>
+public abstract class CqrsServiceAgent<TError>
+    where TError : Enumeration
 {
     /// <summary>
     ///     The underlying <see cref="HttpClient"/>.
@@ -30,7 +48,7 @@ public abstract class CqrsServiceAgent
     /// <param name="url">The url.</param>
     /// <typeparam name="TResponse">Response type.</typeparam>
     /// <returns>The response.</returns>
-    public async Task<CommandResponse<TResponse, ServiceAgentError>> DeleteCommandAsync<TResponse>(string url)
+    public async Task<CommandResponse<TResponse, TError>> DeleteCommandAsync<TResponse>(string url)
     {
         var response = await HttpClient.DeleteAsync(url);
         return await HandleCommandResponseAsync<TResponse>(response);
@@ -40,7 +58,7 @@ public abstract class CqrsServiceAgent
     ///     Execute a command with DELETE method.
     /// </summary>
     /// <param name="url">The route of the API.</param>
-    public async Task<CommandResponse<ServiceAgentError>> DeleteCommandAsync(string url)
+    public async Task<CommandResponse<TError>> DeleteCommandAsync(string url)
     {
         var response = await HttpClient.DeleteAsync(url);
         return await HandleCommandResponseAsync(response);
@@ -50,7 +68,7 @@ public abstract class CqrsServiceAgent
     ///     Execute a command with POST method.
     /// </summary>
     /// <param name="url">The route of the API.</param>
-    public async Task<CommandResponse<ServiceAgentError>> PostCommandAsync(string url)
+    public async Task<CommandResponse<TError>> PostCommandAsync(string url)
     {
         var response = await HttpClient.PostAsync(url, new StringContent(string.Empty));
         return await HandleCommandResponseAsync(response);
@@ -62,7 +80,7 @@ public abstract class CqrsServiceAgent
     /// <param name="url">The route of the API.</param>
     /// <param name="payload">The request body.</param>
     /// <typeparam name="TPayload">The type of request body.</typeparam>
-    public async Task<CommandResponse<ServiceAgentError>> PostCommandAsync<TPayload>(string url, TPayload payload)
+    public async Task<CommandResponse<TError>> PostCommandAsync<TPayload>(string url, TPayload payload)
     {
         var response = await HttpClient.PostAsJsonAsync(url, payload);
         return await HandleCommandResponseAsync(response);
@@ -76,7 +94,7 @@ public abstract class CqrsServiceAgent
     /// <typeparam name="TResponse">The type of response body.</typeparam>
     /// <typeparam name="TPayload">The type of request body.</typeparam>
     /// <returns>The response body.</returns>
-    public async Task<CommandResponse<TResponse, ServiceAgentError>> PostCommandAsync<TResponse, TPayload>(
+    public async Task<CommandResponse<TResponse, TError>> PostCommandAsync<TResponse, TPayload>(
         string url,
         TPayload payload)
     {
@@ -88,7 +106,7 @@ public abstract class CqrsServiceAgent
     ///     Execute a command with PUT method and payload.
     /// </summary>
     /// <param name="url">The route of API.</param>
-    public async Task<CommandResponse<ServiceAgentError>> PutCommandAsync(string url)
+    public async Task<CommandResponse<TError>> PutCommandAsync(string url)
     {
         var response = await HttpClient.PutAsync(url, new StringContent(string.Empty));
         return await HandleCommandResponseAsync(response);
@@ -101,7 +119,7 @@ public abstract class CqrsServiceAgent
     /// <param name="payload">The request body.</param>
     /// <typeparam name="TPayload">The type of request body.</typeparam>
     /// <returns>The command response.</returns>
-    public async Task<CommandResponse<ServiceAgentError>> PutCommandAsync<TPayload>(string url, TPayload payload)
+    public async Task<CommandResponse<TError>> PutCommandAsync<TPayload>(string url, TPayload payload)
     {
         var response = await HttpClient.PutAsJsonAsync(url, payload);
         return await HandleCommandResponseAsync(response);
@@ -115,7 +133,7 @@ public abstract class CqrsServiceAgent
     /// <typeparam name="TResponse">The type of response body.</typeparam>
     /// <typeparam name="TPayload">The type of request body.</typeparam>
     /// <returns>The response body.</returns>
-    public async Task<CommandResponse<TResponse, ServiceAgentError>> PutCommandAsync<TResponse, TPayload>(
+    public async Task<CommandResponse<TResponse, TError>> PutCommandAsync<TResponse, TPayload>(
         string url,
         TPayload payload)
     {
@@ -237,54 +255,44 @@ public abstract class CqrsServiceAgent
         return await HttpClient.GetFromJsonAsync<TList>(url) ?? new TList();
     }
 
-    private static async Task<CommandResponse<TResponse, ServiceAgentError>> HandleCommandResponseAsync<TResponse>(
+    private static async Task<CommandResponse<TResponse, TError>> HandleCommandResponseAsync<TResponse>(
         HttpResponseMessage httpResponseMessage)
     {
-        if (httpResponseMessage.IsSuccessStatusCode)
+        if (httpResponseMessage.StatusCode == HttpStatusCode.NoContent)
+        {
+            return CommandResponse<TResponse, TError>.Success();
+        }
+
+        if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
         {
             var result = await httpResponseMessage.Content.ReadFromJsonAsync<TResponse>();
-            return CommandResponse<TResponse, ServiceAgentError>.Success(result);
+            return CommandResponse<TResponse, TError>.Success(result);
         }
 
-        var response = await httpResponseMessage.Content.ReadFromJsonAsync<CommandResponse>();
+        var response = await httpResponseMessage.Content.ReadFromJsonAsync<CommandResponse<TResponse, TError>>();
         if (response is null)
         {
-            return CommandResponse<TResponse, ServiceAgentError>.Fail(ServiceAgentError.UnknownError);
+            throw new InvalidOperationException(
+                $"Could not deserialize error from response, response: {await httpResponseMessage.Content.ReadAsStringAsync()}");
         }
 
-        return new CommandResponse<TResponse, ServiceAgentError>
-        {
-            IsConcurrentError = response.IsConcurrentError,
-            IsValidationError = response.IsValidationError,
-            ErrorMessage = response.ErrorMessage,
-            LockAcquired = response.LockAcquired,
-            ValidationErrors = response.ValidationErrors,
-            ErrorCode = new ServiceAgentError(1, response.ErrorMessage)
-        };
+        return response;
     }
 
-    private static async Task<CommandResponse<ServiceAgentError>> HandleCommandResponseAsync(
-        HttpResponseMessage message)
+    private static async Task<CommandResponse<TError>> HandleCommandResponseAsync(HttpResponseMessage message)
     {
         if (message.IsSuccessStatusCode)
         {
-            return CommandResponse<ServiceAgentError>.Success();
+            return CommandResponse<TError>.Success();
         }
 
-        var response = await message.Content.ReadFromJsonAsync<CommandResponse>();
+        var response = await message.Content.ReadFromJsonAsync<CommandResponse<TError>>();
         if (response is null)
         {
-            return CommandResponse<ServiceAgentError>.Fail(ServiceAgentError.UnknownError);
+            throw new InvalidOperationException(
+                $"Could not deserialize error from response, response: {await message.Content.ReadAsStringAsync()}");
         }
 
-        return new CommandResponse<ServiceAgentError>
-        {
-            IsConcurrentError = response.IsConcurrentError,
-            IsValidationError = response.IsValidationError,
-            ErrorMessage = response.ErrorMessage,
-            LockAcquired = response.LockAcquired,
-            ValidationErrors = response.ValidationErrors,
-            ErrorCode = new ServiceAgentError(1, response.ErrorMessage)
-        };
+        return response;
     }
 }
