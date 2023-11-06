@@ -12,7 +12,7 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework;
 /// <typeparam name="TEntity">该类管理的实体。</typeparam>
 /// <typeparam name="TKey"><typeparamref name="TEntity" /> 的主键。</typeparam>
 public abstract class BaseRepository<TContext, TEntity, TKey>
-    : INavigationRepository<TEntity, TKey>, IUnitOfWork<TEntity, TKey>
+    : INavigationRepository<TEntity, TKey>, IUnitOfWork<TEntity, TKey>, ISqlRepository<TEntity, TKey>
     where TContext : DbContext
     where TEntity : EntityBase, IEntity<TKey>, IAggregateRoot
     where TKey : IComparable<TKey>
@@ -184,5 +184,23 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
             .Where(x => x.State != EntityState.Unchanged)
             .ToList();
         domainEntities.ForEach(x => x.Entity.BeforeUpdate());
+    }
+
+    /// <inheritdoc />
+    public IQueryable<TEntity> SqlQuery(string sql, params object[] parameters)
+    {
+        return Context.Set<TEntity>().FromSqlRaw(sql, parameters);
+    }
+
+    /// <inheritdoc />
+    public IQueryable<T> SqlQuery<T>(string sql, params object[] parameters)
+    {
+        return Context.Database.SqlQueryRaw<T>(sql, parameters);
+    }
+
+    /// <inheritdoc />
+    public Task<int> ExecuteSqlAsync(string sql, params object[] parameters)
+    {
+        return Context.Database.ExecuteSqlRawAsync(sql, parameters);
     }
 }
