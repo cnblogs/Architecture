@@ -3,6 +3,4 @@
 /// <summary>
 ///     聚合根标记。
 /// </summary>
-public interface IAggregateRoot
-{
-}
+public interface IAggregateRoot;

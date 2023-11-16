@@ -11,6 +11,4 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// <typeparam name="TError">The error type for this handler.</typeparam>
 public interface ICommandHandler<TCommand, TError> : IRequestHandler<TCommand, CommandResponse<TError>>
     where TCommand : ICommand<TError>
-    where TError : Enumeration
-{
-}
+    where TError : Enumeration;
