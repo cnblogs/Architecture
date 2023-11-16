@@ -57,10 +57,12 @@ public abstract class ClickhouseDapperContext : DapperContext
 
         using var bulkCopyInterface = new ClickHouseBulkCopy(_options.ConnectionString)
         {
-            DestinationTableName = configuration.TableName
+            DestinationTableName = configuration.TableName,
+            ColumnNames = configuration.ColumnNames
         };
 
         var objs = entities.Select(x => configuration.ToObjectArray(x));
-        await bulkCopyInterface.WriteToServerAsync(objs, configuration.ColumnNames);
+        await bulkCopyInterface.InitAsync();
+        await bulkCopyInterface.WriteToServerAsync(objs);
     }
 }

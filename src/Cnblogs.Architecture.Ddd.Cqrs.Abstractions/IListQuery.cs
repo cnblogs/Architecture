@@ -6,6 +6,4 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 ///     Represents a query returns a list of items.
 /// </summary>
 /// <typeparam name="TList">The list to return, usually a <see cref="List{T}"/>.</typeparam>
-public interface IListQuery<TList> : IRequest<TList>
-{
-}
+public interface IListQuery<TList> : IRequest<TList>;

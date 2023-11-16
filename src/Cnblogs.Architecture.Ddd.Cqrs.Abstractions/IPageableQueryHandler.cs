@@ -8,6 +8,4 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// <typeparam name="TQuery">The <see cref="IPageableQuery{TElement}" /> to handle.</typeparam>
 /// <typeparam name="TView">The type for each item in <see cref="PagedList{T}"/>.</typeparam>
 public interface IPageableQueryHandler<TQuery, TView> : IListQueryHandler<TQuery, PagedList<TView>>
-    where TQuery : IPageableQuery<TView>
-{
-}
+    where TQuery : IPageableQuery<TView>;

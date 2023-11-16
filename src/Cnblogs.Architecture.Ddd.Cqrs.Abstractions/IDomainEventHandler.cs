@@ -9,6 +9,4 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// </summary>
 /// <typeparam name="TDomainEvent">The domain event type for this handler to handle.</typeparam>
 public interface IDomainEventHandler<TDomainEvent> : INotificationHandler<TDomainEvent>
-    where TDomainEvent : DomainEvent
-{
-}
+    where TDomainEvent : DomainEvent;
