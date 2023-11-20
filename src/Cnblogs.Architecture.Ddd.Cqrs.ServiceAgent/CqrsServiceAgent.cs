@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Json;
+using System.Text.Json;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
@@ -263,20 +264,28 @@ public abstract class CqrsServiceAgent<TError>
             return CommandResponse<TResponse, TError>.Success();
         }
 
-        if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+        try
         {
-            var result = await httpResponseMessage.Content.ReadFromJsonAsync<TResponse>();
-            return CommandResponse<TResponse, TError>.Success(result);
-        }
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            {
+                var result = await httpResponseMessage.Content.ReadFromJsonAsync<TResponse>();
+                return CommandResponse<TResponse, TError>.Success(result);
+            }
 
-        var response = await httpResponseMessage.Content.ReadFromJsonAsync<CommandResponse<TResponse, TError>>();
-        if (response is null)
+            var response = await httpResponseMessage.Content.ReadFromJsonAsync<CommandResponse<TResponse, TError>>();
+            if (response is null)
+            {
+                throw new InvalidOperationException(
+                    $"Could not deserialize error from response, response: {await httpResponseMessage.Content.ReadAsStringAsync()}");
+            }
+
+            return response;
+        }
+        catch (JsonException)
         {
             throw new InvalidOperationException(
-                $"Could not deserialize error from response, response: {await httpResponseMessage.Content.ReadAsStringAsync()}");
+                $"Deserialize response failed, status code: {httpResponseMessage.StatusCode}, Body:{await httpResponseMessage.Content.ReadAsStringAsync()}");
         }
-
-        return response;
     }
 
     private static async Task<CommandResponse<TError>> HandleCommandResponseAsync(HttpResponseMessage message)
@@ -286,13 +295,21 @@ public abstract class CqrsServiceAgent<TError>
             return CommandResponse<TError>.Success();
         }
 
-        var response = await message.Content.ReadFromJsonAsync<CommandResponse<TError>>();
-        if (response is null)
+        try
+        {
+            var response = await message.Content.ReadFromJsonAsync<CommandResponse<TError>>();
+            if (response is null)
+            {
+                throw new InvalidOperationException(
+                    $"Could not deserialize error from response, response: {await message.Content.ReadAsStringAsync()}");
+            }
+
+            return response;
+        }
+        catch (JsonException)
         {
             throw new InvalidOperationException(
-                $"Could not deserialize error from response, response: {await message.Content.ReadAsStringAsync()}");
+                $"Deserialize response failed, status code: {message.StatusCode}, Body:{await message.Content.ReadAsStringAsync()}");
         }
-
-        return response;
     }
 }
