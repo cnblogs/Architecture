@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using System.Text.Json;
+using MediatR;
 
 using Microsoft.Extensions.Logging;
 
@@ -31,7 +32,7 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
     {
         _logger.LogDebug("Handling {@Request}", request);
         var result = await next();
-        _logger.LogDebug("Handled {@Request}", request);
+        _logger.LogDebug("Handled {@Request}, Response: {Response}", request, JsonSerializer.Serialize(result));
         return result;
     }
 }
