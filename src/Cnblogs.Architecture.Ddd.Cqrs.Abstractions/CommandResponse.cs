@@ -148,7 +148,8 @@ public record CommandResponse<TView, TError> : CommandResponse<TError>, IObjectR
     /// <remarks>
     ///     This property can be null even if execution completed with no error.
     /// </remarks>
-    public TView? Response { get; }
+    // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Global
+    public TView? Response { get; init; }
 
     /// <summary>
     ///     Create a <see cref="CommandResponse{TView,TError}" /> with given error.

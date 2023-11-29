@@ -41,7 +41,7 @@ public class ApiControllerBase : ControllerBase
     }
 
     /// <summary>
-    ///     Handle command response and return 204 if success, 400 if error.
+    ///     Handle command response and return 200 if success, 400 if error.
     /// </summary>
     /// <param name="response">The command response.</param>
     /// <typeparam name="TResponse">The response type when success.</typeparam>
@@ -52,7 +52,7 @@ public class ApiControllerBase : ControllerBase
     {
         if (response.IsSuccess())
         {
-            return Ok(response.Response);
+            return Request.Headers.CqrsVersion() > 1 ? Ok(response) : Ok(response.Response);
         }
 
         return HandleCommandResponse((CommandResponse<TError>)response);
@@ -62,7 +62,7 @@ public class ApiControllerBase : ControllerBase
         where TError : Enumeration
     {
         var errorResponseType = CqrsHttpOptions.CommandErrorResponseType;
-        if (Request.Headers.Accept.Contains("application/cqrs"))
+        if (Request.Headers.Accept.Contains("application/cqrs") || Request.Headers.CqrsVersion() > 1)
         {
             errorResponseType = ErrorResponseType.Cqrs;
         }

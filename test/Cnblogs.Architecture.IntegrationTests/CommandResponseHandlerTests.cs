@@ -23,6 +23,75 @@ public class CommandResponseHandlerTests
         new object[] { true, false }, new object[] { false, true }
     };
 
+    [Fact]
+    public async Task MinimalApi_NoCqrsVersionHeader_RawResultAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+        var client = builder.CreateClient();
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+
+        // Act
+        var response = await client.PutAsJsonAsync("/api/v1/strings/1", new UpdatePayload());
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        content.Should().NotBeNullOrEmpty();
+    }
+
+    [Fact]
+    public async Task MinimalApi_CqrsV2_CommandResponseAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+        var client = builder.CreateClient();
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+        client.DefaultRequestHeaders.AppendCurrentCqrsVersion();
+
+        // Act
+        var response = await client.PutAsJsonAsync("/api/v1/strings/1", new UpdatePayload());
+        var content = await response.Content.ReadFromJsonAsync<CommandResponse<string, TestError>>();
+
+        // Assert
+        content.Should().NotBeNull();
+        content!.Response.Should().NotBeNullOrEmpty();
+    }
+
+    [Fact]
+    public async Task Mvc_NoCqrsVersionHeader_RawResultAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+        var client = builder.CreateClient();
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+
+        // Act
+        var response = await client.PutAsJsonAsync("/api/v1/mvc/strings/1", new UpdatePayload());
+        var content = await response.Content.ReadAsStringAsync();
+
+        // Assert
+        response.Should().BeSuccessful();
+        content.Should().NotBeNullOrEmpty();
+    }
+
+    [Fact]
+    public async Task Mvc_CurrentCqrsVersion_CommandResponseAsync()
+    {
+        // Arrange
+        var builder = new WebApplicationFactory<Program>();
+        var client = builder.CreateClient();
+        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+        client.DefaultRequestHeaders.AppendCurrentCqrsVersion();
+
+        // Act
+        var response = await client.PutAsJsonAsync("/api/v1/mvc/strings/1", new UpdatePayload());
+        var content = await response.Content.ReadFromJsonAsync<CommandResponse<string, TestError>>();
+
+        // Assert
+        response.Should().BeSuccessful();
+        content!.Response.Should().NotBeNull();
+    }
+
     [Theory]
     [MemberData(nameof(ErrorPayloads))]
     public async Task MinimalApi_HavingError_BadRequestAsync(bool needValidationError, bool needExecutionError)

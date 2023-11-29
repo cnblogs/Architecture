@@ -5,41 +5,34 @@ using MediatR;
 
 namespace Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 
-public class CommandHandlers
-    : ICommandHandler<CreateCommand, TestError>, ICommandHandler<UpdateCommand, TestError>,
-        ICommandHandler<DeleteCommand, TestError>
+public class CommandHandlers(IMediator mediator)
+    : ICommandHandler<CreateCommand, string, TestError>, ICommandHandler<UpdateCommand, string, TestError>,
+        ICommandHandler<DeleteCommand, string, TestError>
 {
-    private readonly IMediator _mediator;
-
-    public CommandHandlers(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
-
     /// <inheritdoc />
-    public async Task<CommandResponse<TestError>> Handle(CreateCommand request, CancellationToken cancellationToken)
+    public async Task<CommandResponse<string, TestError>> Handle(CreateCommand request, CancellationToken cancellationToken)
     {
-        await _mediator.Publish(new StringCreatedDomainEvent(request.Data ?? string.Empty), cancellationToken);
+        await mediator.Publish(new StringCreatedDomainEvent(request.Data ?? string.Empty), cancellationToken);
         return request.NeedError
-                ? CommandResponse<TestError>.Fail(TestError.Default)
-                : CommandResponse<TestError>.Success();
+                ? CommandResponse<string, TestError>.Fail(TestError.Default)
+                : CommandResponse<string, TestError>.Success("create success");
     }
 
     /// <inheritdoc />
-    public Task<CommandResponse<TestError>> Handle(UpdateCommand request, CancellationToken cancellationToken)
+    public Task<CommandResponse<string, TestError>> Handle(UpdateCommand request, CancellationToken cancellationToken)
     {
         return Task.FromResult(
             request.NeedExecutionError
-                ? CommandResponse<TestError>.Fail(TestError.Default)
-                : CommandResponse<TestError>.Success());
+                ? CommandResponse<string, TestError>.Fail(TestError.Default)
+                : CommandResponse<string, TestError>.Success("update success"));
     }
 
     /// <inheritdoc />
-    public Task<CommandResponse<TestError>> Handle(DeleteCommand request, CancellationToken cancellationToken)
+    public Task<CommandResponse<string, TestError>> Handle(DeleteCommand request, CancellationToken cancellationToken)
     {
         return Task.FromResult(
             request.NeedError
-                ? CommandResponse<TestError>.Fail(TestError.Default)
-                : CommandResponse<TestError>.Success());
+                ? CommandResponse<string, TestError>.Fail(TestError.Default)
+                : CommandResponse<string, TestError>.Success("delete success"));
     }
 }

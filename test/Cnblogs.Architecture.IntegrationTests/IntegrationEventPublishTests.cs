@@ -39,7 +39,7 @@ public class IntegrationEventPublishTests
 
         // Assert
         response.Should().BeSuccessful();
-        content.Should().BeNullOrEmpty();
+        content.Should().NotBeNullOrEmpty();
         await eventBusMock.Received(1).PublishAsync(
             Arg.Any<string>(),
             Arg.Is<TestIntegrationEvent>(t => t.Message == data));
@@ -77,7 +77,7 @@ public class IntegrationEventPublishTests
 
         // Assert
         response.Should().BeSuccessful();
-        content.Should().BeNullOrEmpty();
+        content.Should().NotBeNullOrEmpty();
         await eventBusMock.Received(2).PublishAsync(
             Arg.Any<string>(),
             Arg.Is<TestIntegrationEvent>(t => t.Message == data));
