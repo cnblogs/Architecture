@@ -58,7 +58,9 @@ public class CommandEndpointHandler : IEndpointFilter
             // check if response has result
             if (commandResponse is IObjectResponse objectResponse)
             {
-                return Results.Ok(objectResponse.GetResult());
+                return context.HttpContext.Request.Headers.CqrsVersion() > 1
+                    ? Results.Extensions.Cqrs(response)
+                    : Results.Ok(objectResponse.GetResult());
             }
 
             return Results.NoContent();
@@ -70,7 +72,8 @@ public class CommandEndpointHandler : IEndpointFilter
     private IResult HandleErrorCommandResponse(CommandResponse response, HttpContext context)
     {
         var errorResponseType = _options.CommandErrorResponseType;
-        if (context.Request.Headers.Accept.Contains("application/cqrs"))
+        if (context.Request.Headers.Accept.Contains("application/cqrs")
+            || context.Request.Headers.Accept.Contains("application/cqrs-v2"))
         {
             errorResponseType = ErrorResponseType.Cqrs;
         }

@@ -2,6 +2,7 @@ using System.Net;
 using System.Net.Http.Json;
 using System.Text.Json;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
+using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
@@ -266,7 +267,7 @@ public abstract class CqrsServiceAgent<TError>
 
         try
         {
-            if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
+            if (httpResponseMessage.StatusCode == HttpStatusCode.OK && httpResponseMessage.Headers.CqrsVersion() == 1)
             {
                 var result = await httpResponseMessage.Content.ReadFromJsonAsync<TResponse>();
                 return CommandResponse<TResponse, TError>.Success(result);

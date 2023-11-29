@@ -8,7 +8,7 @@ public record UpdateCommand(
         bool NeedValidationError,
         bool NeedExecutionError,
         bool ValidateOnly = false)
-    : ICommand<TestError>, IValidatable
+    : ICommand<string, TestError>, IValidatable
 {
     /// <inheritdoc />
     public void Validate(ValidationErrors errors)

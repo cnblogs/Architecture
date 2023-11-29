@@ -21,6 +21,12 @@ public static class CqrsRouteMapper
 
     private static readonly string[] GetAndHeadMethods = { "GET", "HEAD" };
 
+    private static readonly List<string> PostCommandPrefixes = new() { "Create", "Add", "New" };
+
+    private static readonly List<string> PutCommandPrefixes = new() { "Update", "Modify", "Replace", "Alter" };
+
+    private static readonly List<string> DeleteCommandPrefixes = new() { "Delete", "Remove", "Clean", "Clear", "Purge" };
+
     /// <summary>
     ///     Map a query API, using GET method. <typeparamref name="T"/> would been constructed from route and query string.
     /// </summary>
@@ -164,7 +170,23 @@ public static class CqrsRouteMapper
         this IEndpointRouteBuilder app,
         [StringSyntax("Route")] string route)
     {
-        return app.MapCommand(route, ([AsParameters] T command) => command);
+        var commandTypeName = typeof(T).Name;
+        if (PostCommandPrefixes.Any(x => commandTypeName.StartsWith(x)))
+        {
+            return app.MapPostCommand<T>(route);
+        }
+
+        if (PutCommandPrefixes.Any(x => commandTypeName.StartsWith(x)))
+        {
+            return app.MapPutCommand<T>(route);
+        }
+
+        if (DeleteCommandPrefixes.Any(x => commandTypeName.StartsWith(x)))
+        {
+            return app.MapDeleteCommand<T>(route);
+        }
+
+        return app.MapPutCommand<T>(route);
     }
 
     /// <summary>
@@ -189,17 +211,17 @@ public static class CqrsRouteMapper
     {
         EnsureDelegateReturnTypeIsCommand(handler);
         var commandTypeName = handler.Method.ReturnType.Name;
-        if (commandTypeName.StartsWith("Create") || commandTypeName.StartsWith("Add"))
+        if (PostCommandPrefixes.Any(x => commandTypeName.StartsWith(x)))
         {
             return app.MapPostCommand(route, handler);
         }
 
-        if (commandTypeName.StartsWith("Update") || commandTypeName.StartsWith("Replace"))
+        if (PutCommandPrefixes.Any(x => commandTypeName.StartsWith(x)))
         {
             return app.MapPutCommand(route, handler);
         }
 
-        if (commandTypeName.StartsWith("Delete") || commandTypeName.StartsWith("Remove"))
+        if (DeleteCommandPrefixes.Any(x => commandTypeName.StartsWith(x)))
         {
             return app.MapDeleteCommand(route, handler);
         }
@@ -295,6 +317,72 @@ public static class CqrsRouteMapper
     {
         EnsureDelegateReturnTypeIsCommand(handler);
         return app.MapDelete(route, handler).AddEndpointFilter<CommandEndpointHandler>();
+    }
+
+    /// <summary>
+    ///     Map prefix to POST method for further MapCommand() calls.
+    /// </summary>
+    /// <param name="app"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="prefix">The new prefix.</param>
+    public static IEndpointRouteBuilder MapPrefixToPost(this IEndpointRouteBuilder app, string prefix)
+    {
+        PostCommandPrefixes.Add(prefix);
+        return app;
+    }
+
+    /// <summary>
+    ///     Stop mapping prefix to POST method for further MapCommand() calls.
+    /// </summary>
+    /// <param name="app"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="prefix">The new prefix.</param>
+    public static IEndpointRouteBuilder StopMappingPrefixToPost(this IEndpointRouteBuilder app, string prefix)
+    {
+        PostCommandPrefixes.Remove(prefix);
+        return app;
+    }
+
+    /// <summary>
+    ///     Map prefix to PUT method for further MapCommand() calls.
+    /// </summary>
+    /// <param name="app"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="prefix">The new prefix.</param>
+    public static IEndpointRouteBuilder MapPrefixToPut(this IEndpointRouteBuilder app, string prefix)
+    {
+        PutCommandPrefixes.Add(prefix);
+        return app;
+    }
+
+    /// <summary>
+    ///     Stop mapping prefix to PUT method for further MapCommand() calls.
+    /// </summary>
+    /// <param name="app"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="prefix">The new prefix.</param>
+    public static IEndpointRouteBuilder StopMappingPrefixToPut(this IEndpointRouteBuilder app, string prefix)
+    {
+        PutCommandPrefixes.Remove(prefix);
+        return app;
+    }
+
+    /// <summary>
+    ///     Map prefix to DELETE method for further MapCommand() calls.
+    /// </summary>
+    /// <param name="app"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="prefix">The new prefix.</param>
+    public static IEndpointRouteBuilder MapPrefixToDelete(this IEndpointRouteBuilder app, string prefix)
+    {
+        DeleteCommandPrefixes.Add(prefix);
+        return app;
+    }
+
+    /// <summary>
+    ///     Stop mapping prefix to DELETE method for further MapCommand() calls.
+    /// </summary>
+    /// <param name="app"><see cref="IEndpointRouteBuilder"/></param>
+    /// <param name="prefix">The new prefix.</param>
+    public static IEndpointRouteBuilder StopMappingPrefixToDelete(this IEndpointRouteBuilder app, string prefix)
+    {
+        DeleteCommandPrefixes.Remove(prefix);
+        return app;
     }
 
     private static void EnsureDelegateReturnTypeIsCommand(Delegate handler)

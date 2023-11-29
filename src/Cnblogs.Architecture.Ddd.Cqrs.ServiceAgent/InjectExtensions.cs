@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Http.Headers;
+using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using Polly;
 using Polly.Extensions.Http;
@@ -30,7 +31,7 @@ public static class InjectExtensions
             h =>
             {
                 h.BaseAddress = new Uri(baseUri);
-                h.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+                h.AddCqrsAcceptHeaders();
             }).AddPolicyHandler(policy);
     }
 
@@ -55,8 +56,14 @@ public static class InjectExtensions
             h =>
             {
                 h.BaseAddress = new Uri(baseUri);
-                h.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+                h.AddCqrsAcceptHeaders();
             }).AddPolicyHandler(policy);
+    }
+
+    private static void AddCqrsAcceptHeaders(this HttpClient h)
+    {
+        h.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/cqrs"));
+        h.DefaultRequestHeaders.AppendCurrentCqrsVersion();
     }
 
     private static IAsyncPolicy<HttpResponseMessage> GetDefaultPolicy()
