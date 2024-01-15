@@ -40,7 +40,7 @@ public class DaprEventBusProvider : IEventBusProvider
             eventName,
             @event,
             @event.TraceId ?? @event.Id);
-        object data = @event;   // do not provide type information to serializer since it's base class.
+        object data = @event; // do not provide type information to serializer since it's base class.
         await _daprClient.PublishEventAsync(
             DaprOptions.PubSubName,
             DaprUtils.GetDaprTopicName(_daprOptions.AppName, eventName),
