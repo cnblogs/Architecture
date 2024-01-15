@@ -129,6 +129,18 @@ public class CqrsInjector
     }
 
     /// <summary>
+    ///     Use given implementation of <see cref="IFileDeliveryProvider"/>.
+    /// </summary>
+    /// <typeparam name="TProvider">The type of implementation.</typeparam>
+    /// <returns></returns>
+    public CqrsInjector AddFileDeliveryProvider<TProvider>()
+        where TProvider : class, IFileDeliveryProvider
+    {
+        Services.AddScoped<IFileDeliveryProvider, TProvider>();
+        return this;
+    }
+
+    /// <summary>
     ///     添加自定义随机数提供器。
     /// </summary>
     /// <typeparam name="TRandomProvider">随机数提供器。</typeparam>

@@ -121,8 +121,7 @@ public class CqrsRouteMapperTests
         // Act
         var uris = new[]
         {
-            "/api/v1/apps/-/strings/-/value", "/api/v1/apps/-/strings/1/value",
-            "/api/v1/apps/someApp/strings/-/value", "/api/v1/apps/someApp/strings/1/value"
+            "/api/v1/apps/-/strings/-/value", "/api/v1/apps/-/strings/1/value", "/api/v1/apps/someApp/strings/-/value", "/api/v1/apps/someApp/strings/1/value"
         }.Select(x => new HttpRequestMessage(HttpMethod.Head, x));
         var responses = new List<HttpResponseMessage>();
         foreach (var uri in uris)

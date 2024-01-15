@@ -11,7 +11,7 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss;
 public static class CqrsInjectorExtensions
 {
     /// <summary>
-    ///     Use aliyun oss as default implementation of <see cref="IFileProvider"/>.
+    ///     Use aliyun oss as default implementation of <see cref="IFileProvider"/> and <see cref="IFileDeliveryProvider"/>.
     /// </summary>
     /// <param name="injector"></param>
     /// <param name="configuration"></param>
@@ -24,6 +24,7 @@ public static class CqrsInjectorExtensions
     {
         injector.Services.AddOssClient(configuration, configurationSectionName);
         injector.Services.Configure<AliyunOssOptions>(configuration.GetSection(configurationSectionName));
-        return injector.AddFileProvider<AliyunOssFileProvider>();
+        return injector.AddFileProvider<AliyunOssFileProvider>()
+            .AddFileDeliveryProvider<AliyunOssFileDeliveryProvider>();
     }
 }
