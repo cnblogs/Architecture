@@ -3,6 +3,7 @@ using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Cnblogs.Architecture.UnitTests.EventBus;
 
@@ -13,7 +14,7 @@ public class AssemblyAttributeTests
     {
         // Arrange
         var builder = WebApplication.CreateBuilder();
-        builder.Services.AddEventBus(o => o.UseDapr(nameof(AssemblyAttributeTests)));
+        builder.Services.AddCqrs().AddEventBus(o => o.UseDapr(nameof(AssemblyAttributeTests)));
         var app = builder.Build();
 
         // Act

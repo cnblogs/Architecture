@@ -21,7 +21,7 @@ public class DaprTests
     {
         // Arrange
         var builder = WebApplication.CreateBuilder();
-        builder.Services.AddEventBus(o => o.UseDapr(nameof(DaprTests)));
+        builder.Services.AddCqrs(typeof(TestIntegrationEvent).Assembly).AddEventBus(o => o.UseDapr(nameof(DaprTests)));
         builder.WebHost.UseTestServer();
 
         await using var app = builder.Build();
@@ -53,7 +53,7 @@ public class DaprTests
     {
         // Arrange
         var builder = WebApplication.CreateBuilder();
-        builder.Services.AddEventBus(o => o.UseDapr(nameof(DaprTests)));
+        builder.Services.AddCqrs().AddEventBus(o => o.UseDapr(nameof(DaprTests)));
         builder.WebHost.UseTestServer();
 
         var app = builder.Build();

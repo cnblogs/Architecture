@@ -53,6 +53,7 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadFromJsonAsync<CommandResponse<string, TestError>>();
 
         // Assert
+        response.Headers.CqrsVersion().Should().BeGreaterThan(1);
         content.Should().NotBeNull();
         content!.Response.Should().NotBeNullOrEmpty();
     }
@@ -89,7 +90,8 @@ public class CommandResponseHandlerTests
 
         // Assert
         response.Should().BeSuccessful();
-        content!.Response.Should().NotBeNull();
+        response.Headers.CqrsVersion().Should().BeGreaterThan(1);
+        content!.Response.Should().NotBeNullOrEmpty();
     }
 
     [Theory]
