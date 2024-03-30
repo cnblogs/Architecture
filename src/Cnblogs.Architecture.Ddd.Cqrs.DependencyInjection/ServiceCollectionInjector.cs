@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using MediatR;
@@ -22,6 +21,12 @@ public static class ServiceCollectionInjector
     {
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
+        if (assemblies.Length == 0)
+        {
+            // mediator needs at least one assembly to inject from
+            assemblies = [typeof(CqrsInjector).Assembly];
+        }
+
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
         return new CqrsInjector(services);
     }

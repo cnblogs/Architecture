@@ -52,7 +52,7 @@ public class ApiControllerBase : ControllerBase
     {
         if (response.IsSuccess())
         {
-            return Request.Headers.CqrsVersion() > 1 ? Ok(response) : Ok(response.Response);
+            return Request.Headers.CqrsVersion() > 1 ? new CqrsObjectResult(response) : Ok(response.Response);
         }
 
         return HandleCommandResponse((CommandResponse<TError>)response);
