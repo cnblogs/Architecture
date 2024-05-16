@@ -43,7 +43,7 @@ v1.MapQuery<GetStringQuery>(
     enableHead: true);
 v1.MapQuery(
     "strings/{stringId:int}",
-    async (int stringId, [FromQuery] bool found)
+    async (int stringId, [FromQuery] bool found = true)
         => await Task.FromResult(new GetStringQuery(StringId: stringId, Found: found)));
 v1.MapQuery<ListStringsQuery>("strings");
 v1.MapCommand(
