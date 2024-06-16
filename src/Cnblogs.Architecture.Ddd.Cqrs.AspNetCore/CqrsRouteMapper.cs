@@ -114,10 +114,10 @@ public static class CqrsRouteMapper
         string nullRouteParameterPattern = "-",
         bool enableHead = false)
     {
-        var returnType = EnsureReturnTypeIsQuery(handler);
+        var (queryType, returnType) = EnsureReturnTypeIsQuery(handler);
         if (mapNullableRouteParameters is MapNullableRouteParameter.Disable)
         {
-            return MapRoutes(route);
+            return MapRoutes(queryType, returnType, route);
         }
 
         if (string.IsNullOrWhiteSpace(nullRouteParameterPattern))
@@ -129,7 +129,7 @@ public static class CqrsRouteMapper
 
         var parsedRoute = RoutePatternFactory.Parse(route);
         var context = new NullabilityInfoContext();
-        var nullableRouteProperties = returnType.GetProperties()
+        var nullableRouteProperties = queryType.GetProperties()
             .Where(
                 p => p.GetMethod != null
                      && p.SetMethod != null
@@ -150,15 +150,24 @@ public static class CqrsRouteMapper
                     var regex = new Regex("{" + x.Name + "[^}]*?}", RegexOptions.IgnoreCase);
                     return regex.Replace(r, nullRouteParameterPattern);
                 });
-            MapRoutes(newRoute);
+            MapRoutes(queryType, returnType, newRoute);
         }
 
-        return MapRoutes(route);
+        return MapRoutes(queryType, returnType, route);
 
-        IEndpointConventionBuilder MapRoutes(string r)
+        IEndpointConventionBuilder MapRoutes(Type query, Type queryFor, string r)
         {
             var endpoint = enableHead ? app.MapMethods(r, GetAndHeadMethods, handler) : app.MapGet(r, handler);
-            return endpoint.AddEndpointFilter<QueryEndpointHandler>();
+            var builder = endpoint.AddEndpointFilter<QueryEndpointHandler>()
+                .Produces(200, queryFor)
+                .WithTags("Queries");
+            if (query.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQuery<>)))
+            {
+                // may be null
+                builder.Produces(404, queryFor);
+            }
+
+            return builder;
         }
     }
 
@@ -220,7 +229,7 @@ public static class CqrsRouteMapper
         [StringSyntax("Route")] string route,
         Delegate handler)
     {
-        var commandTypeName = EnsureReturnTypeIsCommand(handler).Name;
+        var commandTypeName = EnsureReturnTypeIsCommand(handler).CommandType.Name;
         if (PostCommandPrefixes.Any(x => commandTypeName.StartsWith(x)))
         {
             return app.MapPostCommand(route, handler);
@@ -265,8 +274,11 @@ public static class CqrsRouteMapper
         [StringSyntax("Route")] string route,
         Delegate handler)
     {
-        EnsureReturnTypeIsCommand(handler);
-        return app.MapPost(route, handler).AddEndpointFilter<CommandEndpointHandler>();
+        var (commandType, responseType, errorType) = EnsureReturnTypeIsCommand(handler);
+        var builder = app.MapPost(route, handler)
+            .AddEndpointFilter<CommandEndpointHandler>()
+            .AddCommandOpenApiDescriptions(commandType, responseType, errorType);
+        return builder;
     }
 
     /// <summary>
@@ -295,8 +307,9 @@ public static class CqrsRouteMapper
         [StringSyntax("Route")] string route,
         Delegate handler)
     {
-        EnsureReturnTypeIsCommand(handler);
-        return app.MapPut(route, handler).AddEndpointFilter<CommandEndpointHandler>();
+        var (commandType, responseType, errorType) = EnsureReturnTypeIsCommand(handler);
+        return app.MapPut(route, handler).AddEndpointFilter<CommandEndpointHandler>()
+            .AddCommandOpenApiDescriptions(commandType, responseType, errorType);
     }
 
     /// <summary>
@@ -325,8 +338,9 @@ public static class CqrsRouteMapper
         [StringSyntax("Route")] string route,
         Delegate handler)
     {
-        EnsureReturnTypeIsCommand(handler);
-        return app.MapDelete(route, handler).AddEndpointFilter<CommandEndpointHandler>();
+        var (commandType, responseType, errorType) = EnsureReturnTypeIsCommand(handler);
+        return app.MapDelete(route, handler).AddEndpointFilter<CommandEndpointHandler>()
+            .AddCommandOpenApiDescriptions(commandType, responseType, errorType);
     }
 
     /// <summary>
@@ -395,7 +409,7 @@ public static class CqrsRouteMapper
         return app;
     }
 
-    private static Type EnsureReturnTypeIsCommand(Delegate handler)
+    private static (Type CommandType, Type? ResponseType, Type ErrorType) EnsureReturnTypeIsCommand(Delegate handler)
     {
         var returnType = handler.Method.ReturnType;
         if (returnType.IsGenericType && returnType.GetGenericTypeDefinition() == typeof(Task<>))
@@ -403,18 +417,24 @@ public static class CqrsRouteMapper
             returnType = returnType.GenericTypeArguments.First();
         }
 
-        var isCommand = returnType.GetInterfaces().Where(x => x.IsGenericType)
-            .Any(x => CommandTypes.Contains(x.GetGenericTypeDefinition()));
-        if (isCommand == false)
+        var commandType = returnType.GetInterfaces().Where(x => x.IsGenericType)
+            .FirstOrDefault(x => CommandTypes.Contains(x.GetGenericTypeDefinition()));
+        if (commandType == null)
         {
             throw new ArgumentException(
                 "handler does not return command, check if delegate returns type that implements ICommand<> or ICommand<,>");
         }
 
-        return returnType;
+        Type?[] genericParams = commandType.GetGenericArguments();
+        if (genericParams.Length == 1)
+        {
+            genericParams = [null, genericParams[0]];
+        }
+
+        return (returnType, genericParams[0], genericParams[1]!);
     }
 
-    private static Type EnsureReturnTypeIsQuery(Delegate handler)
+    private static (Type, Type) EnsureReturnTypeIsQuery(Delegate handler)
     {
         var returnType = handler.Method.ReturnType;
         if (returnType.IsGenericType && returnType.GetGenericTypeDefinition() == typeof(Task<>))
@@ -422,15 +442,15 @@ public static class CqrsRouteMapper
             returnType = returnType.GenericTypeArguments.First();
         }
 
-        var isCommand = returnType.GetInterfaces().Where(x => x.IsGenericType)
-            .Any(x => QueryTypes.Contains(x.GetGenericTypeDefinition()));
-        if (isCommand == false)
+        var queryInterface = returnType.GetInterfaces().Where(x => x.IsGenericType)
+            .FirstOrDefault(x => QueryTypes.Contains(x.GetGenericTypeDefinition()));
+        if (queryInterface == null)
         {
             throw new ArgumentException(
                 "handler does not return query, check if delegate returns type that implements IQuery<>");
         }
 
-        return returnType;
+        return (returnType, queryInterface.GenericTypeArguments[0]);
     }
 
     private static List<T[]> GetNotEmptySubsets<T>(ICollection<T> items)
@@ -445,5 +465,25 @@ public static class CqrsRouteMapper
         }
 
         return results;
+    }
+
+    private static RouteHandlerBuilder AddCommandOpenApiDescriptions(
+        this RouteHandlerBuilder builder,
+        Type commandType,
+        Type? responseType,
+        Type errorType)
+    {
+        var commandResponseType = responseType is null
+            ? typeof(CommandResponse<>).MakeGenericType(errorType)
+            : typeof(CommandResponse<,>).MakeGenericType(responseType, errorType);
+        builder.Produces(200, commandResponseType)
+            .Produces(400, commandResponseType)
+            .WithTags("Commands");
+        if (commandType.GetInterfaces().Any(i => i == typeof(ILockableRequest)))
+        {
+            builder.Produces(429);
+        }
+
+        return builder;
     }
 }
