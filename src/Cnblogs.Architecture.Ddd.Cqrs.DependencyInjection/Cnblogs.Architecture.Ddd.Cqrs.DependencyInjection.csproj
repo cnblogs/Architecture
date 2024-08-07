@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <SupportedPlatform Include="browser"/>
     <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj"/>
   </ItemGroup>
 
