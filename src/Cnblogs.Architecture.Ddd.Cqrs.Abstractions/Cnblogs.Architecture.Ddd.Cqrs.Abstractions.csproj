@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <SupportedPlatform Include="browser"/>
     <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.csproj" />
   </ItemGroup>
 
