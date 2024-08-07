@@ -9,12 +9,13 @@
     </Description>
   </PropertyGroup>
 
-    <ItemGroup>
-        <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Domain.Abstractions\Cnblogs.Architecture.Ddd.Domain.Abstractions.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Domain.Abstractions\Cnblogs.Architecture.Ddd.Domain.Abstractions.csproj"/>
+  </ItemGroup>
 
-    <ItemGroup>
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    </ItemGroup>
+  <ItemGroup>
+    <SupportedPlatform Include="browser"/>
+    <FrameworkReference Include="Microsoft.AspNetCore.App"/>
+  </ItemGroup>
 
 </Project>
