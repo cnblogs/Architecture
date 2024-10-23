@@ -1,5 +1,4 @@
 ﻿using MongoDB.Driver;
-using MongoDB.Driver.Linq;
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.MongoDb;
 
@@ -41,7 +40,6 @@ public abstract class MongoContextOptions : IMongoContextOptions
     {
         _databaseName = databaseName;
         _settings = MongoClientSettings.FromConnectionString(connectionString);
-        _settings.LinqProvider = LinqProvider.V3;
     }
 
     /// <inheritdoc />

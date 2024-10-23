@@ -1,6 +1,5 @@
 ﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
-using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.MongoDb;
@@ -18,12 +17,12 @@ public abstract class MongoPageableQueryHandler<TQuery, TEntity, TView>
     /// <inheritdoc />
     protected override Task<int> CountAsync(TQuery query, IQueryable<TEntity> queryable)
     {
-        return queryable.AsMongoQueryable().CountAsync();
+        return queryable.CountAsync();
     }
 
     /// <inheritdoc />
     protected override Task<List<TView>> ToListAsync(TQuery query, IQueryable<TView> queryable)
     {
-        return queryable.AsMongoQueryable().ToListAsync();
+        return queryable.ToListAsync();
     }
 }
