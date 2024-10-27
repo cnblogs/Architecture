@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
-    .UseLongToStringJsonConverter()
+    .AddLongToStringJsonConverter()
     .AddDefaultDateTimeAndRandomProvider()
     .AddEventBus(o => o.UseDapr(Constants.AppName));
 builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
