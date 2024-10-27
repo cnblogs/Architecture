@@ -23,8 +23,17 @@ public static class ControllerOptionInjector
     ///     Add custom model binder used for CQRS, like model binder for <see cref="PagingParams"/>.
     /// </summary>
     /// <param name="builder"><see cref="IMvcBuilder"/></param>
-    public static void AddCqrsModelBinderProvider(this IMvcBuilder builder)
+    public static IMvcBuilder AddCqrsModelBinderProvider(this IMvcBuilder builder)
     {
-        builder.AddMvcOptions(options => options.AddCqrsModelBinderProvider());
+        return builder.AddMvcOptions(options => options.AddCqrsModelBinderProvider());
+    }
+
+    /// <summary>
+    ///     Add long to string json converter.
+    /// </summary>
+    /// <param name="builder"><see cref="IMvcBuilder"/>.</param>
+    public static IMvcBuilder AddLongToStringJsonConverter(this IMvcBuilder builder)
+    {
+        return builder.AddJsonOptions(o => o.JsonSerializerOptions.Converters.Add(new LongToStringConverter()));
     }
 }

@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Microsoft.AspNetCore.Http;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
@@ -12,10 +13,11 @@ public static class CqrsResultExtensions
     /// </summary>
     /// <param name="extensions"><see cref="IResultExtensions"/></param>
     /// <param name="result">The command response.</param>
+    /// <param name="options">Optional json serializer options.</param>
     /// <returns></returns>
-    public static IResult Cqrs(this IResultExtensions extensions, object result)
+    public static IResult Cqrs(this IResultExtensions extensions, object result, JsonSerializerOptions? options = null)
     {
         ArgumentNullException.ThrowIfNull(extensions);
-        return new CqrsResult(result);
+        return new CqrsResult(result, options);
     }
 }

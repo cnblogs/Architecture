@@ -12,9 +12,10 @@ using Microsoft.AspNetCore.Mvc;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
+    .UseLongToStringJsonConverter()
     .AddDefaultDateTimeAndRandomProvider()
     .AddEventBus(o => o.UseDapr(Constants.AppName));
-builder.Services.AddControllers().AddCqrsModelBinderProvider();
+builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddCnblogsApiVersioning();
@@ -46,6 +47,8 @@ v1.MapQuery(
     async (int stringId, [FromQuery] bool found = true)
         => await Task.FromResult(new GetStringQuery(StringId: stringId, Found: found)));
 v1.MapQuery<ListStringsQuery>("strings");
+v1.MapQuery<GetLongToStringQuery>("long-to-string/{id:long}");
+v1.MapCommand<CreateLongToStringCommand>("long-to-string");
 v1.MapCommand(
     "strings",
     (CreatePayload payload) => Task.FromResult(new CreateCommand(payload.NeedError, payload.Data)));

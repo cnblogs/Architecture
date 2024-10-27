@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Text.Json;
+using Microsoft.AspNetCore.Http;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
@@ -6,12 +7,12 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 ///     Send object as json and append X-Cqrs-Version header
 /// </summary>
 /// <param name="commandResponse"></param>
-public class CqrsResult(object commandResponse) : IResult
+public class CqrsResult(object commandResponse, JsonSerializerOptions? options = null) : IResult
 {
     /// <inheritdoc />
     public Task ExecuteAsync(HttpContext httpContext)
     {
         httpContext.Response.Headers.Append("X-Cqrs-Version", "2");
-        return httpContext.Response.WriteAsJsonAsync(commandResponse);
+        return httpContext.Response.WriteAsJsonAsync(commandResponse, options);
     }
 }

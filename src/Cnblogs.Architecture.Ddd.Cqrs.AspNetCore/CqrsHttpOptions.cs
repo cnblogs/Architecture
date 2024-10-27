@@ -1,3 +1,4 @@
+using System.Text.Json;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Microsoft.AspNetCore.Http;
 
@@ -17,4 +18,12 @@ public class CqrsHttpOptions
     ///     Custom logic to handle error command response.
     /// </summary>
     public Func<CommandResponse, HttpContext, IResult>? CustomCommandErrorResponseMapper { get; set; }
+
+    /// <summary>
+    ///     Default json serializer options for minimal api.
+    /// </summary>
+    /// <remarks>
+    ///     For Controllers, please use <c>builder.AddControllers().AddLongToStringJsonConverter();</c>
+    /// </remarks>
+    public JsonSerializerOptions DefaultJsonSerializerOptions { get; set; } = new(JsonSerializerDefaults.Web);
 }

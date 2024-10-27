@@ -8,21 +8,9 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 /// <summary>
 ///     Execute command returned by endpoint handler, and then map command response to HTTP response.
 /// </summary>
-public class CommandEndpointHandler : IEndpointFilter
+public class CommandEndpointHandler(IMediator mediator, IOptions<CqrsHttpOptions> options) : IEndpointFilter
 {
-    private readonly IMediator _mediator;
-    private readonly CqrsHttpOptions _options;
-
-    /// <summary>
-    ///     Create a command endpoint handler.
-    /// </summary>
-    /// <param name="mediator"><see cref="IMediator"/></param>
-    /// <param name="options">The options for command response handling.</param>
-    public CommandEndpointHandler(IMediator mediator, IOptions<CqrsHttpOptions> options)
-    {
-        _mediator = mediator;
-        _options = options.Value;
-    }
+    private readonly CqrsHttpOptions _options = options.Value;
 
     /// <inheritdoc />
     public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
@@ -40,7 +28,7 @@ public class CommandEndpointHandler : IEndpointFilter
             return command;
         }
 
-        var response = await _mediator.Send(command);
+        var response = await mediator.Send(command);
         if (response is null)
         {
             // should not be null
@@ -59,8 +47,8 @@ public class CommandEndpointHandler : IEndpointFilter
             if (commandResponse is IObjectResponse objectResponse)
             {
                 return context.HttpContext.Request.Headers.CqrsVersion() > 1
-                    ? Results.Extensions.Cqrs(response)
-                    : Results.Ok(objectResponse.GetResult());
+                    ? Results.Extensions.Cqrs(response, _options.DefaultJsonSerializerOptions)
+                    : Results.Json(objectResponse.GetResult(), _options.DefaultJsonSerializerOptions);
             }
 
             return Results.NoContent();
