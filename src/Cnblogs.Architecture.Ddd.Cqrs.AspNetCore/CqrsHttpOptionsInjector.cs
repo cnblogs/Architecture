@@ -42,4 +42,16 @@ public static class CqrsHttpOptionsInjector
             });
         return injector;
     }
+
+    /// <summary>
+    ///     Serialize long to string for all json output.
+    /// </summary>
+    /// <param name="injector"></param>
+    /// <returns></returns>
+    public static CqrsInjector AddLongToStringJsonConverter(this CqrsInjector injector)
+    {
+        injector.Services.Configure<CqrsHttpOptions>(
+            o => o.DefaultJsonSerializerOptions.Converters.Add(new LongToStringConverter()));
+        return injector;
+    }
 }
