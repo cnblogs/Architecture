@@ -7,10 +7,10 @@ namespace Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 public class CreateLongToStringCommandHandler : ICommandHandler<CreateLongToStringCommand, LongToStringModel, TestError>
 {
     /// <inheritdoc />
-    public async Task<CommandResponse<LongToStringModel, TestError>> Handle(
+    public Task<CommandResponse<LongToStringModel, TestError>> Handle(
         CreateLongToStringCommand request,
         CancellationToken cancellationToken)
     {
-        return CommandResponse<LongToStringModel, TestError>.Success(new LongToStringModel() { Id = request.Id });
+        return Task.FromResult(CommandResponse<LongToStringModel, TestError>.Success(new LongToStringModel() { Id = request.Id }));
     }
 }
