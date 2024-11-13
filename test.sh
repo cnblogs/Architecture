@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 set -e
-dotnet test -c Release -p:TargetFramework="$1"
+dotnet test -c Release -f "$1"
