@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  test-net8:
     runs-on: ubuntu-latest
     container: mcr.microsoft.com/dotnet/sdk:8.0
 
@@ -15,7 +15,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Build
-      run: ./build.sh
+      run: ./build.sh net8.0
     - name: Test
-      run: ./test.sh
+      run: ./test.sh net8.0
+
+  test-net9:
+      runs-on: ubuntu-latest
+      container: mcr.microsoft.com/dotnet/sdk:9.0
+
+      steps:
+          - name: Checkout
+            uses: actions/checkout@v3
+          - name: Build
+            run: ./build.sh net9.0
+          - name: Test
+            run: ./test.sh net9.0
 
