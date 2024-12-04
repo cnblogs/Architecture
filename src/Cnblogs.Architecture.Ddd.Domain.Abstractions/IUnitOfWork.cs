@@ -20,7 +20,6 @@ public interface IUnitOfWork<TEntity, TKey>
     ///     添加实体，调用 <see cref="SaveEntitiesAsync"/> 或 <see cref="SaveChangesAsync"/> 后才会写入数据库。
     /// </summary>
     /// <param name="entity">要添加实体。</param>
-    /// <typeparam name="TEntity">实体类型。</typeparam>
     /// <returns>被添加的实体。</returns>
     TEntity Add(TEntity entity);
 
@@ -28,7 +27,6 @@ public interface IUnitOfWork<TEntity, TKey>
     ///     更新实体，调用 <see cref="SaveEntitiesAsync"/> 或 <see cref="SaveChangesAsync"/> 后才会写入数据库。
     /// </summary>
     /// <param name="entity">要更新的实体。</param>
-    /// <typeparam name="TEntity">实体类型。</typeparam>
     /// <returns>被更新的实体。</returns>
     TEntity Update(TEntity entity);
 
@@ -36,7 +34,6 @@ public interface IUnitOfWork<TEntity, TKey>
     ///     删除实体，调用 <see cref="SaveEntitiesAsync"/> 或 <see cref="SaveChangesAsync"/> 后才会写入数据库。
     /// </summary>
     /// <param name="entity">要删除的实体。</param>
-    /// <typeparam name="TEntity">实体类型。</typeparam>
     /// <returns></returns>
     TEntity Delete(TEntity entity);
 
