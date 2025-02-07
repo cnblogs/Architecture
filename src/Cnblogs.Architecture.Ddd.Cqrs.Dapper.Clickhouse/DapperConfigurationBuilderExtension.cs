@@ -21,7 +21,8 @@ public static class DapperConfigurationBuilderExtension
         string connectionString)
         where TContext : ClickhouseDapperContext
     {
-        builder.UseDbConnectionFactory(new ClickhouseDbConnectionFactory(connectionString));
+        builder.UseDbConnectionFactory<ClickhouseDbConnectionFactory>();
+        builder.Services.AddClickHouseDataSource(connectionString);
         builder.Services.AddSingleton(new ClickhouseContextOptions<TContext>(connectionString));
         builder.Services.Configure<ClickhouseContextCollection>(x => x.Add<TContext>());
         builder.Services.AddHostedService<ClickhouseInitializeHostedService>();

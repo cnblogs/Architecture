@@ -1,5 +1,5 @@
 ﻿using System.Data;
-
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.Dapper;
@@ -13,9 +13,13 @@ public abstract class DapperContext
     ///     创建一个 DapperContext。
     /// </summary>
     /// <param name="dbConnectionFactoryCollection">数据库连接工厂集合。</param>
-    protected DapperContext(IOptions<DbConnectionFactoryCollection> dbConnectionFactoryCollection)
+    /// <param name="sp">The service provider to get connection factory</param>
+    protected DapperContext(IOptions<DbConnectionFactoryCollection> dbConnectionFactoryCollection, IServiceProvider sp)
     {
-        DbConnectionFactory = dbConnectionFactoryCollection.Value.GetFactory(GetType().Name);
+        var type = dbConnectionFactoryCollection.Value.GetFactory(GetType().Name);
+        DbConnectionFactory = sp.GetRequiredService(type) as IDbConnectionFactory
+                              ?? throw new InvalidOperationException(
+                                  $"No DbConnectionFactory(type: {type.Name}) configured.");
     }
 
     /// <summary>
