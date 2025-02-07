@@ -29,10 +29,23 @@ public class DapperConfigurationBuilder<TContext>
     /// <param name="factory">工厂对象。</param>
     /// <typeparam name="TFactory">工厂类型。</typeparam>
     public void UseDbConnectionFactory<TFactory>(TFactory factory)
-        where TFactory : IDbConnectionFactory
+        where TFactory : class, IDbConnectionFactory
     {
+        Services.AddSingleton(factory);
         Services.Configure<DbConnectionFactoryCollection>(
-            c => c.AddDbConnectionFactory(_dapperContextTypeName, factory));
+            c => c.AddDbConnectionFactory(_dapperContextTypeName, typeof(TFactory)));
+    }
+
+    /// <summary>
+    ///     Add <typeparamref name="TFactory"/> as <see cref="IDbConnectionFactory"/> and get instance from DI when used.
+    /// </summary>
+    /// <typeparam name="TFactory">The factory type.</typeparam>
+    public void UseDbConnectionFactory<TFactory>()
+        where TFactory : class, IDbConnectionFactory
+    {
+        Services.AddSingleton<TFactory>();
+        Services.Configure<DbConnectionFactoryCollection>(
+            c => c.AddDbConnectionFactory(_dapperContextTypeName, typeof(TFactory)));
     }
 
     /// <summary>
