@@ -15,10 +15,12 @@ public abstract class ClickhouseDapperContext : DapperContext
     /// </summary>
     /// <param name="dbConnectionFactoryCollection">The underlying <see cref="IDbConnectionFactory"/> collection.</param>
     /// <param name="options">The options used for this context.</param>
+    /// <param name="serviceProvider">The service provider to use.</param>
     protected ClickhouseDapperContext(
         IOptions<DbConnectionFactoryCollection> dbConnectionFactoryCollection,
-        ClickhouseContextOptions options)
-        : base(dbConnectionFactoryCollection)
+        ClickhouseContextOptions options,
+        IServiceProvider serviceProvider)
+        : base(dbConnectionFactoryCollection, serviceProvider)
     {
         _options = options;
     }
