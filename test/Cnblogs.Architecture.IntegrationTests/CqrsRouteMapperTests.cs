@@ -51,7 +51,7 @@ public class CqrsRouteMapperTests
         // Assert
         response.Should().BeSuccessful();
         content.Should().NotBeNull();
-        content!.Items.Should().NotBeNullOrEmpty();
+        content.Items.Should().NotBeNullOrEmpty();
     }
 
     [Fact]
