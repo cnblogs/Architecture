@@ -34,7 +34,7 @@ public class BaseRepositoryTests
 
         // Assert
         got.Should().NotBeNull();
-        got!.Posts.Should().BeEquivalentTo(entity.Posts);
+        got.Posts.Should().BeEquivalentTo(entity.Posts);
     }
 
     [Fact]
@@ -60,7 +60,7 @@ public class BaseRepositoryTests
 
         // Assert
         got.Should().NotBeNull();
-        got!.Posts.Should().BeEquivalentTo(entity.Posts);
+        got.Posts.Should().BeEquivalentTo(entity.Posts);
     }
 
     [Fact]
@@ -87,7 +87,7 @@ public class BaseRepositoryTests
 
         // Assert
         got.Should().NotBeNull();
-        got!.Posts.Should().BeEquivalentTo(entity.Posts);
+        got.Posts.Should().BeEquivalentTo(entity.Posts);
     }
 
     [Fact]

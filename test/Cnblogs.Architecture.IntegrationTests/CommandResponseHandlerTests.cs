@@ -55,7 +55,7 @@ public class CommandResponseHandlerTests
         // Assert
         response.Headers.CqrsVersion().Should().BeGreaterThan(1);
         content.Should().NotBeNull();
-        content!.Response.Should().NotBeNullOrEmpty();
+        content.Response.Should().NotBeNullOrEmpty();
     }
 
     [Fact]
@@ -162,7 +162,7 @@ public class CommandResponseHandlerTests
         // Assert
         response.Should().HaveClientError();
         commandResponse.Should().NotBeNull();
-        commandResponse!.IsSuccess().Should().BeFalse();
+        commandResponse.IsSuccess().Should().BeFalse();
         commandResponse.Should().BeEquivalentTo(new { IsValidationError = needValidationError });
         (commandResponse.ErrorCode != null).Should().Be(needExecutionError);
     }
@@ -257,7 +257,7 @@ public class CommandResponseHandlerTests
         // Assert
         response.Should().HaveClientError();
         content.Should().NotBeNull();
-        content!.IsSuccess().Should().BeFalse();
+        content.IsSuccess().Should().BeFalse();
         content.Should().BeEquivalentTo(new { IsValidationError = needValidationError });
         (content.ErrorCode != null).Should().Be(needExecutionError);
     }
