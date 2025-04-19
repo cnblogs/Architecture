@@ -24,7 +24,7 @@ public class CacheBehaviorTests
         local.AddCacheValue("cacheKey", "cacheValue");
         var remote = Substitute.For<IRemoteCacheProvider>();
         remote.AddCacheValue("cacheKey", "cacheValue");
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local, remote });
+        var behavior = GetBehavior<FakeQuery<string>, string>([local, remote]);
 
         // Act
         var result = await behavior.Handle(
@@ -33,7 +33,7 @@ public class CacheBehaviorTests
                 LocalCacheBehavior = CacheBehavior.DisabledCache,
                 RemoteCacheBehavior = CacheBehavior.DisabledCache
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -45,7 +45,7 @@ public class CacheBehaviorTests
     {
         // Arrange
         var local = Substitute.For<ILocalCacheProvider>();
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local });
+        var behavior = GetBehavior<FakeQuery<string>, string>([local]);
 
         // Act
         var result = await behavior.Handle(
@@ -55,7 +55,7 @@ public class CacheBehaviorTests
                 LocalExpires = TimeSpan.FromSeconds(1),
                 RemoteCacheBehavior = CacheBehavior.DisabledCache
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -70,7 +70,7 @@ public class CacheBehaviorTests
         var local = Substitute.For<ILocalCacheProvider>();
         local.AddCacheValue("cacheKey", "cacheValue");
         var remote = Substitute.For<IRemoteCacheProvider>();
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local, remote });
+        var behavior = GetBehavior<FakeQuery<string>, string>([local, remote]);
 
         // Act
         var result = await behavior.Handle(
@@ -80,7 +80,7 @@ public class CacheBehaviorTests
                 LocalExpires = TimeSpan.FromSeconds(1),
                 RemoteCacheBehavior = CacheBehavior.DisabledCache
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -95,7 +95,7 @@ public class CacheBehaviorTests
         // Arrange
         var remote = Substitute.For<IRemoteCacheProvider>();
         var local = Substitute.For<ILocalCacheProvider>();
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local, remote });
+        var behavior = GetBehavior<FakeQuery<string>, string>([local, remote]);
 
         // Act
         var result = await behavior.Handle(
@@ -105,7 +105,7 @@ public class CacheBehaviorTests
                 RemoteCacheBehavior = CacheBehavior.UpdateCacheIfMiss,
                 RemoteExpires = TimeSpan.FromSeconds(1)
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -120,7 +120,7 @@ public class CacheBehaviorTests
         // Arrange
         var remote = Substitute.For<IRemoteCacheProvider>().AddCacheValue("cacheKey", "cacheValue");
         var local = Substitute.For<ILocalCacheProvider>();
-        var behavior = GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider> { local, remote });
+        var behavior = GetBehavior<FakeQuery<string>, string>([local, remote]);
 
         // Act
         var result = await behavior.Handle(
@@ -130,7 +130,7 @@ public class CacheBehaviorTests
                 RemoteCacheBehavior = CacheBehavior.UpdateCacheIfMiss,
                 RemoteExpires = TimeSpan.FromSeconds(1)
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -145,7 +145,7 @@ public class CacheBehaviorTests
         var remote = Substitute.For<IRemoteCacheProvider>();
         remote.GetAsync<string>(Arg.Any<string>()).ThrowsAsync(new Exception("test"));
         var behavior = GetBehavior<FakeQuery<string>, string>(
-            new List<ICacheProvider>() { remote },
+            [remote],
             o => o.ThrowIfFailedOnGet = true);
 
         // Act
@@ -156,7 +156,7 @@ public class CacheBehaviorTests
                 RemoteCacheBehavior = CacheBehavior.UpdateCacheIfMiss,
                 RemoteExpires = TimeSpan.FromSeconds(1)
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -170,7 +170,7 @@ public class CacheBehaviorTests
         var remote = Substitute.For<IRemoteCacheProvider>();
         remote.GetAsync<string>(Arg.Any<string>()).ThrowsAsync(new Exception("test"));
         var behavior = GetBehavior<FakeQuery<string>, string>(
-            new List<ICacheProvider>() { remote },
+            [remote],
             o => o.ThrowIfFailedOnGet = false);
 
         // Act
@@ -181,7 +181,7 @@ public class CacheBehaviorTests
                 RemoteCacheBehavior = CacheBehavior.UpdateCacheIfMiss,
                 RemoteExpires = TimeSpan.FromSeconds(1)
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -196,7 +196,7 @@ public class CacheBehaviorTests
         remote.UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>())
             .ThrowsAsync(new Exception("test"));
         var behavior = GetBehavior<FakeQuery<string>, string>(
-            new List<ICacheProvider> { remote },
+            [remote],
             o => o.ThrowIfFailedOnUpdate = true);
 
         // Act
@@ -207,7 +207,7 @@ public class CacheBehaviorTests
                 RemoteCacheBehavior = CacheBehavior.UpdateCacheIfMiss,
                 RemoteExpires = TimeSpan.FromSeconds(1)
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -222,7 +222,7 @@ public class CacheBehaviorTests
         remote.UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>())
             .ThrowsAsync(new Exception("test"));
         var behavior = GetBehavior<FakeQuery<string>, string>(
-            new List<ICacheProvider> { remote },
+            [remote],
             o => o.ThrowIfFailedOnUpdate = false);
 
         // Act
@@ -233,7 +233,7 @@ public class CacheBehaviorTests
                 RemoteCacheBehavior = CacheBehavior.UpdateCacheIfMiss,
                 RemoteExpires = TimeSpan.FromSeconds(1)
             },
-            () => Task.FromResult("noCache"),
+            _ => Task.FromResult("noCache"),
             CancellationToken.None);
 
         // Assert
@@ -244,7 +244,7 @@ public class CacheBehaviorTests
     public void CacheBehavior_NoProvider_Throw()
     {
         // Act
-        var act = () => GetBehavior<FakeQuery<string>, string>(new List<ICacheProvider>());
+        var act = () => GetBehavior<FakeQuery<string>, string>([]);
 
         // Assert
         act.Should().Throw<InvalidOperationException>();

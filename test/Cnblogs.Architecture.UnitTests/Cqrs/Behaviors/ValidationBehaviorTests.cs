@@ -17,7 +17,7 @@ public class ValidationBehaviorTests
             NullLogger<ValidationBehavior<FakeQuery<FakeResponse>, FakeResponse>>.Instance);
 
         // Act
-        var result = await behavior.Handle(request, () => Task.FromResult(new FakeResponse()), default);
+        var result = await behavior.Handle(request, _ => Task.FromResult(new FakeResponse()), CancellationToken.None);
 
         // Assert
         var errors = new ValidationErrors { error };
@@ -33,7 +33,7 @@ public class ValidationBehaviorTests
             NullLogger<ValidationBehavior<FakeQuery<FakeResponse>, FakeResponse>>.Instance);
 
         // Act
-        var result = await behavior.Handle(request, () => Task.FromResult(new FakeResponse()), default);
+        var result = await behavior.Handle(request, _ => Task.FromResult(new FakeResponse()), CancellationToken.None);
 
         // Assert
         result.Should().BeEquivalentTo(new { IsValidationError = false, ValidationErrors = new ValidationErrors() });

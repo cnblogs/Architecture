@@ -71,7 +71,7 @@ public class CacheableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<T
             })
         {
             // cache disabled
-            return await next();
+            return await next(cancellationToken);
         }
 
         CacheEntry<TResponse>? result = null;
@@ -92,7 +92,7 @@ public class CacheableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<T
             return result.Value;
         }
 
-        result = new CacheEntry<TResponse>(await next(), _dateTimeProvider.Now().ToUnixTimeSeconds());
+        result = new CacheEntry<TResponse>(await next(cancellationToken), _dateTimeProvider.Now().ToUnixTimeSeconds());
 
         if (request.LocalCacheBehavior is CacheBehavior.UpdateCacheIfMiss)
         {
