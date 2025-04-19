@@ -18,7 +18,7 @@ public class LoggerBehaviorTests
         var request = new FakeQuery<string>(null, "test");
 
         // Act
-        await behavior.Handle(request, () => Task.FromResult("done"), default);
+        await behavior.Handle(request, _ => Task.FromResult("done"), CancellationToken.None);
 
         // Assert
         logger.Received(2).Log(
