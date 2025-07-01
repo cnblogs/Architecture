@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq.Expressions;
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
@@ -8,7 +9,7 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 /// </summary>
 public static class OrderBySegmentConfig
 {
-    private static readonly Dictionary<Type, Dictionary<string, OrderBySegment>> Cache = new();
+    private static readonly ConcurrentDictionary<Type, ConcurrentDictionary<string, OrderBySegment>> Cache = new();
 
     /// <summary>
     ///     注册新的可排序列。
@@ -24,7 +25,7 @@ public static class OrderBySegmentConfig
         var sourceType = typeof(TSource);
         if (Cache.ContainsKey(sourceType) == false)
         {
-            Cache[sourceType] = new Dictionary<string, OrderBySegment>(StringComparer.OrdinalIgnoreCase);
+            Cache[sourceType] = new ConcurrentDictionary<string, OrderBySegment>(StringComparer.OrdinalIgnoreCase);
         }
 
         Cache[sourceType][name] = new OrderBySegment(false, exp);
@@ -72,5 +73,25 @@ public static class OrderBySegmentConfig
         }
 
         return segments.Count > 0;
+    }
+}
+
+/// <summary>
+///     管理可排序列的映射。
+/// </summary>
+/// <typeparam name="TEntity">The entity to config.</typeparam>
+public static class OrderBySegmentConfig<TEntity>
+{
+    /// <summary>
+    ///     注册新的可排序列。
+    /// </summary>
+    /// <param name="name">列名。</param>
+    /// <param name="exp">属性表达式。</param>
+    /// <typeparam name="TProperty">属性类型。</typeparam>
+    public static void RegisterSortableProperty<TProperty>(
+        string name,
+        Expression<Func<TEntity, TProperty>> exp)
+    {
+        OrderBySegmentConfig.RegisterSortableProperty(name, exp);
     }
 }
