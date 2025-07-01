@@ -32,7 +32,7 @@ public abstract class PageableQueryHandlerBase<TQuery, TEntity, TView> : IPageab
             if (request.PagingParams.PageSize == 0 || totalCount == 0)
             {
                 // need count only or no available item, short circuit here.
-                return new PagedList<TView>(Array.Empty<TView>(), request.PagingParams, totalCount);
+                return new PagedList<TView>([], request.PagingParams, totalCount);
             }
 
             ordered = ordered.Paging(request.PagingParams);
