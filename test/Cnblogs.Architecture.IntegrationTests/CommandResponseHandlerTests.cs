@@ -1,3 +1,4 @@
+using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
@@ -7,7 +8,6 @@ using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Errors;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
-using FluentAssertions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Testing;
@@ -36,7 +36,7 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadAsStringAsync();
 
         // Assert
-        content.Should().NotBeNullOrEmpty();
+        Assert.False(string.IsNullOrEmpty(content));
     }
 
     [Fact]
@@ -53,9 +53,9 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadFromJsonAsync<CommandResponse<string, TestError>>();
 
         // Assert
-        response.Headers.CqrsVersion().Should().BeGreaterThan(1);
-        content.Should().NotBeNull();
-        content.Response.Should().NotBeNullOrEmpty();
+        Assert.True(response.Headers.CqrsVersion() > 1);
+        Assert.NotNull(content);
+        Assert.False(string.IsNullOrEmpty(content.Response));
     }
 
     [Fact]
@@ -71,8 +71,8 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadAsStringAsync();
 
         // Assert
-        response.Should().BeSuccessful();
-        content.Should().NotBeNullOrEmpty();
+        Assert.True(response.IsSuccessStatusCode);
+        Assert.False(string.IsNullOrEmpty(content));
     }
 
     [Fact]
@@ -89,9 +89,9 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadFromJsonAsync<CommandResponse<string, TestError>>();
 
         // Assert
-        response.Should().BeSuccessful();
-        response.Headers.CqrsVersion().Should().BeGreaterThan(1);
-        content!.Response.Should().NotBeNullOrEmpty();
+        Assert.True(response.IsSuccessStatusCode);
+        Assert.True(response.Headers.CqrsVersion() > 1);
+        Assert.False(string.IsNullOrEmpty(content!.Response));
     }
 
     [Theory]
@@ -108,8 +108,8 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadAsStringAsync();
 
         // Assert
-        response.Should().HaveClientError();
-        content.Should().NotBeNullOrEmpty();
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.False(string.IsNullOrEmpty(content));
     }
 
     [Fact]
@@ -122,7 +122,7 @@ public class CommandResponseHandlerTests
         var response = await builder.CreateClient().PutAsJsonAsync("/api/v1/strings/1", new UpdatePayload());
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
     }
 
     [Theory]
@@ -140,8 +140,8 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadFromJsonAsync<ProblemDetails>();
 
         // Assert
-        response.Should().HaveClientError();
-        content.Should().NotBeNull();
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.NotNull(content);
     }
 
     [Theory]
@@ -160,11 +160,11 @@ public class CommandResponseHandlerTests
         var commandResponse = await response.Content.ReadFromJsonAsync<CommandResponse<TestError>>();
 
         // Assert
-        response.Should().HaveClientError();
-        commandResponse.Should().NotBeNull();
-        commandResponse.IsSuccess().Should().BeFalse();
-        commandResponse.Should().BeEquivalentTo(new { IsValidationError = needValidationError });
-        (commandResponse.ErrorCode != null).Should().Be(needExecutionError);
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.NotNull(commandResponse);
+        Assert.False(commandResponse.IsSuccess());
+        Assert.Equal(needValidationError, commandResponse.IsValidationError);
+        Assert.Equal(needExecutionError, commandResponse.ErrorCode != null);
     }
 
     [Theory]
@@ -185,8 +185,8 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadFromJsonAsync<TestError>();
 
         // Assert
-        response.Should().HaveClientError();
-        content.Should().BeEquivalentTo(error);
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.Equivalent(error, content);
     }
 
     [Fact]
@@ -199,7 +199,7 @@ public class CommandResponseHandlerTests
         var response = await builder.CreateClient().PutAsJsonAsync("/api/v1/mvc/strings/1", new UpdatePayload());
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
     }
 
     [Theory]
@@ -216,8 +216,8 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadAsStringAsync();
 
         // Assert
-        response.Should().HaveClientError();
-        content.Should().NotBeNullOrEmpty();
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.False(string.IsNullOrEmpty(content));
     }
 
     [Theory]
@@ -235,8 +235,8 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadFromJsonAsync<ProblemDetails>();
 
         // Assert
-        response.Should().HaveClientError();
-        content.Should().NotBeNull();
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.NotNull(content);
     }
 
     [Theory]
@@ -255,11 +255,11 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadFromJsonAsync<CommandResponse<TestError>>();
 
         // Assert
-        response.Should().HaveClientError();
-        content.Should().NotBeNull();
-        content.IsSuccess().Should().BeFalse();
-        content.Should().BeEquivalentTo(new { IsValidationError = needValidationError });
-        (content.ErrorCode != null).Should().Be(needExecutionError);
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.NotNull(content);
+        Assert.False(content.IsSuccess());
+        Assert.Equal(needValidationError, content.IsValidationError);
+        Assert.Equal(needExecutionError, content.ErrorCode != null);
     }
 
     [Theory]
@@ -280,7 +280,7 @@ public class CommandResponseHandlerTests
         var content = await response.Content.ReadFromJsonAsync<TestError>();
 
         // Assert
-        response.Should().HaveClientError();
-        content.Should().BeEquivalentTo(error);
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
+        Assert.Equivalent(error, content);
     }
 }

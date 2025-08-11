@@ -2,9 +2,6 @@
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.UnitTests.Cqrs.FakeObjects;
-
-using FluentAssertions;
-
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
 using NSubstitute;
@@ -15,14 +12,14 @@ namespace Cnblogs.Architecture.UnitTests.Cqrs.Handlers;
 public class InvalidCacheRequestHandlerTests
 {
     [Fact]
-    public Task InvalidCache_ThrowOnRemove_ThrowAsync()
+    public async Task InvalidCache_ThrowOnRemove_ThrowAsync()
     {
         // Arrange
         var provider = Substitute.For<IRemoteCacheProvider>();
         provider.RemoveAsync(Arg.Any<string>())
             .ThrowsAsync(new InvalidOperationException());
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { provider },
+            [provider],
             o => o.ThrowIfFailedOnRemove = true);
 
         // Act
@@ -31,47 +28,45 @@ public class InvalidCacheRequestHandlerTests
             CancellationToken.None);
 
         // Assert
-        return act.Should().ThrowAsync<InvalidOperationException>();
+        await Assert.ThrowsAsync<InvalidOperationException>(act);
     }
 
     [Fact]
-    public Task InvalidCache_ThrowOnRemove_NotThrowAsync()
+    public async Task InvalidCache_ThrowOnRemove_NotThrowAsync()
     {
         // Arrange
         var provider = Substitute.For<IRemoteCacheProvider>();
         provider.RemoveAsync(Arg.Any<string>())
             .ThrowsAsync(new InvalidOperationException());
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { provider },
+            [provider],
             o => o.ThrowIfFailedOnRemove = false);
 
         // Act
-        var act = async () => await handler.Handle(
+        await handler.Handle(
             new InvalidCacheRequest(new FakeQuery<string>()),
             CancellationToken.None);
 
-        // Assert
-        return act.Should().NotThrowAsync();
+        // Assert-Not throws.
     }
 
     [Fact]
-    public Task InvalidCache_ThrowOnRemove_OverrideByRequest_NotThrowAsync()
+    public async Task InvalidCache_ThrowOnRemove_OverrideByRequest_NotThrowAsync()
     {
         // Arrange
         var provider = Substitute.For<IRemoteCacheProvider>();
         provider.RemoveAsync(Arg.Any<string>())
             .ThrowsAsync(new InvalidOperationException());
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { provider },
+            [provider],
             o => o.ThrowIfFailedOnRemove = true);
 
         // Act
-        var act = async () => await handler.Handle(
+        await handler.Handle(
             new InvalidCacheRequest(new FakeQuery<string>(), false, false),
             CancellationToken.None);
 
-        // Assert
-        return act.Should().NotThrowAsync();
+        // Assert-Not throws
     }
 
     [Fact]
@@ -81,7 +76,7 @@ public class InvalidCacheRequestHandlerTests
         var remote = Substitute.For<IRemoteCacheProvider>();
         var local = Substitute.For<ILocalCacheProvider>();
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { remote, local },
+            [remote, local],
             o => o.ThrowIfFailedOnRemove = false);
 
         // Act
@@ -101,7 +96,7 @@ public class InvalidCacheRequestHandlerTests
         var remote = Substitute.For<IRemoteCacheProvider>();
         var local = Substitute.For<ILocalCacheProvider>();
         var handler = CreateInvalidCacheRequestHandler(
-            new List<ICacheProvider>() { remote, local },
+            [remote, local],
             o => o.ThrowIfFailedOnRemove = false);
 
         // Act
@@ -120,10 +115,10 @@ public class InvalidCacheRequestHandlerTests
     public void InvalidCache_NoProvider_Throw()
     {
         // Act
-        var act = () => CreateInvalidCacheRequestHandler(new List<ICacheProvider>());
+        var act = () => CreateInvalidCacheRequestHandler([]);
 
         // Assert
-        act.Should().Throw<InvalidOperationException>();
+        Assert.Throws<InvalidOperationException>(act);
     }
 
     private InvalidCacheRequestHandler CreateInvalidCacheRequestHandler(

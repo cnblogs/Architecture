@@ -293,7 +293,7 @@ public abstract class ServiceAgentBase<TException>
                 '&',
                 ids.Select(i => $"{WebUtility.UrlEncode(paramName)}={WebUtility.UrlEncode(i.ToString())}"));
             url = $"{url}{(url.Contains('?') ? '&' : '?')}{query}";
-            return await HttpClient.GetFromJsonAsync<List<TResponse>>(url) ?? new List<TResponse>();
+            return await HttpClient.GetFromJsonAsync<List<TResponse>>(url) ?? [];
         }
         catch (HttpRequestException e)
         {
@@ -306,7 +306,7 @@ public abstract class ServiceAgentBase<TException>
                 ThrowApiException(HttpMethod.Get, url, e);
             }
 
-            return new List<TResponse>();
+            return [];
         }
     }
 

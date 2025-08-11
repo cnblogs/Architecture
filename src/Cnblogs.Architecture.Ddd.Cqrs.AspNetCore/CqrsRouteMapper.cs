@@ -15,35 +15,35 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 /// </summary>
 public static class CqrsRouteMapper
 {
-    private static readonly List<Type> QueryTypes = new() { typeof(IQuery<>), typeof(IListQuery<>) };
+    private static readonly List<Type> QueryTypes = [typeof(IQuery<>), typeof(IListQuery<>)];
 
-    private static readonly List<Type> CommandTypes = new() { typeof(ICommand<>), typeof(ICommand<,>) };
+    private static readonly List<Type> CommandTypes = [typeof(ICommand<>), typeof(ICommand<,>)];
 
-    private static readonly string[] GetAndHeadMethods = { "GET", "HEAD" };
+    private static readonly string[] GetAndHeadMethods = ["GET", "HEAD"];
 
-    private static readonly List<string> PostCommandPrefixes = new()
-    {
+    private static readonly List<string> PostCommandPrefixes =
+    [
         "Create",
         "Add",
         "New"
-    };
+    ];
 
-    private static readonly List<string> PutCommandPrefixes = new()
-    {
+    private static readonly List<string> PutCommandPrefixes =
+    [
         "Update",
         "Modify",
         "Replace",
         "Alter"
-    };
+    ];
 
-    private static readonly List<string> DeleteCommandPrefixes = new()
-    {
+    private static readonly List<string> DeleteCommandPrefixes =
+    [
         "Delete",
         "Remove",
         "Clean",
         "Clear",
         "Purge"
-    };
+    ];
 
     /// <summary>
     ///     Map a query API, using GET method. <typeparamref name="T"/> would been constructed from route and query string.

@@ -7,7 +7,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// </summary>
 public class ValidationErrors : ICollection<ValidationError>
 {
-    private readonly List<ValidationError> _validationErrors = new();
+    private readonly List<ValidationError> _validationErrors = [];
 
     /// <summary>
     ///    Add a new validation error.

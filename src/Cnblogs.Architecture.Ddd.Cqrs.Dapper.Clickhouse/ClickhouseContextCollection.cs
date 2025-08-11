@@ -5,7 +5,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse;
 /// </summary>
 public class ClickhouseContextCollection
 {
-    internal List<Type> ContextTypes { get; } = new();
+    internal List<Type> ContextTypes { get; } = [];
 
     internal void Add<TContext>()
     {

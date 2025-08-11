@@ -7,7 +7,7 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 /// </summary>
 public class QueryStringBuilder
 {
-    private readonly List<KeyValuePair<string, string>> _params = new();
+    private readonly List<KeyValuePair<string, string>> _params = [];
 
     /// <summary>
     /// 创建一个 <see cref="QueryStringBuilder"/>。

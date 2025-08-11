@@ -18,7 +18,7 @@ public abstract class EntityBase : IDomainEventSource
     /// <param name="eventItem">领域事件。</param>
     public virtual void AddDomainEvent(IDomainEvent eventItem)
     {
-        _events ??= new List<IDomainEvent>();
+        _events ??= [];
         _events.Add(eventItem);
     }
 

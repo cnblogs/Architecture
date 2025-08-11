@@ -3,7 +3,6 @@ using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Cnblogs.Architecture.IntegrationTests;
@@ -21,8 +20,8 @@ public class CqrsRouteMapperTests
         var content = await response.Content.ReadAsStringAsync();
 
         // Assert
-        response.Should().BeSuccessful();
-        content.Should().NotBeNullOrEmpty();
+        Assert.True(response.IsSuccessStatusCode);
+        Assert.False(string.IsNullOrEmpty(content));
     }
 
     [Fact]
@@ -35,7 +34,7 @@ public class CqrsRouteMapperTests
         var response = await builder.CreateClient().GetAsync("/api/v1/strings/1?found=false");
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.NotFound);
+        Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
     }
 
     [Fact]
@@ -49,9 +48,9 @@ public class CqrsRouteMapperTests
         var content = await response.Content.ReadFromJsonAsync<PagedList<string>>();
 
         // Assert
-        response.Should().BeSuccessful();
-        content.Should().NotBeNull();
-        content.Items.Should().NotBeNullOrEmpty();
+        Assert.True(response.IsSuccessStatusCode);
+        Assert.NotNull(content);
+        Assert.NotEmpty(content.Items);
     }
 
     [Fact]
@@ -64,7 +63,7 @@ public class CqrsRouteMapperTests
         var response = await builder.CreateClient().PostAsJsonAsync("/api/v1/strings", new { NeedError = false });
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
     }
 
     [Fact]
@@ -77,7 +76,7 @@ public class CqrsRouteMapperTests
         var response = await builder.CreateClient().PutAsJsonAsync("/api/v1/strings/1", new { NeedError = false });
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
     }
 
     [Fact]
@@ -90,7 +89,7 @@ public class CqrsRouteMapperTests
         var response = await builder.CreateClient().DeleteAsync("/api/v1/strings/1?needError=false");
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
     }
 
     [Fact]
@@ -109,7 +108,7 @@ public class CqrsRouteMapperTests
         };
 
         // Assert
-        responses.Should().Match(x => x.All(y => y.IsSuccessStatusCode));
+        Assert.All(responses, r => Assert.True(r.IsSuccessStatusCode));
     }
 
     [Fact]
@@ -130,7 +129,7 @@ public class CqrsRouteMapperTests
         }
 
         // Assert
-        responses.Should().Match(x => x.All(y => y.IsSuccessStatusCode));
+        Assert.All(responses, r => Assert.True(r.IsSuccessStatusCode));
     }
 
     [Fact]
@@ -145,7 +144,7 @@ public class CqrsRouteMapperTests
             new CreateCommand(false, "data"));
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
     }
 
     [Fact]
@@ -160,7 +159,7 @@ public class CqrsRouteMapperTests
             new UpdateCommand(1, false, false));
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
     }
 
     [Fact]
@@ -174,6 +173,6 @@ public class CqrsRouteMapperTests
         var response = await builder.CreateClient().DeleteAsync("/api/v1/generic-map/strings/1" + queryBuilder.Build());
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
     }
 }

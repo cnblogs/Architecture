@@ -3,27 +3,19 @@ using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 using Cnblogs.Architecture.TestIntegrationEvents;
-using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Events;
 using Serilog.Sinks.InMemory;
-using Serilog.Sinks.InMemory.Assertions;
 using Xunit.Abstractions;
 using static Cnblogs.Architecture.IntegrationTestProject.Constants;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 
-public class IntegrationEventHandlerTests
+public class IntegrationEventHandlerTests(ITestOutputHelper testOutputHelper)
 {
-    private readonly ITestOutputHelper _testOutputHelper;
-
-    public IntegrationEventHandlerTests(ITestOutputHelper testOutputHelper)
-    {
-        _testOutputHelper = testOutputHelper;
-    }
-
     [Fact]
     public async Task IntegrationEventHandler_TestIntegrationEvent_SuccessAsync()
     {
@@ -44,12 +36,17 @@ public class IntegrationEventHandlerTests
         var subscriptions = await client.GetFromJsonAsync<Subscription[]>("/dapr/subscribe");
         var sub = subscriptions!.First(x => x.Route.Contains(nameof(TestIntegrationEvent)));
         var response = await client.PostAsJsonAsync(sub.Route, @event);
-        _testOutputHelper.WriteLine("Subscription Route: " + sub.Route);
+        testOutputHelper.WriteLine("Subscription Route: " + sub.Route);
 
         // Assert
-        response.Should().BeSuccessful();
-        InMemorySink.Instance
-            .Should().HaveMessage(LogTemplates.HandledIntegratonEvent).Appearing().Once()
-            .WithProperty("event").HavingADestructuredObject().WithProperty("Id").WithValue(@event.Id);
+        Assert.True(response.IsSuccessStatusCode);
+        var messages =
+            InMemorySink.Instance.LogEvents
+                .Where(x => x.MessageTemplate.Text == LogTemplates.HandledIntegratonEvent)
+                .ToList();
+        var msg = Assert.Single(messages)!;
+        var value = msg.Properties["event"] as StructureValue;
+        Assert.NotNull(value);
+        Assert.Contains(value.Properties, prop => prop.Name == "Id" && prop.Value.ToString() == @event.Id.ToString());
     }
 }

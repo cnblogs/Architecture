@@ -182,12 +182,12 @@ public static class EndPointExtensions
     {
         return typeof(EndPointExtensions).GetMethod(
             nameof(Subscribe),
-            new[] { typeof(IEndpointRouteBuilder), typeof(string) })!;
+            [typeof(IEndpointRouteBuilder), typeof(string)])!;
     }
 
     private static void InvokeSubscribe(this MethodInfo method, Type eventType, IEndpointRouteBuilder builder, string appName)
     {
-        method.MakeGenericMethod(eventType).Invoke(null, new object[] { builder, appName });
+        method.MakeGenericMethod(eventType).Invoke(null, [builder, appName]);
     }
 
     private static string GetAppName(this Assembly assembly)

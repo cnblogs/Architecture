@@ -1,7 +1,6 @@
 ﻿using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.TestIntegrationEvents;
-using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,10 +17,9 @@ public class AssemblyAttributeTests
         var app = builder.Build();
 
         // Act
-        var act = () => app.Subscribe<TestIntegrationEvent>();
+        app.Subscribe<TestIntegrationEvent>();
 
-        // Assert
-        act.Should().NotThrow();
+        // Assert-Not throws
     }
 
     [Fact]
@@ -35,6 +33,6 @@ public class AssemblyAttributeTests
         var act = () => app.Subscribe<TestIntegrationEvent>();
 
         // Assert
-        act.Should().Throw<InvalidOperationException>();
+        Assert.Throws<InvalidOperationException>(act);
     }
 }

@@ -155,7 +155,6 @@ public abstract class CqrsServiceAgent<TError>
         return response.StatusCode switch
         {
             HttpStatusCode.OK => await response.Content.ReadFromJsonAsync<T>(),
-            HttpStatusCode.NotFound => default,
             _ => default
         };
     }
@@ -202,7 +201,7 @@ public abstract class CqrsServiceAgent<TError>
             '&',
             ids.Select(i => $"{WebUtility.UrlEncode(paramName)}={WebUtility.UrlEncode(i.ToString())}"));
         url = $"{url}{(url.Contains('?') ? '&' : '?')}{query}";
-        return await HttpClient.GetFromJsonAsync<List<TResponse>>(url) ?? new List<TResponse>();
+        return await HttpClient.GetFromJsonAsync<List<TResponse>>(url) ?? [];
     }
 
     /// <summary>

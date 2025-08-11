@@ -4,7 +4,6 @@ using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
 using Cnblogs.Architecture.TestIntegrationEvents;
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -38,8 +37,8 @@ public class IntegrationEventPublishTests
         await Task.Delay(1500);
 
         // Assert
-        response.Should().BeSuccessful();
-        content.Should().NotBeNullOrEmpty();
+        Assert.True(response.IsSuccessStatusCode);
+        Assert.False(string.IsNullOrEmpty(content));
         await eventBusMock.Received(1).PublishAsync(
             Arg.Any<string>(),
             Arg.Is<TestIntegrationEvent>(t => t.Message == data));
@@ -76,8 +75,8 @@ public class IntegrationEventPublishTests
         await Task.Delay(3000); // hit at 1000ms and 3000ms
 
         // Assert
-        response.Should().BeSuccessful();
-        content.Should().NotBeNullOrEmpty();
+        Assert.True(response.IsSuccessStatusCode);
+        Assert.False(string.IsNullOrEmpty(content));
         await eventBusMock.Received(2).PublishAsync(
             Arg.Any<string>(),
             Arg.Is<TestIntegrationEvent>(t => t.Message == data));
@@ -115,7 +114,7 @@ public class IntegrationEventPublishTests
         var response = await client.PostAsJsonAsync("/api/v1/strings", new CreatePayload(false, data));
 
         // Assert
-        response.Should().HaveStatusCode(HttpStatusCode.InternalServerError);
+        Assert.Equal(HttpStatusCode.InternalServerError, response.StatusCode);
     }
 
     [Fact]

@@ -7,7 +7,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.MongoDb;
 /// </summary>
 public class MongoContextCollection
 {
-    private readonly List<Type> _contexts = new();
+    private readonly List<Type> _contexts = [];
 
     /// <summary>
     ///     添加一个 MongoContext。

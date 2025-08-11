@@ -49,7 +49,7 @@ public abstract class Entity<TKey> : Entity, IEntity<TKey>
     /// <param name="generator">领域事件生成器。</param>
     public void AddDomainEvent(Func<TKey, IDomainEvent> generator)
     {
-        _domainEventGenerator ??= new List<Func<TKey, IDomainEvent>>();
+        _domainEventGenerator ??= [];
         _domainEventGenerator.Add(generator);
     }
 

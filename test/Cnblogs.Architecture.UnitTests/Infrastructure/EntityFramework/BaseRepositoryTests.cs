@@ -1,7 +1,6 @@
 ﻿using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.TestShared;
 using Cnblogs.Architecture.UnitTests.Infrastructure.FakeObjects;
-using FluentAssertions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using NSubstitute;
@@ -33,8 +32,8 @@ public class BaseRepositoryTests
         var got = await repository.GetAsync(entity.Id, e => e.Posts);
 
         // Assert
-        got.Should().NotBeNull();
-        got.Posts.Should().BeEquivalentTo(entity.Posts);
+        Assert.NotNull(got);
+        Assert.Equivalent(entity.Posts, got.Posts);
     }
 
     [Fact]
@@ -59,8 +58,8 @@ public class BaseRepositoryTests
         var got = await repository.GetAsync(entity.Id, new List<string>() { nameof(entity.Posts) });
 
         // Assert
-        got.Should().NotBeNull();
-        got.Posts.Should().BeEquivalentTo(entity.Posts);
+        Assert.NotNull(got);
+        Assert.Equivalent(entity.Posts, got.Posts);
     }
 
     [Fact]
@@ -86,8 +85,8 @@ public class BaseRepositoryTests
         var got = await repository.GetAsync(entity.Id, new List<string>() { "Posts.Tags" });
 
         // Assert
-        got.Should().NotBeNull();
-        got.Posts.Should().BeEquivalentTo(entity.Posts);
+        Assert.NotNull(got);
+        Assert.Equivalent(entity.Posts, got.Posts);
     }
 
     [Fact]
@@ -114,8 +113,8 @@ public class BaseRepositoryTests
         await repository.UpdateAsync(entity);
 
         // Assert
-        entity.DateUpdated.Should().BeAfter(DateTimeOffset.Now.AddDays(-1));
-        entity.Posts.Should().AllSatisfy(x => x.DateUpdated.Should().BeAfter(DateTimeOffset.Now.AddDays(-1)));
+        Assert.True(entity.DateUpdated > DateTimeOffset.Now.AddDays(-1));
+        Assert.All(entity.Posts, post => Assert.True(post.DateUpdated > DateTimeOffset.Now.AddDays(-1)));
     }
 
     [Fact]
@@ -244,8 +243,8 @@ public class BaseRepositoryTests
 
         // Assert
         var eventCount = 1 + entity.Posts.Count;
-        (await act.Should().ThrowAsync<AggregateException>()).And.InnerExceptions.Should()
-            .HaveCount(eventCount);
+        var exception = await Assert.ThrowsAsync<AggregateException>(act);
+        Assert.Equal(eventCount, exception.InnerExceptions.Count);
         await mediator.Received(1).Publish(
             Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
             Arg.Any<CancellationToken>());
