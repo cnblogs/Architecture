@@ -15,7 +15,7 @@ jobs:
           - name: Checkout
             uses: actions/checkout@v3
           - name: Build
-            run: ./build.sh net9.0
+            run: dotnet build
           - name: Test
-            run: ./test.sh net9.0
+            run: dotnet test
 
