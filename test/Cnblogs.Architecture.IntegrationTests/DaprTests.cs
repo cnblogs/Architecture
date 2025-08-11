@@ -3,7 +3,6 @@ using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 using Cnblogs.Architecture.TestIntegrationEvents;
-using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,12 +39,12 @@ public class DaprTests
 
         // Act
         var response = await httpClient.GetAsync("/dapr/subscribe");
+        var responseText = await response.Content.ReadAsStringAsync();
 
         // Assert
-        response.Should().BeSuccessful();
-        var responseText = await response.Content.ReadAsStringAsync();
-        responseText.Should().Contain(nameof(TestIntegrationEvent));
-        responseText.Should().Contain(nameof(BlogPostCreatedIntegrationEvent));
+        Assert.True(response.IsSuccessStatusCode);
+        Assert.Contains(nameof(TestIntegrationEvent), responseText);
+        Assert.Contains(nameof(BlogPostCreatedIntegrationEvent), responseText);
     }
 
     [Fact]
@@ -65,7 +64,7 @@ public class DaprTests
         var response = await httpClient.GetAsync("/dapr/subscribe");
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 
     [Fact]
@@ -85,6 +84,6 @@ public class DaprTests
         var response = await httpClient.GetAsync("/dapr/subscribe");
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.OK);
+        Assert.Equal(HttpStatusCode.OK, response.StatusCode);
     }
 }

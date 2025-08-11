@@ -1,9 +1,5 @@
 ﻿using System.Text.Json;
-
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
-
-using FluentAssertions;
-
 using Mapster;
 
 namespace Cnblogs.Architecture.UnitTests.Infrastructure;
@@ -20,21 +16,21 @@ public class PagedListTests
         var mapped = pagedList.Adapt<PagedList<BDto>>();
 
         // Assert
-        pagedList.Items.Select(a => a.Value).Should().BeEquivalentTo(mapped.Items.Select(b => b.Value));
+        Assert.Equivalent(mapped.Items.Select(b => b.Value), pagedList.Items.Select(s => s.Value));
     }
 
     [Fact]
     public void PagedListSerializableToAndFromJson()
     {
         // Arrange
-        PagedList<string> pagedList = new(new[] { "a", "b", "c" });
+        PagedList<string> pagedList = new(["a", "b", "c"]);
 
         // Act
         var json = JsonSerializer.Serialize(pagedList);
         var deserialized = JsonSerializer.Deserialize<PagedList<string>>(json);
 
         // Assert
-        pagedList.Should().BeEquivalentTo(deserialized);
+        Assert.Equivalent(deserialized, pagedList);
     }
 
     private record ADto(string Value);

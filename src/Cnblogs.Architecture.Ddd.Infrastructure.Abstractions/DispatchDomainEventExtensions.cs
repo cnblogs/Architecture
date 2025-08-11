@@ -24,7 +24,7 @@ public static class DispatchDomainEventExtensions
             }
             catch (Exception exception)
             {
-                exceptions ??= new List<Exception>();
+                exceptions ??= [];
                 exceptions.Add(exception);
             }
         }

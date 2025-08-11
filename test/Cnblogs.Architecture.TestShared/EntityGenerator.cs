@@ -8,8 +8,8 @@ namespace Cnblogs.Architecture.TestShared;
 /// <typeparam name="TEntity">Entity type to generate.</typeparam>
 public partial class EntityGenerator<TEntity>
 {
-    private readonly List<TEntity> _template = new();
-    private readonly List<Action<TEntity>> _customCloneSetups = new();
+    private readonly List<TEntity> _template = [];
+    private readonly List<Action<TEntity>> _customCloneSetups = [];
 
     /// <summary>
     ///     Create entity based on given template.

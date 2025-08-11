@@ -8,6 +8,6 @@ public class ListStringsQueryHandler : IPageableQueryHandler<ListStringsQuery, s
     /// <inheritdoc />
     public Task<PagedList<string>> Handle(ListStringsQuery request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(new PagedList<string>(new[] { "hello" }));
+        return Task.FromResult(new PagedList<string>(["hello"]));
     }
 }

@@ -3,7 +3,6 @@ using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 using Cnblogs.Architecture.TestIntegrationEvents;
-using FluentAssertions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Logging;
@@ -15,15 +14,8 @@ using static Cnblogs.Architecture.IntegrationTestProject.Constants;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 
-public class IntegrationEventHandlerTests
+public class IntegrationEventHandlerTests(ITestOutputHelper testOutputHelper)
 {
-    private readonly ITestOutputHelper _testOutputHelper;
-
-    public IntegrationEventHandlerTests(ITestOutputHelper testOutputHelper)
-    {
-        _testOutputHelper = testOutputHelper;
-    }
-
     [Fact]
     public async Task IntegrationEventHandler_TestIntegrationEvent_SuccessAsync()
     {
@@ -44,10 +36,10 @@ public class IntegrationEventHandlerTests
         var subscriptions = await client.GetFromJsonAsync<Subscription[]>("/dapr/subscribe");
         var sub = subscriptions!.First(x => x.Route.Contains(nameof(TestIntegrationEvent)));
         var response = await client.PostAsJsonAsync(sub.Route, @event);
-        _testOutputHelper.WriteLine("Subscription Route: " + sub.Route);
+        testOutputHelper.WriteLine("Subscription Route: " + sub.Route);
 
         // Assert
-        response.Should().BeSuccessful();
+        Assert.True(response.IsSuccessStatusCode);
         InMemorySink.Instance
             .Should().HaveMessage(LogTemplates.HandledIntegratonEvent).Appearing().Once()
             .WithProperty("event").HavingADestructuredObject().WithProperty("Id").WithValue(@event.Id);

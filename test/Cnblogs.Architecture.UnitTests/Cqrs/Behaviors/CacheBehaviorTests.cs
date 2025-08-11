@@ -3,8 +3,6 @@ using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.UnitTests.Cqrs.FakeObjects;
 
-using FluentAssertions;
-
 using MediatR;
 
 using Microsoft.Extensions.Logging.Abstractions;
@@ -37,7 +35,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        result.Should().Be("noCache");
+        Assert.Equal("noCache", result);
     }
 
     [Fact]
@@ -59,7 +57,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        result.Should().Be("noCache");
+        Assert.Equal("noCache", result);
         await local.Received(1).UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>());
     }
 
@@ -84,7 +82,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        result.Should().Be("cacheValue");
+        Assert.Equal("cacheValue", result);
         await local.Received(0).UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>());
         await remote.Received(0).GetAsync<string>(Arg.Any<string>());
     }
@@ -109,7 +107,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        result.Should().Be("noCache");
+        Assert.Equal("noCache", result);
         await local.Received(0).UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>());
         await remote.Received(1).UpdateAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<TimeSpan>());
     }
@@ -134,7 +132,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        result.Should().Be("cacheValue");
+        Assert.Equal("cacheValue", result);
         await local.Received(0).GetAsync<string>(Arg.Any<string>());
     }
 
@@ -160,7 +158,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        await act.Should().ThrowAsync<Exception>();
+        await Assert.ThrowsAsync<Exception>(act);
     }
 
     [Fact]
@@ -185,7 +183,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        result.Should().Be("noCache");
+        Assert.Equal("noCache", result);
     }
 
     [Fact]
@@ -211,7 +209,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        await act.Should().ThrowAsync<Exception>();
+        await Assert.ThrowsAsync<Exception>(act);
     }
 
     [Fact]
@@ -226,7 +224,7 @@ public class CacheBehaviorTests
             o => o.ThrowIfFailedOnUpdate = false);
 
         // Act
-        var act = async () => await behavior.Handle(
+        var res = await behavior.Handle(
             new FakeQuery<string>(null, "cacheKey")
             {
                 LocalCacheBehavior = CacheBehavior.DisabledCache,
@@ -237,7 +235,7 @@ public class CacheBehaviorTests
             CancellationToken.None);
 
         // Assert
-        await act.Should().NotThrowAsync<Exception>();
+        Assert.NotNull(res);
     }
 
     [Fact]
@@ -247,7 +245,7 @@ public class CacheBehaviorTests
         var act = () => GetBehavior<FakeQuery<string>, string>([]);
 
         // Assert
-        act.Should().Throw<InvalidOperationException>();
+        Assert.Throws<InvalidOperationException>(act);
     }
 
     private static CacheableRequestBehavior<TRequest, TResponse> GetBehavior<TRequest, TResponse>(

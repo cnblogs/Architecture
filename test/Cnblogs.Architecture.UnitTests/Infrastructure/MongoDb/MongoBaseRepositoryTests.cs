@@ -1,6 +1,5 @@
 ﻿using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.UnitTests.Infrastructure.FakeObjects;
-using FluentAssertions;
 using MongoDB.Driver;
 using NSubstitute;
 
@@ -20,7 +19,7 @@ public class MongoBaseRepositoryTests
         var response = await repository.AddAsync(blog);
 
         // Assert
-        response.Should().NotBeNull();
+        Assert.NotNull(response);
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
             .Received(1)
             .InsertOneAsync(
@@ -42,7 +41,7 @@ public class MongoBaseRepositoryTests
         var response = await repository.AddRangeAsync(blogs);
 
         // Assert
-        response.Should().HaveSameCount(blogs);
+        Assert.Equal(blogs.Count, response.Count);
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
             .Received(1)
             .InsertManyAsync(
@@ -65,7 +64,7 @@ public class MongoBaseRepositoryTests
         var response = await repository.DeleteAsync(blog);
 
         // Assert
-        response.Should().NotBeNull();
+        Assert.NotNull(response);
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
             .Received(1)
             .DeleteOneAsync(Arg.Any<FilterDefinition<FakeBlog>>(), Arg.Any<CancellationToken>());
@@ -84,7 +83,7 @@ public class MongoBaseRepositoryTests
         var response = await repository.UpdateAsync(blog);
 
         // Assert
-        response.Should().NotBeNull();
+        Assert.NotNull(response);
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
             .Received(1)
             .ReplaceOneAsync(
@@ -107,7 +106,7 @@ public class MongoBaseRepositoryTests
         var response = await repository.UpdateRangeAsync(blogs);
 
         // Assert
-        response.Should().HaveSameCount(blogs);
+        Assert.Equal(blogs.Count, response.Count());
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
             .BulkWriteAsync(
                 Arg.Any<IEnumerable<WriteModel<FakeBlog>>>(),
@@ -131,7 +130,7 @@ public class MongoBaseRepositoryTests
         var response = await uow.SaveEntitiesAsync();
 
         // Assert
-        response.Should().BeTrue();
+        Assert.True(response);
         await repository.MongoDbContext.ClientSessionHandleMock.Received(1)
             .CommitTransactionAsync(Arg.Any<CancellationToken>());
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
@@ -158,7 +157,7 @@ public class MongoBaseRepositoryTests
         var response = await uow.SaveEntitiesAsync();
 
         // Assert
-        response.Should().BeTrue();
+        Assert.True(response);
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(0)
             .BulkWriteAsync(
                 Arg.Any<IClientSessionHandle>(),
@@ -183,7 +182,7 @@ public class MongoBaseRepositoryTests
         var response = await uow.SaveEntitiesAsync();
 
         // Assert
-        response.Should().BeTrue();
+        Assert.True(response);
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
             .BulkWriteAsync(
                 Arg.Any<IClientSessionHandle>(),
@@ -207,7 +206,7 @@ public class MongoBaseRepositoryTests
         var act = () => uow.Update(blog);
 
         // Assert
-        act.Should().Throw<InvalidOperationException>();
+        Assert.Throws<InvalidOperationException>(act);
     }
 
     [Fact]
@@ -224,7 +223,7 @@ public class MongoBaseRepositoryTests
         var act = () => uow.Add(blog);
 
         // Assert
-        act.Should().ThrowExactly<InvalidOperationException>();
+        Assert.Throws<InvalidOperationException>(act);
     }
 
     [Fact]
@@ -241,7 +240,7 @@ public class MongoBaseRepositoryTests
         var response = await uow.SaveEntitiesAsync();
 
         // Assert
-        response.Should().BeTrue();
+        Assert.True(response);
         await repository.MongoDbContext.ClientSessionHandleMock.Received(1)
             .CommitTransactionAsync(Arg.Any<CancellationToken>());
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)

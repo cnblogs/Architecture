@@ -51,7 +51,7 @@ public class FakeQuery<TResponse> : ICachableRequest, IRequest<TResponse>, IVali
     /// <inheritdoc />
     public object?[] GetCacheKeyParameters()
     {
-        return new object?[] { _cacheKey };
+        return [_cacheKey];
     }
 
     /// <inheritdoc />

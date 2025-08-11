@@ -62,7 +62,7 @@ public static class OrderBySegmentConfig
             return false;
         }
 
-        segments = new List<OrderBySegment>();
+        segments = [];
         var segmentStrings = SplitSortStrings(input);
         foreach (var s in segmentStrings)
         {

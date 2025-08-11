@@ -1,6 +1,5 @@
 ﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.UnitTests.Cqrs.FakeObjects;
-using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Cnblogs.Architecture.UnitTests.Cqrs.Behaviors;
@@ -21,7 +20,7 @@ public class ValidationBehaviorTests
 
         // Assert
         var errors = new ValidationErrors { error };
-        result.Should().BeEquivalentTo(new { IsValidationError = true, ValidationErrors = errors });
+        Assert.Equivalent(new { IsValidationError = true, ValidationErrors = errors }, result);
     }
 
     [Fact]
@@ -36,6 +35,6 @@ public class ValidationBehaviorTests
         var result = await behavior.Handle(request, _ => Task.FromResult(new FakeResponse()), CancellationToken.None);
 
         // Assert
-        result.Should().BeEquivalentTo(new { IsValidationError = false, ValidationErrors = new ValidationErrors() });
+        Assert.Equivalent(new { IsValidationError = false, ValidationErrors = new ValidationErrors() }, result);
     }
 }

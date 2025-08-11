@@ -2,7 +2,6 @@
 using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject;
-using FluentAssertions;
 
 using Microsoft.AspNetCore.Mvc.Testing;
 
@@ -21,7 +20,7 @@ public class CustomModelBinderTests
             .GetFromJsonAsync<PagingParams>("/api/v1/mvc/paging?pageIndex=1&pageSize=30");
 
         // Assert
-        response.Should().BeEquivalentTo(new PagingParams(1, 30));
+        Assert.Equivalent(new PagingParams(1, 30), response);
     }
 
     [Theory]
@@ -37,7 +36,7 @@ public class CustomModelBinderTests
         var response = await builder.CreateClient().GetAsync($"/api/v1/mvc/paging{query}");
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.NoContent);
+        Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
     }
 
     [Theory]
@@ -52,7 +51,7 @@ public class CustomModelBinderTests
         var response = await builder.CreateClient().GetAsync($"/api/v1/mvc/paging?pageIndex={pageIndex}&pageSize=10");
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
     }
 
     [Theory]
@@ -67,6 +66,6 @@ public class CustomModelBinderTests
         var response = await builder.CreateClient().GetAsync($"/api/v1/mvc/paging?pageIndex=1&pageSize={pageSize}");
 
         // Assert
-        response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+        Assert.Equal(HttpStatusCode.BadRequest, response.StatusCode);
     }
 }

@@ -3,7 +3,6 @@ using System.Text;
 using System.Text.Json;
 using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.Models;
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Cnblogs.Architecture.IntegrationTests;
@@ -26,7 +25,7 @@ public class CustomJsonConverterTests
         var serverObject = await response.Content.ReadFromJsonAsync<LongToStringModel>(WebDefaults);
 
         // Assert
-        serverObject.Should().BeEquivalentTo(new LongToStringModel() { Id = id });
+        Assert.Equivalent(new LongToStringModel() { Id = id }, serverObject);
     }
 
     [Theory]
@@ -43,7 +42,7 @@ public class CustomJsonConverterTests
         var browserObject = await response.Content.ReadFromJsonAsync<JsonElement>(WebDefaults);
 
         // Assert
-        browserObject.EnumerateObject().First().Value.GetString().Should().Be(id.ToString());
+        Assert.Equal(id.ToString(), browserObject.EnumerateObject().First().Value.GetString());
     }
 
     [Theory]
@@ -67,7 +66,7 @@ public class CustomJsonConverterTests
         var model = await response.Content.ReadFromJsonAsync<JsonElement>(WebDefaults);
 
         // Assert
-        model.EnumerateObject().First().Value.GetString().Should().Be("202410267558024668");
+        Assert.Equal("202410267558024668", model.EnumerateObject().First().Value.GetString());
     }
 
     [Theory]
@@ -91,6 +90,6 @@ public class CustomJsonConverterTests
         var model = await response.Content.ReadFromJsonAsync<JsonElement>(WebDefaults);
 
         // Assert
-        model.EnumerateObject().First().Value.GetString().Should().Be("202410267558024668");
+        Assert.Equal("202410267558024668", model.EnumerateObject().First().Value.GetString());
     }
 }

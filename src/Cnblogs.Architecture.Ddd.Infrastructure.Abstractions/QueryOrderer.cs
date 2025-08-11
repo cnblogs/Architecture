@@ -30,7 +30,7 @@ public static class QueryOrderer
     {
         var (isDesc, exp) = segment;
         var method = GetOrderByMethodName(isDesc);
-        Type[] types = { queryable.ElementType, exp.Body.Type };
+        Type[] types = [queryable.ElementType, exp.Body.Type];
         var rs = Expression.Call(typeof(Queryable), method, types, queryable.Expression, exp);
         return queryable.Provider.CreateQuery<TSource>(rs);
     }
@@ -67,7 +67,7 @@ public static class QueryOrderer
         foreach (var (isDesc, exp) in segments)
         {
             var method = isFirst ? GetOrderByMethodName(isDesc) : GetThenByMethodName(isDesc);
-            Type[] types = { queryable.ElementType, exp.Body.Type };
+            Type[] types = [queryable.ElementType, exp.Body.Type];
             var rs = Expression.Call(typeof(Queryable), method, types, queryable.Expression, exp);
             queryable = queryable.Provider.CreateQuery<TSource>(rs);
             isFirst = false;
