@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using Serilog.Events;
 using Serilog.Sinks.InMemory;
-using Serilog.Sinks.InMemory.Assertions;
 using Xunit.Abstractions;
 using static Cnblogs.Architecture.IntegrationTestProject.Constants;
 
@@ -40,8 +40,13 @@ public class IntegrationEventHandlerTests(ITestOutputHelper testOutputHelper)
 
         // Assert
         Assert.True(response.IsSuccessStatusCode);
-        InMemorySink.Instance
-            .Should().HaveMessage(LogTemplates.HandledIntegratonEvent).Appearing().Once()
-            .WithProperty("event").HavingADestructuredObject().WithProperty("Id").WithValue(@event.Id);
+        var messages =
+            InMemorySink.Instance.LogEvents
+                .Where(x => x.MessageTemplate.Text == LogTemplates.HandledIntegratonEvent)
+                .ToList();
+        var msg = Assert.Single(messages)!;
+        var value = msg.Properties["event"] as StructureValue;
+        Assert.NotNull(value);
+        Assert.Contains(value.Properties, prop => prop.Name == "Id" && prop.Value.ToString() == @event.Id.ToString());
     }
 }
