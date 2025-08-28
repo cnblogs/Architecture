@@ -18,6 +18,12 @@ public static class ServiceCollectionInjector
     public static DapperConfigurationBuilder<TContext> AddDapperContext<TContext>(this IServiceCollection services)
         where TContext : DapperContext
     {
+        var alreadyAdded = services.Any(s => s.ServiceType == typeof(TContext));
+        if (alreadyAdded)
+        {
+            throw new InvalidOperationException($"Dapper context with name {typeof(TContext).Name} already added");
+        }
+
         services.AddScoped<TContext>();
         return new DapperConfigurationBuilder<TContext>(services);
     }

@@ -1,3 +1,4 @@
+using ClickHouse.Client;
 using Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse;
 using Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,8 +22,11 @@ public static class DapperConfigurationBuilderExtension
         string connectionString)
         where TContext : ClickhouseDapperContext
     {
-        builder.UseDbConnectionFactory<ClickhouseDbConnectionFactory>();
-        builder.Services.AddClickHouseDataSource(connectionString);
+        var contextName = typeof(TContext).Name;
+        builder.UseDbConnectionFactory(sp
+            => new ClickhouseDbConnectionFactory<TContext>(
+                sp.GetRequiredKeyedService<IClickHouseDataSource>(contextName)));
+        builder.Services.AddClickHouseDataSource(connectionString, serviceKey: contextName);
         builder.Services.AddSingleton(new ClickhouseContextOptions<TContext>(connectionString));
         builder.Services.Configure<ClickhouseContextCollection>(x => x.Add<TContext>());
         builder.Services.AddHostedService<ClickhouseInitializeHostedService>();
