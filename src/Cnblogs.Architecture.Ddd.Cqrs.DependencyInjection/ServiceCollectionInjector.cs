@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using MediatR;
@@ -27,7 +27,12 @@ public static class ServiceCollectionInjector
             assemblies = [typeof(CqrsInjector).Assembly];
         }
 
-        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblies));
+        services.AddMediatR(cfg =>
+        {
+            cfg.RegisterServicesFromAssemblies(assemblies);
+            cfg.RegisterGenericHandlers = true;
+        });
+
         return new CqrsInjector(services);
     }
 }
