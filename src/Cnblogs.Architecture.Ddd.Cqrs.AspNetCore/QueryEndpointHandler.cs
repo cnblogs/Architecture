@@ -1,4 +1,4 @@
-﻿using MediatR;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
@@ -24,8 +24,9 @@ public class QueryEndpointHandler(IMediator mediator, IOptions<CqrsHttpOptions> 
         }
 
         var response = await mediator.Send(query);
+        Console.WriteLine("QueryEndpointHandler");
         return response == null
             ? Results.NotFound()
-            : Results.Json(response, cqrsHttpOptions.Value.DefaultJsonSerializerOptions);
+            : Results.Json(response);
     }
 }

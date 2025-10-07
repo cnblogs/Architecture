@@ -50,8 +50,8 @@ public static class CqrsHttpOptionsInjector
     /// <returns></returns>
     public static CqrsInjector AddLongToStringJsonConverter(this CqrsInjector injector)
     {
-        injector.Services.Configure<CqrsHttpOptions>(
-            o => o.DefaultJsonSerializerOptions.Converters.Add(new LongToStringConverter()));
+        injector.Services.ConfigureHttpJsonOptions(
+            o => o.SerializerOptions.Converters.Add(new LongToStringConverter()));
         return injector;
     }
 }

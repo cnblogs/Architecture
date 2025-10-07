@@ -15,8 +15,6 @@ public class MinimalApiTests
         var response = await builder.CreateClient().GetAsync("/api/v1/articles");
         var content = await response.Content.ReadAsStringAsync();
 
-        Console.WriteLine(content);
-
         // Assert
         Assert.True(response.IsSuccessStatusCode);
         Assert.Contains("开发者", content);

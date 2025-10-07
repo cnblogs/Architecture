@@ -1,4 +1,4 @@
-﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
+using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
@@ -47,8 +47,8 @@ public class CommandEndpointHandler(IMediator mediator, IOptions<CqrsHttpOptions
             if (commandResponse is IObjectResponse objectResponse)
             {
                 return context.HttpContext.Request.Headers.CqrsVersion() > 1
-                    ? Results.Extensions.Cqrs(response, _options.DefaultJsonSerializerOptions)
-                    : Results.Json(objectResponse.GetResult(), _options.DefaultJsonSerializerOptions);
+                    ? Results.Extensions.Cqrs(response)
+                    : Results.Json(objectResponse.GetResult());
             }
 
             return Results.NoContent();
