@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
@@ -39,6 +39,7 @@ v1.MapQuery(
     async (int stringId, [FromQuery] bool found = true)
         => await Task.FromResult(new GetStringQuery(StringId: stringId, Found: found)));
 v1.MapQuery<ListStringsQuery>("strings");
+v1.MapQuery<ListArticlesQuery>("articles");
 v1.MapQuery<GetLongToStringQuery>("long-to-string/{id:long}");
 v1.MapCommand<CreateLongToStringCommand>("long-to-string");
 v1.MapCommand(

@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Json;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 
@@ -25,5 +26,5 @@ public class CqrsHttpOptions
     /// <remarks>
     ///     For Controllers, please use <c>builder.AddControllers().AddLongToStringJsonConverter();</c>
     /// </remarks>
-    public JsonSerializerOptions DefaultJsonSerializerOptions { get; set; } = new(JsonSerializerDefaults.Web);
+    public JsonSerializerOptions DefaultJsonSerializerOptions { get; set; } = new JsonOptions().SerializerOptions;
 }
