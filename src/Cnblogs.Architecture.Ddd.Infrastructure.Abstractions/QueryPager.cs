@@ -18,7 +18,7 @@ public static class QueryPager
     public static IQueryable<T> Paging<T>(this IQueryable<T> queryable, PagingParams pagingParams)
     {
         var (pageIndex, pageSize) = pagingParams;
-        return queryable.Paging(pageIndex, pageSize);
+        return queryable.Paging(pageIndex < 0 ? -pageIndex : pageIndex, pageSize < 0 ? -pageSize : pageSize);
     }
 
     /// <summary>

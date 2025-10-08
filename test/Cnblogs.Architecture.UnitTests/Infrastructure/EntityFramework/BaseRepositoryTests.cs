@@ -22,8 +22,7 @@ public class BaseRepositoryTests
                 new EntityGenerator<FakePost>(new FakePost())
                     .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
             .GenerateSingle();
-        var db = new FakeDbContext(
-            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        var db = GetFakeDbContext();
         db.Add(entity);
         await db.SaveChangesAsync();
         var repository = new TestRepository(Substitute.For<IMediator>(), db);
@@ -34,6 +33,16 @@ public class BaseRepositoryTests
         // Assert
         Assert.NotNull(got);
         Assert.Equivalent(entity.Posts, got.Posts);
+    }
+
+    private static FakeDbContext GetFakeDbContext()
+    {
+        var options = new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase(nameof(BaseRepositoryTests))
+            .Options;
+        var context = new FakeDbContext(options);
+        context.Database.EnsureDeleted();
+        context.Database.EnsureCreated();
+        return context;
     }
 
     [Fact]
@@ -48,8 +57,7 @@ public class BaseRepositoryTests
                 new EntityGenerator<FakePost>(new FakePost())
                     .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
             .GenerateSingle();
-        var db = new FakeDbContext(
-            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        var db = GetFakeDbContext();
         db.Add(entity);
         await db.SaveChangesAsync();
         var repository = new TestRepository(Substitute.For<IMediator>(), db);
@@ -75,8 +83,7 @@ public class BaseRepositoryTests
                     .HasManyForEachEntity(x => x.Tags, new EntityGenerator<FakeTag>(new FakeTag()))
                     .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
             .GenerateSingle();
-        var db = new FakeDbContext(
-            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        var db = GetFakeDbContext();
         db.Add(entity);
         await db.SaveChangesAsync();
         var repository = new TestRepository(Substitute.For<IMediator>(), db);
@@ -101,8 +108,7 @@ public class BaseRepositoryTests
                 new EntityGenerator<FakePost>(new FakePost())
                     .Setup(x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
             .GenerateSingle();
-        var db = new FakeDbContext(
-            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        var db = GetFakeDbContext();
         db.Add(entity);
         await db.SaveChangesAsync();
         var repository = new TestRepository(Substitute.For<IMediator>(), db);
@@ -126,11 +132,10 @@ public class BaseRepositoryTests
             .HasManyForEachEntity(
                 x => x.Posts,
                 x => x.Blog,
-                new EntityGenerator<FakePost>(new FakePost()).Setup(
-                    x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
+                new EntityGenerator<FakePost>(new FakePost()).Setup(x
+                    => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
             .GenerateSingle();
-        var db = new FakeDbContext(
-            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        var db = GetFakeDbContext();
         db.Add(entity);
         await db.SaveChangesAsync();
         var mediator = Substitute.For<IMediator>();
@@ -160,11 +165,10 @@ public class BaseRepositoryTests
             .HasManyForEachEntity(
                 x => x.Posts,
                 x => x.Blog,
-                new EntityGenerator<FakePost>(new FakePost()).Setup(
-                    x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
+                new EntityGenerator<FakePost>(new FakePost()).Setup(x
+                    => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
             .GenerateSingle();
-        var db = new FakeDbContext(
-            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        var db = GetFakeDbContext();
         db.Add(entity);
         await db.SaveChangesAsync();
         var mediator = Substitute.For<IMediator>();
@@ -195,11 +199,10 @@ public class BaseRepositoryTests
             .HasManyForEachEntity(
                 x => x.Posts,
                 x => x.Blog,
-                new EntityGenerator<FakePost>(new FakePost()).Setup(
-                    x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
+                new EntityGenerator<FakePost>(new FakePost()).Setup(x
+                    => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
             .GenerateSingle();
-        var db = new FakeDbContext(
-            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        var db = GetFakeDbContext();
         var mediator = Substitute.For<IMediator>();
         var repository = new TestRepository(mediator, db);
 
@@ -226,11 +229,10 @@ public class BaseRepositoryTests
             .HasManyForEachEntity(
                 x => x.Posts,
                 x => x.Blog,
-                new EntityGenerator<FakePost>(new FakePost()).Setup(
-                    x => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
+                new EntityGenerator<FakePost>(new FakePost()).Setup(x
+                    => x.DateUpdated = DateTimeOffset.Now.AddDays(-1)))
             .GenerateSingle();
-        var db = new FakeDbContext(
-            new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options);
+        var db = GetFakeDbContext();
         var mediator = Substitute.For<IMediator>();
         mediator.Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>())
             .ThrowsAsync<ArgumentException>();

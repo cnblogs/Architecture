@@ -45,15 +45,15 @@ public class QueryStringBuilder
     /// </summary>
     /// <param name="pagingParams">分页参数。</param>
     /// <returns></returns>
-    public QueryStringBuilder AddPaging(PagingParams pagingParams)
-        => AddPaging(pagingParams.PageIndex, pagingParams.PageSize);
+    public QueryStringBuilder AddPaging(PagingParams? pagingParams)
+        => AddPaging(pagingParams?.PageIndex, pagingParams?.PageSize);
 
     /// <summary>
     /// 添加分页参数。
     /// </summary>
     /// <param name="pageIndex">页码。</param>
     /// <param name="pageSize">分页大小。</param>
-    public QueryStringBuilder AddPaging(int pageIndex, int pageSize)
+    public QueryStringBuilder AddPaging(int? pageIndex, int? pageSize)
         => Add(nameof(pageIndex), pageIndex).Add(nameof(pageSize), pageSize);
 
     /// <summary>

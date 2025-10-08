@@ -1,5 +1,4 @@
 ﻿using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
-
 using Mapster;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
@@ -21,15 +20,21 @@ public abstract class PageableQueryHandlerBase<TQuery, TEntity, TView> : IPageab
             request.OrderByString,
             out var orderBySegments);
 
+        var isNegativeIndexing = request.PagingParams?.PageIndex < 0;
+        if (isNegativeIndexing && orderBySegments is { Count: > 0 })
+        {
+            orderBySegments = orderBySegments.Select(o => o with { IsDesc = !o.IsDesc }).ToList();
+        }
+
         var ordered = hasOrderBy && orderBySegments is { Count: > 0 }
             ? queryable.OrderBy(orderBySegments)
-            : DefaultOrderBy(request, queryable);
+            : DefaultOrderBy(request, queryable, isNegativeIndexing);
 
         var totalCount = 0;
         if (request.PagingParams != null)
         {
             totalCount = await CountAsync(request, queryable);
-            if (request.PagingParams.PageSize == 0 || totalCount == 0)
+            if (request.PagingParams.PageSize <= 0 || totalCount == 0)
             {
                 // need count only or no available item, short circuit here.
                 return new PagedList<TView>([], request.PagingParams, totalCount);
@@ -59,6 +64,17 @@ public abstract class PageableQueryHandlerBase<TQuery, TEntity, TView> : IPageab
     /// <param name="queryable"><see cref="IQueryable{TEntity}" /> returned by <see cref="Filter" />.</param>
     /// <returns>Ordered <see cref="IQueryable{T}" />.</returns>
     protected abstract IQueryable<TEntity> DefaultOrderBy(TQuery query, IQueryable<TEntity> queryable);
+
+    /// <summary>
+    ///     The default reverse order by field, used when <see cref="OrderBySegment" /> is not present and pageIndex is negative.
+    /// </summary>
+    /// <param name="query">The query parameters.</param>
+    /// <param name="queryable"><see cref="IQueryable{TEntity}" /> returned by <see cref="Filter" />.</param>
+    /// <returns>Ordered <see cref="IQueryable{T}" />.</returns>
+    protected virtual IQueryable<TEntity> DefaultReverseOrderBy(TQuery query, IQueryable<TEntity> queryable)
+    {
+        return DefaultOrderBy(query, queryable);
+    }
 
     /// <summary>
     ///     Create queryable and apply filter, return filtered <see cref="IQueryable{T}" />.
@@ -95,4 +111,12 @@ public abstract class PageableQueryHandlerBase<TQuery, TEntity, TView> : IPageab
     /// <param name="queryable">Projected <see cref="IQueryable{T}" />.</param>
     /// <returns>The query result.</returns>
     protected abstract Task<List<TView>> ToListAsync(TQuery query, IQueryable<TView> queryable);
+
+    private IQueryable<TEntity> DefaultOrderBy(
+        TQuery query,
+        IQueryable<TEntity> queryable,
+        bool isNegativeIndexing)
+    {
+        return isNegativeIndexing ? DefaultReverseOrderBy(query, queryable) : DefaultOrderBy(query, queryable);
+    }
 }

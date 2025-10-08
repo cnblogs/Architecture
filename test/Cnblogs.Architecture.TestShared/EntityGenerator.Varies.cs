@@ -44,6 +44,15 @@ public partial class EntityGenerator<TEntity>
             days,
             DateTime.Now);
 
+    public EntityGenerator<TEntity> VaryByDateTimeDay(
+        Expression<Func<TEntity, DateTimeOffset>>? datetimeAccess,
+        int days)
+        => VaryByDateTime(
+            datetimeAccess,
+            (start, day) => start.AddDays(-day),
+            days,
+            DateTime.Now);
+
     public EntityGenerator<TEntity> VaryByDateTime(
         Expression<Func<TEntity, DateTime>>? datetimeAccess,
         Func<DateTime, int, DateTime> timeDiffer,
@@ -51,6 +60,21 @@ public partial class EntityGenerator<TEntity>
         DateTime startDate)
     {
         var dates = new DateTime[diffs];
+        for (var i = 0; i < diffs; i++)
+        {
+            dates[i] = timeDiffer(startDate, i);
+        }
+
+        return VaryBy(datetimeAccess, dates);
+    }
+
+    public EntityGenerator<TEntity> VaryByDateTime(
+        Expression<Func<TEntity, DateTimeOffset>>? datetimeAccess,
+        Func<DateTimeOffset, int, DateTimeOffset> timeDiffer,
+        int diffs,
+        DateTime startDate)
+    {
+        var dates = new DateTimeOffset[diffs];
         for (var i = 0; i < diffs; i++)
         {
             dates[i] = timeDiffer(startDate, i);
