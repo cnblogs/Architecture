@@ -40,6 +40,7 @@ v1.MapQuery(
         => await Task.FromResult(new GetStringQuery(StringId: stringId, Found: found)));
 v1.MapQuery<ListStringsQuery>("strings");
 v1.MapQuery<ListArticlesQuery>("articles");
+v1.MapQuery<ListArticlesQuery>("articles/page:{pageIndex}-{pageSize}");
 v1.MapQuery<GetLongToStringQuery>("long-to-string/{id:long}");
 v1.MapCommand<CreateLongToStringCommand>("long-to-string");
 v1.MapCommand(

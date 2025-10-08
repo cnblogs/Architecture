@@ -1,4 +1,4 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
@@ -12,7 +12,7 @@ public record PagedList<T>
     ///     创建一个空的 <see cref="PagedList{T}" /> 实例。
     /// </summary>
     public PagedList()
-        : this(new List<T>())
+        : this([])
     {
     }
 
