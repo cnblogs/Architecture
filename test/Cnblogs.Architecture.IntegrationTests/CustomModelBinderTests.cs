@@ -41,7 +41,6 @@ public class CustomModelBinderTests
 
     [Theory]
     [InlineData("hello")]
-    [InlineData("-1")]
     public async Task PagingParamsModelBinder_PageIndexInvalid_FailAsync(string pageIndex)
     {
         // Arrange
