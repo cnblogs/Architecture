@@ -45,10 +45,7 @@ public record PagingParams([Range(1, int.MaxValue)] int PageIndex, [Range(0, int
             int.TryParse(pageIndexValue.ToString(), out var pageIndex) &&
             int.TryParse(pageSizeValue.ToString(), out var pageSize))
         {
-            if (pageIndex > 0 && pageSize >= 0)
-            {
-                return ValueTask.FromResult<PagingParams?>(new PagingParams(pageIndex, pageSize));
-            }
+            return ValueTask.FromResult<PagingParams?>(new PagingParams(pageIndex, pageSize));
         }
 
         return ValueTask.FromResult<PagingParams?>(null);
