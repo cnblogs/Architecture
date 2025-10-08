@@ -1,4 +1,4 @@
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -10,7 +10,7 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 /// </summary>
 /// <param name="PageIndex">页码。</param>
 /// <param name="PageSize">每页元素数。</param>
-public record PagingParams([Range(1, int.MaxValue)] int PageIndex, [Range(0, int.MaxValue)] int PageSize)
+public record PagingParams(int PageIndex, [Range(0, int.MaxValue)] int PageSize)
 {
     /// <inheritdoc />
     public override string ToString()

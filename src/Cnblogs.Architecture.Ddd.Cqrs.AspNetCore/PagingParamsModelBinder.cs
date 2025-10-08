@@ -29,9 +29,9 @@ public class PagingParamsModelBinder : IModelBinder
         }
 
         var pageIndexSuccess = int.TryParse(pageIndexString, out var pageIndexNumber);
-        if (pageIndexSuccess == false || pageIndexNumber <= 0)
+        if (pageIndexSuccess == false)
         {
-            bindingContext.ModelState.TryAddModelError(modelName, "PageIndex must be a positive number");
+            bindingContext.ModelState.TryAddModelError(modelName, "PageIndex must be a number");
             bindingContext.Result = ModelBindingResult.Failed();
             return Task.CompletedTask;
         }
@@ -39,7 +39,7 @@ public class PagingParamsModelBinder : IModelBinder
         var pageSizeSuccess = int.TryParse(pageSizeString, out var pageSizeNumber);
         if (pageSizeSuccess == false || pageSizeNumber < 0)
         {
-            bindingContext.ModelState.TryAddModelError(modelName, "PageIndex must be a positive number or 0");
+            bindingContext.ModelState.TryAddModelError(modelName, "PageSize must be a positive number or 0");
             bindingContext.Result = ModelBindingResult.Failed();
             return Task.CompletedTask;
         }

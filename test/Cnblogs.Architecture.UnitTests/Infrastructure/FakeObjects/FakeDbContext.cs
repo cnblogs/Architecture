@@ -2,13 +2,8 @@
 
 namespace Cnblogs.Architecture.UnitTests.Infrastructure.FakeObjects;
 
-public class FakeDbContext : DbContext
+public class FakeDbContext(DbContextOptions options) : DbContext(options)
 {
-    public FakeDbContext(DbContextOptions options)
-        : base(options)
-    {
-    }
-
     /// <inheritdoc />
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
