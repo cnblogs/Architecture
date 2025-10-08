@@ -241,7 +241,8 @@ public class PageableQueryHandlerTests
 
     private static async Task<DbContext> GetDbContextAsync(ICollection<FakePost> entities)
     {
-        var options = new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase("inmemory").Options;
+        var options = new DbContextOptionsBuilder<FakeDbContext>()
+            .UseInMemoryDatabase(nameof(PageableQueryHandlerTests)).Options;
         var context = new FakeDbContext(options);
         await context.Database.EnsureDeletedAsync();
         await context.Database.EnsureCreatedAsync();
