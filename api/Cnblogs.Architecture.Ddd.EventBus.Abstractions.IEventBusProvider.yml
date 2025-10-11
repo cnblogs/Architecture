@@ -1,0 +1,195 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+  id: IEventBusProvider
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync(System.String,Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent)
+  langs:
+  - csharp
+  - vb
+  name: IEventBusProvider
+  nameWithType: IEventBusProvider
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBusProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IEventBusProvider
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBusProvider.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Provider contract for event bus.
+  example: []
+  syntax:
+    content: public interface IEventBusProvider
+    content.vb: Public Interface IEventBusProvider
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync(System.String,Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync(System.String,Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent)
+  id: PublishAsync(System.String,Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+  langs:
+  - csharp
+  - vb
+  name: PublishAsync(string, IntegrationEvent)
+  nameWithType: IEventBusProvider.PublishAsync(string, IntegrationEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync(string, Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBusProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PublishAsync
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBusProvider.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Emit an integration event.
+  example: []
+  syntax:
+    content: Task PublishAsync(string eventName, IntegrationEvent @event)
+    parameters:
+    - id: eventName
+      type: System.String
+      description: The name of the event.
+    - id: event
+      type: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+      description: The event body.
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Function PublishAsync(eventName As String, [event] As IntegrationEvent) As Task
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync*
+  nameWithType.vb: IEventBusProvider.PublishAsync(String, IntegrationEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync(String, Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent)
+  name.vb: PublishAsync(String, IntegrationEvent)
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBusProvider_PublishAsync_System_String_Cnblogs_Architecture_Ddd_EventBus_Abstractions_IntegrationEvent_
+  name: PublishAsync
+  nameWithType: IEventBusProvider.PublishAsync
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.PublishAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.html
+  name: IntegrationEvent
+  nameWithType: IntegrationEvent
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

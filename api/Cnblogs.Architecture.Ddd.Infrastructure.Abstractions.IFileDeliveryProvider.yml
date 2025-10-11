@@ -1,0 +1,251 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+  id: IFileDeliveryProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync(System.String,System.TimeSpan)
+  langs:
+  - csharp
+  - vb
+  name: IFileDeliveryProvider
+  nameWithType: IFileDeliveryProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileDeliveryProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IFileDeliveryProvider
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileDeliveryProvider.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: File provider that can create public url for user to download
+  example: []
+  syntax:
+    content: public interface IFileDeliveryProvider
+    content.vb: Public Interface IFileDeliveryProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync(System.String,System.TimeSpan)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync(System.String,System.TimeSpan)
+  id: GetDownloadUrlAsync(System.String,System.TimeSpan)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+  langs:
+  - csharp
+  - vb
+  name: GetDownloadUrlAsync(string, TimeSpan)
+  nameWithType: IFileDeliveryProvider.GetDownloadUrlAsync(string, TimeSpan)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync(string, System.TimeSpan)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileDeliveryProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetDownloadUrlAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileDeliveryProvider.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Get public url to download with validate time.
+  example: []
+  syntax:
+    content: Task<string> GetDownloadUrlAsync(string filename, TimeSpan duration)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The file filename.
+    - id: duration
+      type: System.TimeSpan
+      description: Duration of url availability.
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+      description: ''
+    content.vb: Function GetDownloadUrlAsync(filename As String, duration As TimeSpan) As Task(Of String)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync*
+  nameWithType.vb: IFileDeliveryProvider.GetDownloadUrlAsync(String, TimeSpan)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync(String, System.TimeSpan)
+  name.vb: GetDownloadUrlAsync(String, TimeSpan)
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_IFileDeliveryProvider_GetDownloadUrlAsync_System_String_System_TimeSpan_
+  name: GetDownloadUrlAsync
+  nameWithType: IFileDeliveryProvider.GetDownloadUrlAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.GetDownloadUrlAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<string>
+  nameWithType: Task<string>
+  fullName: System.Threading.Tasks.Task<string>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

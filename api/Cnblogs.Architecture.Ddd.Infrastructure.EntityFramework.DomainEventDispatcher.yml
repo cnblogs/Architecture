@@ -1,0 +1,498 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+  id: DomainEventDispatcher
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.ExtractDomainEventSources(Microsoft.EntityFrameworkCore.DbContext)
+  langs:
+  - csharp
+  - vb
+  name: DomainEventDispatcher
+  nameWithType: DomainEventDispatcher
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/DomainEventDispatcher.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DomainEventDispatcher
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/DomainEventDispatcher.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 发布领域事件的扩展方法。
+  example: []
+  syntax:
+    content: public static class DomainEventDispatcher
+    content.vb: Public Module DomainEventDispatcher
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.ExtractDomainEventSources(Microsoft.EntityFrameworkCore.DbContext)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.ExtractDomainEventSources(Microsoft.EntityFrameworkCore.DbContext)
+  id: ExtractDomainEventSources(Microsoft.EntityFrameworkCore.DbContext)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+  langs:
+  - csharp
+  - vb
+  name: ExtractDomainEventSources(DbContext)
+  nameWithType: DomainEventDispatcher.ExtractDomainEventSources(DbContext)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.ExtractDomainEventSources(Microsoft.EntityFrameworkCore.DbContext)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/DomainEventDispatcher.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ExtractDomainEventSources
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/DomainEventDispatcher.cs
+    startLine: 16
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 提取 <code class="paramref">ctx</code> 中的领域事件，实体中的领域事件将被清除。
+  example: []
+  syntax:
+    content: public static List<IDomainEventSource> ExtractDomainEventSources(this DbContext ctx)
+    parameters:
+    - id: ctx
+      type: Microsoft.EntityFrameworkCore.DbContext
+      description: 当前 <xref href="Microsoft.EntityFrameworkCore.DbContext" data-throw-if-not-resolved="false"></xref>。
+    return:
+      type: System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource}
+      description: 提取的领域事件。
+    content.vb: Public Shared Function ExtractDomainEventSources(ctx As DbContext) As List(Of IDomainEventSource)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.ExtractDomainEventSources*
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+    name: EntityFramework
+    href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+    name: EntityFramework
+    href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.EntityFrameworkCore.DbContext
+  commentId: T:Microsoft.EntityFrameworkCore.DbContext
+  parent: Microsoft.EntityFrameworkCore
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext
+  name: DbContext
+  nameWithType: DbContext
+  fullName: Microsoft.EntityFrameworkCore.DbContext
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.ExtractDomainEventSources*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.ExtractDomainEventSources
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_DomainEventDispatcher_ExtractDomainEventSources_Microsoft_EntityFrameworkCore_DbContext_
+  name: ExtractDomainEventSources
+  nameWithType: DomainEventDispatcher.ExtractDomainEventSources
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.ExtractDomainEventSources
+- uid: System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource}
+  commentId: T:System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<IDomainEventSource>
+  nameWithType: List<IDomainEventSource>
+  fullName: System.Collections.Generic.List<Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource>
+  nameWithType.vb: List(Of IDomainEventSource)
+  fullName.vb: System.Collections.Generic.List(Of Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource)
+  name.vb: List(Of IDomainEventSource)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+    name: IDomainEventSource
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+    name: IDomainEventSource
+  - name: )
+- uid: Microsoft.EntityFrameworkCore
+  commentId: N:Microsoft.EntityFrameworkCore
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.EntityFrameworkCore
+  nameWithType: Microsoft.EntityFrameworkCore
+  fullName: Microsoft.EntityFrameworkCore
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

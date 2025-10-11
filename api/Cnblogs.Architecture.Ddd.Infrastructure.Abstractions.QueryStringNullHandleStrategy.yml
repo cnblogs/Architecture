@@ -1,0 +1,149 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  id: QueryStringNullHandleStrategy
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.Absent
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.Empty
+  langs:
+  - csharp
+  - vb
+  name: QueryStringNullHandleStrategy
+  nameWithType: QueryStringNullHandleStrategy
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  type: Enum
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringNullHandleStrategy.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: QueryStringNullHandleStrategy
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringNullHandleStrategy.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder" data-throw-if-not-resolved="false"></xref> 中的空置处理方式。
+  example: []
+  syntax:
+    content: public enum QueryStringNullHandleStrategy
+    content.vb: Public Enum QueryStringNullHandleStrategy
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.Absent
+  commentId: F:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.Absent
+  id: Absent
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  langs:
+  - csharp
+  - vb
+  name: Absent
+  nameWithType: QueryStringNullHandleStrategy.Absent
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.Absent
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringNullHandleStrategy.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Absent
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringNullHandleStrategy.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: <code>null</code> 值将不会在查询字符串中出现，默认行为。
+  example: []
+  syntax:
+    content: Absent = 0
+    return:
+      type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.Empty
+  commentId: F:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.Empty
+  id: Empty
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  langs:
+  - csharp
+  - vb
+  name: Empty
+  nameWithType: QueryStringNullHandleStrategy.Empty
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.Empty
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringNullHandleStrategy.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Empty
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringNullHandleStrategy.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: <code>null</code> 值将只保留键，例如 <code>?key1=&amp;key2=value</code>
+  example: []
+  syntax:
+    content: Empty = 1
+    return:
+      type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder.html
+  name: QueryStringBuilder
+  nameWithType: QueryStringBuilder
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.html
+  name: QueryStringNullHandleStrategy
+  nameWithType: QueryStringNullHandleStrategy
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy

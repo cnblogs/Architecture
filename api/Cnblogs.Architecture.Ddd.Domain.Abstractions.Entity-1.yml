@@ -1,0 +1,900 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  id: Entity`1
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.AddDomainEvent(System.Func{`0,Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent})
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.ClearDomainEvents
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.DomainEvents
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.Id
+  langs:
+  - csharp
+  - vb
+  name: Entity<TKey>
+  nameWithType: Entity<TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Entity
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+    startLine: 35
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 实体基类。
+  example: []
+  syntax:
+    content: 'public abstract class Entity<TKey> : Entity, IDomainEventSource, IEntity<TKey> where TKey : IComparable<TKey>'
+    typeParameters:
+    - id: TKey
+      description: 实体的主键类型。
+    content.vb: Public MustInherit Class Entity(Of TKey As IComparable(Of TKey)) Inherits Entity Implements IDomainEventSource, IEntity(Of TKey)
+  inheritance:
+  - System.Object
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity{{TKey}}
+  inheritedMembers:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.Deleted
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.DateAdded
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.DateUpdated
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.BeforeUpdate
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: Entity(Of TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey)
+  name.vb: Entity(Of TKey)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.Id
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.Id
+  id: Id
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Entity<TKey>.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>.Id
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Id
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+    startLine: 43
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 实体的主键。
+  example: []
+  syntax:
+    content: public TKey Id { get; set; }
+    parameters: []
+    return:
+      type: '{TKey}'
+    content.vb: Public Property Id As TKey
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.Id*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity{{TKey}}.Id
+  nameWithType.vb: Entity(Of TKey).Id
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey).Id
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.AddDomainEvent(System.Func{`0,Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.AddDomainEvent(System.Func{`0,Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent})
+  id: AddDomainEvent(System.Func{`0,Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent})
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  langs:
+  - csharp
+  - vb
+  name: AddDomainEvent(Func<TKey, IDomainEvent>)
+  nameWithType: Entity<TKey>.AddDomainEvent(Func<TKey, IDomainEvent>)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>.AddDomainEvent(System.Func<TKey, Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AddDomainEvent
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+    startLine: 49
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 添加领域事件。
+  example: []
+  syntax:
+    content: public void AddDomainEvent(Func<TKey, IDomainEvent> generator)
+    parameters:
+    - id: generator
+      type: System.Func{{TKey},Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+      description: 领域事件生成器。
+    content.vb: Public Sub AddDomainEvent(generator As Func(Of TKey, IDomainEvent))
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.AddDomainEvent*
+  nameWithType.vb: Entity(Of TKey).AddDomainEvent(Func(Of TKey, IDomainEvent))
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey).AddDomainEvent(System.Func(Of TKey, Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent))
+  name.vb: AddDomainEvent(Func(Of TKey, IDomainEvent))
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.ClearDomainEvents
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.ClearDomainEvents
+  id: ClearDomainEvents
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  langs:
+  - csharp
+  - vb
+  name: ClearDomainEvents()
+  nameWithType: Entity<TKey>.ClearDomainEvents()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>.ClearDomainEvents()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ClearDomainEvents
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+    startLine: 56
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 清空领域事件。
+  example: []
+  syntax:
+    content: public override void ClearDomainEvents()
+    content.vb: Public Overrides Sub ClearDomainEvents()
+  overridden: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.ClearDomainEvents
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.ClearDomainEvents*
+  nameWithType.vb: Entity(Of TKey).ClearDomainEvents()
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey).ClearDomainEvents()
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.DomainEvents
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.DomainEvents
+  id: DomainEvents
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  langs:
+  - csharp
+  - vb
+  name: DomainEvents
+  nameWithType: Entity<TKey>.DomainEvents
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>.DomainEvents
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DomainEvents
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Entity.cs
+    startLine: 63
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 实体中的领域事件。
+  example: []
+  syntax:
+    content: public override IReadOnlyCollection<IDomainEvent>? DomainEvents { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+    content.vb: Public Overrides ReadOnly Property DomainEvents As IReadOnlyCollection(Of IDomainEvent)
+  overridden: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.DomainEvents
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.DomainEvents*
+  nameWithType.vb: Entity(Of TKey).DomainEvents
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey).DomainEvents
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html
+  name: EntityBase
+  nameWithType: EntityBase
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.html
+  name: IDomainEventSource
+  nameWithType: IDomainEventSource
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity{{TKey}}
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity{`0}
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  name: IEntity<TKey>
+  nameWithType: IEntity<TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity<TKey>
+  nameWithType.vb: IEntity(Of TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity(Of TKey)
+  name.vb: IEntity(Of TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+    name: IEntity
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  - name: <
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+    name: IEntity
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.Deleted
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.Deleted
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_Deleted
+  name: Deleted
+  nameWithType: Entity.Deleted
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.Deleted
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.DateAdded
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.DateAdded
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_DateAdded
+  name: DateAdded
+  nameWithType: Entity.DateAdded
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.DateAdded
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.DateUpdated
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.DateUpdated
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_DateUpdated
+  name: DateUpdated
+  nameWithType: Entity.DateUpdated
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.DateUpdated
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.BeforeUpdate
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.BeforeUpdate
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_BeforeUpdate
+  name: BeforeUpdate()
+  nameWithType: Entity.BeforeUpdate()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.BeforeUpdate()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.BeforeUpdate
+    name: BeforeUpdate
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_BeforeUpdate
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.BeforeUpdate
+    name: BeforeUpdate
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_BeforeUpdate
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_AddDomainEvent_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent_
+  name: AddDomainEvent(IDomainEvent)
+  nameWithType: EntityBase.AddDomainEvent(IDomainEvent)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+    name: AddDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_AddDomainEvent_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent_
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+    name: AddDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_AddDomainEvent_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent_
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_RemoveDomainEvent_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent_
+  name: RemoveDomainEvent(IDomainEvent)
+  nameWithType: EntityBase.RemoveDomainEvent(IDomainEvent)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+    name: RemoveDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_RemoveDomainEvent_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent_
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+    name: RemoveDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_RemoveDomainEvent_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent_
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  name: IEntity<TKey>
+  nameWithType: IEntity<TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity<TKey>
+  nameWithType.vb: IEntity(Of TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity(Of TKey)
+  name.vb: IEntity(Of TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+    name: IEntity
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  - name: <
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+    name: IEntity
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.Id*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.Id
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity-1.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_1_Id
+  name: Id
+  nameWithType: Entity<TKey>.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>.Id
+  nameWithType.vb: Entity(Of TKey).Id
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey).Id
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity{{TKey}}.Id
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity{`0}.Id
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity{{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IEntity_1_Id
+  name: Id
+  nameWithType: IEntity<TKey>.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity<TKey>.Id
+  nameWithType.vb: IEntity(Of TKey).Id
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity(Of TKey).Id
+- uid: '{TKey}'
+  commentId: '!:TKey'
+  definition: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IEntity_1_Id
+  name: Id
+  nameWithType: IEntity<TKey>.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity<TKey>.Id
+  nameWithType.vb: IEntity(Of TKey).Id
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity(Of TKey).Id
+- uid: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.AddDomainEvent*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.AddDomainEvent
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity-1.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_1_AddDomainEvent_System_Func__0_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent__
+  name: AddDomainEvent
+  nameWithType: Entity<TKey>.AddDomainEvent
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>.AddDomainEvent
+  nameWithType.vb: Entity(Of TKey).AddDomainEvent
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey).AddDomainEvent
+- uid: System.Func{{TKey},Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+  commentId: T:System.Func{`0,Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+  parent: System
+  definition: System.Func`2
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<TKey, IDomainEvent>
+  nameWithType: Func<TKey, IDomainEvent>
+  fullName: System.Func<TKey, Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent>
+  nameWithType.vb: Func(Of TKey, IDomainEvent)
+  fullName.vb: System.Func(Of TKey, Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  name.vb: Func(Of TKey, IDomainEvent)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: )
+- uid: System.Func`2
+  commentId: T:System.Func`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-2
+  name: Func<T, TResult>
+  nameWithType: Func<T, TResult>
+  fullName: System.Func<T, TResult>
+  nameWithType.vb: Func(Of T, TResult)
+  fullName.vb: System.Func(Of T, TResult)
+  name.vb: Func(Of T, TResult)
+  spec.csharp:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.ClearDomainEvents
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.ClearDomainEvents
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_ClearDomainEvents
+  name: ClearDomainEvents()
+  nameWithType: EntityBase.ClearDomainEvents()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.ClearDomainEvents()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.ClearDomainEvents
+    name: ClearDomainEvents
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_ClearDomainEvents
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.ClearDomainEvents
+    name: ClearDomainEvents
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_ClearDomainEvents
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.ClearDomainEvents*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.ClearDomainEvents
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity-1.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_1_ClearDomainEvents
+  name: ClearDomainEvents
+  nameWithType: Entity<TKey>.ClearDomainEvents
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>.ClearDomainEvents
+  nameWithType.vb: Entity(Of TKey).ClearDomainEvents
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey).ClearDomainEvents
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.DomainEvents
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.DomainEvents
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_EntityBase_DomainEvents
+  name: DomainEvents
+  nameWithType: EntityBase.DomainEvents
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.DomainEvents
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.DomainEvents*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1.DomainEvents
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity-1.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Entity_1_DomainEvents
+  name: DomainEvents
+  nameWithType: Entity<TKey>.DomainEvents
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>.DomainEvents
+  nameWithType.vb: Entity(Of TKey).DomainEvents
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey).DomainEvents
+- uid: System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<IDomainEvent>
+  nameWithType: IReadOnlyCollection<IDomainEvent>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent>
+  nameWithType.vb: IReadOnlyCollection(Of IDomainEvent)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  name.vb: IReadOnlyCollection(Of IDomainEvent)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

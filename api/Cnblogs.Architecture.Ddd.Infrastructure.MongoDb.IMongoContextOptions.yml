@@ -1,0 +1,251 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  id: IMongoContextOptions
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.GetDatabase
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity``1(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection``1
+  langs:
+  - csharp
+  - vb
+  name: IMongoContextOptions
+  nameWithType: IMongoContextOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/IMongoContextOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IMongoContextOptions
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/IMongoContextOptions.cs
+    startLine: 7
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  summary: MongoContext 依赖的配置项。
+  example: []
+  syntax:
+    content: public interface IMongoContextOptions
+    content.vb: Public Interface IMongoContextOptions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.GetDatabase
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.GetDatabase
+  id: GetDatabase
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  langs:
+  - csharp
+  - vb
+  name: GetDatabase()
+  nameWithType: IMongoContextOptions.GetDatabase()
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.GetDatabase()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/IMongoContextOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetDatabase
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/IMongoContextOptions.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  summary: 通过设置获取对应的 <xref href="MongoDB.Driver.IMongoDatabase" data-throw-if-not-resolved="false"></xref>。
+  example: []
+  syntax:
+    content: IMongoDatabase GetDatabase()
+    return:
+      type: MongoDB.Driver.IMongoDatabase
+      description: ''
+    content.vb: Function GetDatabase() As IMongoDatabase
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.GetDatabase*
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity``1(System.String)
+  id: MapEntity``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  langs:
+  - csharp
+  - vb
+  name: MapEntity<TEntity>(string)
+  nameWithType: IMongoContextOptions.MapEntity<TEntity>(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity<TEntity>(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/IMongoContextOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapEntity
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/IMongoContextOptions.cs
+    startLine: 20
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  summary: 配置实体到数据库 Collection 的映射。
+  example: []
+  syntax:
+    content: void MapEntity<TEntity>(string collectionName)
+    parameters:
+    - id: collectionName
+      type: System.String
+      description: Collection 名称。
+    typeParameters:
+    - id: TEntity
+      description: 实体类型。
+    content.vb: Sub MapEntity(Of TEntity)(collectionName As String)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity*
+  nameWithType.vb: IMongoContextOptions.MapEntity(Of TEntity)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity(Of TEntity)(String)
+  name.vb: MapEntity(Of TEntity)(String)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection``1
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection``1
+  id: ResolveCollection``1
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  langs:
+  - csharp
+  - vb
+  name: ResolveCollection<TEntity>()
+  nameWithType: IMongoContextOptions.ResolveCollection<TEntity>()
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection<TEntity>()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/IMongoContextOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ResolveCollection
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/IMongoContextOptions.cs
+    startLine: 27
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  summary: 获取实体配置的 Collection 名称。
+  example: []
+  syntax:
+    content: string ResolveCollection<TEntity>()
+    typeParameters:
+    - id: TEntity
+      description: Collection 名称。
+    return:
+      type: System.String
+      description: ''
+    content.vb: Function ResolveCollection(Of TEntity)() As String
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection*
+  nameWithType.vb: IMongoContextOptions.ResolveCollection(Of TEntity)()
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection(Of TEntity)()
+  name.vb: ResolveCollection(Of TEntity)()
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+    name: MongoDb
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+    name: MongoDb
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.html
+- uid: MongoDB.Driver.IMongoDatabase
+  commentId: T:MongoDB.Driver.IMongoDatabase
+  parent: MongoDB.Driver
+  isExternal: true
+  name: IMongoDatabase
+  nameWithType: IMongoDatabase
+  fullName: MongoDB.Driver.IMongoDatabase
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.GetDatabase*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.GetDatabase
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_IMongoContextOptions_GetDatabase
+  name: GetDatabase
+  nameWithType: IMongoContextOptions.GetDatabase
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.GetDatabase
+- uid: MongoDB.Driver
+  commentId: N:MongoDB.Driver
+  isExternal: true
+  name: MongoDB.Driver
+  nameWithType: MongoDB.Driver
+  fullName: MongoDB.Driver
+  spec.csharp:
+  - uid: MongoDB
+    name: MongoDB
+    isExternal: true
+  - name: .
+  - uid: MongoDB.Driver
+    name: Driver
+    isExternal: true
+  spec.vb:
+  - uid: MongoDB
+    name: MongoDB
+    isExternal: true
+  - name: .
+  - uid: MongoDB.Driver
+    name: Driver
+    isExternal: true
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_IMongoContextOptions_MapEntity__1_System_String_
+  name: MapEntity
+  nameWithType: IMongoContextOptions.MapEntity
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.MapEntity
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_IMongoContextOptions_ResolveCollection__1
+  name: ResolveCollection
+  nameWithType: IMongoContextOptions.ResolveCollection
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.ResolveCollection

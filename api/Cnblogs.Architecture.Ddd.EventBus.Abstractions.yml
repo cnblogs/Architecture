@@ -1,0 +1,193 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  id: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.AssemblyAppNameAttribute
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptionsBuilder
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusServiceInjector
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler`1
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.InMemoryEventBuffer
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.PublishIntegrationEventHostedService
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.AssemblyAppNameAttribute
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.AssemblyAppNameAttribute
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.AssemblyAppNameAttribute.html
+  name: AssemblyAppNameAttribute
+  nameWithType: AssemblyAppNameAttribute
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.AssemblyAppNameAttribute
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent.html
+  name: BufferedIntegrationEvent
+  nameWithType: BufferedIntegrationEvent
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html
+  name: DefaultEventBus
+  nameWithType: DefaultEventBus
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.html
+  name: EventBufferOverflowException
+  nameWithType: EventBufferOverflowException
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html
+  name: EventBusOptions
+  nameWithType: EventBusOptions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptionsBuilder
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptionsBuilder
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptionsBuilder.html
+  name: EventBusOptionsBuilder
+  nameWithType: EventBusOptionsBuilder
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptionsBuilder
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusServiceInjector
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusServiceInjector
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusServiceInjector.html
+  name: EventBusServiceInjector
+  nameWithType: EventBusServiceInjector
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusServiceInjector
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.html
+  name: IEventBuffer
+  nameWithType: IEventBuffer
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html
+  name: IEventBus
+  nameWithType: IEventBus
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider.html
+  name: IEventBusProvider
+  nameWithType: IEventBusProvider
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler.html
+  name: IEventBusRequestHandler
+  nameWithType: IEventBusRequestHandler
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler`1
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler`1
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler-1.html
+  name: IIntegrationEventHandler<TEvent>
+  nameWithType: IIntegrationEventHandler<TEvent>
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler<TEvent>
+  nameWithType.vb: IIntegrationEventHandler(Of TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler(Of TEvent)
+  name.vb: IIntegrationEventHandler(Of TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler`1
+    name: IIntegrationEventHandler
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler-1.html
+  - name: <
+  - name: TEvent
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler`1
+    name: IIntegrationEventHandler
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.InMemoryEventBuffer
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.InMemoryEventBuffer
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.InMemoryEventBuffer.html
+  name: InMemoryEventBuffer
+  nameWithType: InMemoryEventBuffer
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.InMemoryEventBuffer
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.html
+  name: IntegrationEvent
+  nameWithType: IntegrationEvent
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.PublishIntegrationEventHostedService
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.PublishIntegrationEventHostedService
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.PublishIntegrationEventHostedService.html
+  name: PublishIntegrationEventHostedService
+  nameWithType: PublishIntegrationEventHostedService
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.PublishIntegrationEventHostedService
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html

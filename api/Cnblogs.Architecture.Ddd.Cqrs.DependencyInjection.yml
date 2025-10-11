@@ -1,0 +1,70 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  id: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+  parent: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  href: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector.html
+  name: CqrsInjector
+  nameWithType: CqrsInjector
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+- uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+    name: DependencyInjection
+    href: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+    name: DependencyInjection
+    href: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.html

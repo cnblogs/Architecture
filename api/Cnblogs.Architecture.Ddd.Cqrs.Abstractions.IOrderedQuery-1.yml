@@ -1,0 +1,169 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  id: IOrderedQuery`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString
+  langs:
+  - csharp
+  - vb
+  name: IOrderedQuery<TList>
+  nameWithType: IOrderedQuery<TList>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery<TList>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IOrderedQuery.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IOrderedQuery
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IOrderedQuery.cs
+    startLine: 6
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents a <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery%601" data-throw-if-not-resolved="false"></xref> with ordered results.
+  example: []
+  syntax:
+    content: 'public interface IOrderedQuery<TList> : IListQuery<TList>, IRequest<TList>, IBaseRequest'
+    typeParameters:
+    - id: TList
+      description: The querying type, usually a list type.
+    content.vb: Public Interface IOrderedQuery(Of TList) Inherits IListQuery(Of TList), IRequest(Of TList), IBaseRequest
+  nameWithType.vb: IOrderedQuery(Of TList)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery(Of TList)
+  name.vb: IOrderedQuery(Of TList)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString
+  id: OrderByString
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  langs:
+  - csharp
+  - vb
+  name: OrderByString
+  nameWithType: IOrderedQuery<TList>.OrderByString
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery<TList>.OrderByString
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IOrderedQuery.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: OrderByString
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IOrderedQuery.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: The string indicates the order.
+  example:
+  - Order by string can be like "-dateadded"(order by dateadded desc) or "id"(order by id asc).
+  syntax:
+    content: string? OrderByString { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property OrderByString As String
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString*
+  nameWithType.vb: IOrderedQuery(Of TList).OrderByString
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery(Of TList).OrderByString
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery-1.html
+  name: IListQuery<TList>
+  nameWithType: IListQuery<TList>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery<TList>
+  nameWithType.vb: IListQuery(Of TList)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery(Of TList)
+  name.vb: IListQuery(Of TList)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+    name: IListQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery-1.html
+  - name: <
+  - name: TList
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+    name: IListQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TList
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_IOrderedQuery_1_OrderByString
+  name: OrderByString
+  nameWithType: IOrderedQuery<TList>.OrderByString
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery<TList>.OrderByString
+  nameWithType.vb: IOrderedQuery(Of TList).OrderByString
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery(Of TList).OrderByString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

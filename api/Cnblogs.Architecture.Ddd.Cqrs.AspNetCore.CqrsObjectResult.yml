@@ -1,0 +1,732 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+  id: CqrsObjectResult
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.#ctor(System.Object)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  langs:
+  - csharp
+  - vb
+  name: CqrsObjectResult
+  nameWithType: CqrsObjectResult
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsObjectResult.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CqrsObjectResult
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsObjectResult.cs
+    startLine: 8
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Send command response as json and report current cqrs version.
+  example: []
+  syntax:
+    content: 'public class CqrsObjectResult : ObjectResult, IStatusCodeActionResult, IActionResult'
+    content.vb: Public Class CqrsObjectResult Inherits ObjectResult Implements IStatusCodeActionResult, IActionResult
+  inheritance:
+  - System.Object
+  - Microsoft.AspNetCore.Mvc.ActionResult
+  - Microsoft.AspNetCore.Mvc.ObjectResult
+  implements:
+  - Microsoft.AspNetCore.Mvc.Infrastructure.IStatusCodeActionResult
+  - Microsoft.AspNetCore.Mvc.IActionResult
+  inheritedMembers:
+  - Microsoft.AspNetCore.Mvc.ObjectResult.OnFormatting(Microsoft.AspNetCore.Mvc.ActionContext)
+  - Microsoft.AspNetCore.Mvc.ObjectResult.Value
+  - Microsoft.AspNetCore.Mvc.ObjectResult.Formatters
+  - Microsoft.AspNetCore.Mvc.ObjectResult.ContentTypes
+  - Microsoft.AspNetCore.Mvc.ObjectResult.DeclaredType
+  - Microsoft.AspNetCore.Mvc.ObjectResult.StatusCode
+  - Microsoft.AspNetCore.Mvc.ActionResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.#ctor(System.Object)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.#ctor(System.Object)
+  id: '#ctor(System.Object)'
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+  langs:
+  - csharp
+  - vb
+  name: CqrsObjectResult(object?)
+  nameWithType: CqrsObjectResult.CqrsObjectResult(object?)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.CqrsObjectResult(object?)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsObjectResult.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsObjectResult.cs
+    startLine: 8
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Send command response as json and report current cqrs version.
+  example: []
+  syntax:
+    content: public CqrsObjectResult(object? value)
+    parameters:
+    - id: value
+      type: System.Object
+      description: ''
+    content.vb: Public Sub New(value As Object)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.#ctor*
+  nameWithType.vb: CqrsObjectResult.New(Object)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.New(Object)
+  name.vb: New(Object)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  id: ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+  langs:
+  - csharp
+  - vb
+  name: ExecuteResultAsync(ActionContext)
+  nameWithType: CqrsObjectResult.ExecuteResultAsync(ActionContext)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsObjectResult.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ExecuteResultAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsObjectResult.cs
+    startLine: 11
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: >-
+    Executes the result operation of the action method asynchronously. This method is called by MVC to process
+
+    the result of an action method.
+
+    The default implementation of this method calls the <xref href="Microsoft.AspNetCore.Mvc.ActionResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)" data-throw-if-not-resolved="false"></xref> method and
+
+    returns a completed task.
+  example: []
+  syntax:
+    content: public override Task ExecuteResultAsync(ActionContext context)
+    parameters:
+    - id: context
+      type: Microsoft.AspNetCore.Mvc.ActionContext
+      description: >-
+        The context in which the result is executed. The context information includes
+                    information about the action that was executed and request information.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task that represents the asynchronous execute operation.
+    content.vb: Public Overrides Function ExecuteResultAsync(context As ActionContext) As Task
+  overridden: Microsoft.AspNetCore.Mvc.ObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.ExecuteResultAsync*
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Microsoft.AspNetCore.Mvc.ActionResult
+  commentId: T:Microsoft.AspNetCore.Mvc.ActionResult
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actionresult
+  name: ActionResult
+  nameWithType: ActionResult
+  fullName: Microsoft.AspNetCore.Mvc.ActionResult
+- uid: Microsoft.AspNetCore.Mvc.ObjectResult
+  commentId: T:Microsoft.AspNetCore.Mvc.ObjectResult
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult
+  name: ObjectResult
+  nameWithType: ObjectResult
+  fullName: Microsoft.AspNetCore.Mvc.ObjectResult
+- uid: Microsoft.AspNetCore.Mvc.Infrastructure.IStatusCodeActionResult
+  commentId: T:Microsoft.AspNetCore.Mvc.Infrastructure.IStatusCodeActionResult
+  parent: Microsoft.AspNetCore.Mvc.Infrastructure
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.infrastructure.istatuscodeactionresult
+  name: IStatusCodeActionResult
+  nameWithType: IStatusCodeActionResult
+  fullName: Microsoft.AspNetCore.Mvc.Infrastructure.IStatusCodeActionResult
+- uid: Microsoft.AspNetCore.Mvc.IActionResult
+  commentId: T:Microsoft.AspNetCore.Mvc.IActionResult
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.iactionresult
+  name: IActionResult
+  nameWithType: IActionResult
+  fullName: Microsoft.AspNetCore.Mvc.IActionResult
+- uid: Microsoft.AspNetCore.Mvc.ObjectResult.OnFormatting(Microsoft.AspNetCore.Mvc.ActionContext)
+  commentId: M:Microsoft.AspNetCore.Mvc.ObjectResult.OnFormatting(Microsoft.AspNetCore.Mvc.ActionContext)
+  parent: Microsoft.AspNetCore.Mvc.ObjectResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.onformatting
+  name: OnFormatting(ActionContext)
+  nameWithType: ObjectResult.OnFormatting(ActionContext)
+  fullName: Microsoft.AspNetCore.Mvc.ObjectResult.OnFormatting(Microsoft.AspNetCore.Mvc.ActionContext)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Mvc.ObjectResult.OnFormatting(Microsoft.AspNetCore.Mvc.ActionContext)
+    name: OnFormatting
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.onformatting
+  - name: (
+  - uid: Microsoft.AspNetCore.Mvc.ActionContext
+    name: ActionContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actioncontext
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Mvc.ObjectResult.OnFormatting(Microsoft.AspNetCore.Mvc.ActionContext)
+    name: OnFormatting
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.onformatting
+  - name: (
+  - uid: Microsoft.AspNetCore.Mvc.ActionContext
+    name: ActionContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actioncontext
+  - name: )
+- uid: Microsoft.AspNetCore.Mvc.ObjectResult.Value
+  commentId: P:Microsoft.AspNetCore.Mvc.ObjectResult.Value
+  parent: Microsoft.AspNetCore.Mvc.ObjectResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.value
+  name: Value
+  nameWithType: ObjectResult.Value
+  fullName: Microsoft.AspNetCore.Mvc.ObjectResult.Value
+- uid: Microsoft.AspNetCore.Mvc.ObjectResult.Formatters
+  commentId: P:Microsoft.AspNetCore.Mvc.ObjectResult.Formatters
+  parent: Microsoft.AspNetCore.Mvc.ObjectResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.formatters
+  name: Formatters
+  nameWithType: ObjectResult.Formatters
+  fullName: Microsoft.AspNetCore.Mvc.ObjectResult.Formatters
+- uid: Microsoft.AspNetCore.Mvc.ObjectResult.ContentTypes
+  commentId: P:Microsoft.AspNetCore.Mvc.ObjectResult.ContentTypes
+  parent: Microsoft.AspNetCore.Mvc.ObjectResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.contenttypes
+  name: ContentTypes
+  nameWithType: ObjectResult.ContentTypes
+  fullName: Microsoft.AspNetCore.Mvc.ObjectResult.ContentTypes
+- uid: Microsoft.AspNetCore.Mvc.ObjectResult.DeclaredType
+  commentId: P:Microsoft.AspNetCore.Mvc.ObjectResult.DeclaredType
+  parent: Microsoft.AspNetCore.Mvc.ObjectResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.declaredtype
+  name: DeclaredType
+  nameWithType: ObjectResult.DeclaredType
+  fullName: Microsoft.AspNetCore.Mvc.ObjectResult.DeclaredType
+- uid: Microsoft.AspNetCore.Mvc.ObjectResult.StatusCode
+  commentId: P:Microsoft.AspNetCore.Mvc.ObjectResult.StatusCode
+  parent: Microsoft.AspNetCore.Mvc.ObjectResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.statuscode
+  name: StatusCode
+  nameWithType: ObjectResult.StatusCode
+  fullName: Microsoft.AspNetCore.Mvc.ObjectResult.StatusCode
+- uid: Microsoft.AspNetCore.Mvc.ActionResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)
+  commentId: M:Microsoft.AspNetCore.Mvc.ActionResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)
+  parent: Microsoft.AspNetCore.Mvc.ActionResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actionresult.executeresult
+  name: ExecuteResult(ActionContext)
+  nameWithType: ActionResult.ExecuteResult(ActionContext)
+  fullName: Microsoft.AspNetCore.Mvc.ActionResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)
+    name: ExecuteResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actionresult.executeresult
+  - name: (
+  - uid: Microsoft.AspNetCore.Mvc.ActionContext
+    name: ActionContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actioncontext
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Mvc.ActionResult.ExecuteResult(Microsoft.AspNetCore.Mvc.ActionContext)
+    name: ExecuteResult
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actionresult.executeresult
+  - name: (
+  - uid: Microsoft.AspNetCore.Mvc.ActionContext
+    name: ActionContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actioncontext
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Mvc
+  commentId: N:Microsoft.AspNetCore.Mvc
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Mvc
+  nameWithType: Microsoft.AspNetCore.Mvc
+  fullName: Microsoft.AspNetCore.Mvc
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc
+- uid: Microsoft.AspNetCore.Mvc.Infrastructure
+  commentId: N:Microsoft.AspNetCore.Mvc.Infrastructure
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Mvc.Infrastructure
+  nameWithType: Microsoft.AspNetCore.Mvc.Infrastructure
+  fullName: Microsoft.AspNetCore.Mvc.Infrastructure
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc.Infrastructure
+    name: Infrastructure
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.infrastructure
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc
+    name: Mvc
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc
+  - name: .
+  - uid: Microsoft.AspNetCore.Mvc.Infrastructure
+    name: Infrastructure
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.infrastructure
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.#ctor
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsObjectResult__ctor_System_Object_
+  name: CqrsObjectResult
+  nameWithType: CqrsObjectResult.CqrsObjectResult
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.CqrsObjectResult
+  nameWithType.vb: CqrsObjectResult.New
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.New
+  name.vb: New
+- uid: Microsoft.AspNetCore.Mvc.ObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  commentId: M:Microsoft.AspNetCore.Mvc.ObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  parent: Microsoft.AspNetCore.Mvc.ObjectResult
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.executeresultasync
+  name: ExecuteResultAsync(ActionContext)
+  nameWithType: ObjectResult.ExecuteResultAsync(ActionContext)
+  fullName: Microsoft.AspNetCore.Mvc.ObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+  spec.csharp:
+  - uid: Microsoft.AspNetCore.Mvc.ObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+    name: ExecuteResultAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.executeresultasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Mvc.ActionContext
+    name: ActionContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actioncontext
+  - name: )
+  spec.vb:
+  - uid: Microsoft.AspNetCore.Mvc.ObjectResult.ExecuteResultAsync(Microsoft.AspNetCore.Mvc.ActionContext)
+    name: ExecuteResultAsync
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.objectresult.executeresultasync
+  - name: (
+  - uid: Microsoft.AspNetCore.Mvc.ActionContext
+    name: ActionContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actioncontext
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.ExecuteResultAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.ExecuteResultAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsObjectResult_ExecuteResultAsync_Microsoft_AspNetCore_Mvc_ActionContext_
+  name: ExecuteResultAsync
+  nameWithType: CqrsObjectResult.ExecuteResultAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.ExecuteResultAsync
+- uid: Microsoft.AspNetCore.Mvc.ActionContext
+  commentId: T:Microsoft.AspNetCore.Mvc.ActionContext
+  parent: Microsoft.AspNetCore.Mvc
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.mvc.actioncontext
+  name: ActionContext
+  nameWithType: ActionContext
+  fullName: Microsoft.AspNetCore.Mvc.ActionContext
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

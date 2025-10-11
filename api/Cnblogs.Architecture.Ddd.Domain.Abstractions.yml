@@ -1,0 +1,333 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  id: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultDateTimeProvider
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultRandomProvider
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IAggregateRoot
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.html
+  name: DateTimeOffsetCalculator
+  nameWithType: DateTimeOffsetCalculator
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultDateTimeProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultDateTimeProvider
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultDateTimeProvider.html
+  name: DefaultDateTimeProvider
+  nameWithType: DefaultDateTimeProvider
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultDateTimeProvider
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultRandomProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultRandomProvider
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultRandomProvider.html
+  name: DefaultRandomProvider
+  nameWithType: DefaultRandomProvider
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultRandomProvider
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent.html
+  name: DomainEvent
+  nameWithType: DomainEvent
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity-1.html
+  name: Entity<TKey>
+  nameWithType: Entity<TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity<TKey>
+  nameWithType.vb: Entity(Of TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity(Of TKey)
+  name.vb: Entity(Of TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+    name: Entity
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity-1.html
+  - name: <
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+    name: Entity
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase.html
+  name: EntityBase
+  nameWithType: EntityBase
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html
+  name: Enumeration
+  nameWithType: Enumeration
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IAggregateRoot
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IAggregateRoot
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IAggregateRoot.html
+  name: IAggregateRoot
+  nameWithType: IAggregateRoot
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IAggregateRoot
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html
+  name: IDateTimeProvider
+  nameWithType: IDateTimeProvider
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  name: IDomainEvent
+  nameWithType: IDomainEvent
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.html
+  name: IDomainEventSource
+  nameWithType: IDomainEventSource
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  name: IEntity<TKey>
+  nameWithType: IEntity<TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity<TKey>
+  nameWithType.vb: IEntity(Of TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity(Of TKey)
+  name.vb: IEntity(Of TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+    name: IEntity
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  - name: <
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+    name: IEntity
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository-2.html
+  name: INavigationRepository<TEntity, TKey>
+  nameWithType: INavigationRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository<TEntity, TKey>
+  nameWithType.vb: INavigationRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository(Of TEntity, TKey)
+  name.vb: INavigationRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+    name: INavigationRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+    name: INavigationRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.html
+  name: IRandomProvider
+  nameWithType: IRandomProvider
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  name: IRepository<TEntity, TKey>
+  nameWithType: IRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>
+  nameWithType.vb: IRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey)
+  name.vb: IRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+    name: IRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+    name: IRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository-2.html
+  name: ISqlRepository<TEntity, TKey>
+  nameWithType: ISqlRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey)
+  name.vb: ISqlRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+    name: ISqlRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+    name: ISqlRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  name: IUnitOfWork<TEntity, TKey>
+  nameWithType: IUnitOfWork<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey)
+  name.vb: IUnitOfWork(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+    name: IUnitOfWork
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+    name: IUnitOfWork
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html

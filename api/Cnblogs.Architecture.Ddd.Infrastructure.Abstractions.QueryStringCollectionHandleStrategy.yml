@@ -1,0 +1,149 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  id: QueryStringCollectionHandleStrategy
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.Index
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.Repeat
+  langs:
+  - csharp
+  - vb
+  name: QueryStringCollectionHandleStrategy
+  nameWithType: QueryStringCollectionHandleStrategy
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  type: Enum
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringCollectionHandleStrategy.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: QueryStringCollectionHandleStrategy
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringCollectionHandleStrategy.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder" data-throw-if-not-resolved="false"></xref> 数组处理方式。
+  example: []
+  syntax:
+    content: public enum QueryStringCollectionHandleStrategy
+    content.vb: Public Enum QueryStringCollectionHandleStrategy
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.Repeat
+  commentId: F:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.Repeat
+  id: Repeat
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  langs:
+  - csharp
+  - vb
+  name: Repeat
+  nameWithType: QueryStringCollectionHandleStrategy.Repeat
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.Repeat
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringCollectionHandleStrategy.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Repeat
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringCollectionHandleStrategy.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 添加多个键相同的查询参数，例如 <code>?key=1&amp;key=2&amp;key=3</code>
+  example: []
+  syntax:
+    content: Repeat = 0
+    return:
+      type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.Index
+  commentId: F:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.Index
+  id: Index
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  langs:
+  - csharp
+  - vb
+  name: Index
+  nameWithType: QueryStringCollectionHandleStrategy.Index
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.Index
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringCollectionHandleStrategy.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Index
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryStringCollectionHandleStrategy.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 添加带序号的查询参数，例如 <code>?key[1]=1&amp;key[2]=2&amp;key[3]=3</code>
+  example: []
+  syntax:
+    content: Index = 1
+    return:
+      type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder.html
+  name: QueryStringBuilder
+  nameWithType: QueryStringBuilder
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.html
+  name: QueryStringCollectionHandleStrategy
+  nameWithType: QueryStringCollectionHandleStrategy
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy

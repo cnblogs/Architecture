@@ -1,0 +1,49 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Dapper
+  id: Cnblogs.Architecture.Ddd.Cqrs.Dapper
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilderExtension
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.Dapper
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Dapper
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder-1.html
+  name: DapperConfigurationBuilder<TContext>
+  nameWithType: DapperConfigurationBuilder<TContext>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder<TContext>
+  nameWithType.vb: DapperConfigurationBuilder(Of TContext)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder(Of TContext)
+  name.vb: DapperConfigurationBuilder(Of TContext)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder`1
+    name: DapperConfigurationBuilder
+    href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder-1.html
+  - name: <
+  - name: TContext
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder`1
+    name: DapperConfigurationBuilder
+    href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContext
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilderExtension
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilderExtension
+  href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilderExtension.html
+  name: DapperConfigurationBuilderExtension
+  nameWithType: DapperConfigurationBuilderExtension
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilderExtension

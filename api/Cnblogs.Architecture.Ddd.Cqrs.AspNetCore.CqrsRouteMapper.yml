@@ -1,0 +1,1348 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  id: CqrsRouteMapper
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate,Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter,System.String,System.Boolean)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter,System.String,System.Boolean)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  langs:
+  - csharp
+  - vb
+  name: CqrsRouteMapper
+  nameWithType: CqrsRouteMapper
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CqrsRouteMapper
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Extension methods used for register Command and Query endpoint in minimal API.
+  example: []
+  syntax:
+    content: public static class CqrsRouteMapper
+    content.vb: Public Module CqrsRouteMapper
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter,System.String,System.Boolean)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter,System.String,System.Boolean)
+  id: MapQuery``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter,System.String,System.Boolean)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapQuery<T>(IEndpointRouteBuilder, string, MapNullableRouteParameter, string, bool)
+  nameWithType: CqrsRouteMapper.MapQuery<T>(IEndpointRouteBuilder, string, MapNullableRouteParameter, string, bool)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery<T>(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string, Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter, string, bool)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapQuery
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 70
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a query API, using GET method. <code class="typeparamref">T</code> would been constructed from route and query string.
+  example:
+  - >-
+    The following code:
+
+    <pre><code class="lang-csharp">app.MapQuery&lt;ItemQuery&gt;("apps/{appName}/instance/{instanceId}/roles", true);</code></pre>
+
+    would register following routes:
+
+    <pre><code class="lang-csharp">apps/-/instance/-/roles
+
+    apps/{appName}/instance/-/roles
+
+    apps/-/instance/{instanceId}/roles
+
+    apps/{appName}/instance/{instanceId}/roles</code></pre>
+  syntax:
+    content: public static IEndpointConventionBuilder MapQuery<T>(this IEndpointRouteBuilder app, string route, MapNullableRouteParameter mapNullableRouteParameters = MapNullableRouteParameter.Disable, string nullRouteParameterPattern = "-", bool enableHead = false)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Builder.IApplicationBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template for API.
+    - id: mapNullableRouteParameters
+      type: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+      description: Multiple routes should be mapped when for nullable route parameters.
+    - id: nullRouteParameterPattern
+      type: System.String
+      description: Replace route parameter with given string to represent null.
+    - id: enableHead
+      type: System.Boolean
+      description: Map HEAD method for the same routes.
+    typeParameters:
+    - id: T
+      description: The type of the query.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapQuery(Of T)(app As IEndpointRouteBuilder, route As String, mapNullableRouteParameters As MapNullableRouteParameter = MapNullableRouteParameter.Disable, nullRouteParameterPattern As String = "-", enableHead As Boolean = False) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery*
+  nameWithType.vb: CqrsRouteMapper.MapQuery(Of T)(IEndpointRouteBuilder, String, MapNullableRouteParameter, String, Boolean)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery(Of T)(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String, Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter, String, Boolean)
+  name.vb: MapQuery(Of T)(IEndpointRouteBuilder, String, MapNullableRouteParameter, String, Boolean)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate,Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter,System.String,System.Boolean)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate,Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter,System.String,System.Boolean)
+  id: MapQuery(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate,Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter,System.String,System.Boolean)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapQuery(IEndpointRouteBuilder, string, Delegate, MapNullableRouteParameter, string, bool)
+  nameWithType: CqrsRouteMapper.MapQuery(IEndpointRouteBuilder, string, Delegate, MapNullableRouteParameter, string, bool)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string, System.Delegate, Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter, string, bool)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapQuery
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 108
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a query API, using GET method.
+  example:
+  - >-
+    The following code:
+
+    <pre><code class="lang-csharp">app.MapQuery("apps/{appName}/instance/{instanceId}/roles", (string? appName, string? instanceId) =&gt; new ItemQuery(appName, instanceId), true);</code></pre>
+
+    would register following routes:
+
+    <pre><code class="lang-csharp">apps/-/instance/-/roles
+
+    apps/{appName}/instance/-/roles
+
+    apps/-/instance/{instanceId}/roles
+
+    apps/{appName}/instance/{instanceId}/roles</code></pre>
+  syntax:
+    content: public static IEndpointConventionBuilder MapQuery(this IEndpointRouteBuilder app, string route, Delegate handler, MapNullableRouteParameter mapNullableRouteParameters = MapNullableRouteParameter.Disable, string nullRouteParameterPattern = "-", bool enableHead = false)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Builder.ApplicationBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    - id: handler
+      type: System.Delegate
+      description: The delegate that returns a <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery%601" data-throw-if-not-resolved="false"></xref> instance.
+    - id: mapNullableRouteParameters
+      type: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+      description: Multiple routes should be mapped when for nullable route parameters.
+    - id: nullRouteParameterPattern
+      type: System.String
+      description: Replace route parameter with given string to represent null.
+    - id: enableHead
+      type: System.Boolean
+      description: Allow HEAD for the same routes.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapQuery(app As IEndpointRouteBuilder, route As String, handler As [Delegate], mapNullableRouteParameters As MapNullableRouteParameter = MapNullableRouteParameter.Disable, nullRouteParameterPattern As String = "-", enableHead As Boolean = False) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery*
+  nameWithType.vb: CqrsRouteMapper.MapQuery(IEndpointRouteBuilder, String, Delegate, MapNullableRouteParameter, String, Boolean)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String, System.Delegate, Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter, String, Boolean)
+  name.vb: MapQuery(IEndpointRouteBuilder, String, Delegate, MapNullableRouteParameter, String, Boolean)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: MapCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapCommand<T>(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.MapCommand<T>(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand<T>(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapCommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 188
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a command API, using different HTTP methods based on prefix. See example for details.
+  example:
+  - >-
+    <pre><code class="lang-csharp">app.MapCommand&lt;CreateItemCommand&gt;("/items"); // Starts with 'Create' or 'Add' - POST
+
+    app.MapCommand&lt;UpdateItemCommand&gt;("/items/{id:int}") // Starts with 'Update' or 'Replace' - PUT
+
+    app.MapCommand&lt;DeleteCommand&gt;("/items/{id:int}") // Starts with 'Delete' or 'Remove' - DELETE
+
+    app.MapCommand&lt;ResetItemCommand&gt;("/items/{id:int}:reset) // Others - PUT</code></pre>
+  syntax:
+    content: public static IEndpointConventionBuilder MapCommand<T>(this IEndpointRouteBuilder app, string route)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Builder.ApplicationBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    typeParameters:
+    - id: T
+      description: The type of the command.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapCommand(Of T)(app As IEndpointRouteBuilder, route As String) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand*
+  nameWithType.vb: CqrsRouteMapper.MapCommand(Of T)(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand(Of T)(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: MapCommand(Of T)(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  id: MapCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapCommand(IEndpointRouteBuilder, string, Delegate)
+  nameWithType: CqrsRouteMapper.MapCommand(IEndpointRouteBuilder, string, Delegate)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string, System.Delegate)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapCommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 226
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a command API, using different method based on type name prefix.
+  example:
+  - >-
+    <pre><code class="lang-csharp">app.MapCommand("/items", () =&gt; new CreateItemCommand()); // Starts with 'Create' or 'Add' - POST
+
+    app.MapCommand("/items/{id:int}", (int id) =&gt; new UpdateItemCommand(id)) // Starts with 'Update' or 'Replace' - PUT
+
+    app.MapCommand("/items/{id:int}", (int id) =&gt; new DeleteItemCommand(id)) // Starts with 'Delete' or 'Remove' - DELETE
+
+    app.MapCommand("/items/{id:int}:reset, (int id) =&gt; new ResetItemCommand(id)) // Others - PUT</code></pre>
+  syntax:
+    content: public static IEndpointConventionBuilder MapCommand(this IEndpointRouteBuilder app, string route, Delegate handler)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Builder.ApplicationBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    - id: handler
+      type: System.Delegate
+      description: The delegate that returns a instance of <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapCommand(app As IEndpointRouteBuilder, route As String, handler As [Delegate]) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand*
+  nameWithType.vb: CqrsRouteMapper.MapCommand(IEndpointRouteBuilder, String, Delegate)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String, System.Delegate)
+  name.vb: MapCommand(IEndpointRouteBuilder, String, Delegate)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: MapPostCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapPostCommand<TCommand>(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.MapPostCommand<TCommand>(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand<TCommand>(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapPostCommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 257
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a command API, using POST method and get command data from request body.
+  example: []
+  syntax:
+    content: public static IEndpointConventionBuilder MapPostCommand<TCommand>(this IEndpointRouteBuilder app, string route)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Builder.ApplicationBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    typeParameters:
+    - id: TCommand
+      description: The type of command.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapPostCommand(Of TCommand)(app As IEndpointRouteBuilder, route As String) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand*
+  nameWithType.vb: CqrsRouteMapper.MapPostCommand(Of TCommand)(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand(Of TCommand)(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: MapPostCommand(Of TCommand)(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  id: MapPostCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapPostCommand(IEndpointRouteBuilder, string, Delegate)
+  nameWithType: CqrsRouteMapper.MapPostCommand(IEndpointRouteBuilder, string, Delegate)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string, System.Delegate)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapPostCommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 271
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a command API, using POST method.
+  example: []
+  syntax:
+    content: public static IEndpointConventionBuilder MapPostCommand(this IEndpointRouteBuilder app, string route, Delegate handler)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Builder.ApplicationBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    - id: handler
+      type: System.Delegate
+      description: The delegate that returns a instance of <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapPostCommand(app As IEndpointRouteBuilder, route As String, handler As [Delegate]) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand*
+  nameWithType.vb: CqrsRouteMapper.MapPostCommand(IEndpointRouteBuilder, String, Delegate)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String, System.Delegate)
+  name.vb: MapPostCommand(IEndpointRouteBuilder, String, Delegate)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: MapPutCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapPutCommand<TCommand>(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.MapPutCommand<TCommand>(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand<TCommand>(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapPutCommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 290
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a command API, using PUT method and get command data from request body.
+  example: []
+  syntax:
+    content: public static IEndpointConventionBuilder MapPutCommand<TCommand>(this IEndpointRouteBuilder app, string route)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    typeParameters:
+    - id: TCommand
+      description: The type of command.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapPutCommand(Of TCommand)(app As IEndpointRouteBuilder, route As String) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand*
+  nameWithType.vb: CqrsRouteMapper.MapPutCommand(Of TCommand)(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand(Of TCommand)(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: MapPutCommand(Of TCommand)(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  id: MapPutCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapPutCommand(IEndpointRouteBuilder, string, Delegate)
+  nameWithType: CqrsRouteMapper.MapPutCommand(IEndpointRouteBuilder, string, Delegate)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string, System.Delegate)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapPutCommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 304
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a command API, using PUT method.
+  example: []
+  syntax:
+    content: public static IEndpointConventionBuilder MapPutCommand(this IEndpointRouteBuilder app, string route, Delegate handler)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Builder.ApplicationBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    - id: handler
+      type: System.Delegate
+      description: The delegate that returns a instance of <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapPutCommand(app As IEndpointRouteBuilder, route As String, handler As [Delegate]) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand*
+  nameWithType.vb: CqrsRouteMapper.MapPutCommand(IEndpointRouteBuilder, String, Delegate)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String, System.Delegate)
+  name.vb: MapPutCommand(IEndpointRouteBuilder, String, Delegate)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: MapDeleteCommand``1(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapDeleteCommand<TCommand>(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.MapDeleteCommand<TCommand>(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand<TCommand>(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapDeleteCommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 321
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a command API, using DELETE method and get command from route/query parameters.
+  example: []
+  syntax:
+    content: public static IEndpointConventionBuilder MapDeleteCommand<TCommand>(this IEndpointRouteBuilder app, string route)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    typeParameters:
+    - id: TCommand
+      description: The type of command.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapDeleteCommand(Of TCommand)(app As IEndpointRouteBuilder, route As String) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand*
+  nameWithType.vb: CqrsRouteMapper.MapDeleteCommand(Of TCommand)(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand(Of TCommand)(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: MapDeleteCommand(Of TCommand)(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  id: MapDeleteCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String,System.Delegate)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapDeleteCommand(IEndpointRouteBuilder, string, Delegate)
+  nameWithType: CqrsRouteMapper.MapDeleteCommand(IEndpointRouteBuilder, string, Delegate)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string, System.Delegate)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapDeleteCommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 335
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map a command API, using DELETE method.
+  example: []
+  syntax:
+    content: public static IEndpointConventionBuilder MapDeleteCommand(this IEndpointRouteBuilder app, string route, Delegate handler)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Builder.ApplicationBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: route
+      type: System.String
+      description: The route template.
+    - id: handler
+      type: System.Delegate
+      description: The delegate that returns a instance of <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+      description: ''
+    content.vb: Public Shared Function MapDeleteCommand(app As IEndpointRouteBuilder, route As String, handler As [Delegate]) As IEndpointConventionBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand*
+  nameWithType.vb: CqrsRouteMapper.MapDeleteCommand(IEndpointRouteBuilder, String, Delegate)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String, System.Delegate)
+  name.vb: MapDeleteCommand(IEndpointRouteBuilder, String, Delegate)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: MapPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapPrefixToPost(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.MapPrefixToPost(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapPrefixToPost
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 350
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map prefix to POST method for further MapCommand() calls.
+  example: []
+  syntax:
+    content: public static IEndpointRouteBuilder MapPrefixToPost(this IEndpointRouteBuilder app, string prefix)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: prefix
+      type: System.String
+      description: The new prefix.
+    return:
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+    content.vb: Public Shared Function MapPrefixToPost(app As IEndpointRouteBuilder, prefix As String) As IEndpointRouteBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost*
+  nameWithType.vb: CqrsRouteMapper.MapPrefixToPost(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: MapPrefixToPost(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: StopMappingPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: StopMappingPrefixToPost(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.StopMappingPrefixToPost(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: StopMappingPrefixToPost
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 361
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Stop mapping prefix to POST method for further MapCommand() calls.
+  example: []
+  syntax:
+    content: public static IEndpointRouteBuilder StopMappingPrefixToPost(this IEndpointRouteBuilder app, string prefix)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: prefix
+      type: System.String
+      description: The new prefix.
+    return:
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+    content.vb: Public Shared Function StopMappingPrefixToPost(app As IEndpointRouteBuilder, prefix As String) As IEndpointRouteBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost*
+  nameWithType.vb: CqrsRouteMapper.StopMappingPrefixToPost(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: StopMappingPrefixToPost(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: MapPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapPrefixToPut(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.MapPrefixToPut(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapPrefixToPut
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 372
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map prefix to PUT method for further MapCommand() calls.
+  example: []
+  syntax:
+    content: public static IEndpointRouteBuilder MapPrefixToPut(this IEndpointRouteBuilder app, string prefix)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: prefix
+      type: System.String
+      description: The new prefix.
+    return:
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+    content.vb: Public Shared Function MapPrefixToPut(app As IEndpointRouteBuilder, prefix As String) As IEndpointRouteBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut*
+  nameWithType.vb: CqrsRouteMapper.MapPrefixToPut(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: MapPrefixToPut(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: StopMappingPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: StopMappingPrefixToPut(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.StopMappingPrefixToPut(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: StopMappingPrefixToPut
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 383
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Stop mapping prefix to PUT method for further MapCommand() calls.
+  example: []
+  syntax:
+    content: public static IEndpointRouteBuilder StopMappingPrefixToPut(this IEndpointRouteBuilder app, string prefix)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: prefix
+      type: System.String
+      description: The new prefix.
+    return:
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+    content.vb: Public Shared Function StopMappingPrefixToPut(app As IEndpointRouteBuilder, prefix As String) As IEndpointRouteBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut*
+  nameWithType.vb: CqrsRouteMapper.StopMappingPrefixToPut(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: StopMappingPrefixToPut(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: MapPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: MapPrefixToDelete(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.MapPrefixToDelete(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapPrefixToDelete
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 394
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map prefix to DELETE method for further MapCommand() calls.
+  example: []
+  syntax:
+    content: public static IEndpointRouteBuilder MapPrefixToDelete(this IEndpointRouteBuilder app, string prefix)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: prefix
+      type: System.String
+      description: The new prefix.
+    return:
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+    content.vb: Public Shared Function MapPrefixToDelete(app As IEndpointRouteBuilder, prefix As String) As IEndpointRouteBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete*
+  nameWithType.vb: CqrsRouteMapper.MapPrefixToDelete(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: MapPrefixToDelete(IEndpointRouteBuilder, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  id: StopMappingPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  langs:
+  - csharp
+  - vb
+  name: StopMappingPrefixToDelete(IEndpointRouteBuilder, string)
+  nameWithType: CqrsRouteMapper.StopMappingPrefixToDelete(IEndpointRouteBuilder, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: StopMappingPrefixToDelete
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/CqrsRouteMapper.cs
+    startLine: 405
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Stop mapping prefix to DELETE method for further MapCommand() calls.
+  example: []
+  syntax:
+    content: public static IEndpointRouteBuilder StopMappingPrefixToDelete(this IEndpointRouteBuilder app, string prefix)
+    parameters:
+    - id: app
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+      description: <xref href="Microsoft.AspNetCore.Routing.IEndpointRouteBuilder" data-throw-if-not-resolved="false"></xref>
+    - id: prefix
+      type: System.String
+      description: The new prefix.
+    return:
+      type: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+    content.vb: Public Shared Function StopMappingPrefixToDelete(app As IEndpointRouteBuilder, prefix As String) As IEndpointRouteBuilder
+  overload: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete*
+  nameWithType.vb: CqrsRouteMapper.StopMappingPrefixToDelete(IEndpointRouteBuilder, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, String)
+  name.vb: StopMappingPrefixToDelete(IEndpointRouteBuilder, String)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Microsoft.AspNetCore.Builder.IApplicationBuilder
+  commentId: T:Microsoft.AspNetCore.Builder.IApplicationBuilder
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.iapplicationbuilder
+  name: IApplicationBuilder
+  nameWithType: IApplicationBuilder
+  fullName: Microsoft.AspNetCore.Builder.IApplicationBuilder
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_MapQuery__1_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_MapNullableRouteParameter_System_String_System_Boolean_
+  name: MapQuery
+  nameWithType: CqrsRouteMapper.MapQuery
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapQuery
+- uid: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+  commentId: T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+  parent: Microsoft.AspNetCore.Routing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.routing.iendpointroutebuilder
+  name: IEndpointRouteBuilder
+  nameWithType: IEndpointRouteBuilder
+  fullName: Microsoft.AspNetCore.Routing.IEndpointRouteBuilder
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.html
+  name: MapNullableRouteParameter
+  nameWithType: MapNullableRouteParameter
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+  commentId: T:Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+  parent: Microsoft.AspNetCore.Builder
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.iendpointconventionbuilder
+  name: IEndpointConventionBuilder
+  nameWithType: IEndpointConventionBuilder
+  fullName: Microsoft.AspNetCore.Builder.IEndpointConventionBuilder
+- uid: Microsoft.AspNetCore.Routing
+  commentId: N:Microsoft.AspNetCore.Routing
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Routing
+  nameWithType: Microsoft.AspNetCore.Routing
+  fullName: Microsoft.AspNetCore.Routing
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Routing
+    name: Routing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.routing
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Routing
+    name: Routing
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.routing
+- uid: Microsoft.AspNetCore.Builder
+  commentId: N:Microsoft.AspNetCore.Builder
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Builder
+  nameWithType: Microsoft.AspNetCore.Builder
+  fullName: Microsoft.AspNetCore.Builder
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Builder
+    name: Builder
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Builder
+    name: Builder
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder
+- uid: Microsoft.AspNetCore.Builder.ApplicationBuilder
+  commentId: T:Microsoft.AspNetCore.Builder.ApplicationBuilder
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.applicationbuilder
+  name: ApplicationBuilder
+  nameWithType: ApplicationBuilder
+  fullName: Microsoft.AspNetCore.Builder.ApplicationBuilder
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  name: IQuery<TView>
+  nameWithType: IQuery<TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery<TView>
+  nameWithType.vb: IQuery(Of TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery(Of TView)
+  name.vb: IQuery(Of TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+    name: IQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  - name: <
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+    name: IQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: )
+- uid: System.Delegate
+  commentId: T:System.Delegate
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.delegate
+  name: Delegate
+  nameWithType: Delegate
+  fullName: System.Delegate
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_MapCommand__1_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: MapCommand
+  nameWithType: CqrsRouteMapper.MapCommand
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapCommand
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  name: ICommand<TError>
+  nameWithType: ICommand<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand<TError>
+  nameWithType.vb: ICommand(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand(Of TError)
+  name.vb: ICommand(Of TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_MapPostCommand__1_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: MapPostCommand
+  nameWithType: CqrsRouteMapper.MapPostCommand
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPostCommand
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_MapPutCommand__1_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: MapPutCommand
+  nameWithType: CqrsRouteMapper.MapPutCommand
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPutCommand
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_MapDeleteCommand__1_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: MapDeleteCommand
+  nameWithType: CqrsRouteMapper.MapDeleteCommand
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapDeleteCommand
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_MapPrefixToPost_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: MapPrefixToPost
+  nameWithType: CqrsRouteMapper.MapPrefixToPost
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPost
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_StopMappingPrefixToPost_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: StopMappingPrefixToPost
+  nameWithType: CqrsRouteMapper.StopMappingPrefixToPost
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPost
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_MapPrefixToPut_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: MapPrefixToPut
+  nameWithType: CqrsRouteMapper.MapPrefixToPut
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToPut
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_StopMappingPrefixToPut_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: StopMappingPrefixToPut
+  nameWithType: CqrsRouteMapper.StopMappingPrefixToPut
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToPut
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_MapPrefixToDelete_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: MapPrefixToDelete
+  nameWithType: CqrsRouteMapper.MapPrefixToDelete
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.MapPrefixToDelete
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_CqrsRouteMapper_StopMappingPrefixToDelete_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_String_
+  name: StopMappingPrefixToDelete
+  nameWithType: CqrsRouteMapper.StopMappingPrefixToDelete
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.StopMappingPrefixToDelete

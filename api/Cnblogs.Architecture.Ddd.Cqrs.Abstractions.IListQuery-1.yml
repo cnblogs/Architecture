@@ -1,0 +1,111 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+  id: IListQuery`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IListQuery<TList>
+  nameWithType: IListQuery<TList>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery<TList>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IListQuery.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IListQuery
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IListQuery.cs
+    startLine: 8
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents a query returns a list of items.
+  example: []
+  syntax:
+    content: 'public interface IListQuery<TList> : IRequest<TList>, IBaseRequest'
+    typeParameters:
+    - id: TList
+      description: The list to return, usually a <xref href="System.Collections.Generic.List%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Interface IListQuery(Of TList) Inherits IRequest(Of TList), IBaseRequest
+  nameWithType.vb: IListQuery(Of TList)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery(Of TList)
+  name.vb: IListQuery(Of TList)
+references:
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html

@@ -1,0 +1,750 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  id: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`3
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler`1
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior`2
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior-2.html
+  name: CacheableRequestBehavior<TRequest, TResponse>
+  nameWithType: CacheableRequestBehavior<TRequest, TResponse>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior<TRequest, TResponse>
+  nameWithType.vb: CacheableRequestBehavior(Of TRequest, TResponse)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior(Of TRequest, TResponse)
+  name.vb: CacheableRequestBehavior(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+    name: CacheableRequestBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior-2.html
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+    name: CacheableRequestBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions.html
+  name: CacheableRequestOptions
+  nameWithType: CacheableRequestOptions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.html
+  name: CacheBehavior
+  nameWithType: CacheBehavior
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html
+  name: CommandResponse
+  nameWithType: CommandResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  name: CommandResponse<TError>
+  nameWithType: CommandResponse<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>
+  nameWithType.vb: CommandResponse(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError)
+  name.vb: CommandResponse(Of TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-2.html
+  name: CommandResponse<TView, TError>
+  nameWithType: CommandResponse<TView, TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TView, TError>
+  nameWithType.vb: CommandResponse(Of TView, TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TView, TError)
+  name.vb: CommandResponse(Of TView, TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-2.html
+  - name: <
+  - name: TView
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html
+  name: ICachableRequest
+  nameWithType: ICachableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  name: ICommand<TError>
+  nameWithType: ICommand<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand<TError>
+  nameWithType.vb: ICommand(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand(Of TError)
+  name.vb: ICommand(Of TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-2.html
+  name: ICommand<TView, TError>
+  nameWithType: ICommand<TView, TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand<TView, TError>
+  nameWithType.vb: ICommand(Of TView, TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand(Of TView, TError)
+  name.vb: ICommand(Of TView, TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`2
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-2.html
+  - name: <
+  - name: TView
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`2
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler-2.html
+  name: ICommandHandler<TCommand, TError>
+  nameWithType: ICommandHandler<TCommand, TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler<TCommand, TError>
+  nameWithType.vb: ICommandHandler(Of TCommand, TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler(Of TCommand, TError)
+  name.vb: ICommandHandler(Of TCommand, TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`2
+    name: ICommandHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler-2.html
+  - name: <
+  - name: TCommand
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`2
+    name: ICommandHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCommand
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`3
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`3
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler-3.html
+  name: ICommandHandler<TCommand, TView, TError>
+  nameWithType: ICommandHandler<TCommand, TView, TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler<TCommand, TView, TError>
+  nameWithType.vb: ICommandHandler(Of TCommand, TView, TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler(Of TCommand, TView, TError)
+  name.vb: ICommandHandler(Of TCommand, TView, TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`3
+    name: ICommandHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler-3.html
+  - name: <
+  - name: TCommand
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`3
+    name: ICommandHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCommand
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.html
+  name: IConfigurableLockableRequest
+  nameWithType: IConfigurableLockableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler-1.html
+  name: IDomainEventHandler<TDomainEvent>
+  nameWithType: IDomainEventHandler<TDomainEvent>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler<TDomainEvent>
+  nameWithType.vb: IDomainEventHandler(Of TDomainEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler(Of TDomainEvent)
+  name.vb: IDomainEventHandler(Of TDomainEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler`1
+    name: IDomainEventHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler-1.html
+  - name: <
+  - name: TDomainEvent
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler`1
+    name: IDomainEventHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomainEvent
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery-1.html
+  name: IListQuery<TList>
+  nameWithType: IListQuery<TList>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery<TList>
+  nameWithType.vb: IListQuery(Of TList)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery(Of TList)
+  name.vb: IListQuery(Of TList)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+    name: IListQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery-1.html
+  - name: <
+  - name: TList
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+    name: IListQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TList
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  name: IListQueryHandler<TQuery, TList>
+  nameWithType: IListQueryHandler<TQuery, TList>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler<TQuery, TList>
+  nameWithType.vb: IListQueryHandler(Of TQuery, TList)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler(Of TQuery, TList)
+  name.vb: IListQueryHandler(Of TQuery, TList)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+    name: IListQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TList
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+    name: IListQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TList
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.html
+  name: ILockableRequest
+  nameWithType: ILockableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.html
+  name: ILockableResponse
+  nameWithType: ILockableResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest.html
+  name: InvalidCacheRequest
+  nameWithType: InvalidCacheRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.html
+  name: InvalidCacheRequestHandler
+  nameWithType: InvalidCacheRequestHandler
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.html
+  name: IObjectResponse
+  nameWithType: IObjectResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  name: IOrderedQuery<TList>
+  nameWithType: IOrderedQuery<TList>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery<TList>
+  nameWithType.vb: IOrderedQuery(Of TList)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery(Of TList)
+  name.vb: IOrderedQuery(Of TList)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+    name: IOrderedQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  - name: <
+  - name: TList
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+    name: IOrderedQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TList
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery-1.html
+  name: IPageableQuery<TElement>
+  nameWithType: IPageableQuery<TElement>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery<TElement>
+  nameWithType.vb: IPageableQuery(Of TElement)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery(Of TElement)
+  name.vb: IPageableQuery(Of TElement)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+    name: IPageableQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery-1.html
+  - name: <
+  - name: TElement
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+    name: IPageableQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TElement
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  name: IPageableQueryHandler<TQuery, TView>
+  nameWithType: IPageableQueryHandler<TQuery, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler<TQuery, TView>
+  nameWithType.vb: IPageableQueryHandler(Of TQuery, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler(Of TQuery, TView)
+  name.vb: IPageableQueryHandler(Of TQuery, TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+    name: IPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+    name: IPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  name: IQuery<TView>
+  nameWithType: IQuery<TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery<TView>
+  nameWithType.vb: IQuery(Of TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery(Of TView)
+  name.vb: IQuery(Of TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+    name: IQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  - name: <
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+    name: IQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler-2.html
+  name: IQueryHandler<TQuery, TView>
+  nameWithType: IQueryHandler<TQuery, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler<TQuery, TView>
+  nameWithType.vb: IQueryHandler(Of TQuery, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler(Of TQuery, TView)
+  name.vb: IQueryHandler(Of TQuery, TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler`2
+    name: IQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler-2.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler`2
+    name: IQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.html
+  name: IValidatable
+  nameWithType: IValidatable
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse.html
+  name: IValidationResponse
+  nameWithType: IValidationResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior-2.html
+  name: LockableRequestBehavior<TRequest, TResponse>
+  nameWithType: LockableRequestBehavior<TRequest, TResponse>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior<TRequest, TResponse>
+  nameWithType.vb: LockableRequestBehavior(Of TRequest, TResponse)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior(Of TRequest, TResponse)
+  name.vb: LockableRequestBehavior(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior`2
+    name: LockableRequestBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior-2.html
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior`2
+    name: LockableRequestBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior-2.html
+  name: LoggingBehavior<TRequest, TResponse>
+  nameWithType: LoggingBehavior<TRequest, TResponse>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior<TRequest, TResponse>
+  nameWithType.vb: LoggingBehavior(Of TRequest, TResponse)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior(Of TRequest, TResponse)
+  name.vb: LoggingBehavior(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior`2
+    name: LoggingBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior-2.html
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior`2
+    name: LoggingBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html
+  name: PageableQueryHandlerBase<TQuery, TEntity, TView>
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView)
+  name.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+    name: PageableQueryHandlerBase
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+    name: PageableQueryHandlerBase
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior-2.html
+  name: ValidationBehavior<TRequest, TResponse>
+  nameWithType: ValidationBehavior<TRequest, TResponse>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior<TRequest, TResponse>
+  nameWithType.vb: ValidationBehavior(Of TRequest, TResponse)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior(Of TRequest, TResponse)
+  name.vb: ValidationBehavior(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior`2
+    name: ValidationBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior-2.html
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior`2
+    name: ValidationBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  name: ValidationError
+  nameWithType: ValidationError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html
+  name: ValidationErrors
+  nameWithType: ValidationErrors
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html

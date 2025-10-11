@@ -1,0 +1,506 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  id: EventBufferOverflowException
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.#ctor
+  langs:
+  - csharp
+  - vb
+  name: EventBufferOverflowException
+  nameWithType: EventBufferOverflowException
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBufferOverflowException.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: EventBufferOverflowException
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBufferOverflowException.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: The exception that is thrown when <xref href="Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer" data-throw-if-not-resolved="false"></xref> reaches its maximum capacity configured in <xref href="Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public sealed class EventBufferOverflowException : Exception, ISerializable'
+    content.vb: Public NotInheritable Class EventBufferOverflowException Inherits Exception Implements ISerializable
+  inheritance:
+  - System.Object
+  - System.Exception
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Exception.GetBaseException
+  - System.Exception.GetType
+  - System.Exception.ToString
+  - System.Exception.Data
+  - System.Exception.HelpLink
+  - System.Exception.HResult
+  - System.Exception.InnerException
+  - System.Exception.Message
+  - System.Exception.Source
+  - System.Exception.StackTrace
+  - System.Exception.TargetSite
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.#ctor
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.#ctor
+  id: '#ctor'
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  langs:
+  - csharp
+  - vb
+  name: EventBufferOverflowException()
+  nameWithType: EventBufferOverflowException.EventBufferOverflowException()
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.EventBufferOverflowException()
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBufferOverflowException.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBufferOverflowException.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Creates an <xref href="Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public EventBufferOverflowException()
+    content.vb: Public Sub New()
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.#ctor*
+  nameWithType.vb: EventBufferOverflowException.New()
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.New()
+  name.vb: New()
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.html
+  name: IEventBuffer
+  nameWithType: IEventBuffer
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBusOptions_MaximumBufferSize
+  name: MaximumBufferSize
+  nameWithType: EventBusOptions.MaximumBufferSize
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Exception
+  commentId: T:System.Exception
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception
+  name: Exception
+  nameWithType: Exception
+  fullName: System.Exception
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: System.Exception.GetBaseException
+  commentId: M:System.Exception.GetBaseException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  name: GetBaseException()
+  nameWithType: Exception.GetBaseException()
+  fullName: System.Exception.GetBaseException()
+  spec.csharp:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetBaseException
+    name: GetBaseException
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.getbaseexception
+  - name: (
+  - name: )
+- uid: System.Exception.GetType
+  commentId: M:System.Exception.GetType
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  name: GetType()
+  nameWithType: Exception.GetType()
+  fullName: System.Exception.GetType()
+  spec.csharp:
+  - uid: System.Exception.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.gettype
+  - name: (
+  - name: )
+- uid: System.Exception.ToString
+  commentId: M:System.Exception.ToString
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  name: ToString()
+  nameWithType: Exception.ToString()
+  fullName: System.Exception.ToString()
+  spec.csharp:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Exception.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.exception.tostring
+  - name: (
+  - name: )
+- uid: System.Exception.Data
+  commentId: P:System.Exception.Data
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.data
+  name: Data
+  nameWithType: Exception.Data
+  fullName: System.Exception.Data
+- uid: System.Exception.HelpLink
+  commentId: P:System.Exception.HelpLink
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.helplink
+  name: HelpLink
+  nameWithType: Exception.HelpLink
+  fullName: System.Exception.HelpLink
+- uid: System.Exception.HResult
+  commentId: P:System.Exception.HResult
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.hresult
+  name: HResult
+  nameWithType: Exception.HResult
+  fullName: System.Exception.HResult
+- uid: System.Exception.InnerException
+  commentId: P:System.Exception.InnerException
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.innerexception
+  name: InnerException
+  nameWithType: Exception.InnerException
+  fullName: System.Exception.InnerException
+- uid: System.Exception.Message
+  commentId: P:System.Exception.Message
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.message
+  name: Message
+  nameWithType: Exception.Message
+  fullName: System.Exception.Message
+- uid: System.Exception.Source
+  commentId: P:System.Exception.Source
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.source
+  name: Source
+  nameWithType: Exception.Source
+  fullName: System.Exception.Source
+- uid: System.Exception.StackTrace
+  commentId: P:System.Exception.StackTrace
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.stacktrace
+  name: StackTrace
+  nameWithType: Exception.StackTrace
+  fullName: System.Exception.StackTrace
+- uid: System.Exception.TargetSite
+  commentId: P:System.Exception.TargetSite
+  parent: System.Exception
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.exception.targetsite
+  name: TargetSite
+  nameWithType: Exception.TargetSite
+  fullName: System.Exception.TargetSite
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.html
+  name: EventBufferOverflowException
+  nameWithType: EventBufferOverflowException
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.#ctor
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBufferOverflowException__ctor
+  name: EventBufferOverflowException
+  nameWithType: EventBufferOverflowException.EventBufferOverflowException
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.EventBufferOverflowException
+  nameWithType.vb: EventBufferOverflowException.New
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.New
+  name.vb: New

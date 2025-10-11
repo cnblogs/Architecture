@@ -1,0 +1,75 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+  id: Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoConfigureService
+  - Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoContextCollection
+  - Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler`3
+  - Cnblogs.Architecture.Ddd.Cqrs.MongoDb.ServiceCollectionInjector
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoConfigureService
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoConfigureService
+  href: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoConfigureService.html
+  name: MongoConfigureService
+  nameWithType: MongoConfigureService
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoConfigureService
+- uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoContextCollection
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoContextCollection
+  href: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoContextCollection.html
+  name: MongoContextCollection
+  nameWithType: MongoContextCollection
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoContextCollection
+- uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler`3
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler`3
+  href: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler-3.html
+  name: MongoPageableQueryHandler<TQuery, TEntity, TView>
+  nameWithType: MongoPageableQueryHandler<TQuery, TEntity, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler<TQuery, TEntity, TView>
+  nameWithType.vb: MongoPageableQueryHandler(Of TQuery, TEntity, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler(Of TQuery, TEntity, TView)
+  name.vb: MongoPageableQueryHandler(Of TQuery, TEntity, TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler`3
+    name: MongoPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler-3.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler`3
+    name: MongoPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.ServiceCollectionInjector
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.MongoDb.ServiceCollectionInjector
+  href: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.ServiceCollectionInjector.html
+  name: ServiceCollectionInjector
+  nameWithType: ServiceCollectionInjector
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.ServiceCollectionInjector

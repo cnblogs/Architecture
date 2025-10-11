@@ -1,0 +1,522 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+  id: MongoContextOptions`1
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1.#ctor(System.String,System.String)
+  langs:
+  - csharp
+  - vb
+  name: MongoContextOptions<TContext>
+  nameWithType: MongoContextOptions<TContext>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions<TContext>
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/MongoContextOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MongoContextOptions
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/MongoContextOptions.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  summary: MongoContext 的配置文件。
+  example: []
+  syntax:
+    content: 'public class MongoContextOptions<TContext> : MongoContextOptions, IMongoContextOptions where TContext : MongoContext'
+    typeParameters:
+    - id: TContext
+      description: 要配置的 MongoContext。
+    content.vb: Public Class MongoContextOptions(Of TContext As MongoContext) Inherits MongoContextOptions Implements IMongoContextOptions
+  inheritance:
+  - System.Object
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  implements:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  inheritedMembers:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.GetDatabase
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.MapEntity``1(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.ResolveCollection``1
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: MongoContextOptions(Of TContext)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions(Of TContext)
+  name.vb: MongoContextOptions(Of TContext)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1.#ctor(System.String,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1.#ctor(System.String,System.String)
+  id: '#ctor(System.String,System.String)'
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+  langs:
+  - csharp
+  - vb
+  name: MongoContextOptions(string, string)
+  nameWithType: MongoContextOptions<TContext>.MongoContextOptions(string, string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions<TContext>.MongoContextOptions(string, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/MongoContextOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/MongoContextOptions.cs
+    startLine: 17
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  summary: 创建一个 <xref href="Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions%601" data-throw-if-not-resolved="false"></xref> 实例。
+  example: []
+  syntax:
+    content: public MongoContextOptions(string connectionString, string databaseName)
+    parameters:
+    - id: connectionString
+      type: System.String
+      description: 连接字符串。
+    - id: databaseName
+      type: System.String
+      description: 数据库名称。
+    content.vb: Public Sub New(connectionString As String, databaseName As String)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1.#ctor*
+  nameWithType.vb: MongoContextOptions(Of TContext).New(String, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions(Of TContext).New(String, String)
+  name.vb: New(String, String)
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+    name: MongoDb
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+    name: MongoDb
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html
+  name: MongoContextOptions
+  nameWithType: MongoContextOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.html
+  name: IMongoContextOptions
+  nameWithType: IMongoContextOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.GetDatabase
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.GetDatabase
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_GetDatabase
+  name: GetDatabase()
+  nameWithType: MongoContextOptions.GetDatabase()
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.GetDatabase()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.GetDatabase
+    name: GetDatabase
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_GetDatabase
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.GetDatabase
+    name: GetDatabase
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_GetDatabase
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.MapEntity``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.MapEntity``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_MapEntity__1_System_String_
+  name: MapEntity<TEntity>(string)
+  nameWithType: MongoContextOptions.MapEntity<TEntity>(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.MapEntity<TEntity>(string)
+  nameWithType.vb: MongoContextOptions.MapEntity(Of TEntity)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.MapEntity(Of TEntity)(String)
+  name.vb: MapEntity(Of TEntity)(String)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.MapEntity``1(System.String)
+    name: MapEntity
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_MapEntity__1_System_String_
+  - name: <
+  - name: TEntity
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.MapEntity``1(System.String)
+    name: MapEntity
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_MapEntity__1_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.ResolveCollection``1
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.ResolveCollection``1
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_ResolveCollection__1
+  name: ResolveCollection<TEntity>()
+  nameWithType: MongoContextOptions.ResolveCollection<TEntity>()
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.ResolveCollection<TEntity>()
+  nameWithType.vb: MongoContextOptions.ResolveCollection(Of TEntity)()
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.ResolveCollection(Of TEntity)()
+  name.vb: ResolveCollection(Of TEntity)()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.ResolveCollection``1
+    name: ResolveCollection
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_ResolveCollection__1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.ResolveCollection``1
+    name: ResolveCollection
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_ResolveCollection__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions-1.html
+  name: MongoContextOptions<TContext>
+  nameWithType: MongoContextOptions<TContext>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions<TContext>
+  nameWithType.vb: MongoContextOptions(Of TContext)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions(Of TContext)
+  name.vb: MongoContextOptions(Of TContext)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+    name: MongoContextOptions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions-1.html
+  - name: <
+  - name: TContext
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+    name: MongoContextOptions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContext
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1.#ctor
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions-1.html#Cnblogs_Architecture_Ddd_Infrastructure_MongoDb_MongoContextOptions_1__ctor_System_String_System_String_
+  name: MongoContextOptions
+  nameWithType: MongoContextOptions<TContext>.MongoContextOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions<TContext>.MongoContextOptions
+  nameWithType.vb: MongoContextOptions(Of TContext).New
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions(Of TContext).New
+  name.vb: New
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

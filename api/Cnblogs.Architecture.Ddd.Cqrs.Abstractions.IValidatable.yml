@@ -1,0 +1,123 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+  id: IValidatable
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.Validate(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors)
+  langs:
+  - csharp
+  - vb
+  name: IValidatable
+  nameWithType: IValidatable
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IValidatable.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IValidatable
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IValidatable.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents a request that can be validated.
+  example: []
+  syntax:
+    content: public interface IValidatable
+    content.vb: Public Interface IValidatable
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.Validate(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.Validate(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors)
+  id: Validate(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+  langs:
+  - csharp
+  - vb
+  name: Validate(ValidationErrors)
+  nameWithType: IValidatable.Validate(ValidationErrors)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.Validate(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IValidatable.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Validate
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IValidatable.cs
+    startLine: 11
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Validate the object, validate will pass if <code class="paramref">validationErrors</code> is empty.
+  example: []
+  syntax:
+    content: void Validate(ValidationErrors validationErrors)
+    parameters:
+    - id: validationErrors
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+      description: The validation error collection.
+    content.vb: Sub Validate(validationErrors As ValidationErrors)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.Validate*
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.Validate*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.Validate
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_IValidatable_Validate_Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_
+  name: Validate
+  nameWithType: IValidatable.Validate
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable.Validate
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html
+  name: ValidationErrors
+  nameWithType: ValidationErrors
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors

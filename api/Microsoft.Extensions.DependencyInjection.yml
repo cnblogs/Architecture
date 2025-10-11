@@ -1,0 +1,82 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.Extensions.DependencyInjection
+  commentId: N:Microsoft.Extensions.DependencyInjection
+  id: Microsoft.Extensions.DependencyInjection
+  children:
+  - Microsoft.Extensions.DependencyInjection.ApiVersioningInjectors
+  - Microsoft.Extensions.DependencyInjection.ControllerOptionInjector
+  - Microsoft.Extensions.DependencyInjection.DaprEventBusServiceCollectionExtensions
+  - Microsoft.Extensions.DependencyInjection.Injectors
+  - Microsoft.Extensions.DependencyInjection.ServiceCollectionInjector
+  langs:
+  - csharp
+  - vb
+  name: Microsoft.Extensions.DependencyInjection
+  nameWithType: Microsoft.Extensions.DependencyInjection
+  fullName: Microsoft.Extensions.DependencyInjection
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+references:
+- uid: Microsoft.Extensions.DependencyInjection.ApiVersioningInjectors
+  commentId: T:Microsoft.Extensions.DependencyInjection.ApiVersioningInjectors
+  href: Microsoft.Extensions.DependencyInjection.ApiVersioningInjectors.html
+  name: ApiVersioningInjectors
+  nameWithType: ApiVersioningInjectors
+  fullName: Microsoft.Extensions.DependencyInjection.ApiVersioningInjectors
+- uid: Microsoft.Extensions.DependencyInjection.ControllerOptionInjector
+  commentId: T:Microsoft.Extensions.DependencyInjection.ControllerOptionInjector
+  href: Microsoft.Extensions.DependencyInjection.ControllerOptionInjector.html
+  name: ControllerOptionInjector
+  nameWithType: ControllerOptionInjector
+  fullName: Microsoft.Extensions.DependencyInjection.ControllerOptionInjector
+- uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionInjector
+  commentId: T:Microsoft.Extensions.DependencyInjection.ServiceCollectionInjector
+  href: Microsoft.Extensions.DependencyInjection.ServiceCollectionInjector.html
+  name: ServiceCollectionInjector
+  nameWithType: ServiceCollectionInjector
+  fullName: Microsoft.Extensions.DependencyInjection.ServiceCollectionInjector
+- uid: Microsoft.Extensions.DependencyInjection.DaprEventBusServiceCollectionExtensions
+  commentId: T:Microsoft.Extensions.DependencyInjection.DaprEventBusServiceCollectionExtensions
+  href: Microsoft.Extensions.DependencyInjection.DaprEventBusServiceCollectionExtensions.html
+  name: DaprEventBusServiceCollectionExtensions
+  nameWithType: DaprEventBusServiceCollectionExtensions
+  fullName: Microsoft.Extensions.DependencyInjection.DaprEventBusServiceCollectionExtensions
+- uid: Microsoft.Extensions.DependencyInjection.Injectors
+  commentId: T:Microsoft.Extensions.DependencyInjection.Injectors
+  parent: Microsoft.Extensions.DependencyInjection
+  href: Microsoft.Extensions.DependencyInjection.Injectors.html
+  name: Injectors
+  nameWithType: Injectors
+  fullName: Microsoft.Extensions.DependencyInjection.Injectors
+- uid: Microsoft.Extensions.DependencyInjection
+  commentId: N:Microsoft.Extensions.DependencyInjection
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.DependencyInjection
+  nameWithType: Microsoft.Extensions.DependencyInjection
+  fullName: Microsoft.Extensions.DependencyInjection
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.DependencyInjection
+    name: DependencyInjection
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.DependencyInjection
+    name: DependencyInjection
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection

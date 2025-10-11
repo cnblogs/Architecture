@@ -1,0 +1,372 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+  id: IDistributedLockProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync``1(System.String,System.Func{System.Threading.Tasks.Task{``0}},System.Nullable{System.TimeSpan})
+  langs:
+  - csharp
+  - vb
+  name: IDistributedLockProvider
+  nameWithType: IDistributedLockProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IDistributedLockProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IDistributedLockProvider
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IDistributedLockProvider.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 分布式锁提供器。
+  example: []
+  syntax:
+    content: public interface IDistributedLockProvider
+    content.vb: Public Interface IDistributedLockProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync``1(System.String,System.Func{System.Threading.Tasks.Task{``0}},System.Nullable{System.TimeSpan})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync``1(System.String,System.Func{System.Threading.Tasks.Task{``0}},System.Nullable{System.TimeSpan})
+  id: ExecuteWithLockAsync``1(System.String,System.Func{System.Threading.Tasks.Task{``0}},System.Nullable{System.TimeSpan})
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+  langs:
+  - csharp
+  - vb
+  name: ExecuteWithLockAsync<T>(string, Func<Task<T>>, TimeSpan?)
+  nameWithType: IDistributedLockProvider.ExecuteWithLockAsync<T>(string, Func<Task<T>>, TimeSpan?)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync<T>(string, System.Func<System.Threading.Tasks.Task<T>>, System.TimeSpan?)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IDistributedLockProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ExecuteWithLockAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IDistributedLockProvider.cs
+    startLine: 16
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 加锁并执行操作。
+  example: []
+  syntax:
+    content: Task<T> ExecuteWithLockAsync<T>(string key, Func<Task<T>> action, TimeSpan? expiresIn)
+    parameters:
+    - id: key
+      type: System.String
+      description: 锁的 Id。
+    - id: action
+      type: System.Func{System.Threading.Tasks.Task{{T}}}
+      description: 要执行的操作。
+    - id: expiresIn
+      type: System.Nullable{System.TimeSpan}
+      description: 锁的过期时间。
+    typeParameters:
+    - id: T
+      description: <code class="paramref">action</code> 的返回值。
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+      description: ''
+    content.vb: Function ExecuteWithLockAsync(Of T)(key As String, action As Func(Of Task(Of T)), expiresIn As TimeSpan?) As Task(Of T)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync*
+  exceptions:
+  - type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+    commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+    description: 当获取不到锁时会抛出这个异常。
+  nameWithType.vb: IDistributedLockProvider.ExecuteWithLockAsync(Of T)(String, Func(Of Task(Of T)), TimeSpan?)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync(Of T)(String, System.Func(Of System.Threading.Tasks.Task(Of T)), System.TimeSpan?)
+  name.vb: ExecuteWithLockAsync(Of T)(String, Func(Of Task(Of T)), TimeSpan?)
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException.html
+  name: AcquireDistributionLockFailedException
+  nameWithType: AcquireDistributionLockFailedException
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_IDistributedLockProvider_ExecuteWithLockAsync__1_System_String_System_Func_System_Threading_Tasks_Task___0___System_Nullable_System_TimeSpan__
+  name: ExecuteWithLockAsync
+  nameWithType: IDistributedLockProvider.ExecuteWithLockAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.ExecuteWithLockAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Func{System.Threading.Tasks.Task{{T}}}
+  commentId: T:System.Func{System.Threading.Tasks.Task{``0}}
+  parent: System
+  definition: System.Func`1
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<Task<T>>
+  nameWithType: Func<Task<T>>
+  fullName: System.Func<System.Threading.Tasks.Task<T>>
+  nameWithType.vb: Func(Of Task(Of T))
+  fullName.vb: System.Func(Of System.Threading.Tasks.Task(Of T))
+  name.vb: Func(Of Task(Of T))
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: )
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Func`1
+  commentId: T:System.Func`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.func-1
+  name: Func<TResult>
+  nameWithType: Func<TResult>
+  fullName: System.Func<TResult>
+  nameWithType.vb: Func(Of TResult)
+  fullName.vb: System.Func(Of TResult)
+  name.vb: Func(Of TResult)
+  spec.csharp:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Func`1
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

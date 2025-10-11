@@ -1,0 +1,574 @@
+### YamlMime:TableOfContent
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+    name: CacheBehavior
+    type: Enum
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+    name: CacheableRequestBehavior<TRequest, TResponse>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions
+    name: CacheableRequestOptions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+    name: CommandResponse
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse<TError>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+    name: CommandResponse<TView, TError>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+    name: ICachableRequest
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`2
+    name: ICommandHandler<TCommand, TError>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`3
+    name: ICommandHandler<TCommand, TView, TError>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand<TError>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`2
+    name: ICommand<TView, TError>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+    name: IConfigurableLockableRequest
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler`1
+    name: IDomainEventHandler<TDomainEvent>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+    name: IListQueryHandler<TQuery, TList>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQuery`1
+    name: IListQuery<TList>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+    name: ILockableRequest
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+    name: ILockableResponse
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+    name: IObjectResponse
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+    name: IOrderedQuery<TList>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+    name: IPageableQueryHandler<TQuery, TView>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+    name: IPageableQuery<TElement>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler`2
+    name: IQueryHandler<TQuery, TView>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+    name: IQuery<TView>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidatable
+    name: IValidatable
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+    name: IValidationResponse
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+    name: InvalidCacheRequest
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+    name: InvalidCacheRequestHandler
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LockableRequestBehavior`2
+    name: LockableRequestBehavior<TRequest, TResponse>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.LoggingBehavior`2
+    name: LoggingBehavior<TRequest, TResponse>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+    name: PageableQueryHandlerBase<TQuery, TEntity, TView>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationBehavior`2
+    name: ValidationBehavior<TRequest, TResponse>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+    name: ValidationErrors
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  name: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ApiControllerBase
+    name: ApiControllerBase
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CommandEndpointHandler
+    name: CommandEndpointHandler
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptions
+    name: CqrsHttpOptions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptionsInjector
+    name: CqrsHttpOptionsInjector
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsModelBinderProvider
+    name: CqrsModelBinderProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+    name: CqrsObjectResult
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResult
+    name: CqrsResult
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResultExtensions
+    name: CqrsResultExtensions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+    name: CqrsRouteMapper
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+    name: ErrorResponseType
+    type: Enum
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+    name: MapNullableRouteParameter
+    type: Enum
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.PagingParamsModelBinder
+    name: PagingParamsModelBinder
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.QueryEndpointHandler
+    name: QueryEndpointHandler
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper
+  name: Cnblogs.Architecture.Ddd.Cqrs.Dapper
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilderExtension
+    name: DapperConfigurationBuilderExtension
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.DapperConfigurationBuilder`1
+    name: DapperConfigurationBuilder<TContext>
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+  name: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseContextCollection
+    name: ClickhouseContextCollection
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory`1
+    name: ClickhouseDbConnectionFactory<TContext>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseInitializeHostedService
+    name: ClickhouseInitializeHostedService
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+  name: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer.SqlServerDbConnectionFactory
+    name: SqlServerDbConnectionFactory
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  name: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+    name: CqrsInjector
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+  name: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler`3
+    name: EfPageableQueryHandler<TQuery, TEntity, TView>
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+  name: Cnblogs.Architecture.Ddd.Cqrs.MongoDb
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoConfigureService
+    name: MongoConfigureService
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoContextCollection
+    name: MongoContextCollection
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler`3
+    name: MongoPageableQueryHandler<TQuery, TEntity, TView>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.MongoDb.ServiceCollectionInjector
+    name: ServiceCollectionInjector
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  name: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent
+    name: CqrsServiceAgent
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+    name: CqrsServiceAgent<TError>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+    name: IApiException<TException>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.InjectExtensions
+    name: InjectExtensions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase`1
+    name: ServiceAgentBase<TException>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+    name: ServiceAgentError
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+    name: DateTimeOffsetCalculator
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultDateTimeProvider
+    name: DefaultDateTimeProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DefaultRandomProvider
+    name: DefaultRandomProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+    name: DomainEvent
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+    name: Entity
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.EntityBase
+    name: EntityBase
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity`1
+    name: Entity<TKey>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+    name: Enumeration
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IAggregateRoot
+    name: IAggregateRoot
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+    name: IDateTimeProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+    name: IDomainEventSource
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+    name: IEntity<TKey>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+    name: INavigationRepository<TEntity, TKey>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+    name: IRandomProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+    name: IRepository<TEntity, TKey>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+    name: ISqlRepository<TEntity, TKey>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+    name: IUnitOfWork<TEntity, TKey>
+    type: Interface
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.AssemblyAppNameAttribute
+    name: AssemblyAppNameAttribute
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+    name: BufferedIntegrationEvent
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+    name: DefaultEventBus
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+    name: EventBufferOverflowException
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+    name: EventBusOptions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptionsBuilder
+    name: EventBusOptionsBuilder
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusServiceInjector
+    name: EventBusServiceInjector
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+    name: IEventBuffer
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+    name: IEventBus
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusProvider
+    name: IEventBusProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler
+    name: IEventBusRequestHandler
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IIntegrationEventHandler`1
+    name: IIntegrationEventHandler<TEvent>
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.InMemoryEventBuffer
+    name: InMemoryEventBuffer
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+    name: IntegrationEvent
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.PublishIntegrationEventHostedService
+    name: PublishIntegrationEventHostedService
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  name: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+    name: CqrsInjectorExtensions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusInjector
+    name: DaprEventBusInjector
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusProvider
+    name: DaprEventBusProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprOptions
+    name: DaprOptions
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+    name: AcquireDistributionLockFailedException
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry`1
+    name: CacheEntry<T>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.DefaultFileProvider
+    name: DefaultFileProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+    name: ICacheProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+    name: IDistributedLockProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+    name: IFileDeliveryProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+    name: IFileProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ILocalCacheProvider
+    name: ILocalCacheProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider
+    name: IRemoteCacheProvider
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+    name: OrderBySegment
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig
+    name: OrderBySegmentConfig
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig`1
+    name: OrderBySegmentConfig<TEntity>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList<T>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+    name: PagingParams
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+    name: QueryStringBuilder
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+    name: QueryStringCollectionHandleStrategy
+    type: Enum
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+    name: QueryStringNullHandleStrategy
+    type: Enum
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  name: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.InMemoryCacheProvider
+    name: InMemoryCacheProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.Injectors
+    name: Injectors
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+  name: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisCacheProvider
+    name: RedisCacheProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisOptions
+    name: RedisOptions
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DapperContext
+    name: DapperContext
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DbConnectionFactoryCollection
+    name: DbConnectionFactoryCollection
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+    name: IDbConnectionFactory
+    type: Interface
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions
+    name: ClickhouseContextOptions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions`1
+    name: ClickhouseContextOptions<TContext>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseDapperContext
+    name: ClickhouseDapperContext
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder`1
+    name: ClickhouseModelBuilder<T>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelCollectionBuilder
+    name: ClickhouseModelCollectionBuilder
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder`1
+    name: ClickhouseModelPropertyBuilder<TEntity>
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  name: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+    name: BaseRepository<TContext, TEntity, TKey>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+    name: DomainEventDispatcher
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.EntityConfigurationExtensions
+    name: EntityConfigurationExtensions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+    name: QueryableExtensions
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  name: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileDeliveryProvider
+    name: AliyunOssFileDeliveryProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileProvider
+    name: AliyunOssFileProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssOptions
+    name: AliyunOssOptions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.CqrsInjectorExtensions
+    name: CqrsInjectorExtensions
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+    name: IMongoContextOptions
+    type: Interface
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository`3
+    name: MongoBaseRepository<TContext, TEntity, TKey>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContext
+    name: MongoContext
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+    name: MongoContextOptions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+    name: MongoContextOptions<TContext>
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoModelBuilder
+    name: MongoModelBuilder
+    type: Class
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+  name: Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+  type: Namespace
+  items:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.CqrsInjectorExtensions
+    name: CqrsInjectorExtensions
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockDistributionLockProvider
+    name: RedLockDistributionLockProvider
+    type: Class
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockOptions
+    name: RedLockOptions
+    type: Class
+- uid: MediatR
+  name: MediatR
+  type: Namespace
+  items:
+  - uid: MediatR.DispatchDomainEventExtensions
+    name: DispatchDomainEventExtensions
+    type: Class
+- uid: Microsoft.AspNetCore.Builder
+  name: Microsoft.AspNetCore.Builder
+  type: Namespace
+  items:
+  - uid: Microsoft.AspNetCore.Builder.EndPointExtensions
+    name: EndPointExtensions
+    type: Class
+- uid: Microsoft.Extensions.DependencyInjection
+  name: Microsoft.Extensions.DependencyInjection
+  type: Namespace
+  items:
+  - uid: Microsoft.Extensions.DependencyInjection.ApiVersioningInjectors
+    name: ApiVersioningInjectors
+    type: Class
+  - uid: Microsoft.Extensions.DependencyInjection.ControllerOptionInjector
+    name: ControllerOptionInjector
+    type: Class
+  - uid: Microsoft.Extensions.DependencyInjection.DaprEventBusServiceCollectionExtensions
+    name: DaprEventBusServiceCollectionExtensions
+    type: Class
+  - uid: Microsoft.Extensions.DependencyInjection.Injectors
+    name: Injectors
+    type: Class
+  - uid: Microsoft.Extensions.DependencyInjection.ServiceCollectionInjector
+    name: ServiceCollectionInjector
+    type: Class
+- uid: System.Linq
+  name: System.Linq
+  type: Namespace
+  items:
+  - uid: System.Linq.QueryOrderer
+    name: QueryOrderer
+    type: Class
+  - uid: System.Linq.QueryPager
+    name: QueryPager
+    type: Class
+memberLayout: SamePage

@@ -1,0 +1,1029 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+  id: InvalidCacheRequestHandler
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.#ctor(System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider},Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider,Microsoft.Extensions.Options.IOptions{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions},Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler})
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: InvalidCacheRequestHandler
+  nameWithType: InvalidCacheRequestHandler
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/InvalidCacheRequestHandler.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: InvalidCacheRequestHandler
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/InvalidCacheRequestHandler.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: The default handler for <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class InvalidCacheRequestHandler : IRequestHandler<InvalidCacheRequest>'
+    content.vb: Public Class InvalidCacheRequestHandler Implements IRequestHandler(Of InvalidCacheRequest)
+  inheritance:
+  - System.Object
+  implements:
+  - MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.#ctor(System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider},Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider,Microsoft.Extensions.Options.IOptions{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions},Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler})
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.#ctor(System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider},Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider,Microsoft.Extensions.Options.IOptions{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions},Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler})
+  id: '#ctor(System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider},Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider,Microsoft.Extensions.Options.IOptions{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions},Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler})'
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+  langs:
+  - csharp
+  - vb
+  name: InvalidCacheRequestHandler(IEnumerable<ICacheProvider>, IDateTimeProvider, IOptions<CacheableRequestOptions>, ILogger<InvalidCacheRequestHandler>)
+  nameWithType: InvalidCacheRequestHandler.InvalidCacheRequestHandler(IEnumerable<ICacheProvider>, IDateTimeProvider, IOptions<CacheableRequestOptions>, ILogger<InvalidCacheRequestHandler>)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.InvalidCacheRequestHandler(System.Collections.Generic.IEnumerable<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider>, Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider, Microsoft.Extensions.Options.IOptions<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions>, Microsoft.Extensions.Logging.ILogger<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler>)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/InvalidCacheRequestHandler.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/InvalidCacheRequestHandler.cs
+    startLine: 28
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Create a <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public InvalidCacheRequestHandler(IEnumerable<ICacheProvider> providers, IDateTimeProvider dateTimeProvider, IOptions<CacheableRequestOptions> options, ILogger<InvalidCacheRequestHandler> logger)
+    parameters:
+    - id: providers
+      type: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider}
+      description: Cache providers.
+    - id: dateTimeProvider
+      type: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+      description: Datetime providers.
+    - id: options
+      type: Microsoft.Extensions.Options.IOptions{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions}
+      description: Cache options.
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler}
+      description: log provider.
+    content.vb: Public Sub New(providers As IEnumerable(Of ICacheProvider), dateTimeProvider As IDateTimeProvider, options As IOptions(Of CacheableRequestOptions), logger As ILogger(Of InvalidCacheRequestHandler))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.#ctor*
+  nameWithType.vb: InvalidCacheRequestHandler.New(IEnumerable(Of ICacheProvider), IDateTimeProvider, IOptions(Of CacheableRequestOptions), ILogger(Of InvalidCacheRequestHandler))
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.New(System.Collections.Generic.IEnumerable(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider), Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider, Microsoft.Extensions.Options.IOptions(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions), Microsoft.Extensions.Logging.ILogger(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler))
+  name.vb: New(IEnumerable(Of ICacheProvider), IDateTimeProvider, IOptions(Of CacheableRequestOptions), ILogger(Of InvalidCacheRequestHandler))
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+  id: Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+  langs:
+  - csharp
+  - vb
+  name: Handle(InvalidCacheRequest, CancellationToken)
+  nameWithType: InvalidCacheRequestHandler.Handle(InvalidCacheRequest, CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/InvalidCacheRequestHandler.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Handle
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/InvalidCacheRequestHandler.cs
+    startLine: 58
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Handles a request
+  example: []
+  syntax:
+    content: public Task Handle(InvalidCacheRequest request, CancellationToken cancellationToken)
+    parameters:
+    - id: request
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+      description: The request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token
+    return:
+      type: System.Threading.Tasks.Task
+      description: Response from the request
+    content.vb: Public Function Handle(request As InvalidCacheRequest, cancellationToken As CancellationToken) As Task
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.Handle*
+  implements:
+  - MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest.html
+  name: InvalidCacheRequest
+  nameWithType: InvalidCacheRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}
+  commentId: T:MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}
+  parent: MediatR
+  definition: MediatR.IRequestHandler`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest.html
+  name: IRequestHandler<InvalidCacheRequest>
+  nameWithType: IRequestHandler<InvalidCacheRequest>
+  fullName: MediatR.IRequestHandler<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest>
+  nameWithType.vb: IRequestHandler(Of InvalidCacheRequest)
+  fullName.vb: MediatR.IRequestHandler(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest)
+  name.vb: IRequestHandler(Of InvalidCacheRequest)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`1
+    name: IRequestHandler
+    isExternal: true
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+    name: InvalidCacheRequest
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest.html
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.IRequestHandler`1
+    name: IRequestHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+    name: InvalidCacheRequest
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MediatR.IRequestHandler`1
+  commentId: T:MediatR.IRequestHandler`1
+  isExternal: true
+  name: IRequestHandler<TRequest>
+  nameWithType: IRequestHandler<TRequest>
+  fullName: MediatR.IRequestHandler<TRequest>
+  nameWithType.vb: IRequestHandler(Of TRequest)
+  fullName.vb: MediatR.IRequestHandler(Of TRequest)
+  name.vb: IRequestHandler(Of TRequest)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`1
+    name: IRequestHandler
+    isExternal: true
+  - name: <
+  - name: TRequest
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.IRequestHandler`1
+    name: IRequestHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: )
+- uid: MediatR
+  commentId: N:MediatR
+  href: MediatR.html
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior-2.html
+  name: CacheableRequestBehavior<TRequest, TResponse>
+  nameWithType: CacheableRequestBehavior<TRequest, TResponse>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior<TRequest, TResponse>
+  nameWithType.vb: CacheableRequestBehavior(Of TRequest, TResponse)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior(Of TRequest, TResponse)
+  name.vb: CacheableRequestBehavior(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+    name: CacheableRequestBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior-2.html
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior`2
+    name: CacheableRequestBehavior
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestBehavior-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.#ctor
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_InvalidCacheRequestHandler__ctor_System_Collections_Generic_IEnumerable_Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider__Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_Microsoft_Extensions_Options_IOptions_Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CacheableRequestOptions__Microsoft_Extensions_Logging_ILogger_Cnblogs_Architecture_Ddd_Cqrs_Abstractions_InvalidCacheRequestHandler__
+  name: InvalidCacheRequestHandler
+  nameWithType: InvalidCacheRequestHandler.InvalidCacheRequestHandler
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.InvalidCacheRequestHandler
+  nameWithType.vb: InvalidCacheRequestHandler.New
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.New
+  name.vb: New
+- uid: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider}
+  commentId: T:System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ICacheProvider>
+  nameWithType: IEnumerable<ICacheProvider>
+  fullName: System.Collections.Generic.IEnumerable<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider>
+  nameWithType.vb: IEnumerable(Of ICacheProvider)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider)
+  name.vb: IEnumerable(Of ICacheProvider)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+    name: ICacheProvider
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+    name: ICacheProvider
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html
+  name: IDateTimeProvider
+  nameWithType: IDateTimeProvider
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+- uid: Microsoft.Extensions.Options.IOptions{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions}
+  commentId: T:Microsoft.Extensions.Options.IOptions{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions}
+  parent: Microsoft.Extensions.Options
+  definition: Microsoft.Extensions.Options.IOptions`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<CacheableRequestOptions>
+  nameWithType: IOptions<CacheableRequestOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions>
+  nameWithType.vb: IOptions(Of CacheableRequestOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions)
+  name.vb: IOptions(Of CacheableRequestOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions
+    name: CacheableRequestOptions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions
+    name: CacheableRequestOptions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheableRequestOptions.html
+  - name: )
+- uid: Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<InvalidCacheRequestHandler>
+  nameWithType: ILogger<InvalidCacheRequestHandler>
+  fullName: Microsoft.Extensions.Logging.ILogger<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler>
+  nameWithType.vb: ILogger(Of InvalidCacheRequestHandler)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler)
+  name.vb: ILogger(Of InvalidCacheRequestHandler)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+    name: InvalidCacheRequestHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler
+    name: InvalidCacheRequestHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: Microsoft.Extensions.Options.IOptions`1
+  commentId: T:Microsoft.Extensions.Options.IOptions`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  name: IOptions<TOptions>
+  nameWithType: IOptions<TOptions>
+  fullName: Microsoft.Extensions.Options.IOptions<TOptions>
+  nameWithType.vb: IOptions(Of TOptions)
+  fullName.vb: Microsoft.Extensions.Options.IOptions(Of TOptions)
+  name.vb: IOptions(Of TOptions)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: <
+  - name: TOptions
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Options.IOptions`1
+    name: IOptions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options.ioptions-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TOptions
+  - name: )
+- uid: Microsoft.Extensions.Options
+  commentId: N:Microsoft.Extensions.Options
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Options
+  nameWithType: Microsoft.Extensions.Options
+  fullName: Microsoft.Extensions.Options
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Options
+    name: Options
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.options
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.Handle*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.Handle
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_InvalidCacheRequestHandler_Handle_Cnblogs_Architecture_Ddd_Cqrs_Abstractions_InvalidCacheRequest_System_Threading_CancellationToken_
+  name: Handle
+  nameWithType: InvalidCacheRequestHandler.Handle
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequestHandler.Handle
+- uid: MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+  commentId: M:MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+  parent: MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}
+  definition: MediatR.IRequestHandler`1.Handle(`0,System.Threading.CancellationToken)
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest.html
+  name: Handle(InvalidCacheRequest, CancellationToken)
+  nameWithType: IRequestHandler<InvalidCacheRequest>.Handle(InvalidCacheRequest, CancellationToken)
+  fullName: MediatR.IRequestHandler<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest>.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of InvalidCacheRequest).Handle(InvalidCacheRequest, CancellationToken)
+  fullName.vb: MediatR.IRequestHandler(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest).Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+    name: InvalidCacheRequest
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.IRequestHandler{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest}.Handle(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest
+    name: InvalidCacheRequest
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.InvalidCacheRequest.html
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: MediatR.IRequestHandler`1.Handle(`0,System.Threading.CancellationToken)
+  commentId: M:MediatR.IRequestHandler`1.Handle(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest>.Handle(TRequest, CancellationToken)
+  fullName: MediatR.IRequestHandler<TRequest>.Handle(TRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TRequest).Handle(TRequest, CancellationToken)
+  fullName.vb: MediatR.IRequestHandler(Of TRequest).Handle(TRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`1.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.IRequestHandler`1.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

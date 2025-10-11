@@ -1,0 +1,157 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  id: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository`3
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContext
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoModelBuilder
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions.html
+  name: IMongoContextOptions
+  nameWithType: IMongoContextOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.IMongoContextOptions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository`3
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository`3
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository-3.html
+  name: MongoBaseRepository<TContext, TEntity, TKey>
+  nameWithType: MongoBaseRepository<TContext, TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository<TContext, TEntity, TKey>
+  nameWithType.vb: MongoBaseRepository(Of TContext, TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository(Of TContext, TEntity, TKey)
+  name.vb: MongoBaseRepository(Of TContext, TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository`3
+    name: MongoBaseRepository
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository-3.html
+  - name: <
+  - name: TContext
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository`3
+    name: MongoBaseRepository
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoBaseRepository-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContext
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContext
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContext
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContext.html
+  name: MongoContext
+  nameWithType: MongoContext
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContext
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions-1.html
+  name: MongoContextOptions<TContext>
+  nameWithType: MongoContextOptions<TContext>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions<TContext>
+  nameWithType.vb: MongoContextOptions(Of TContext)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions(Of TContext)
+  name.vb: MongoContextOptions(Of TContext)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+    name: MongoContextOptions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions-1.html
+  - name: <
+  - name: TContext
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions`1
+    name: MongoContextOptions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContext
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions.html
+  name: MongoContextOptions
+  nameWithType: MongoContextOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoContextOptions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoModelBuilder
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoModelBuilder
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoModelBuilder.html
+  name: MongoModelBuilder
+  nameWithType: MongoModelBuilder
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.MongoModelBuilder
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+    name: MongoDb
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb
+    name: MongoDb
+    href: Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.html

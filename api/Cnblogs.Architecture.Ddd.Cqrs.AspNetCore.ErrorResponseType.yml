@@ -1,0 +1,259 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  id: ErrorResponseType
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.Cqrs
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.Custom
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.PlainText
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.ProblemDetails
+  langs:
+  - csharp
+  - vb
+  name: ErrorResponseType
+  nameWithType: ErrorResponseType
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  type: Enum
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ErrorResponseType
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+    startLine: 7
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Configure the response type for command errors.
+  example: []
+  syntax:
+    content: public enum ErrorResponseType
+    content.vb: Public Enum ErrorResponseType
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.PlainText
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.PlainText
+  id: PlainText
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  langs:
+  - csharp
+  - vb
+  name: PlainText
+  nameWithType: ErrorResponseType.PlainText
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.PlainText
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PlainText
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Returns plain text, this is the default behavior.
+  example: []
+  syntax:
+    content: PlainText = 0
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.ProblemDetails
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.ProblemDetails
+  id: ProblemDetails
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  langs:
+  - csharp
+  - vb
+  name: ProblemDetails
+  nameWithType: ErrorResponseType.ProblemDetails
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.ProblemDetails
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ProblemDetails
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+    startLine: 17
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Returns <xref href="Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.ProblemDetails" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: ProblemDetails = 1
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.Cqrs
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.Cqrs
+  id: Cqrs
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  langs:
+  - csharp
+  - vb
+  name: Cqrs
+  nameWithType: ErrorResponseType.Cqrs
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.Cqrs
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Cqrs
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+    startLine: 22
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Returns <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: Cqrs = 2
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.Custom
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.Custom
+  id: Custom
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  langs:
+  - csharp
+  - vb
+  name: Custom
+  nameWithType: ErrorResponseType.Custom
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.Custom
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Custom
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/ErrorResponseType.cs
+    startLine: 27
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Handles command error by custom logic.
+  example: []
+  syntax:
+    content: Custom = 3
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.html
+  name: ErrorResponseType
+  nameWithType: ErrorResponseType
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.ProblemDetails
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.ProblemDetails
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.html#Cnblogs_Architecture_Ddd_Cqrs_AspNetCore_ErrorResponseType_ProblemDetails
+  name: ProblemDetails
+  nameWithType: ErrorResponseType.ProblemDetails
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.ProblemDetails
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html
+  name: CommandResponse
+  nameWithType: CommandResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html

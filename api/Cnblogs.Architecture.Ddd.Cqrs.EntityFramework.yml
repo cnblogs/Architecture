@@ -1,0 +1,54 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+  id: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler`3
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.EntityFramework
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler`3
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler`3
+  href: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler-3.html
+  name: EfPageableQueryHandler<TQuery, TEntity, TView>
+  nameWithType: EfPageableQueryHandler<TQuery, TEntity, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler<TQuery, TEntity, TView>
+  nameWithType.vb: EfPageableQueryHandler(Of TQuery, TEntity, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler(Of TQuery, TEntity, TView)
+  name.vb: EfPageableQueryHandler(Of TQuery, TEntity, TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler`3
+    name: EfPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler-3.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler`3
+    name: EfPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: )

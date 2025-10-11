@@ -1,0 +1,561 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  id: DateTimeOffsetCalculator
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheDay(System.DateTimeOffset)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheWeek(System.DateTimeOffset)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.IsInSameDate(System.DateTimeOffset,System.DateTimeOffset)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheDay(System.DateTimeOffset)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheWeek(System.DateTimeOffset)
+  langs:
+  - csharp
+  - vb
+  name: DateTimeOffsetCalculator
+  nameWithType: DateTimeOffsetCalculator
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DateTimeOffsetCalculator
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Handy calculator for DateTime
+  example: []
+  syntax:
+    content: public static class DateTimeOffsetCalculator
+    content.vb: Public Module DateTimeOffsetCalculator
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheDay(System.DateTimeOffset)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheDay(System.DateTimeOffset)
+  id: StartOfTheDay(System.DateTimeOffset)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  langs:
+  - csharp
+  - vb
+  name: StartOfTheDay(DateTimeOffset)
+  nameWithType: DateTimeOffsetCalculator.StartOfTheDay(DateTimeOffset)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheDay(System.DateTimeOffset)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: StartOfTheDay
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get a new <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> with time set to 0:00:00
+  example: []
+  syntax:
+    content: public static DateTimeOffset StartOfTheDay(this DateTimeOffset dateTime)
+    parameters:
+    - id: dateTime
+      type: System.DateTimeOffset
+      description: Input <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Public Shared Function StartOfTheDay(dateTime As DateTimeOffset) As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheDay*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheDay(System.DateTimeOffset)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheDay(System.DateTimeOffset)
+  id: EndOfTheDay(System.DateTimeOffset)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  langs:
+  - csharp
+  - vb
+  name: EndOfTheDay(DateTimeOffset)
+  nameWithType: DateTimeOffsetCalculator.EndOfTheDay(DateTimeOffset)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheDay(System.DateTimeOffset)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: EndOfTheDay
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+    startLine: 22
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get a new <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> with time set to 23:59:59.999.
+  example: []
+  syntax:
+    content: public static DateTimeOffset EndOfTheDay(this DateTimeOffset dateTime)
+    parameters:
+    - id: dateTime
+      type: System.DateTimeOffset
+      description: ''
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Public Shared Function EndOfTheDay(dateTime As DateTimeOffset) As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheDay*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheWeek(System.DateTimeOffset)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheWeek(System.DateTimeOffset)
+  id: StartOfTheWeek(System.DateTimeOffset)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  langs:
+  - csharp
+  - vb
+  name: StartOfTheWeek(DateTimeOffset)
+  nameWithType: DateTimeOffsetCalculator.StartOfTheWeek(DateTimeOffset)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheWeek(System.DateTimeOffset)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: StartOfTheWeek
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+    startLine: 32
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get a new <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> that set the start of a week for the given date.
+  example: []
+  syntax:
+    content: public static DateTimeOffset StartOfTheWeek(this DateTimeOffset dateTime)
+    parameters:
+    - id: dateTime
+      type: System.DateTimeOffset
+      description: ''
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Public Shared Function StartOfTheWeek(dateTime As DateTimeOffset) As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheWeek*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheWeek(System.DateTimeOffset)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheWeek(System.DateTimeOffset)
+  id: EndOfTheWeek(System.DateTimeOffset)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  langs:
+  - csharp
+  - vb
+  name: EndOfTheWeek(DateTimeOffset)
+  nameWithType: DateTimeOffsetCalculator.EndOfTheWeek(DateTimeOffset)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheWeek(System.DateTimeOffset)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: EndOfTheWeek
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+    startLine: 49
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get a new <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> that set to the end of a week for the given date.
+  example: []
+  syntax:
+    content: public static DateTimeOffset EndOfTheWeek(this DateTimeOffset dateTime)
+    parameters:
+    - id: dateTime
+      type: System.DateTimeOffset
+      description: ''
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Public Shared Function EndOfTheWeek(dateTime As DateTimeOffset) As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheWeek*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.IsInSameDate(System.DateTimeOffset,System.DateTimeOffset)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.IsInSameDate(System.DateTimeOffset,System.DateTimeOffset)
+  id: IsInSameDate(System.DateTimeOffset,System.DateTimeOffset)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator
+  langs:
+  - csharp
+  - vb
+  name: IsInSameDate(DateTimeOffset, DateTimeOffset)
+  nameWithType: DateTimeOffsetCalculator.IsInSameDate(DateTimeOffset, DateTimeOffset)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.IsInSameDate(System.DateTimeOffset, System.DateTimeOffset)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IsInSameDate
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/DateTimeOffsetCalculator.cs
+    startLine: 67
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Check whether two <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> is in same date.
+  example: []
+  syntax:
+    content: public static bool IsInSameDate(this DateTimeOffset left, DateTimeOffset right)
+    parameters:
+    - id: left
+      type: System.DateTimeOffset
+      description: First <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> to check.
+    - id: right
+      type: System.DateTimeOffset
+      description: Second <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> to check.
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Function IsInSameDate(left As DateTimeOffset, right As DateTimeOffset) As Boolean
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.IsInSameDate*
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheDay*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheDay
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_DateTimeOffsetCalculator_StartOfTheDay_System_DateTimeOffset_
+  name: StartOfTheDay
+  nameWithType: DateTimeOffsetCalculator.StartOfTheDay
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheDay
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheDay*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheDay
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_DateTimeOffsetCalculator_EndOfTheDay_System_DateTimeOffset_
+  name: EndOfTheDay
+  nameWithType: DateTimeOffsetCalculator.EndOfTheDay
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheDay
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheWeek*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheWeek
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_DateTimeOffsetCalculator_StartOfTheWeek_System_DateTimeOffset_
+  name: StartOfTheWeek
+  nameWithType: DateTimeOffsetCalculator.StartOfTheWeek
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.StartOfTheWeek
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheWeek*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheWeek
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_DateTimeOffsetCalculator_EndOfTheWeek_System_DateTimeOffset_
+  name: EndOfTheWeek
+  nameWithType: DateTimeOffsetCalculator.EndOfTheWeek
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.EndOfTheWeek
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.IsInSameDate*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.IsInSameDate
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_DateTimeOffsetCalculator_IsInSameDate_System_DateTimeOffset_System_DateTimeOffset_
+  name: IsInSameDate
+  nameWithType: DateTimeOffsetCalculator.IsInSameDate
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DateTimeOffsetCalculator.IsInSameDate
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean

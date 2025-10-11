@@ -1,0 +1,173 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  id: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions`1
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseDapperContext
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder`1
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelCollectionBuilder
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder`1
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions`1
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions-1.html
+  name: ClickhouseContextOptions<TContext>
+  nameWithType: ClickhouseContextOptions<TContext>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions<TContext>
+  nameWithType.vb: ClickhouseContextOptions(Of TContext)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions(Of TContext)
+  name.vb: ClickhouseContextOptions(Of TContext)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions`1
+    name: ClickhouseContextOptions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions-1.html
+  - name: <
+  - name: TContext
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions`1
+    name: ClickhouseContextOptions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContext
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions.html
+  name: ClickhouseContextOptions
+  nameWithType: ClickhouseContextOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseContextOptions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseDapperContext
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseDapperContext
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseDapperContext.html
+  name: ClickhouseDapperContext
+  nameWithType: ClickhouseDapperContext
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseDapperContext
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder`1
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder-1.html
+  name: ClickhouseModelBuilder<T>
+  nameWithType: ClickhouseModelBuilder<T>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder<T>
+  nameWithType.vb: ClickhouseModelBuilder(Of T)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder(Of T)
+  name.vb: ClickhouseModelBuilder(Of T)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder`1
+    name: ClickhouseModelBuilder
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder`1
+    name: ClickhouseModelBuilder
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelCollectionBuilder
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelCollectionBuilder
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelCollectionBuilder.html
+  name: ClickhouseModelCollectionBuilder
+  nameWithType: ClickhouseModelCollectionBuilder
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelCollectionBuilder
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder`1
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder-1.html
+  name: ClickhouseModelPropertyBuilder<TEntity>
+  nameWithType: ClickhouseModelPropertyBuilder<TEntity>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder<TEntity>
+  nameWithType.vb: ClickhouseModelPropertyBuilder(Of TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder(Of TEntity)
+  name.vb: ClickhouseModelPropertyBuilder(Of TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder`1
+    name: ClickhouseModelPropertyBuilder
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder-1.html
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder`1
+    name: ClickhouseModelPropertyBuilder
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.ClickhouseModelPropertyBuilder-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+    name: Dapper
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+    name: Clickhouse
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+    name: Dapper
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse
+    name: Clickhouse
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.html

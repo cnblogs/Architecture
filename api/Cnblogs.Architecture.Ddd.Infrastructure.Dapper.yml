@@ -1,0 +1,85 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  id: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DapperContext
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DbConnectionFactoryCollection
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DapperContext
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DapperContext
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DapperContext.html
+  name: DapperContext
+  nameWithType: DapperContext
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DapperContext
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DbConnectionFactoryCollection
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DbConnectionFactoryCollection
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DbConnectionFactoryCollection.html
+  name: DbConnectionFactoryCollection
+  nameWithType: DbConnectionFactoryCollection
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.DbConnectionFactoryCollection
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.html
+  name: IDbConnectionFactory
+  nameWithType: IDbConnectionFactory
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+    name: Dapper
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+    name: Dapper
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.html

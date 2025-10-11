@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+  id: IObjectResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.GetResult
+  langs:
+  - csharp
+  - vb
+  name: IObjectResponse
+  nameWithType: IObjectResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IObjectResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IObjectResponse
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IObjectResponse.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents response that contains object result.
+  example: []
+  syntax:
+    content: public interface IObjectResponse
+    content.vb: Public Interface IObjectResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.GetResult
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.GetResult
+  id: GetResult
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse
+  langs:
+  - csharp
+  - vb
+  name: GetResult()
+  nameWithType: IObjectResponse.GetResult()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.GetResult()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IObjectResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetResult
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IObjectResponse.cs
+    startLine: 11
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Get object result.
+  example: []
+  syntax:
+    content: object? GetResult()
+    return:
+      type: System.Object
+      description: The resulting object.
+    content.vb: Function GetResult() As Object
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.GetResult*
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.GetResult*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.GetResult
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_IObjectResponse_GetResult
+  name: GetResult
+  nameWithType: IObjectResponse.GetResult
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IObjectResponse.GetResult
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

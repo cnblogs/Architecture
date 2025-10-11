@@ -1,0 +1,77 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler
+  id: IEventBusRequestHandler
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IEventBusRequestHandler
+  nameWithType: IEventBusRequestHandler
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBusRequestHandler
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBusRequestHandler.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IEventBusRequestHandler
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBusRequestHandler.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: The empty interface as a generic type constraint
+  example: []
+  syntax:
+    content: public interface IEventBusRequestHandler
+    content.vb: Public Interface IEventBusRequestHandler
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html

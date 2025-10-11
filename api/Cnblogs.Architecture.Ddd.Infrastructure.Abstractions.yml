@@ -1,0 +1,249 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  id: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry`1
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.DefaultFileProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ILocalCacheProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig`1
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException.html
+  name: AcquireDistributionLockFailedException
+  nameWithType: AcquireDistributionLockFailedException
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.AcquireDistributionLockFailedException
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry`1
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry-1.html
+  name: CacheEntry<T>
+  nameWithType: CacheEntry<T>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry<T>
+  nameWithType.vb: CacheEntry(Of T)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry(Of T)
+  name.vb: CacheEntry(Of T)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry`1
+    name: CacheEntry
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry`1
+    name: CacheEntry
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.DefaultFileProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.DefaultFileProvider
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.DefaultFileProvider.html
+  name: DefaultFileProvider
+  nameWithType: DefaultFileProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.DefaultFileProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html
+  name: ICacheProvider
+  nameWithType: ICacheProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider.html
+  name: IDistributedLockProvider
+  nameWithType: IDistributedLockProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IDistributedLockProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider.html
+  name: IFileDeliveryProvider
+  nameWithType: IFileDeliveryProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileDeliveryProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.html
+  name: IFileProvider
+  nameWithType: IFileProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ILocalCacheProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ILocalCacheProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ILocalCacheProvider.html
+  name: ILocalCacheProvider
+  nameWithType: ILocalCacheProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ILocalCacheProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider.html
+  name: IRemoteCacheProvider
+  nameWithType: IRemoteCacheProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment.html
+  name: OrderBySegment
+  nameWithType: OrderBySegment
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig.html
+  name: OrderBySegmentConfig
+  nameWithType: OrderBySegmentConfig
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig`1
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig-1.html
+  name: OrderBySegmentConfig<TEntity>
+  nameWithType: OrderBySegmentConfig<TEntity>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig<TEntity>
+  nameWithType.vb: OrderBySegmentConfig(Of TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig(Of TEntity)
+  name.vb: OrderBySegmentConfig(Of TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig`1
+    name: OrderBySegmentConfig
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig-1.html
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig`1
+    name: OrderBySegmentConfig
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegmentConfig-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  name: PagedList<T>
+  nameWithType: PagedList<T>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList<T>
+  nameWithType.vb: PagedList(Of T)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList(Of T)
+  name.vb: PagedList(Of T)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html
+  name: PagingParams
+  nameWithType: PagingParams
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder.html
+  name: QueryStringBuilder
+  nameWithType: QueryStringBuilder
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringBuilder
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy.html
+  name: QueryStringCollectionHandleStrategy
+  nameWithType: QueryStringCollectionHandleStrategy
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringCollectionHandleStrategy
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy.html
+  name: QueryStringNullHandleStrategy
+  nameWithType: QueryStringNullHandleStrategy
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.QueryStringNullHandleStrategy
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html

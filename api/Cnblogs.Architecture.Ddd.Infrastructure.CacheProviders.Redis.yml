@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+  id: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisCacheProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisOptions
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisCacheProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisCacheProvider
+  href: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisCacheProvider.html
+  name: RedisCacheProvider
+  nameWithType: RedisCacheProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisCacheProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisOptions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisOptions.html
+  name: RedisOptions
+  nameWithType: RedisOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.RedisOptions

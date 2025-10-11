@@ -1,0 +1,445 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  id: IDateTimeProvider
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfToday
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfTomorrow
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfYesterday
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Now
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Today
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Tomorrow
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixMilliseconds
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixSeconds
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Yesterday
+  langs:
+  - csharp
+  - vb
+  name: IDateTimeProvider
+  nameWithType: IDateTimeProvider
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IDateTimeProvider
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Provides system date time.
+  example: []
+  syntax:
+    content: public interface IDateTimeProvider
+    content.vb: Public Interface IDateTimeProvider
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Now
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Now
+  id: Now
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: Now()
+  nameWithType: IDateTimeProvider.Now()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Now()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Now
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 11
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get current time.
+  example: []
+  syntax:
+    content: DateTimeOffset Now()
+    return:
+      type: System.DateTimeOffset
+      description: Current time.
+    content.vb: Function Now() As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Now*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Yesterday
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Yesterday
+  id: Yesterday
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: Yesterday()
+  nameWithType: IDateTimeProvider.Yesterday()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Yesterday()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Yesterday
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 17
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> of yesterday's date.
+  example: []
+  syntax:
+    content: DateTimeOffset Yesterday()
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Function Yesterday() As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Yesterday*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfYesterday
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfYesterday
+  id: EndOfYesterday
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: EndOfYesterday()
+  nameWithType: IDateTimeProvider.EndOfYesterday()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfYesterday()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: EndOfYesterday
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 23
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> of yesterday's date with time set to 23:59:59.999.
+  example: []
+  syntax:
+    content: DateTimeOffset EndOfYesterday()
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Function EndOfYesterday() As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfYesterday*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Today
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Today
+  id: Today
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: Today()
+  nameWithType: IDateTimeProvider.Today()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Today()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Today
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 29
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> of today's date.
+  example: []
+  syntax:
+    content: DateTimeOffset Today()
+    return:
+      type: System.DateTimeOffset
+      description: Today's date.
+    content.vb: Function Today() As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Today*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfToday
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfToday
+  id: EndOfToday
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: EndOfToday()
+  nameWithType: IDateTimeProvider.EndOfToday()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfToday()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: EndOfToday
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 35
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> of today's date with time set to 23:59:59.999.
+  example: []
+  syntax:
+    content: DateTimeOffset EndOfToday()
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Function EndOfToday() As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfToday*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Tomorrow
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Tomorrow
+  id: Tomorrow
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: Tomorrow()
+  nameWithType: IDateTimeProvider.Tomorrow()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Tomorrow()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Tomorrow
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 41
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> of tomorrow's date with time set to 0:00:00.000.
+  example: []
+  syntax:
+    content: DateTimeOffset Tomorrow()
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Function Tomorrow() As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Tomorrow*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfTomorrow
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfTomorrow
+  id: EndOfTomorrow
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: EndOfTomorrow()
+  nameWithType: IDateTimeProvider.EndOfTomorrow()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfTomorrow()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: EndOfTomorrow
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 47
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get <xref href="System.DateTimeOffset" data-throw-if-not-resolved="false"></xref> of tomorrow's date with time set to 23:59:59.000.
+  example: []
+  syntax:
+    content: DateTimeOffset EndOfTomorrow()
+    return:
+      type: System.DateTimeOffset
+      description: ''
+    content.vb: Function EndOfTomorrow() As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfTomorrow*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixSeconds
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixSeconds
+  id: UnixSeconds
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: UnixSeconds()
+  nameWithType: IDateTimeProvider.UnixSeconds()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixSeconds()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UnixSeconds
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 53
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get number of seconds that have elapsed since 1970-01-01T00:00:00Z.
+  example: []
+  syntax:
+    content: long UnixSeconds()
+    return:
+      type: System.Int64
+      description: The number of seconds that have elapsed since 1970-01-01T00:00:00Z.
+    content.vb: Function UnixSeconds() As Long
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixSeconds*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixMilliseconds
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixMilliseconds
+  id: UnixMilliseconds
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider
+  langs:
+  - csharp
+  - vb
+  name: UnixMilliseconds()
+  nameWithType: IDateTimeProvider.UnixMilliseconds()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixMilliseconds()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UnixMilliseconds
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDateTimeProvider.cs
+    startLine: 59
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: Get number of milliseconds that have elapsed since 1970-01-01T00:00:00Z.
+  example: []
+  syntax:
+    content: long UnixMilliseconds()
+    return:
+      type: System.Int64
+      description: ''
+    content.vb: Function UnixMilliseconds() As Long
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixMilliseconds*
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Now*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Now
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_Now
+  name: Now
+  nameWithType: IDateTimeProvider.Now
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Now
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Yesterday*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Yesterday
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_Yesterday
+  name: Yesterday
+  nameWithType: IDateTimeProvider.Yesterday
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Yesterday
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfYesterday*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfYesterday
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_EndOfYesterday
+  name: EndOfYesterday
+  nameWithType: IDateTimeProvider.EndOfYesterday
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfYesterday
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Today*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Today
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_Today
+  name: Today
+  nameWithType: IDateTimeProvider.Today
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Today
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfToday*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfToday
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_EndOfToday
+  name: EndOfToday
+  nameWithType: IDateTimeProvider.EndOfToday
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfToday
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Tomorrow*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Tomorrow
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_Tomorrow
+  name: Tomorrow
+  nameWithType: IDateTimeProvider.Tomorrow
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.Tomorrow
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfTomorrow*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfTomorrow
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_EndOfTomorrow
+  name: EndOfTomorrow
+  nameWithType: IDateTimeProvider.EndOfTomorrow
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.EndOfTomorrow
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixSeconds*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixSeconds
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_UnixSeconds
+  name: UnixSeconds
+  nameWithType: IDateTimeProvider.UnixSeconds
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixSeconds
+- uid: System.Int64
+  commentId: T:System.Int64
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int64
+  name: long
+  nameWithType: long
+  fullName: long
+  nameWithType.vb: Long
+  fullName.vb: Long
+  name.vb: Long
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixMilliseconds*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixMilliseconds
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDateTimeProvider_UnixMilliseconds
+  name: UnixMilliseconds
+  nameWithType: IDateTimeProvider.UnixMilliseconds
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDateTimeProvider.UnixMilliseconds

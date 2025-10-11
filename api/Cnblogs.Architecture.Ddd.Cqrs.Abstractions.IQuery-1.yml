@@ -1,0 +1,83 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  id: IQuery`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IQuery<TView>
+  nameWithType: IQuery<TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery<TView>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IQuery.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IQuery
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IQuery.cs
+    startLine: 8
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents query for single item.
+  example: []
+  syntax:
+    content: 'public interface IQuery<TView> : IRequest<TView?>, IBaseRequest'
+    typeParameters:
+    - id: TView
+      description: The type of item to query.
+    content.vb: Public Interface IQuery(Of TView) Inherits IRequest(Of TView), IBaseRequest
+  nameWithType.vb: IQuery(Of TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery(Of TView)
+  name.vb: IQuery(Of TView)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html

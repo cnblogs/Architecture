@@ -1,0 +1,251 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  id: IRandomProvider
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Double)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Int32)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: IRandomProvider
+  nameWithType: IRandomProvider
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IRandomProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IRandomProvider
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IRandomProvider.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 随机数生成器。
+  example: []
+  syntax:
+    content: public interface IRandomProvider
+    content.vb: Public Interface IRandomProvider
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Int32)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Int32)
+  id: Next(System.Int32)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  langs:
+  - csharp
+  - vb
+  name: Next(int)
+  nameWithType: IRandomProvider.Next(int)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(int)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IRandomProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Next
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IRandomProvider.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 指定范围内生成随机数。
+  example: []
+  syntax:
+    content: int Next(int max)
+    parameters:
+    - id: max
+      type: System.Int32
+      description: 随机数的上界，必须大于等于零，返回值将小于它。
+    return:
+      type: System.Int32
+      description: 小于 <code class="paramref">max</code> 的随机数。
+    content.vb: Function [Next](max As Integer) As Integer
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">max</code> 小于 0。
+  nameWithType.vb: IRandomProvider.Next(Integer)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(Integer)
+  name.vb: Next(Integer)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Int32,System.Int32)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Int32,System.Int32)
+  id: Next(System.Int32,System.Int32)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  langs:
+  - csharp
+  - vb
+  name: Next(int, int)
+  nameWithType: IRandomProvider.Next(int, int)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(int, int)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IRandomProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Next
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IRandomProvider.cs
+    startLine: 22
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 指定范围（左闭右开）内生成随机数。
+  example: []
+  syntax:
+    content: int Next(int min, int max)
+    parameters:
+    - id: min
+      type: System.Int32
+      description: 随机数的下界。
+    - id: max
+      type: System.Int32
+      description: 随机数的上界。
+    return:
+      type: System.Int32
+      description: 大于等于 <code class="paramref">min</code> 且小于 <code class="paramref">max</code> 的随机数。
+    content.vb: Function [Next](min As Integer, max As Integer) As Integer
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">min</code> 大于 <code class="paramref">max</code>。
+  nameWithType.vb: IRandomProvider.Next(Integer, Integer)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(Integer, Integer)
+  name.vb: Next(Integer, Integer)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Double)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(System.Double)
+  id: Next(System.Double)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider
+  langs:
+  - csharp
+  - vb
+  name: Next(double)
+  nameWithType: IRandomProvider.Next(double)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(double)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IRandomProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Next
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IRandomProvider.cs
+    startLine: 30
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 指定范围内生成随机数。
+  example: []
+  syntax:
+    content: double Next(double max)
+    parameters:
+    - id: max
+      type: System.Double
+      description: 随机数的上界，必须大于等于零，返回值将小于它。
+    return:
+      type: System.Double
+      description: 小于 <code class="paramref">max</code> 的随机数。
+    content.vb: Function [Next](max As Double) As Double
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">max</code> 小于 0。
+  nameWithType.vb: IRandomProvider.Next(Double)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next(Double)
+  name.vb: Next(Double)
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRandomProvider_Next_System_Int32_
+  name: Next
+  nameWithType: IRandomProvider.Next
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRandomProvider.Next
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double

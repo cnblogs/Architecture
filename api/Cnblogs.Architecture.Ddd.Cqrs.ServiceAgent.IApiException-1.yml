@@ -1,0 +1,364 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  id: IApiException`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Create(System.Int32,System.String,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Message
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.StatusCode
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Throw(System.Int32,System.String,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.UserFriendlyMessage
+  langs:
+  - csharp
+  - vb
+  name: IApiException<TException>
+  nameWithType: IApiException<TException>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IApiException
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+    startLine: 8
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Defines exceptions threw when doing an API call.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Try migrate to CqrsServiceAgent")]
+
+      public interface IApiException<out TException> where TException : Exception, IApiException<out TException>
+    typeParameters:
+    - id: TException
+      description: The type of this API exception.
+    content.vb: >-
+      <Obsolete("Try migrate to CqrsServiceAgent")>
+
+      Public Interface IApiException(Of Out TException As {Exception, IApiException(Of Out TException)})
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: Try migrate to CqrsServiceAgent
+  nameWithType.vb: IApiException(Of TException)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException)
+  name.vb: IApiException(Of TException)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.StatusCode
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.StatusCode
+  id: StatusCode
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  langs:
+  - csharp
+  - vb
+  name: StatusCode
+  nameWithType: IApiException<TException>.StatusCode
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.StatusCode
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: StatusCode
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: The HTTP status code, -1 if not applied.
+  example: []
+  syntax:
+    content: int StatusCode { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property StatusCode As Integer
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.StatusCode*
+  nameWithType.vb: IApiException(Of TException).StatusCode
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).StatusCode
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Message
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Message
+  id: Message
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  langs:
+  - csharp
+  - vb
+  name: Message
+  nameWithType: IApiException<TException>.Message
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.Message
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Message
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+    startLine: 20
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: The raw error message.
+  example: []
+  syntax:
+    content: string Message { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Message As String
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Message*
+  nameWithType.vb: IApiException(Of TException).Message
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).Message
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.UserFriendlyMessage
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.UserFriendlyMessage
+  id: UserFriendlyMessage
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  langs:
+  - csharp
+  - vb
+  name: UserFriendlyMessage
+  nameWithType: IApiException<TException>.UserFriendlyMessage
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.UserFriendlyMessage
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UserFriendlyMessage
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+    startLine: 25
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: The error message to display, can be null if such message is not available.
+  example: []
+  syntax:
+    content: string? UserFriendlyMessage { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property UserFriendlyMessage As String
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.UserFriendlyMessage*
+  nameWithType.vb: IApiException(Of TException).UserFriendlyMessage
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).UserFriendlyMessage
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Throw(System.Int32,System.String,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Throw(System.Int32,System.String,System.String)
+  id: Throw(System.Int32,System.String,System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  langs:
+  - csharp
+  - vb
+  name: Throw(int, string, string?)
+  nameWithType: IApiException<TException>.Throw(int, string, string?)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.Throw(int, string, string?)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Throw
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+    startLine: 33
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Throw a TException.
+  example: []
+  syntax:
+    content: public static abstract void Throw(int statusCode = -1, string message = "", string? userFriendlyMessage = null)
+    parameters:
+    - id: statusCode
+      type: System.Int32
+      description: HTTP status code, -1 if not available.
+    - id: message
+      type: System.String
+      description: The error message.
+    - id: userFriendlyMessage
+      type: System.String
+      description: The error message to display, can be null if such message is not available.
+    content.vb: Public Shared MustInherit Sub [Throw](statusCode As Integer = -1, message As String = "", userFriendlyMessage As String = Nothing)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Throw*
+  nameWithType.vb: IApiException(Of TException).Throw(Integer, String, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).Throw(Integer, String, String)
+  name.vb: Throw(Integer, String, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Create(System.Int32,System.String,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Create(System.Int32,System.String,System.String)
+  id: Create(System.Int32,System.String,System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  langs:
+  - csharp
+  - vb
+  name: Create(int, string, string?)
+  nameWithType: IApiException<TException>.Create(int, string, string?)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.Create(int, string, string?)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Create
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/IApiException.cs
+    startLine: 43
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Create(but not throw) a TException.
+  example: []
+  syntax:
+    content: public static abstract TException Create(int statusCode = -1, string message = "", string? userFriendlyMessage = null)
+    parameters:
+    - id: statusCode
+      type: System.Int32
+      description: HTTP status code, -1 if not available.
+    - id: message
+      type: System.String
+      description: The error message.
+    - id: userFriendlyMessage
+      type: System.String
+      description: The error message to display, can be null if such message is not available.
+    return:
+      type: '{TException}'
+      description: A new instance of TException.
+    content.vb: Public Shared MustInherit Function Create(statusCode As Integer = -1, message As String = "", userFriendlyMessage As String = Nothing) As TException
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Create*
+  nameWithType.vb: IApiException(Of TException).Create(Integer, String, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).Create(Integer, String, String)
+  name.vb: Create(Integer, String, String)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+    name: ServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+    name: ServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.StatusCode*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.StatusCode
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_IApiException_1_StatusCode
+  name: StatusCode
+  nameWithType: IApiException<TException>.StatusCode
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.StatusCode
+  nameWithType.vb: IApiException(Of TException).StatusCode
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).StatusCode
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Message*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Message
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_IApiException_1_Message
+  name: Message
+  nameWithType: IApiException<TException>.Message
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.Message
+  nameWithType.vb: IApiException(Of TException).Message
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).Message
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.UserFriendlyMessage*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.UserFriendlyMessage
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_IApiException_1_UserFriendlyMessage
+  name: UserFriendlyMessage
+  nameWithType: IApiException<TException>.UserFriendlyMessage
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.UserFriendlyMessage
+  nameWithType.vb: IApiException(Of TException).UserFriendlyMessage
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).UserFriendlyMessage
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Throw*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Throw
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_IApiException_1_Throw_System_Int32_System_String_System_String_
+  name: Throw
+  nameWithType: IApiException<TException>.Throw
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.Throw
+  nameWithType.vb: IApiException(Of TException).Throw
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).Throw
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Create*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1.Create
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_IApiException_1_Create_System_Int32_System_String_System_String_
+  name: Create
+  nameWithType: IApiException<TException>.Create
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>.Create
+  nameWithType.vb: IApiException(Of TException).Create
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException).Create
+- uid: '{TException}'
+  commentId: '!:TException'
+  definition: TException
+  name: TException
+  nameWithType: TException
+  fullName: TException
+- uid: TException
+  commentId: '!:TException'
+  name: TException
+  nameWithType: TException
+  fullName: TException

@@ -1,0 +1,178 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  id: ILockableResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.IsConcurrentError
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.LockAcquired
+  langs:
+  - csharp
+  - vb
+  name: ILockableResponse
+  nameWithType: ILockableResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ILockableResponse
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableResponse.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents response for <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public interface ILockableResponse
+    content.vb: Public Interface ILockableResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.IsConcurrentError
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.IsConcurrentError
+  id: IsConcurrentError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  langs:
+  - csharp
+  - vb
+  name: IsConcurrentError
+  nameWithType: ILockableResponse.IsConcurrentError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.IsConcurrentError
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IsConcurrentError
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableResponse.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Indicates whether lock was required successfully.
+  example: []
+  syntax:
+    content: bool IsConcurrentError { get; init; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property IsConcurrentError As Boolean
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.IsConcurrentError*
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.LockAcquired
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.LockAcquired
+  id: LockAcquired
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  langs:
+  - csharp
+  - vb
+  name: LockAcquired
+  nameWithType: ILockableResponse.LockAcquired
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.LockAcquired
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: LockAcquired
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableResponse.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Indicates whether lock was required.
+  example: []
+  syntax:
+    content: bool LockAcquired { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Property LockAcquired As Boolean
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.LockAcquired*
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.html
+  name: ILockableRequest
+  nameWithType: ILockableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.IsConcurrentError*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.IsConcurrentError
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ILockableResponse_IsConcurrentError
+  name: IsConcurrentError
+  nameWithType: ILockableResponse.IsConcurrentError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.IsConcurrentError
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.LockAcquired*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.LockAcquired
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ILockableResponse_LockAcquired
+  name: LockAcquired
+  nameWithType: ILockableResponse.LockAcquired
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.LockAcquired

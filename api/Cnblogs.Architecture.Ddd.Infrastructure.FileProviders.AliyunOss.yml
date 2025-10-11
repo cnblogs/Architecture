@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  id: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileDeliveryProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssOptions
+  - Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.CqrsInjectorExtensions
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileDeliveryProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileDeliveryProvider
+  href: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileDeliveryProvider.html
+  name: AliyunOssFileDeliveryProvider
+  nameWithType: AliyunOssFileDeliveryProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileDeliveryProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileProvider
+  href: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileProvider.html
+  name: AliyunOssFileProvider
+  nameWithType: AliyunOssFileProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssFileProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssOptions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssOptions.html
+  name: AliyunOssOptions
+  nameWithType: AliyunOssOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.AliyunOssOptions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.CqrsInjectorExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.CqrsInjectorExtensions
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  href: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.CqrsInjectorExtensions.html
+  name: CqrsInjectorExtensions
+  nameWithType: CqrsInjectorExtensions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.CqrsInjectorExtensions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders
+    name: FileProviders
+    href: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+    name: AliyunOss
+    href: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders
+    name: FileProviders
+    href: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss
+    name: AliyunOss
+    href: Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.html

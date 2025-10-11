@@ -1,0 +1,135 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  id: IEntity`1
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id
+  langs:
+  - csharp
+  - vb
+  name: IEntity<TKey>
+  nameWithType: IEntity<TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity<TKey>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IEntity.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IEntity
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IEntity.cs
+    startLine: 6
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 实体接口。
+  example: []
+  syntax:
+    content: public interface IEntity<TKey>
+    typeParameters:
+    - id: TKey
+      description: 键类型。
+    content.vb: Public Interface IEntity(Of TKey)
+  nameWithType.vb: IEntity(Of TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity(Of TKey)
+  name.vb: IEntity(Of TKey)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id
+  id: Id
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IEntity<TKey>.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity<TKey>.Id
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IEntity.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Id
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IEntity.cs
+    startLine: 11
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 实体的唯一 Id。
+  example: []
+  syntax:
+    content: TKey Id { get; set; }
+    parameters: []
+    return:
+      type: '{TKey}'
+    content.vb: Property Id As TKey
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id*
+  nameWithType.vb: IEntity(Of TKey).Id
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity(Of TKey).Id
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity`1.Id
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity-1.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IEntity_1_Id
+  name: Id
+  nameWithType: IEntity<TKey>.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity<TKey>.Id
+  nameWithType.vb: IEntity(Of TKey).Id
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IEntity(Of TKey).Id
+- uid: '{TKey}'
+  commentId: '!:TKey'
+  definition: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey

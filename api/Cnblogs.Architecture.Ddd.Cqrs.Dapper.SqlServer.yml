@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+  id: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer.SqlServerDbConnectionFactory
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer.SqlServerDbConnectionFactory
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer.SqlServerDbConnectionFactory
+  href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer.SqlServerDbConnectionFactory.html
+  name: SqlServerDbConnectionFactory
+  nameWithType: SqlServerDbConnectionFactory
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer.SqlServerDbConnectionFactory
