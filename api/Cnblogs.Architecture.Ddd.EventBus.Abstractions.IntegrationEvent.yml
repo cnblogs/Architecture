@@ -1,0 +1,627 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  id: IntegrationEvent
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.#ctor(System.Guid,System.DateTimeOffset)
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.CreatedTime
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.Id
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.TraceId
+  langs:
+  - csharp
+  - vb
+  name: IntegrationEvent
+  nameWithType: IntegrationEvent
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IntegrationEvent
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 集成事件。
+  example: []
+  syntax:
+    content: 'public record IntegrationEvent : INotification, IEquatable<IntegrationEvent>'
+    content.vb: Public Class IntegrationEvent Implements INotification, IEquatable(Of IntegrationEvent)
+  inheritance:
+  - System.Object
+  implements:
+  - MediatR.INotification
+  - System.IEquatable{Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.#ctor(System.Guid,System.DateTimeOffset)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.#ctor(System.Guid,System.DateTimeOffset)
+  id: '#ctor(System.Guid,System.DateTimeOffset)'
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  langs:
+  - csharp
+  - vb
+  name: IntegrationEvent(Guid, DateTimeOffset)
+  nameWithType: IntegrationEvent.IntegrationEvent(Guid, DateTimeOffset)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.IntegrationEvent(System.Guid, System.DateTimeOffset)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 集成事件。
+  example: []
+  syntax:
+    content: public IntegrationEvent(Guid Id, DateTimeOffset CreatedTime)
+    parameters:
+    - id: Id
+      type: System.Guid
+      description: 集成事件的 Id。
+    - id: CreatedTime
+      type: System.DateTimeOffset
+      description: 集成事件创建时间。
+    content.vb: Public Sub New(Id As Guid, CreatedTime As DateTimeOffset)
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.#ctor*
+  nameWithType.vb: IntegrationEvent.New(Guid, DateTimeOffset)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.New(System.Guid, System.DateTimeOffset)
+  name.vb: New(Guid, DateTimeOffset)
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.Id
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.Id
+  id: Id
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IntegrationEvent.Id
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.Id
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Id
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 集成事件的 Id。
+  example: []
+  syntax:
+    content: public Guid Id { get; init; }
+    parameters: []
+    return:
+      type: System.Guid
+    content.vb: Public Property Id As Guid
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.Id*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.CreatedTime
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.CreatedTime
+  id: CreatedTime
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  langs:
+  - csharp
+  - vb
+  name: CreatedTime
+  nameWithType: IntegrationEvent.CreatedTime
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.CreatedTime
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CreatedTime
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 集成事件创建时间。
+  example: []
+  syntax:
+    content: public DateTimeOffset CreatedTime { get; init; }
+    parameters: []
+    return:
+      type: System.DateTimeOffset
+    content.vb: Public Property CreatedTime As DateTimeOffset
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.CreatedTime*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.TraceId
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.TraceId
+  id: TraceId
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+  langs:
+  - csharp
+  - vb
+  name: TraceId
+  nameWithType: IntegrationEvent.TraceId
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.TraceId
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: TraceId
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IntegrationEvent.cs
+    startLine: 14
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 跟踪 Id。
+  example: []
+  syntax:
+    content: public Guid? TraceId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Guid}
+    content.vb: Public Property TraceId As Guid?
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.TraceId*
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: MediatR.INotification
+  commentId: T:MediatR.INotification
+  parent: MediatR
+  isExternal: true
+  name: INotification
+  nameWithType: INotification
+  fullName: MediatR.INotification
+- uid: System.IEquatable{Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent}
+  commentId: T:System.IEquatable{Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<IntegrationEvent>
+  nameWithType: IEquatable<IntegrationEvent>
+  fullName: System.IEquatable<Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent>
+  nameWithType.vb: IEquatable(Of IntegrationEvent)
+  fullName.vb: System.IEquatable(Of Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent)
+  name.vb: IEquatable(Of IntegrationEvent)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+    name: IntegrationEvent
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent
+    name: IntegrationEvent
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: MediatR
+  commentId: N:MediatR
+  href: MediatR.html
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.#ctor
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IntegrationEvent__ctor_System_Guid_System_DateTimeOffset_
+  name: IntegrationEvent
+  nameWithType: IntegrationEvent.IntegrationEvent
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.IntegrationEvent
+  nameWithType.vb: IntegrationEvent.New
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.New
+  name.vb: New
+- uid: System.Guid
+  commentId: T:System.Guid
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid
+  nameWithType: Guid
+  fullName: System.Guid
+- uid: System.DateTimeOffset
+  commentId: T:System.DateTimeOffset
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.datetimeoffset
+  name: DateTimeOffset
+  nameWithType: DateTimeOffset
+  fullName: System.DateTimeOffset
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.Id*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.Id
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IntegrationEvent_Id
+  name: Id
+  nameWithType: IntegrationEvent.Id
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.Id
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.CreatedTime*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.CreatedTime
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IntegrationEvent_CreatedTime
+  name: CreatedTime
+  nameWithType: IntegrationEvent.CreatedTime
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.CreatedTime
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.TraceId*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.TraceId
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IntegrationEvent_TraceId
+  name: TraceId
+  nameWithType: IntegrationEvent.TraceId
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IntegrationEvent.TraceId
+- uid: System.Nullable{System.Guid}
+  commentId: T:System.Nullable{System.Guid}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid?
+  nameWithType: Guid?
+  fullName: System.Guid?
+  spec.csharp:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+  spec.vb:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

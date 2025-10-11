@@ -1,0 +1,252 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler`2
+  id: IQueryHandler`2
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IQueryHandler<TQuery, TView>
+  nameWithType: IQueryHandler<TQuery, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler<TQuery, TView>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IQueryHandler.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IQueryHandler
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IQueryHandler.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents handler that handles <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IQueryHandler<TQuery, TView> : IRequestHandler<TQuery, TView?> where TQuery : IQuery<TView>'
+    typeParameters:
+    - id: TQuery
+      description: The <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery%601" data-throw-if-not-resolved="false"></xref> type to handle.
+    - id: TView
+      description: The type of item to query.
+    content.vb: Public Interface IQueryHandler(Of TQuery As IQuery(Of TView), TView) Inherits IRequestHandler(Of TQuery, TView)
+  inheritedMembers:
+  - MediatR.IRequestHandler{{TQuery},{TView}}.Handle({TQuery},System.Threading.CancellationToken)
+  nameWithType.vb: IQueryHandler(Of TQuery, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQueryHandler(Of TQuery, TView)
+  name.vb: IQueryHandler(Of TQuery, TView)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  name: IQuery<TView>
+  nameWithType: IQuery<TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery<TView>
+  nameWithType.vb: IQuery(Of TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery(Of TView)
+  name.vb: IQuery(Of TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+    name: IQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  - name: <
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery`1
+    name: IQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: MediatR.IRequestHandler{{TQuery},{TView}}.Handle({TQuery},System.Threading.CancellationToken)
+  commentId: M:MediatR.IRequestHandler{`0,`1}.Handle(`0,System.Threading.CancellationToken)
+  parent: MediatR.IRequestHandler{{TQuery},{TView}}
+  definition: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TQuery, CancellationToken)
+  nameWithType: IRequestHandler<TQuery, TView>.Handle(TQuery, CancellationToken)
+  fullName: MediatR.IRequestHandler<TQuery, TView>.Handle(TQuery, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TQuery, TView).Handle(TQuery, CancellationToken)
+  fullName.vb: MediatR.IRequestHandler(Of TQuery, TView).Handle(TQuery, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler{`0,`1}.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.IRequestHandler{`0,`1}.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  commentId: M:MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest, TResponse>.Handle(TRequest, CancellationToken)
+  fullName: MediatR.IRequestHandler<TRequest, TResponse>.Handle(TRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).Handle(TRequest, CancellationToken)
+  fullName.vb: MediatR.IRequestHandler(Of TRequest, TResponse).Handle(TRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MediatR.IRequestHandler{{TQuery},{TView}}
+  commentId: T:MediatR.IRequestHandler{`0,`1}
+  parent: MediatR
+  definition: MediatR.IRequestHandler`2
+  name: IRequestHandler<TQuery, TView>
+  nameWithType: IRequestHandler<TQuery, TView>
+  fullName: MediatR.IRequestHandler<TQuery, TView>
+  nameWithType.vb: IRequestHandler(Of TQuery, TView)
+  fullName.vb: MediatR.IRequestHandler(Of TQuery, TView)
+  name.vb: IRequestHandler(Of TQuery, TView)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: )
+- uid: MediatR.IRequestHandler`2
+  commentId: T:MediatR.IRequestHandler`2
+  isExternal: true
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: MediatR.IRequestHandler<TRequest, TResponse>
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: MediatR.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: MediatR
+  commentId: N:MediatR
+  href: MediatR.html
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR

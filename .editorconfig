@@ -402,5 +402,5 @@ dotnet_naming_style.s_camelcase.word_separator =
 dotnet_naming_style.s_camelcase.capitalization = camel_case
 
 # Xml config files
-[*.{props,targets,config,nuspec}]
+[*.{props,targets,config,nuspec,yml}]
 indent_size = 2

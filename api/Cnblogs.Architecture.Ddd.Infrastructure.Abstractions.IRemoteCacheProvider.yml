@@ -1,0 +1,565 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider
+  id: IRemoteCacheProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IRemoteCacheProvider
+  nameWithType: IRemoteCacheProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IRemoteCacheProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IRemoteCacheProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IRemoteCacheProvider
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IRemoteCacheProvider.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 远程缓存提供器，<xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider" data-throw-if-not-resolved="false"></xref> 的一个别名。
+  example: []
+  syntax:
+    content: 'public interface IRemoteCacheProvider : ICacheProvider'
+    content.vb: Public Interface IRemoteCacheProvider Inherits ICacheProvider
+  inheritedMembers:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,{TResult})
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,{TResult})
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync``1(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,{TResult})
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,{TResult},System.TimeSpan)
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html
+  name: ICacheProvider
+  nameWithType: ICacheProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,{TResult})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  definition: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String___0_
+  name: AddAsync<TResult>(string, TResult)
+  nameWithType: ICacheProvider.AddAsync<TResult>(string, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync<TResult>(string, TResult)
+  nameWithType.vb: ICacheProvider.AddAsync(Of TResult)(String, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync(Of TResult)(String, TResult)
+  name.vb: AddAsync(Of TResult)(String, TResult)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String___0_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,{TResult})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  definition: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String_System_TimeSpan___0_
+  name: AddAsync<TResult>(string, TimeSpan, TResult)
+  nameWithType: ICacheProvider.AddAsync<TResult>(string, TimeSpan, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync<TResult>(string, System.TimeSpan, TResult)
+  nameWithType.vb: ICacheProvider.AddAsync(Of TResult)(String, TimeSpan, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync(Of TResult)(String, System.TimeSpan, TResult)
+  name.vb: AddAsync(Of TResult)(String, TimeSpan, TResult)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String_System_TimeSpan___0_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String_System_TimeSpan___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_GetAsync__1_System_String_
+  name: GetAsync<TResult>(string)
+  nameWithType: ICacheProvider.GetAsync<TResult>(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync<TResult>(string)
+  nameWithType.vb: ICacheProvider.GetAsync(Of TResult)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync(Of TResult)(String)
+  name.vb: GetAsync(Of TResult)(String)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync``1(System.String)
+    name: GetAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_GetAsync__1_System_String_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync``1(System.String)
+    name: GetAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_GetAsync__1_System_String_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_RemoveAsync_System_String_
+  name: RemoveAsync(string)
+  nameWithType: ICacheProvider.RemoveAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(string)
+  nameWithType.vb: ICacheProvider.RemoveAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(String)
+  name.vb: RemoveAsync(String)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(System.String)
+    name: RemoveAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_RemoveAsync_System_String_
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(System.String)
+    name: RemoveAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_RemoveAsync_System_String_
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,{TResult})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  definition: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_
+  name: UpdateAsync<TResult>(string, TResult)
+  nameWithType: ICacheProvider.UpdateAsync<TResult>(string, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync<TResult>(string, TResult)
+  nameWithType.vb: ICacheProvider.UpdateAsync(Of TResult)(String, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync(Of TResult)(String, TResult)
+  name.vb: UpdateAsync(Of TResult)(String, TResult)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,{TResult},System.TimeSpan)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  definition: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_System_TimeSpan_
+  name: UpdateAsync<TResult>(string, TResult, TimeSpan)
+  nameWithType: ICacheProvider.UpdateAsync<TResult>(string, TResult, TimeSpan)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync<TResult>(string, TResult, System.TimeSpan)
+  nameWithType.vb: ICacheProvider.UpdateAsync(Of TResult)(String, TResult, TimeSpan)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync(Of TResult)(String, TResult, System.TimeSpan)
+  name.vb: UpdateAsync(Of TResult)(String, TResult, TimeSpan)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_System_TimeSpan_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_System_TimeSpan_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String___0_
+  name: AddAsync<TResult>(string, TResult)
+  nameWithType: ICacheProvider.AddAsync<TResult>(string, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync<TResult>(string, TResult)
+  nameWithType.vb: ICacheProvider.AddAsync(Of TResult)(String, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync(Of TResult)(String, TResult)
+  name.vb: AddAsync(Of TResult)(String, TResult)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String___0_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String_System_TimeSpan___0_
+  name: AddAsync<TResult>(string, TimeSpan, TResult)
+  nameWithType: ICacheProvider.AddAsync<TResult>(string, TimeSpan, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync<TResult>(string, System.TimeSpan, TResult)
+  nameWithType.vb: ICacheProvider.AddAsync(Of TResult)(String, TimeSpan, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync(Of TResult)(String, System.TimeSpan, TResult)
+  name.vb: AddAsync(Of TResult)(String, TimeSpan, TResult)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String_System_TimeSpan___0_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String_System_TimeSpan___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_
+  name: UpdateAsync<TResult>(string, TResult)
+  nameWithType: ICacheProvider.UpdateAsync<TResult>(string, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync<TResult>(string, TResult)
+  nameWithType.vb: ICacheProvider.UpdateAsync(Of TResult)(String, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync(Of TResult)(String, TResult)
+  name.vb: UpdateAsync(Of TResult)(String, TResult)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_System_TimeSpan_
+  name: UpdateAsync<TResult>(string, TResult, TimeSpan)
+  nameWithType: ICacheProvider.UpdateAsync<TResult>(string, TResult, TimeSpan)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync<TResult>(string, TResult, System.TimeSpan)
+  nameWithType.vb: ICacheProvider.UpdateAsync(Of TResult)(String, TResult, TimeSpan)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync(Of TResult)(String, TResult, System.TimeSpan)
+  name.vb: UpdateAsync(Of TResult)(String, TResult, TimeSpan)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_System_TimeSpan_
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_System_TimeSpan_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TResult
+  - name: ','
+  - name: " "
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: )

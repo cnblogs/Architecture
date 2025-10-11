@@ -1,0 +1,772 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  id: PagingParams
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.#ctor(System.Int32,System.Int32)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.BindAsync(Microsoft.AspNetCore.Http.HttpContext)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageIndex
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageSize
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.ToString
+  langs:
+  - csharp
+  - vb
+  name: PagingParams
+  nameWithType: PagingParams
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PagingParams
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 分页参数。
+  example: []
+  syntax:
+    content: 'public record PagingParams : IEquatable<PagingParams>'
+    content.vb: Public Class PagingParams Implements IEquatable(Of PagingParams)
+  inheritance:
+  - System.Object
+  implements:
+  - System.IEquatable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.#ctor(System.Int32,System.Int32)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.#ctor(System.Int32,System.Int32)
+  id: '#ctor(System.Int32,System.Int32)'
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  langs:
+  - csharp
+  - vb
+  name: PagingParams(int, int)
+  nameWithType: PagingParams.PagingParams(int, int)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PagingParams(int, int)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 分页参数。
+  example: []
+  syntax:
+    content: public PagingParams(int PageIndex, int PageSize)
+    parameters:
+    - id: PageIndex
+      type: System.Int32
+      description: 页码。
+      attributes:
+      - type: System.ComponentModel.DataAnnotations.RangeAttribute
+        ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+        arguments:
+        - type: System.Int32
+          value: 1
+        - type: System.Int32
+          value: 2147483647
+    - id: PageSize
+      type: System.Int32
+      description: 每页元素数。
+      attributes:
+      - type: System.ComponentModel.DataAnnotations.RangeAttribute
+        ctor: System.ComponentModel.DataAnnotations.RangeAttribute.#ctor(System.Int32,System.Int32)
+        arguments:
+        - type: System.Int32
+          value: 0
+        - type: System.Int32
+          value: 2147483647
+    content.vb: Public Sub New(PageIndex As Integer, PageSize As Integer)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.#ctor*
+  nameWithType.vb: PagingParams.New(Integer, Integer)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.New(Integer, Integer)
+  name.vb: New(Integer, Integer)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageIndex
+  commentId: P:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageIndex
+  id: PageIndex
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  langs:
+  - csharp
+  - vb
+  name: PageIndex
+  nameWithType: PagingParams.PageIndex
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageIndex
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PageIndex
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 页码。
+  example: []
+  syntax:
+    content: public int PageIndex { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PageIndex As Integer
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageIndex*
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageSize
+  commentId: P:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageSize
+  id: PageSize
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  langs:
+  - csharp
+  - vb
+  name: PageSize
+  nameWithType: PagingParams.PageSize
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageSize
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PageSize
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 每页元素数。
+  example: []
+  syntax:
+    content: public int PageSize { get; init; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property PageSize As Integer
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageSize*
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.ToString
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.ToString
+  id: ToString
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: PagingParams.ToString()
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ToString
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.ToString*
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.BindAsync(Microsoft.AspNetCore.Http.HttpContext)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.BindAsync(Microsoft.AspNetCore.Http.HttpContext)
+  id: BindAsync(Microsoft.AspNetCore.Http.HttpContext)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  langs:
+  - csharp
+  - vb
+  name: BindAsync(HttpContext)
+  nameWithType: PagingParams.BindAsync(HttpContext)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.BindAsync(Microsoft.AspNetCore.Http.HttpContext)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: BindAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/PagingParams.cs
+    startLine: 25
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 供 minimum API 使用
+  example: []
+  syntax:
+    content: public static ValueTask<PagingParams?> BindAsync(HttpContext context)
+    parameters:
+    - id: context
+      type: Microsoft.AspNetCore.Http.HttpContext
+      description: ''
+    return:
+      type: System.Threading.Tasks.ValueTask{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams}
+      description: ''
+    content.vb: Public Shared Function BindAsync(context As HttpContext) As ValueTask(Of PagingParams)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.BindAsync*
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IEquatable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams}
+  commentId: T:System.IEquatable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<PagingParams>
+  nameWithType: IEquatable<PagingParams>
+  fullName: System.IEquatable<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams>
+  nameWithType.vb: IEquatable(Of PagingParams)
+  fullName.vb: System.IEquatable(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams)
+  name.vb: IEquatable(Of PagingParams)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+    name: PagingParams
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+    name: PagingParams
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.#ctor
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_PagingParams__ctor_System_Int32_System_Int32_
+  name: PagingParams
+  nameWithType: PagingParams.PagingParams
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PagingParams
+  nameWithType.vb: PagingParams.New
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageIndex*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageIndex
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_PagingParams_PageIndex
+  name: PageIndex
+  nameWithType: PagingParams.PageIndex
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageIndex
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageSize*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageSize
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_PagingParams_PageSize
+  name: PageSize
+  nameWithType: PagingParams.PageSize
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.PageSize
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.ToString*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.ToString
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_PagingParams_ToString
+  name: ToString
+  nameWithType: PagingParams.ToString
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.BindAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.BindAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_PagingParams_BindAsync_Microsoft_AspNetCore_Http_HttpContext_
+  name: BindAsync
+  nameWithType: PagingParams.BindAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.BindAsync
+- uid: Microsoft.AspNetCore.Http.HttpContext
+  commentId: T:Microsoft.AspNetCore.Http.HttpContext
+  parent: Microsoft.AspNetCore.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http.httpcontext
+  name: HttpContext
+  nameWithType: HttpContext
+  fullName: Microsoft.AspNetCore.Http.HttpContext
+- uid: System.Threading.Tasks.ValueTask{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams}
+  commentId: T:System.Threading.Tasks.ValueTask{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.ValueTask`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  name: ValueTask<PagingParams>
+  nameWithType: ValueTask<PagingParams>
+  fullName: System.Threading.Tasks.ValueTask<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams>
+  nameWithType.vb: ValueTask(Of PagingParams)
+  fullName.vb: System.Threading.Tasks.ValueTask(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams)
+  name.vb: ValueTask(Of PagingParams)
+  spec.csharp:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+    name: PagingParams
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+    name: PagingParams
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html
+  - name: )
+- uid: Microsoft.AspNetCore.Http
+  commentId: N:Microsoft.AspNetCore.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.AspNetCore.Http
+  nameWithType: Microsoft.AspNetCore.Http
+  fullName: Microsoft.AspNetCore.Http
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.AspNetCore
+    name: AspNetCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore
+  - name: .
+  - uid: Microsoft.AspNetCore.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.aspnetcore.http
+- uid: System.Threading.Tasks.ValueTask`1
+  commentId: T:System.Threading.Tasks.ValueTask`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  name: ValueTask<TResult>
+  nameWithType: ValueTask<TResult>
+  fullName: System.Threading.Tasks.ValueTask<TResult>
+  nameWithType.vb: ValueTask(Of TResult)
+  fullName.vb: System.Threading.Tasks.ValueTask(Of TResult)
+  name.vb: ValueTask(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.valuetask-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks

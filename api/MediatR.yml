@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: MediatR
+  commentId: N:MediatR
+  id: MediatR
+  children:
+  - MediatR.DispatchDomainEventExtensions
+  langs:
+  - csharp
+  - vb
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+references:
+- uid: MediatR.DispatchDomainEventExtensions
+  commentId: T:MediatR.DispatchDomainEventExtensions
+  href: MediatR.DispatchDomainEventExtensions.html
+  name: DispatchDomainEventExtensions
+  nameWithType: DispatchDomainEventExtensions
+  fullName: MediatR.DispatchDomainEventExtensions

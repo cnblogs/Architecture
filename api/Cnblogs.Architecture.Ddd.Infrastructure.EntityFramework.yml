@@ -1,0 +1,75 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  id: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.EntityConfigurationExtensions
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html
+  name: BaseRepository<TContext, TEntity, TKey>
+  nameWithType: BaseRepository<TContext, TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey)
+  name.vb: BaseRepository(Of TContext, TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+    name: BaseRepository
+    href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html
+  - name: <
+  - name: TContext
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+    name: BaseRepository
+    href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContext
+  - name: ','
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher.html
+  name: DomainEventDispatcher
+  nameWithType: DomainEventDispatcher
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.DomainEventDispatcher
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.EntityConfigurationExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.EntityConfigurationExtensions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.EntityConfigurationExtensions.html
+  name: EntityConfigurationExtensions
+  nameWithType: EntityConfigurationExtensions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.EntityConfigurationExtensions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.html
+  name: QueryableExtensions
+  nameWithType: QueryableExtensions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions

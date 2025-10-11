@@ -1,0 +1,30 @@
+### YamlMime:ManagedReference
+items:
+- uid: System.Linq
+  commentId: N:System.Linq
+  id: System.Linq
+  children:
+  - System.Linq.QueryOrderer
+  - System.Linq.QueryPager
+  langs:
+  - csharp
+  - vb
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+references:
+- uid: System.Linq.QueryOrderer
+  commentId: T:System.Linq.QueryOrderer
+  href: System.Linq.QueryOrderer.html
+  name: QueryOrderer
+  nameWithType: QueryOrderer
+  fullName: System.Linq.QueryOrderer
+- uid: System.Linq.QueryPager
+  commentId: T:System.Linq.QueryPager
+  href: System.Linq.QueryPager.html
+  name: QueryPager
+  nameWithType: QueryPager
+  fullName: System.Linq.QueryPager

@@ -1,0 +1,301 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  id: IEventBuffer
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add``1(System.String,``0)
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Count
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Peek
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Pop
+  langs:
+  - csharp
+  - vb
+  name: IEventBuffer
+  nameWithType: IEventBuffer
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IEventBuffer
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Buffer for integration events.
+  example: []
+  syntax:
+    content: public interface IEventBuffer
+    content.vb: Public Interface IEventBuffer
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Count
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Count
+  id: Count
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: IEventBuffer.Count
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Count
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Count
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Number of pending events.
+  example: []
+  syntax:
+    content: int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property Count As Integer
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Count*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add``1(System.String,``0)
+  id: Add``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  langs:
+  - csharp
+  - vb
+  name: Add<TEvent>(string, TEvent)
+  nameWithType: IEventBuffer.Add<TEvent>(string, TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add<TEvent>(string, TEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Add
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+    startLine: 19
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Add an event to buffer.
+  example: []
+  syntax:
+    content: 'void Add<TEvent>(string name, TEvent @event) where TEvent : IntegrationEvent'
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of integration event.
+    - id: event
+      type: '{TEvent}'
+      description: The event.
+    typeParameters:
+    - id: TEvent
+      description: The type of integration event.
+    content.vb: Sub Add(Of TEvent As IntegrationEvent)(name As String, [event] As TEvent)
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add*
+  exceptions:
+  - type: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+    commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+    description: Throws when the number of events in buffer exceeds <xref href="Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize" data-throw-if-not-resolved="false"></xref>.
+  nameWithType.vb: IEventBuffer.Add(Of TEvent)(String, TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add(Of TEvent)(String, TEvent)
+  name.vb: Add(Of TEvent)(String, TEvent)
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Peek
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Peek
+  id: Peek
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  langs:
+  - csharp
+  - vb
+  name: Peek()
+  nameWithType: IEventBuffer.Peek()
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Peek()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Peek
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+    startLine: 26
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Get an integration event without removing it.
+  example: []
+  syntax:
+    content: BufferedIntegrationEvent? Peek()
+    return:
+      type: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+      description: The integration event, <code>null</code> will be returned if buffer is empty.
+    content.vb: Function Peek() As BufferedIntegrationEvent
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Peek*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Pop
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Pop
+  id: Pop
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  langs:
+  - csharp
+  - vb
+  name: Pop()
+  nameWithType: IEventBuffer.Pop()
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Pop()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Pop
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/IEventBuffer.cs
+    startLine: 32
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Get an integration event and remove it.
+  example: []
+  syntax:
+    content: BufferedIntegrationEvent? Pop()
+    return:
+      type: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+      description: The integration event, <code>null</code> will be returned if buffer is empty.
+    content.vb: Function Pop() As BufferedIntegrationEvent
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Pop*
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Count*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Count
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBuffer_Count
+  name: Count
+  nameWithType: IEventBuffer.Count
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBusOptions_MaximumBufferSize
+  name: MaximumBufferSize
+  nameWithType: EventBusOptions.MaximumBufferSize
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.html
+  name: EventBufferOverflowException
+  nameWithType: EventBufferOverflowException
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBuffer_Add__1_System_String___0_
+  name: Add
+  nameWithType: IEventBuffer.Add
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Add
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{TEvent}'
+  commentId: '!:TEvent'
+  definition: TEvent
+  name: TEvent
+  nameWithType: TEvent
+  fullName: TEvent
+- uid: TEvent
+  name: TEvent
+  nameWithType: TEvent
+  fullName: TEvent
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Peek*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Peek
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBuffer_Peek
+  name: Peek
+  nameWithType: IEventBuffer.Peek
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Peek
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent.html
+  name: BufferedIntegrationEvent
+  nameWithType: BufferedIntegrationEvent
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.BufferedIntegrationEvent
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Pop*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Pop
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBuffer_Pop
+  name: Pop
+  nameWithType: IEventBuffer.Pop
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.Pop

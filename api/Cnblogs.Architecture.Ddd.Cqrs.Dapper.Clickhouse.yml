@@ -1,0 +1,56 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+  id: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseContextCollection
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory`1
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseInitializeHostedService
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseContextCollection
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseContextCollection
+  href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseContextCollection.html
+  name: ClickhouseContextCollection
+  nameWithType: ClickhouseContextCollection
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseContextCollection
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory-1.html
+  name: ClickhouseDbConnectionFactory<TContext>
+  nameWithType: ClickhouseDbConnectionFactory<TContext>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory<TContext>
+  nameWithType.vb: ClickhouseDbConnectionFactory(Of TContext)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory(Of TContext)
+  name.vb: ClickhouseDbConnectionFactory(Of TContext)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory`1
+    name: ClickhouseDbConnectionFactory
+    href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory-1.html
+  - name: <
+  - name: TContext
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory`1
+    name: ClickhouseDbConnectionFactory
+    href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseDbConnectionFactory-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TContext
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseInitializeHostedService
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseInitializeHostedService
+  href: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseInitializeHostedService.html
+  name: ClickhouseInitializeHostedService
+  nameWithType: ClickhouseInitializeHostedService
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.ClickhouseInitializeHostedService

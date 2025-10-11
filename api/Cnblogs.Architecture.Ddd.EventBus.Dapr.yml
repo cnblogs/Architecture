@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Dapr
+  id: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusInjector
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusProvider
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprOptions
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+  parent: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  href: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.html
+  name: CqrsInjectorExtensions
+  nameWithType: CqrsInjectorExtensions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusInjector
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusInjector
+  parent: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  href: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusInjector.html
+  name: DaprEventBusInjector
+  nameWithType: DaprEventBusInjector
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusInjector
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusProvider
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusProvider
+  href: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusProvider.html
+  name: DaprEventBusProvider
+  nameWithType: DaprEventBusProvider
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprEventBusProvider
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprOptions
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprOptions
+  href: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprOptions.html
+  name: DaprOptions
+  nameWithType: DaprOptions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr.DaprOptions
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Dapr
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Dapr
+    name: Dapr
+    href: Cnblogs.Architecture.Ddd.EventBus.Dapr.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Dapr
+    name: Dapr
+    href: Cnblogs.Architecture.Ddd.EventBus.Dapr.html

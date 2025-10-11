@@ -1,0 +1,3690 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  id: BaseRepository`3
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.#ctor(MediatR.IMediator,`0)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Add(`1)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddAsync(`1)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddRangeAsync``1(``0)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.BeforeDispatchDomainEventAsync(System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent},Microsoft.EntityFrameworkCore.DbContext)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Context
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Delete(`1)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.DeleteAsync(`1)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.ExecuteSqlAsync(System.String,System.Object[])
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2,System.Collections.Generic.IEnumerable{System.String})
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2,System.Linq.Expressions.Expression{System.Func{`1,System.Object}}[])
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetNoTrackingQueryable``1
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.NoTrackingQueryable
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveChangesAsync(System.Threading.CancellationToken)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveEntitiesAsync(System.Threading.CancellationToken)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery(System.String,System.Object[])
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery``1(System.String,System.Object[])
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UnitOfWork
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Update(`1)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateAsync(`1)
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`1})
+  langs:
+  - csharp
+  - vb
+  name: BaseRepository<TContext, TEntity, TKey>
+  nameWithType: BaseRepository<TContext, TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: BaseRepository
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 仓储基类。
+  example: []
+  syntax:
+    content: 'public abstract class BaseRepository<TContext, TEntity, TKey> : INavigationRepository<TEntity, TKey>, IUnitOfWork<TEntity, TKey>, ISqlRepository<TEntity, TKey>, IRepository<TEntity, TKey> where TContext : DbContext where TEntity : EntityBase, IEntity<TKey>, IAggregateRoot where TKey : IComparable<TKey>'
+    typeParameters:
+    - id: TContext
+      description: 用于实际存储的 <xref href="Microsoft.EntityFrameworkCore.DbContext" data-throw-if-not-resolved="false"></xref>。
+    - id: TEntity
+      description: 该类管理的实体。
+    - id: TKey
+      description: <code class="typeparamref">TEntity</code> 的主键。
+    content.vb: Public MustInherit Class BaseRepository(Of TContext As DbContext, TEntity As {EntityBase, IEntity(Of TKey), IAggregateRoot}, TKey As IComparable(Of TKey)) Implements INavigationRepository(Of TEntity, TKey), IUnitOfWork(Of TEntity, TKey), ISqlRepository(Of TEntity, TKey), IRepository(Of TEntity, TKey)
+  inheritance:
+  - System.Object
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{{TEntity},{TKey}}
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey)
+  name.vb: BaseRepository(Of TContext, TEntity, TKey)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.#ctor(MediatR.IMediator,`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.#ctor(MediatR.IMediator,`0)
+  id: '#ctor(MediatR.IMediator,`0)'
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: BaseRepository(IMediator, TContext)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.BaseRepository(IMediator, TContext)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.BaseRepository(MediatR.IMediator, TContext)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 26
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 初始化仓储类。
+  example: []
+  syntax:
+    content: protected BaseRepository(IMediator mediator, TContext context)
+    parameters:
+    - id: mediator
+      type: MediatR.IMediator
+      description: 领域事件总线。
+    - id: context
+      type: '{TContext}'
+      description: <xref href="Microsoft.EntityFrameworkCore.DbContext" data-throw-if-not-resolved="false"></xref>。
+    content.vb: Protected Sub New(mediator As IMediator, context As TContext)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.#ctor*
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).New(IMediator, TContext)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).New(MediatR.IMediator, TContext)
+  name.vb: New(IMediator, TContext)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Context
+  commentId: P:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Context
+  id: Context
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: Context
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.Context
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.Context
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Context
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 35
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 底层 DbContext。
+  example: []
+  syntax:
+    content: protected TContext Context { get; }
+    parameters: []
+    return:
+      type: '{TContext}'
+    content.vb: Protected ReadOnly Property Context As TContext
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Context*
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).Context
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).Context
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.NoTrackingQueryable
+  commentId: P:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.NoTrackingQueryable
+  id: NoTrackingQueryable
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: NoTrackingQueryable
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.NoTrackingQueryable
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.NoTrackingQueryable
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: NoTrackingQueryable
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 38
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 获取用于查询的 <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>。
+  example: []
+  syntax:
+    content: public IQueryable<TEntity> NoTrackingQueryable { get; }
+    parameters: []
+    return:
+      type: System.Linq.IQueryable{{TEntity}}
+    content.vb: Public ReadOnly Property NoTrackingQueryable As IQueryable(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.NoTrackingQueryable*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.NoTrackingQueryable
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).NoTrackingQueryable
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).NoTrackingQueryable
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UnitOfWork
+  commentId: P:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UnitOfWork
+  id: UnitOfWork
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: UnitOfWork
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.UnitOfWork
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.UnitOfWork
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UnitOfWork
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 41
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 获取一个 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602" data-throw-if-not-resolved="false"></xref>。
+  example: []
+  syntax:
+    content: public IUnitOfWork<TEntity, TKey> UnitOfWork { get; }
+    parameters: []
+    return:
+      type: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+    content.vb: Public ReadOnly Property UnitOfWork As IUnitOfWork(Of TEntity, TKey)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UnitOfWork*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.UnitOfWork
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).UnitOfWork
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).UnitOfWork
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetNoTrackingQueryable``1
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetNoTrackingQueryable``1
+  id: GetNoTrackingQueryable``1
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: GetNoTrackingQueryable<T>()
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.GetNoTrackingQueryable<T>()
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.GetNoTrackingQueryable<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetNoTrackingQueryable
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 44
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 获取用于查询的 <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: 'public IQueryable<T> GetNoTrackingQueryable<T>() where T : class'
+    typeParameters:
+    - id: T
+      description: 实体类型。
+    return:
+      type: System.Linq.IQueryable{{T}}
+      description: NoTrackingQueryable
+    content.vb: Public Function GetNoTrackingQueryable(Of T As Class)() As IQueryable(Of T)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetNoTrackingQueryable*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.GetNoTrackingQueryable``1
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).GetNoTrackingQueryable(Of T)()
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).GetNoTrackingQueryable(Of T)()
+  name.vb: GetNoTrackingQueryable(Of T)()
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddAsync(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddAsync(`1)
+  id: AddAsync(`1)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: AddAsync(TEntity)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.AddAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.AddAsync(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AddAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 51
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 添加一个新的实体并立即提交。
+  example: []
+  syntax:
+    content: public Task<TEntity> AddAsync(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要添加的实体。
+    return:
+      type: System.Threading.Tasks.Task{{TEntity}}
+      description: 添加后的实体。
+    content.vb: Public Function AddAsync(entity As TEntity) As Task(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.AddAsync({TEntity})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).AddAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).AddAsync(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddRangeAsync``1(``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddRangeAsync``1(``0)
+  id: AddRangeAsync``1(``0)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: AddRangeAsync<TEnumerable>(TEnumerable)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.AddRangeAsync<TEnumerable>(TEnumerable)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.AddRangeAsync<TEnumerable>(TEnumerable)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AddRangeAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 59
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 添加多个实体并立即提交。
+  example: []
+  syntax:
+    content: 'public Task<TEnumerable> AddRangeAsync<TEnumerable>(TEnumerable entities) where TEnumerable : IEnumerable<TEntity>'
+    parameters:
+    - id: entities
+      type: '{TEnumerable}'
+      description: 要添加的实体。
+    typeParameters:
+    - id: TEnumerable
+      description: 列表类型。
+    return:
+      type: System.Threading.Tasks.Task{{TEnumerable}}
+      description: 添加后的实体。
+    content.vb: Public Function AddRangeAsync(Of TEnumerable As IEnumerable(Of TEntity))(entities As TEnumerable) As Task(Of TEnumerable)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddRangeAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.AddRangeAsync``1({TEnumerable})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).AddRangeAsync(Of TEnumerable)(TEnumerable)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).AddRangeAsync(Of TEnumerable)(TEnumerable)
+  name.vb: AddRangeAsync(Of TEnumerable)(TEnumerable)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2)
+  id: GetAsync(`2)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(TKey)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.GetAsync(TKey)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.GetAsync(TKey)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 68
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 通过主键获取实体以供修改。
+  example: []
+  syntax:
+    content: public Task<TEntity?> GetAsync(TKey key)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: 实体主键。
+    return:
+      type: System.Threading.Tasks.Task{{TEntity}}
+      description: <code class="paramref">key</code> 对应的实体。
+    content.vb: Public Function GetAsync(key As TKey) As Task(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.GetAsync({TKey})
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.GetAsync({TKey})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).GetAsync(TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).GetAsync(TKey)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2,System.Linq.Expressions.Expression{System.Func{`1,System.Object}}[])
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2,System.Linq.Expressions.Expression{System.Func{`1,System.Object}}[])
+  id: GetAsync(`2,System.Linq.Expressions.Expression{System.Func{`1,System.Object}}[])
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(TKey, params Expression<Func<TEntity, object?>>[])
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.GetAsync(TKey, params Expression<Func<TEntity, object?>>[])
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.GetAsync(TKey, params System.Linq.Expressions.Expression<System.Func<TEntity, object?>>[])
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 74
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 通过主键获取实体以供修改。
+  example: []
+  syntax:
+    content: public Task<TEntity?> GetAsync(TKey key, params Expression<Func<TEntity, object?>>[] includes)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: 实体主键。
+    - id: includes
+      type: System.Linq.Expressions.Expression{System.Func{{TEntity},System.Object}}[]
+      description: 要额外加载的其他实体。
+    return:
+      type: System.Threading.Tasks.Task{{TEntity}}
+      description: <code class="paramref">key</code> 对应的实体。
+    content.vb: Public Function GetAsync(key As TKey, ParamArray includes As Expression(Of Func(Of TEntity, Object))()) As Task(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{{TEntity},{TKey}}.GetAsync({TKey},System.Linq.Expressions.Expression{System.Func{{TEntity},System.Object}}[])
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).GetAsync(TKey, ParamArray Expression(Of Func(Of TEntity, Object))())
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).GetAsync(TKey, ParamArray System.Linq.Expressions.Expression(Of System.Func(Of TEntity, Object))())
+  name.vb: GetAsync(TKey, ParamArray Expression(Of Func(Of TEntity, Object))())
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync(`2,System.Collections.Generic.IEnumerable{System.String})
+  id: GetAsync(`2,System.Collections.Generic.IEnumerable{System.String})
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(TKey, IEnumerable<string>)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.GetAsync(TKey, IEnumerable<string>)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.GetAsync(TKey, System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 80
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: Get entity by key.
+  example: []
+  syntax:
+    content: public Task<TEntity?> GetAsync(TKey key, IEnumerable<string> includes)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: The key of entity.
+    - id: includes
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Include strings.
+    return:
+      type: System.Threading.Tasks.Task{{TEntity}}
+      description: The entity with key equals to <code class="paramref">key</code>.
+    content.vb: Public Function GetAsync(key As TKey, includes As IEnumerable(Of String)) As Task(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{{TEntity},{TKey}}.GetAsync({TKey},System.Collections.Generic.IEnumerable{System.String})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).GetAsync(TKey, IEnumerable(Of String))
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).GetAsync(TKey, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: GetAsync(TKey, IEnumerable(Of String))
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateAsync(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateAsync(`1)
+  id: UpdateAsync(`1)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(TEntity)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.UpdateAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.UpdateAsync(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UpdateAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 86
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 更新实体并立即提交。
+  example: []
+  syntax:
+    content: public Task<TEntity> UpdateAsync(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要更新的实体。
+    return:
+      type: System.Threading.Tasks.Task{{TEntity}}
+      description: 更新后的实体。
+    content.vb: Public Function UpdateAsync(entity As TEntity) As Task(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.UpdateAsync({TEntity})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).UpdateAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).UpdateAsync(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`1})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`1})
+  id: UpdateRangeAsync(System.Collections.Generic.IEnumerable{`1})
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: UpdateRangeAsync(IEnumerable<TEntity>)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.UpdateRangeAsync(IEnumerable<TEntity>)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.UpdateRangeAsync(System.Collections.Generic.IEnumerable<TEntity>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UpdateRangeAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 93
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 批量更新实体并提交。
+  example: []
+  syntax:
+    content: public Task<IEnumerable<TEntity>> UpdateRangeAsync(IEnumerable<TEntity> entities)
+    parameters:
+    - id: entities
+      type: System.Collections.Generic.IEnumerable{{TEntity}}
+      description: 实体。
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{{TEntity}}}
+      description: ''
+    content.vb: Public Function UpdateRangeAsync(entities As IEnumerable(Of TEntity)) As Task(Of IEnumerable(Of TEntity))
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateRangeAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.UpdateRangeAsync(System.Collections.Generic.IEnumerable{{TEntity}})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).UpdateRangeAsync(IEnumerable(Of TEntity))
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).UpdateRangeAsync(System.Collections.Generic.IEnumerable(Of TEntity))
+  name.vb: UpdateRangeAsync(IEnumerable(Of TEntity))
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.DeleteAsync(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.DeleteAsync(`1)
+  id: DeleteAsync(`1)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(TEntity)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.DeleteAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.DeleteAsync(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DeleteAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 100
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 删除实体并立即提交。
+  example: []
+  syntax:
+    content: public Task<TEntity> DeleteAsync(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要删除的实体。
+    return:
+      type: System.Threading.Tasks.Task{{TEntity}}
+      description: 被删除的实体。
+    content.vb: Public Function DeleteAsync(entity As TEntity) As Task(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.DeleteAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.DeleteAsync({TEntity})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).DeleteAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).DeleteAsync(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Add(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Add(`1)
+  id: Add(`1)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: Add(TEntity)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.Add(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.Add(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Add
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 108
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 添加实体，调用 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveEntitiesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 或 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveChangesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 后才会写入数据库。
+  example: []
+  syntax:
+    content: public TEntity Add(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要添加实体。
+    return:
+      type: '{TEntity}'
+      description: 被添加的实体。
+    content.vb: Public Function Add(entity As TEntity) As TEntity
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Add*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.Add({TEntity})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).Add(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).Add(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Update(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Update(`1)
+  id: Update(`1)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: Update(TEntity)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.Update(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.Update(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Update
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 115
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 更新实体，调用 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveEntitiesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 或 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveChangesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 后才会写入数据库。
+  example: []
+  syntax:
+    content: public TEntity Update(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要更新的实体。
+    return:
+      type: '{TEntity}'
+      description: 被更新的实体。
+    content.vb: Public Function Update(entity As TEntity) As TEntity
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Update*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.Update({TEntity})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).Update(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).Update(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Delete(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Delete(`1)
+  id: Delete(`1)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: Delete(TEntity)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.Delete(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.Delete(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Delete
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 122
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 删除实体，调用 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveEntitiesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 或 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveChangesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 后才会写入数据库。
+  example: []
+  syntax:
+    content: public TEntity Delete(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要删除的实体。
+    return:
+      type: '{TEntity}'
+      description: ''
+    content.vb: Public Function Delete(entity As TEntity) As TEntity
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Delete*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.Delete({TEntity})
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).Delete(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).Delete(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveChangesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveChangesAsync(System.Threading.CancellationToken)
+  id: SaveChangesAsync(System.Threading.CancellationToken)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: SaveChangesAsync(CancellationToken)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.SaveChangesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.SaveChangesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SaveChangesAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 129
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 提交所有更改（但不发布领域事件）。
+  example: []
+  syntax:
+    content: public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>。
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: 更改的行数。
+    content.vb: Public Function SaveChangesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveChangesAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.SaveChangesAsync(System.Threading.CancellationToken)
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).SaveChangesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).SaveChangesAsync(System.Threading.CancellationToken)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveEntitiesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveEntitiesAsync(System.Threading.CancellationToken)
+  id: SaveEntitiesAsync(System.Threading.CancellationToken)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: SaveEntitiesAsync(CancellationToken)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.SaveEntitiesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.SaveEntitiesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SaveEntitiesAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 136
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 提交所有实体，会发送领域事件（如果有）。
+  example: []
+  syntax:
+    content: public Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 提交是否成功。
+    content.vb: Public Function SaveEntitiesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveEntitiesAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.SaveEntitiesAsync(System.Threading.CancellationToken)
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).SaveEntitiesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).SaveEntitiesAsync(System.Threading.CancellationToken)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.BeforeDispatchDomainEventAsync(System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent},Microsoft.EntityFrameworkCore.DbContext)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.BeforeDispatchDomainEventAsync(System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent},Microsoft.EntityFrameworkCore.DbContext)
+  id: BeforeDispatchDomainEventAsync(System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent},Microsoft.EntityFrameworkCore.DbContext)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: BeforeDispatchDomainEventAsync(List<DomainEvent>, DbContext)
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.BeforeDispatchDomainEventAsync(List<DomainEvent>, DbContext)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.BeforeDispatchDomainEventAsync(System.Collections.Generic.List<Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent>, Microsoft.EntityFrameworkCore.DbContext)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: BeforeDispatchDomainEventAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 147
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 发送领域事件之前执行，可用于持久化领域事件，记录日志等
+  example: []
+  syntax:
+    content: protected virtual Task BeforeDispatchDomainEventAsync(List<DomainEvent> events, DbContext context)
+    parameters:
+    - id: events
+      type: System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent}
+      description: 即将发送的领域事件。
+    - id: context
+      type: Microsoft.EntityFrameworkCore.DbContext
+      description: 数据库 <xref href="Microsoft.EntityFrameworkCore.DbContext" data-throw-if-not-resolved="false"></xref>。
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Protected Overridable Function BeforeDispatchDomainEventAsync(events As List(Of DomainEvent), context As DbContext) As Task
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.BeforeDispatchDomainEventAsync*
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).BeforeDispatchDomainEventAsync(List(Of DomainEvent), DbContext)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).BeforeDispatchDomainEventAsync(System.Collections.Generic.List(Of Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent), Microsoft.EntityFrameworkCore.DbContext)
+  name.vb: BeforeDispatchDomainEventAsync(List(Of DomainEvent), DbContext)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery(System.String,System.Object[])
+  id: SqlQuery(System.String,System.Object[])
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: SqlQuery(string, params object[])
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.SqlQuery(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.SqlQuery(string, params object[])
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SqlQuery
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 189
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: Query entity with raw sql.
+  example: []
+  syntax:
+    content: public IQueryable<TEntity> SqlQuery(string sql, params object[] parameters)
+    parameters:
+    - id: sql
+      type: System.String
+      description: The sql string.
+    - id: parameters
+      type: System.Object[]
+      description: The parameters
+    return:
+      type: System.Linq.IQueryable{{TEntity}}
+      description: ''
+    content.vb: Public Function SqlQuery(sql As String, ParamArray parameters As Object()) As IQueryable(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}.SqlQuery(System.String,System.Object[])
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).SqlQuery(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).SqlQuery(String, ParamArray Object())
+  name.vb: SqlQuery(String, ParamArray Object())
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery``1(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery``1(System.String,System.Object[])
+  id: SqlQuery``1(System.String,System.Object[])
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: SqlQuery<T>(string, params object[])
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.SqlQuery<T>(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.SqlQuery<T>(string, params object[])
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SqlQuery
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 195
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: Query with raw sql.
+  example: []
+  syntax:
+    content: public IQueryable<T> SqlQuery<T>(string sql, params object[] parameters)
+    parameters:
+    - id: sql
+      type: System.String
+      description: The sql string.
+    - id: parameters
+      type: System.Object[]
+      description: The parameters.
+    typeParameters:
+    - id: T
+      description: The type of query result.
+    return:
+      type: System.Linq.IQueryable{{T}}
+      description: ''
+    content.vb: Public Function SqlQuery(Of T)(sql As String, ParamArray parameters As Object()) As IQueryable(Of T)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}.SqlQuery``1(System.String,System.Object[])
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).SqlQuery(Of T)(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).SqlQuery(Of T)(String, ParamArray Object())
+  name.vb: SqlQuery(Of T)(String, ParamArray Object())
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.ExecuteSqlAsync(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.ExecuteSqlAsync(System.String,System.Object[])
+  id: ExecuteSqlAsync(System.String,System.Object[])
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3
+  langs:
+  - csharp
+  - vb
+  name: ExecuteSqlAsync(string, params object[])
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.ExecuteSqlAsync(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.ExecuteSqlAsync(string, params object[])
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ExecuteSqlAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/BaseRepository.cs
+    startLine: 201
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: Execute raw sql.
+  example: []
+  syntax:
+    content: public Task<int> ExecuteSqlAsync(string sql, params object[] parameters)
+    parameters:
+    - id: sql
+      type: System.String
+      description: The sql string.
+    - id: parameters
+      type: System.Object[]
+      description: The parameters.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The number of rows affected.
+    content.vb: Public Function ExecuteSqlAsync(sql As String, ParamArray parameters As Object()) As Task(Of Integer)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.ExecuteSqlAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}.ExecuteSqlAsync(System.String,System.Object[])
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).ExecuteSqlAsync(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).ExecuteSqlAsync(String, ParamArray Object())
+  name.vb: ExecuteSqlAsync(String, ParamArray Object())
+references:
+- uid: Microsoft.EntityFrameworkCore.DbContext
+  commentId: T:Microsoft.EntityFrameworkCore.DbContext
+  parent: Microsoft.EntityFrameworkCore
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore.dbcontext
+  name: DbContext
+  nameWithType: DbContext
+  fullName: Microsoft.EntityFrameworkCore.DbContext
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+    name: EntityFramework
+    href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+    name: EntityFramework
+    href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{{TEntity},{TKey}}
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{`1,`2}
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+  name: INavigationRepository<TEntity, TKey>
+  nameWithType: INavigationRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository<TEntity, TKey>
+  nameWithType.vb: INavigationRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository(Of TEntity, TKey)
+  name.vb: INavigationRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+    name: INavigationRepository
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+    name: INavigationRepository
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`0,`1}
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  name: IUnitOfWork<TEntity, TKey>
+  nameWithType: IUnitOfWork<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey)
+  name.vb: IUnitOfWork(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+    name: IUnitOfWork
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+    name: IUnitOfWork
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+  name: ISqlRepository<TEntity, TKey>
+  nameWithType: ISqlRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey)
+  name.vb: ISqlRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+    name: ISqlRepository
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+    name: ISqlRepository
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  name: IRepository<TEntity, TKey>
+  nameWithType: IRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>
+  nameWithType.vb: IRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey)
+  name.vb: IRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+    name: IRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+    name: IRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Microsoft.EntityFrameworkCore
+  commentId: N:Microsoft.EntityFrameworkCore
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.EntityFrameworkCore
+  nameWithType: Microsoft.EntityFrameworkCore
+  fullName: Microsoft.EntityFrameworkCore
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.EntityFrameworkCore
+    name: EntityFrameworkCore
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.entityframeworkcore
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository-2.html
+  name: INavigationRepository<TEntity, TKey>
+  nameWithType: INavigationRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository<TEntity, TKey>
+  nameWithType.vb: INavigationRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository(Of TEntity, TKey)
+  name.vb: INavigationRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+    name: INavigationRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2
+    name: INavigationRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  name: IUnitOfWork<TEntity, TKey>
+  nameWithType: IUnitOfWork<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey)
+  name.vb: IUnitOfWork(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+    name: IUnitOfWork
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+    name: IUnitOfWork
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository-2.html
+  name: ISqlRepository<TEntity, TKey>
+  nameWithType: ISqlRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey)
+  name.vb: ISqlRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+    name: ISqlRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2
+    name: ISqlRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  name: IRepository<TEntity, TKey>
+  nameWithType: IRepository<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>
+  nameWithType.vb: IRepository(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey)
+  name.vb: IRepository(Of TEntity, TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+    name: IRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2
+    name: IRepository
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.#ctor
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3__ctor_MediatR_IMediator__0_
+  name: BaseRepository
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.BaseRepository
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.BaseRepository
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).New
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).New
+  name.vb: New
+- uid: MediatR.IMediator
+  commentId: T:MediatR.IMediator
+  parent: MediatR
+  isExternal: true
+  name: IMediator
+  nameWithType: IMediator
+  fullName: MediatR.IMediator
+- uid: '{TContext}'
+  commentId: '!:TContext'
+  definition: TContext
+  name: TContext
+  nameWithType: TContext
+  fullName: TContext
+- uid: MediatR
+  commentId: N:MediatR
+  href: MediatR.html
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR
+- uid: TContext
+  name: TContext
+  nameWithType: TContext
+  fullName: TContext
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Context*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Context
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_Context
+  name: Context
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.Context
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.Context
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).Context
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).Context
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.NoTrackingQueryable*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.NoTrackingQueryable
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_NoTrackingQueryable
+  name: NoTrackingQueryable
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.NoTrackingQueryable
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.NoTrackingQueryable
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).NoTrackingQueryable
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).NoTrackingQueryable
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.NoTrackingQueryable
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.NoTrackingQueryable
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.NoTrackingQueryable
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_NoTrackingQueryable
+  name: NoTrackingQueryable
+  nameWithType: IRepository<TEntity, TKey>.NoTrackingQueryable
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.NoTrackingQueryable
+  nameWithType.vb: IRepository(Of TEntity, TKey).NoTrackingQueryable
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).NoTrackingQueryable
+- uid: System.Linq.IQueryable{{TEntity}}
+  commentId: T:System.Linq.IQueryable{`1}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<TEntity>
+  nameWithType: IQueryable<TEntity>
+  fullName: System.Linq.IQueryable<TEntity>
+  nameWithType.vb: IQueryable(Of TEntity)
+  fullName.vb: System.Linq.IQueryable(Of TEntity)
+  name.vb: IQueryable(Of TEntity)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.NoTrackingQueryable
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.NoTrackingQueryable
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_NoTrackingQueryable
+  name: NoTrackingQueryable
+  nameWithType: IRepository<TEntity, TKey>.NoTrackingQueryable
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.NoTrackingQueryable
+  nameWithType.vb: IRepository(Of TEntity, TKey).NoTrackingQueryable
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).NoTrackingQueryable
+- uid: System.Linq
+  commentId: N:System.Linq
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UnitOfWork*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UnitOfWork
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_UnitOfWork
+  name: UnitOfWork
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.UnitOfWork
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.UnitOfWork
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).UnitOfWork
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).UnitOfWork
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.UnitOfWork
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.UnitOfWork
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UnitOfWork
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UnitOfWork
+  name: UnitOfWork
+  nameWithType: IRepository<TEntity, TKey>.UnitOfWork
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.UnitOfWork
+  nameWithType.vb: IRepository(Of TEntity, TKey).UnitOfWork
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).UnitOfWork
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UnitOfWork
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UnitOfWork
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UnitOfWork
+  name: UnitOfWork
+  nameWithType: IRepository<TEntity, TKey>.UnitOfWork
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.UnitOfWork
+  nameWithType.vb: IRepository(Of TEntity, TKey).UnitOfWork
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).UnitOfWork
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetNoTrackingQueryable*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetNoTrackingQueryable
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_GetNoTrackingQueryable__1
+  name: GetNoTrackingQueryable
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.GetNoTrackingQueryable
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.GetNoTrackingQueryable
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).GetNoTrackingQueryable
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).GetNoTrackingQueryable
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.GetNoTrackingQueryable``1
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.GetNoTrackingQueryable``1
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetNoTrackingQueryable``1
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetNoTrackingQueryable__1
+  name: GetNoTrackingQueryable<T>()
+  nameWithType: IRepository<TEntity, TKey>.GetNoTrackingQueryable<T>()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.GetNoTrackingQueryable<T>()
+  nameWithType.vb: IRepository(Of TEntity, TKey).GetNoTrackingQueryable(Of T)()
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).GetNoTrackingQueryable(Of T)()
+  name.vb: GetNoTrackingQueryable(Of T)()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.GetNoTrackingQueryable``1
+    name: GetNoTrackingQueryable
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetNoTrackingQueryable__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.GetNoTrackingQueryable``1
+    name: GetNoTrackingQueryable
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetNoTrackingQueryable__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: System.Linq.IQueryable{{T}}
+  commentId: T:System.Linq.IQueryable{``0}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetNoTrackingQueryable``1
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetNoTrackingQueryable``1
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetNoTrackingQueryable__1
+  name: GetNoTrackingQueryable<T>()
+  nameWithType: IRepository<TEntity, TKey>.GetNoTrackingQueryable<T>()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.GetNoTrackingQueryable<T>()
+  nameWithType.vb: IRepository(Of TEntity, TKey).GetNoTrackingQueryable(Of T)()
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).GetNoTrackingQueryable(Of T)()
+  name.vb: GetNoTrackingQueryable(Of T)()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetNoTrackingQueryable``1
+    name: GetNoTrackingQueryable
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetNoTrackingQueryable__1
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetNoTrackingQueryable``1
+    name: GetNoTrackingQueryable
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetNoTrackingQueryable__1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_AddAsync__1_
+  name: AddAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.AddAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.AddAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).AddAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).AddAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.AddAsync({TEntity})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.AddAsync(`0)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddAsync(`0)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddAsync__0_
+  name: AddAsync(TEntity)
+  nameWithType: IRepository<TEntity, TKey>.AddAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.AddAsync(TEntity)
+  nameWithType.vb: IRepository(Of TEntity, TKey).AddAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).AddAsync(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.AddAsync(`0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.AddAsync(`0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: '{TEntity}'
+  commentId: '!:TEntity'
+  definition: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: System.Threading.Tasks.Task{{TEntity}}
+  commentId: T:System.Threading.Tasks.Task{`0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TEntity>
+  nameWithType: Task<TEntity>
+  fullName: System.Threading.Tasks.Task<TEntity>
+  nameWithType.vb: Task(Of TEntity)
+  fullName.vb: System.Threading.Tasks.Task(Of TEntity)
+  name.vb: Task(Of TEntity)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddAsync(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddAsync(`0)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddAsync__0_
+  name: AddAsync(TEntity)
+  nameWithType: IRepository<TEntity, TKey>.AddAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.AddAsync(TEntity)
+  nameWithType.vb: IRepository(Of TEntity, TKey).AddAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).AddAsync(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddAsync(`0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddAsync(`0)
+    name: AddAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddRangeAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.AddRangeAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_AddRangeAsync__1___0_
+  name: AddRangeAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.AddRangeAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.AddRangeAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).AddRangeAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).AddRangeAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.AddRangeAsync``1({TEnumerable})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.AddRangeAsync``1(``0)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddRangeAsync``1(``0)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddRangeAsync__1___0_
+  name: AddRangeAsync<TEnumerable>(TEnumerable)
+  nameWithType: IRepository<TEntity, TKey>.AddRangeAsync<TEnumerable>(TEnumerable)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.AddRangeAsync<TEnumerable>(TEnumerable)
+  nameWithType.vb: IRepository(Of TEntity, TKey).AddRangeAsync(Of TEnumerable)(TEnumerable)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).AddRangeAsync(Of TEnumerable)(TEnumerable)
+  name.vb: AddRangeAsync(Of TEnumerable)(TEnumerable)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.AddRangeAsync``1(``0)
+    name: AddRangeAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddRangeAsync__1___0_
+  - name: <
+  - name: TEnumerable
+  - name: '>'
+  - name: (
+  - name: TEnumerable
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.AddRangeAsync``1(``0)
+    name: AddRangeAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddRangeAsync__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnumerable
+  - name: )
+  - name: (
+  - name: TEnumerable
+  - name: )
+- uid: '{TEnumerable}'
+  commentId: '!:TEnumerable'
+  definition: TEnumerable
+  name: TEnumerable
+  nameWithType: TEnumerable
+  fullName: TEnumerable
+- uid: System.Threading.Tasks.Task{{TEnumerable}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TEnumerable>
+  nameWithType: Task<TEnumerable>
+  fullName: System.Threading.Tasks.Task<TEnumerable>
+  nameWithType.vb: Task(Of TEnumerable)
+  fullName.vb: System.Threading.Tasks.Task(Of TEnumerable)
+  name.vb: Task(Of TEnumerable)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TEnumerable
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnumerable
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddRangeAsync``1(``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddRangeAsync``1(``0)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddRangeAsync__1___0_
+  name: AddRangeAsync<TEnumerable>(TEnumerable)
+  nameWithType: IRepository<TEntity, TKey>.AddRangeAsync<TEnumerable>(TEnumerable)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.AddRangeAsync<TEnumerable>(TEnumerable)
+  nameWithType.vb: IRepository(Of TEntity, TKey).AddRangeAsync(Of TEnumerable)(TEnumerable)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).AddRangeAsync(Of TEnumerable)(TEnumerable)
+  name.vb: AddRangeAsync(Of TEnumerable)(TEnumerable)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddRangeAsync``1(``0)
+    name: AddRangeAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddRangeAsync__1___0_
+  - name: <
+  - name: TEnumerable
+  - name: '>'
+  - name: (
+  - name: TEnumerable
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.AddRangeAsync``1(``0)
+    name: AddRangeAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_AddRangeAsync__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEnumerable
+  - name: )
+  - name: (
+  - name: TEnumerable
+  - name: )
+- uid: TEnumerable
+  name: TEnumerable
+  nameWithType: TEnumerable
+  fullName: TEnumerable
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.GetAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_GetAsync__2_
+  name: GetAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.GetAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.GetAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).GetAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).GetAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.GetAsync({TKey})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.GetAsync(`2)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync(`1)
+  name: GetAsync(TKey)
+  nameWithType: IUnitOfWork<TEntity, TKey>.GetAsync(TKey)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.GetAsync(TKey)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).GetAsync(TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).GetAsync(TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.GetAsync(`2)
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.GetAsync(`2)
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.GetAsync({TKey})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.GetAsync(`1)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetAsync(`1)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetAsync__1_
+  name: GetAsync(TKey)
+  nameWithType: IRepository<TEntity, TKey>.GetAsync(TKey)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.GetAsync(TKey)
+  nameWithType.vb: IRepository(Of TEntity, TKey).GetAsync(TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).GetAsync(TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.GetAsync(`1)
+    name: GetAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetAsync__1_
+  - name: (
+  - name: TKey
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.GetAsync(`1)
+    name: GetAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetAsync__1_
+  - name: (
+  - name: TKey
+  - name: )
+- uid: '{TKey}'
+  commentId: '!:TKey'
+  definition: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync(`1)
+  name: GetAsync(TKey)
+  nameWithType: IUnitOfWork<TEntity, TKey>.GetAsync(TKey)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.GetAsync(TKey)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).GetAsync(TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).GetAsync(TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync(`1)
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync(`1)
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetAsync(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetAsync(`1)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetAsync__1_
+  name: GetAsync(TKey)
+  nameWithType: IRepository<TEntity, TKey>.GetAsync(TKey)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.GetAsync(TKey)
+  nameWithType.vb: IRepository(Of TEntity, TKey).GetAsync(TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).GetAsync(TKey)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetAsync(`1)
+    name: GetAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetAsync__1_
+  - name: (
+  - name: TKey
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.GetAsync(`1)
+    name: GetAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_GetAsync__1_
+  - name: (
+  - name: TKey
+  - name: )
+- uid: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{{TEntity},{TKey}}.GetAsync({TKey},System.Linq.Expressions.Expression{System.Func{{TEntity},System.Object}}[])
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{`1,`2}.GetAsync(`2,System.Linq.Expressions.Expression{System.Func{`1,System.Object}}[])
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: GetAsync(TKey, params Expression<Func<TEntity, object>>[])
+  nameWithType: INavigationRepository<TEntity, TKey>.GetAsync(TKey, params Expression<Func<TEntity, object>>[])
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository<TEntity, TKey>.GetAsync(TKey, params System.Linq.Expressions.Expression<System.Func<TEntity, object>>[])
+  nameWithType.vb: INavigationRepository(Of TEntity, TKey).GetAsync(TKey, ParamArray Expression(Of Func(Of TEntity, Object))())
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository(Of TEntity, TKey).GetAsync(TKey, ParamArray System.Linq.Expressions.Expression(Of System.Func(Of TEntity, Object))())
+  name.vb: GetAsync(TKey, ParamArray Expression(Of Func(Of TEntity, Object))())
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{`1,`2}.GetAsync(`2,System.Linq.Expressions.Expression{System.Func{`1,System.Object}}[])
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{`1,`2}.GetAsync(`2,System.Linq.Expressions.Expression{System.Func{`1,System.Object}}[])
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+  - name: (
+  - name: )
+  - name: )
+- uid: System.Linq.Expressions.Expression{System.Func{{TEntity},System.Object}}[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: Expression<Func<TEntity, object>>[]
+  nameWithType: Expression<Func<TEntity, object>>[]
+  fullName: System.Linq.Expressions.Expression<System.Func<TEntity, object>>[]
+  nameWithType.vb: Expression(Of Func(Of TEntity, Object))()
+  fullName.vb: System.Linq.Expressions.Expression(Of System.Func(Of TEntity, Object))()
+  name.vb: Expression(Of Func(Of TEntity, Object))()
+  spec.csharp:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  name: GetAsync(TKey, params Expression<Func<TEntity, object>>[])
+  nameWithType: INavigationRepository<TEntity, TKey>.GetAsync(TKey, params Expression<Func<TEntity, object>>[])
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository<TEntity, TKey>.GetAsync(TKey, params System.Linq.Expressions.Expression<System.Func<TEntity, object>>[])
+  nameWithType.vb: INavigationRepository(Of TEntity, TKey).GetAsync(TKey, ParamArray Expression(Of Func(Of TEntity, Object))())
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository(Of TEntity, TKey).GetAsync(TKey, ParamArray System.Linq.Expressions.Expression(Of System.Func(Of TEntity, Object))())
+  name.vb: GetAsync(TKey, ParamArray Expression(Of Func(Of TEntity, Object))())
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+  - name: (
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{{TEntity},{TKey}}.GetAsync({TKey},System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{`1,`2}.GetAsync(`2,System.Collections.Generic.IEnumerable{System.String})
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Collections.Generic.IEnumerable{System.String})
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: GetAsync(TKey, IEnumerable<string>)
+  nameWithType: INavigationRepository<TEntity, TKey>.GetAsync(TKey, IEnumerable<string>)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository<TEntity, TKey>.GetAsync(TKey, System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: INavigationRepository(Of TEntity, TKey).GetAsync(TKey, IEnumerable(Of String))
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository(Of TEntity, TKey).GetAsync(TKey, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: GetAsync(TKey, IEnumerable(Of String))
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{`1,`2}.GetAsync(`2,System.Collections.Generic.IEnumerable{System.String})
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository{`1,`2}.GetAsync(`2,System.Collections.Generic.IEnumerable{System.String})
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Collections.Generic.IEnumerable{System.String})
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: GetAsync(TKey, IEnumerable<string>)
+  nameWithType: INavigationRepository<TEntity, TKey>.GetAsync(TKey, IEnumerable<string>)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository<TEntity, TKey>.GetAsync(TKey, System.Collections.Generic.IEnumerable<string>)
+  nameWithType.vb: INavigationRepository(Of TEntity, TKey).GetAsync(TKey, IEnumerable(Of String))
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository(Of TEntity, TKey).GetAsync(TKey, System.Collections.Generic.IEnumerable(Of String))
+  name.vb: GetAsync(TKey, IEnumerable(Of String))
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Collections.Generic.IEnumerable{System.String})
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.INavigationRepository`2.GetAsync(`1,System.Collections.Generic.IEnumerable{System.String})
+    name: GetAsync
+  - name: (
+  - name: TKey
+  - name: ','
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_UpdateAsync__1_
+  name: UpdateAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.UpdateAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.UpdateAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).UpdateAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).UpdateAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.UpdateAsync({TEntity})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.UpdateAsync(`0)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateAsync(`0)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateAsync__0_
+  name: UpdateAsync(TEntity)
+  nameWithType: IRepository<TEntity, TKey>.UpdateAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.UpdateAsync(TEntity)
+  nameWithType.vb: IRepository(Of TEntity, TKey).UpdateAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).UpdateAsync(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.UpdateAsync(`0)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.UpdateAsync(`0)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateAsync(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateAsync(`0)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateAsync__0_
+  name: UpdateAsync(TEntity)
+  nameWithType: IRepository<TEntity, TKey>.UpdateAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.UpdateAsync(TEntity)
+  nameWithType.vb: IRepository(Of TEntity, TKey).UpdateAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).UpdateAsync(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateAsync(`0)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateAsync(`0)
+    name: UpdateAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateRangeAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.UpdateRangeAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_UpdateRangeAsync_System_Collections_Generic_IEnumerable__1__
+  name: UpdateRangeAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.UpdateRangeAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.UpdateRangeAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).UpdateRangeAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).UpdateRangeAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.UpdateRangeAsync(System.Collections.Generic.IEnumerable{{TEntity}})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: UpdateRangeAsync(IEnumerable<TEntity>)
+  nameWithType: IRepository<TEntity, TKey>.UpdateRangeAsync(IEnumerable<TEntity>)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.UpdateRangeAsync(System.Collections.Generic.IEnumerable<TEntity>)
+  nameWithType.vb: IRepository(Of TEntity, TKey).UpdateRangeAsync(IEnumerable(Of TEntity))
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).UpdateRangeAsync(System.Collections.Generic.IEnumerable(Of TEntity))
+  name.vb: UpdateRangeAsync(IEnumerable(Of TEntity))
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: UpdateRangeAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: UpdateRangeAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{{TEntity}}
+  commentId: T:System.Collections.Generic.IEnumerable{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TEntity>
+  nameWithType: IEnumerable<TEntity>
+  fullName: System.Collections.Generic.IEnumerable<TEntity>
+  nameWithType.vb: IEnumerable(Of TEntity)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TEntity)
+  name.vb: IEnumerable(Of TEntity)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{{TEntity}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.IEnumerable{`0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IEnumerable<TEntity>>
+  nameWithType: Task<IEnumerable<TEntity>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.IEnumerable<TEntity>>
+  nameWithType.vb: Task(Of IEnumerable(Of TEntity))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.IEnumerable(Of TEntity))
+  name.vb: Task(Of IEnumerable(Of TEntity))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0})
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateRangeAsync_System_Collections_Generic_IEnumerable__0__
+  name: UpdateRangeAsync(IEnumerable<TEntity>)
+  nameWithType: IRepository<TEntity, TKey>.UpdateRangeAsync(IEnumerable<TEntity>)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.UpdateRangeAsync(System.Collections.Generic.IEnumerable<TEntity>)
+  nameWithType.vb: IRepository(Of TEntity, TKey).UpdateRangeAsync(IEnumerable(Of TEntity))
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).UpdateRangeAsync(System.Collections.Generic.IEnumerable(Of TEntity))
+  name.vb: UpdateRangeAsync(IEnumerable(Of TEntity))
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: UpdateRangeAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.UpdateRangeAsync(System.Collections.Generic.IEnumerable{`0})
+    name: UpdateRangeAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_UpdateRangeAsync_System_Collections_Generic_IEnumerable__0__
+  - name: (
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.DeleteAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.DeleteAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_DeleteAsync__1_
+  name: DeleteAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.DeleteAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.DeleteAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).DeleteAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).DeleteAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}.DeleteAsync({TEntity})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.DeleteAsync(`0)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.DeleteAsync(`0)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_DeleteAsync__0_
+  name: DeleteAsync(TEntity)
+  nameWithType: IRepository<TEntity, TKey>.DeleteAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.DeleteAsync(TEntity)
+  nameWithType.vb: IRepository(Of TEntity, TKey).DeleteAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).DeleteAsync(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.DeleteAsync(`0)
+    name: DeleteAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_DeleteAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository{`0,`1}.DeleteAsync(`0)
+    name: DeleteAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_DeleteAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.DeleteAsync(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.DeleteAsync(`0)
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_DeleteAsync__0_
+  name: DeleteAsync(TEntity)
+  nameWithType: IRepository<TEntity, TKey>.DeleteAsync(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository<TEntity, TKey>.DeleteAsync(TEntity)
+  nameWithType.vb: IRepository(Of TEntity, TKey).DeleteAsync(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository(Of TEntity, TKey).DeleteAsync(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.DeleteAsync(`0)
+    name: DeleteAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_DeleteAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository`2.DeleteAsync(`0)
+    name: DeleteAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IRepository-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IRepository_2_DeleteAsync__0_
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveEntitiesAsync_System_Threading_CancellationToken_
+  name: SaveEntitiesAsync(CancellationToken)
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+    name: SaveEntitiesAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveEntitiesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+    name: SaveEntitiesAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveEntitiesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveChangesAsync_System_Threading_CancellationToken_
+  name: SaveChangesAsync(CancellationToken)
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveChangesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveChangesAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveChangesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveChangesAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+    name: SaveChangesAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveChangesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+    name: SaveChangesAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveChangesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Add*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Add
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_Add__1_
+  name: Add
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.Add
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.Add
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).Add
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).Add
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.Add({TEntity})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Add(`1)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add(`0)
+  name: Add(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Add(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Add(TEntity)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Add(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Add(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Add(`1)
+    name: Add
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Add(`1)
+    name: Add
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add(`0)
+  name: Add(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Add(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Add(TEntity)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Add(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Add(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add(`0)
+    name: Add
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add(`0)
+    name: Add
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Update*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Update
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_Update__1_
+  name: Update
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.Update
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.Update
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).Update
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).Update
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.Update({TEntity})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Update(`1)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update(`0)
+  name: Update(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Update(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Update(TEntity)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Update(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Update(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Update(`1)
+    name: Update
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Update(`1)
+    name: Update
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update(`0)
+  name: Update(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Update(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Update(TEntity)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Update(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Update(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update(`0)
+    name: Update
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update(`0)
+    name: Update
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Delete*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.Delete
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_Delete__1_
+  name: Delete
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.Delete
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.Delete
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).Delete
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).Delete
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.Delete({TEntity})
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Delete(`1)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete(`0)
+  name: Delete(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Delete(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Delete(TEntity)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Delete(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Delete(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Delete(`1)
+    name: Delete
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.Delete(`1)
+    name: Delete
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete(`0)
+  name: Delete(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Delete(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Delete(TEntity)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Delete(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Delete(TEntity)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete(`0)
+    name: Delete
+  - name: (
+  - name: TEntity
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete(`0)
+    name: Delete
+  - name: (
+  - name: TEntity
+  - name: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveChangesAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveChangesAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_SaveChangesAsync_System_Threading_CancellationToken_
+  name: SaveChangesAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.SaveChangesAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.SaveChangesAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).SaveChangesAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).SaveChangesAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.SaveChangesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.SaveChangesAsync(System.Threading.CancellationToken)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: SaveChangesAsync(CancellationToken)
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveChangesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveChangesAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveChangesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveChangesAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.SaveChangesAsync(System.Threading.CancellationToken)
+    name: SaveChangesAsync
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.SaveChangesAsync(System.Threading.CancellationToken)
+    name: SaveChangesAsync
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveEntitiesAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SaveEntitiesAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_SaveEntitiesAsync_System_Threading_CancellationToken_
+  name: SaveEntitiesAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.SaveEntitiesAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.SaveEntitiesAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).SaveEntitiesAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).SaveEntitiesAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}.SaveEntitiesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.SaveEntitiesAsync(System.Threading.CancellationToken)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: SaveEntitiesAsync(CancellationToken)
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.SaveEntitiesAsync(System.Threading.CancellationToken)
+    name: SaveEntitiesAsync
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork{`1,`2}.SaveEntitiesAsync(System.Threading.CancellationToken)
+    name: SaveEntitiesAsync
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.BeforeDispatchDomainEventAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.BeforeDispatchDomainEventAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_BeforeDispatchDomainEventAsync_System_Collections_Generic_List_Cnblogs_Architecture_Ddd_Domain_Abstractions_DomainEvent__Microsoft_EntityFrameworkCore_DbContext_
+  name: BeforeDispatchDomainEventAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.BeforeDispatchDomainEventAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.BeforeDispatchDomainEventAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).BeforeDispatchDomainEventAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).BeforeDispatchDomainEventAsync
+- uid: System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent}
+  commentId: T:System.Collections.Generic.List{Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<DomainEvent>
+  nameWithType: List<DomainEvent>
+  fullName: System.Collections.Generic.List<Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent>
+  nameWithType.vb: List(Of DomainEvent)
+  fullName.vb: System.Collections.Generic.List(Of Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent)
+  name.vb: List(Of DomainEvent)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+    name: DomainEvent
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+    name: DomainEvent
+  - name: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.SqlQuery
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_SqlQuery_System_String_System_Object___
+  name: SqlQuery
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.SqlQuery
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.SqlQuery
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).SqlQuery
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).SqlQuery
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}.SqlQuery(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.SqlQuery(System.String,System.Object[])
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery(System.String,System.Object[])
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SqlQuery(string, params object[])
+  nameWithType: ISqlRepository<TEntity, TKey>.SqlQuery(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>.SqlQuery(string, params object[])
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey).SqlQuery(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey).SqlQuery(String, ParamArray Object())
+  name.vb: SqlQuery(String, ParamArray Object())
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.SqlQuery(System.String,System.Object[])
+    name: SqlQuery
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.SqlQuery(System.String,System.Object[])
+    name: SqlQuery
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery(System.String,System.Object[])
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SqlQuery(string, params object[])
+  nameWithType: ISqlRepository<TEntity, TKey>.SqlQuery(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>.SqlQuery(string, params object[])
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey).SqlQuery(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey).SqlQuery(String, ParamArray Object())
+  name.vb: SqlQuery(String, ParamArray Object())
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery(System.String,System.Object[])
+    name: SqlQuery
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery(System.String,System.Object[])
+    name: SqlQuery
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}.SqlQuery``1(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.SqlQuery``1(System.String,System.Object[])
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery``1(System.String,System.Object[])
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SqlQuery<T>(string, params object[])
+  nameWithType: ISqlRepository<TEntity, TKey>.SqlQuery<T>(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>.SqlQuery<T>(string, params object[])
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey).SqlQuery(Of T)(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey).SqlQuery(Of T)(String, ParamArray Object())
+  name.vb: SqlQuery(Of T)(String, ParamArray Object())
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.SqlQuery``1(System.String,System.Object[])
+    name: SqlQuery
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.SqlQuery``1(System.String,System.Object[])
+    name: SqlQuery
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery``1(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery``1(System.String,System.Object[])
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: SqlQuery<T>(string, params object[])
+  nameWithType: ISqlRepository<TEntity, TKey>.SqlQuery<T>(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>.SqlQuery<T>(string, params object[])
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey).SqlQuery(Of T)(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey).SqlQuery(Of T)(String, ParamArray Object())
+  name.vb: SqlQuery(Of T)(String, ParamArray Object())
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery``1(System.String,System.Object[])
+    name: SqlQuery
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.SqlQuery``1(System.String,System.Object[])
+    name: SqlQuery
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.ExecuteSqlAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository`3.ExecuteSqlAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository-3.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_BaseRepository_3_ExecuteSqlAsync_System_String_System_Object___
+  name: ExecuteSqlAsync
+  nameWithType: BaseRepository<TContext, TEntity, TKey>.ExecuteSqlAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository<TContext, TEntity, TKey>.ExecuteSqlAsync
+  nameWithType.vb: BaseRepository(Of TContext, TEntity, TKey).ExecuteSqlAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.BaseRepository(Of TContext, TEntity, TKey).ExecuteSqlAsync
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}.ExecuteSqlAsync(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.ExecuteSqlAsync(System.String,System.Object[])
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{{TEntity},{TKey}}
+  definition: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.ExecuteSqlAsync(System.String,System.Object[])
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: ExecuteSqlAsync(string, params object[])
+  nameWithType: ISqlRepository<TEntity, TKey>.ExecuteSqlAsync(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>.ExecuteSqlAsync(string, params object[])
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey).ExecuteSqlAsync(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey).ExecuteSqlAsync(String, ParamArray Object())
+  name.vb: ExecuteSqlAsync(String, ParamArray Object())
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.ExecuteSqlAsync(System.String,System.Object[])
+    name: ExecuteSqlAsync
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository{`1,`2}.ExecuteSqlAsync(System.String,System.Object[])
+    name: ExecuteSqlAsync
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.ExecuteSqlAsync(System.String,System.Object[])
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.ExecuteSqlAsync(System.String,System.Object[])
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: ExecuteSqlAsync(string, params object[])
+  nameWithType: ISqlRepository<TEntity, TKey>.ExecuteSqlAsync(string, params object[])
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository<TEntity, TKey>.ExecuteSqlAsync(string, params object[])
+  nameWithType.vb: ISqlRepository(Of TEntity, TKey).ExecuteSqlAsync(String, ParamArray Object())
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository(Of TEntity, TKey).ExecuteSqlAsync(String, ParamArray Object())
+  name.vb: ExecuteSqlAsync(String, ParamArray Object())
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.ExecuteSqlAsync(System.String,System.Object[])
+    name: ExecuteSqlAsync
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: params
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.ISqlRepository`2.ExecuteSqlAsync(System.String,System.Object[])
+    name: ExecuteSqlAsync
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: ParamArray
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+  - name: )

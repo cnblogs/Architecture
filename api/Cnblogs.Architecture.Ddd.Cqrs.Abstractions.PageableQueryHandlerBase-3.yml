@@ -1,0 +1,1439 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  id: PageableQueryHandlerBase`3
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.CountAsync(`0,System.Linq.IQueryable{`1})
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.DefaultOrderBy(`0,System.Linq.IQueryable{`1})
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter(`0)
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.FilterAsync(`0)
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Handle(`0,System.Threading.CancellationToken)
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ProjectToView(`0,System.Linq.IQueryable{`1})
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ToListAsync(`0,System.Linq.IQueryable{`2})
+  langs:
+  - csharp
+  - vb
+  name: PageableQueryHandlerBase<TQuery, TEntity, TView>
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PageableQueryHandlerBase
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Base class for implementing <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler%602" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public abstract class PageableQueryHandlerBase<TQuery, TEntity, TView> : IPageableQueryHandler<TQuery, TView>, IListQueryHandler<TQuery, PagedList<TView>>, IRequestHandler<TQuery, PagedList<TView>> where TQuery : IPageableQuery<TView>'
+    typeParameters:
+    - id: TQuery
+      description: The type of query.
+    - id: TEntity
+      description: The type of entity to query.
+    - id: TView
+      description: The type of projected view model.
+    content.vb: Public MustInherit Class PageableQueryHandlerBase(Of TQuery As IPageableQuery(Of TView), TEntity, TView) Implements IPageableQueryHandler(Of TQuery, TView), IListQueryHandler(Of TQuery, PagedList(Of TView)), IRequestHandler(Of TQuery, PagedList(Of TView))
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.EfPageableQueryHandler`3
+  - Cnblogs.Architecture.Ddd.Cqrs.MongoDb.MongoPageableQueryHandler`3
+  implements:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler{{TQuery},{TView}}
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler{{TQuery},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}
+  - MediatR.IRequestHandler{{TQuery},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView)
+  name.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Handle(`0,System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Handle(`0,System.Threading.CancellationToken)
+  id: Handle(`0,System.Threading.CancellationToken)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  langs:
+  - csharp
+  - vb
+  name: Handle(TQuery, CancellationToken)
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.Handle(TQuery, CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.Handle(TQuery, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Handle
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+    startLine: 16
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Handles a request
+  example: []
+  syntax:
+    content: public Task<PagedList<TView>> Handle(TQuery request, CancellationToken cancellationToken)
+    parameters:
+    - id: request
+      type: '{TQuery}'
+      description: The request
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: Cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}
+      description: Response from the request
+    content.vb: Public Function Handle(request As TQuery, cancellationToken As CancellationToken) As Task(Of PagedList(Of TView))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Handle*
+  implements:
+  - MediatR.IRequestHandler{{TQuery},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}.Handle({TQuery},System.Threading.CancellationToken)
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).Handle(TQuery, CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).Handle(TQuery, System.Threading.CancellationToken)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.CountAsync(`0,System.Linq.IQueryable{`1})
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.CountAsync(`0,System.Linq.IQueryable{`1})
+  id: CountAsync(`0,System.Linq.IQueryable{`1})
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  langs:
+  - csharp
+  - vb
+  name: CountAsync(TQuery, IQueryable<TEntity>)
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.CountAsync(TQuery, IQueryable<TEntity>)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.CountAsync(TQuery, System.Linq.IQueryable<TEntity>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CountAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+    startLine: 52
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Query for total count.
+  example: []
+  syntax:
+    content: protected abstract Task<int> CountAsync(TQuery query, IQueryable<TEntity> queryable)
+    parameters:
+    - id: query
+      type: '{TQuery}'
+      description: The query parameters.
+    - id: queryable
+      type: System.Linq.IQueryable{{TEntity}}
+      description: Filtered <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: The total count of items.
+    content.vb: Protected MustOverride Function CountAsync(query As TQuery, queryable As IQueryable(Of TEntity)) As Task(Of Integer)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.CountAsync*
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).CountAsync(TQuery, IQueryable(Of TEntity))
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).CountAsync(TQuery, System.Linq.IQueryable(Of TEntity))
+  name.vb: CountAsync(TQuery, IQueryable(Of TEntity))
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.DefaultOrderBy(`0,System.Linq.IQueryable{`1})
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.DefaultOrderBy(`0,System.Linq.IQueryable{`1})
+  id: DefaultOrderBy(`0,System.Linq.IQueryable{`1})
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  langs:
+  - csharp
+  - vb
+  name: DefaultOrderBy(TQuery, IQueryable<TEntity>)
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.DefaultOrderBy(TQuery, IQueryable<TEntity>)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.DefaultOrderBy(TQuery, System.Linq.IQueryable<TEntity>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DefaultOrderBy
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+    startLine: 60
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: The default order by field, used when <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment" data-throw-if-not-resolved="false"></xref> is not present.
+  example: []
+  syntax:
+    content: protected abstract IQueryable<TEntity> DefaultOrderBy(TQuery query, IQueryable<TEntity> queryable)
+    parameters:
+    - id: query
+      type: '{TQuery}'
+      description: The query parameters.
+    - id: queryable
+      type: System.Linq.IQueryable{{TEntity}}
+      description: <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref> returned by <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase%603.Filter(%600)" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Linq.IQueryable{{TEntity}}
+      description: Ordered <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected MustOverride Function DefaultOrderBy(query As TQuery, queryable As IQueryable(Of TEntity)) As IQueryable(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.DefaultOrderBy*
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).DefaultOrderBy(TQuery, IQueryable(Of TEntity))
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).DefaultOrderBy(TQuery, System.Linq.IQueryable(Of TEntity))
+  name.vb: DefaultOrderBy(TQuery, IQueryable(Of TEntity))
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter(`0)
+  id: Filter(`0)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  langs:
+  - csharp
+  - vb
+  name: Filter(TQuery)
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.Filter(TQuery)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.Filter(TQuery)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Filter
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+    startLine: 67
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Create queryable and apply filter, return filtered <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected abstract IQueryable<TEntity> Filter(TQuery query)
+    parameters:
+    - id: query
+      type: '{TQuery}'
+      description: The query parameter.
+    return:
+      type: System.Linq.IQueryable{{TEntity}}
+      description: Filtered <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected MustOverride Function Filter(query As TQuery) As IQueryable(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter*
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).Filter(TQuery)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).Filter(TQuery)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.FilterAsync(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.FilterAsync(`0)
+  id: FilterAsync(`0)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  langs:
+  - csharp
+  - vb
+  name: FilterAsync(TQuery)
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.FilterAsync(TQuery)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.FilterAsync(TQuery)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: FilterAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+    startLine: 74
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Create queryable and apply filter asynchronously, return filtered <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual Task<IQueryable<TEntity>> FilterAsync(TQuery query)
+    parameters:
+    - id: query
+      type: '{TQuery}'
+      description: The query parameter.
+    return:
+      type: System.Threading.Tasks.Task{System.Linq.IQueryable{{TEntity}}}
+      description: Filtered <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overridable Function FilterAsync(query As TQuery) As Task(Of IQueryable(Of TEntity))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.FilterAsync*
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).FilterAsync(TQuery)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).FilterAsync(TQuery)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ProjectToView(`0,System.Linq.IQueryable{`1})
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ProjectToView(`0,System.Linq.IQueryable{`1})
+  id: ProjectToView(`0,System.Linq.IQueryable{`1})
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  langs:
+  - csharp
+  - vb
+  name: ProjectToView(TQuery, IQueryable<TEntity>)
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.ProjectToView(TQuery, IQueryable<TEntity>)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.ProjectToView(TQuery, System.Linq.IQueryable<TEntity>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ProjectToView
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+    startLine: 85
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Project item to view model, return projected <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected virtual IQueryable<TView> ProjectToView(TQuery query, IQueryable<TEntity> queryable)
+    parameters:
+    - id: query
+      type: '{TQuery}'
+      description: The query parameter.
+    - id: queryable
+      type: System.Linq.IQueryable{{TEntity}}
+      description: Filtered and ordered <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Linq.IQueryable{{TView}}
+      description: Projected <xref href="System.Linq.IQueryable" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Protected Overridable Function ProjectToView(query As TQuery, queryable As IQueryable(Of TEntity)) As IQueryable(Of TView)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ProjectToView*
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).ProjectToView(TQuery, IQueryable(Of TEntity))
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).ProjectToView(TQuery, System.Linq.IQueryable(Of TEntity))
+  name.vb: ProjectToView(TQuery, IQueryable(Of TEntity))
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ToListAsync(`0,System.Linq.IQueryable{`2})
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ToListAsync(`0,System.Linq.IQueryable{`2})
+  id: ToListAsync(`0,System.Linq.IQueryable{`2})
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3
+  langs:
+  - csharp
+  - vb
+  name: ToListAsync(TQuery, IQueryable<TView>)
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.ToListAsync(TQuery, IQueryable<TView>)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.ToListAsync(TQuery, System.Linq.IQueryable<TView>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ToListAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/PageableQueryHandlerBase.cs
+    startLine: 96
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Execute query and projections, get the actual results.
+  example: []
+  syntax:
+    content: protected abstract Task<List<TView>> ToListAsync(TQuery query, IQueryable<TView> queryable)
+    parameters:
+    - id: query
+      type: '{TQuery}'
+      description: The query parameter.
+    - id: queryable
+      type: System.Linq.IQueryable{{TView}}
+      description: Projected <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{{TView}}}
+      description: The query result.
+    content.vb: Protected MustOverride Function ToListAsync(query As TQuery, queryable As IQueryable(Of TView)) As Task(Of List(Of TView))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ToListAsync*
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).ToListAsync(TQuery, IQueryable(Of TView))
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).ToListAsync(TQuery, System.Linq.IQueryable(Of TView))
+  name.vb: ToListAsync(TQuery, IQueryable(Of TView))
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  name: IPageableQueryHandler<TQuery, TView>
+  nameWithType: IPageableQueryHandler<TQuery, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler<TQuery, TView>
+  nameWithType.vb: IPageableQueryHandler(Of TQuery, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler(Of TQuery, TView)
+  name.vb: IPageableQueryHandler(Of TQuery, TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+    name: IPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+    name: IPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler{{TQuery},{TView}}
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler{`0,`2}
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  definition: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  name: IPageableQueryHandler<TQuery, TView>
+  nameWithType: IPageableQueryHandler<TQuery, TView>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler<TQuery, TView>
+  nameWithType.vb: IPageableQueryHandler(Of TQuery, TView)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler(Of TQuery, TView)
+  name.vb: IPageableQueryHandler(Of TQuery, TView)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+    name: IPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler`2
+    name: IPageableQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQueryHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler{{TQuery},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler{`0,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{`2}}
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  definition: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  name: IListQueryHandler<TQuery, PagedList<TView>>
+  nameWithType: IListQueryHandler<TQuery, PagedList<TView>>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler<TQuery, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList<TView>>
+  nameWithType.vb: IListQueryHandler(Of TQuery, PagedList(Of TView))
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler(Of TQuery, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList(Of TView))
+  name.vb: IListQueryHandler(Of TQuery, PagedList(Of TView))
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+    name: IListQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: <
+  - name: TView
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+    name: IListQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: )
+  - name: )
+- uid: MediatR.IRequestHandler{{TQuery},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}
+  commentId: T:MediatR.IRequestHandler{`0,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{`1}}
+  parent: MediatR
+  definition: MediatR.IRequestHandler`2
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  name: IRequestHandler<TQuery, PagedList<TView>>
+  nameWithType: IRequestHandler<TQuery, PagedList<TView>>
+  fullName: MediatR.IRequestHandler<TQuery, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList<TView>>
+  nameWithType.vb: IRequestHandler(Of TQuery, PagedList(Of TView))
+  fullName.vb: MediatR.IRequestHandler(Of TQuery, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList(Of TView))
+  name.vb: IRequestHandler(Of TQuery, PagedList(Of TView))
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: <
+  - name: TView
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: )
+  - name: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  name: IListQueryHandler<TQuery, TList>
+  nameWithType: IListQueryHandler<TQuery, TList>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler<TQuery, TList>
+  nameWithType.vb: IListQueryHandler(Of TQuery, TList)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler(Of TQuery, TList)
+  name.vb: IListQueryHandler(Of TQuery, TList)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+    name: IListQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  - name: <
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TList
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler`2
+    name: IListQueryHandler
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IListQueryHandler-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - name: TList
+  - name: )
+- uid: MediatR.IRequestHandler`2
+  commentId: T:MediatR.IRequestHandler`2
+  isExternal: true
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: MediatR.IRequestHandler<TRequest, TResponse>
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: MediatR.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: MediatR
+  commentId: N:MediatR
+  href: MediatR.html
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Handle*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Handle
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_Handle__0_System_Threading_CancellationToken_
+  name: Handle
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.Handle
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.Handle
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).Handle
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).Handle
+- uid: MediatR.IRequestHandler{{TQuery},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}.Handle({TQuery},System.Threading.CancellationToken)
+  commentId: M:MediatR.IRequestHandler{`0,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{`1}}.Handle(`0,System.Threading.CancellationToken)
+  parent: MediatR.IRequestHandler{{TQuery},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}
+  definition: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TQuery, CancellationToken)
+  nameWithType: IRequestHandler<TQuery, PagedList<TView>>.Handle(TQuery, CancellationToken)
+  fullName: MediatR.IRequestHandler<TQuery, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList<TView>>.Handle(TQuery, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TQuery, PagedList(Of TView)).Handle(TQuery, CancellationToken)
+  fullName.vb: MediatR.IRequestHandler(Of TQuery, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList(Of TView)).Handle(TQuery, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler{`0,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{`1}}.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.IRequestHandler{`0,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{`1}}.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TQuery
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: '{TQuery}'
+  commentId: '!:TQuery'
+  definition: TQuery
+  name: TQuery
+  nameWithType: TQuery
+  fullName: TQuery
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TView}}}
+  commentId: T:System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{`2}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<PagedList<TView>>
+  nameWithType: Task<PagedList<TView>>
+  fullName: System.Threading.Tasks.Task<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList<TView>>
+  nameWithType.vb: Task(Of PagedList(Of TView))
+  fullName.vb: System.Threading.Tasks.Task(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList(Of TView))
+  name.vb: Task(Of PagedList(Of TView))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: <
+  - name: TView
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: )
+  - name: )
+- uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  commentId: M:MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest, TResponse>.Handle(TRequest, CancellationToken)
+  fullName: MediatR.IRequestHandler<TRequest, TResponse>.Handle(TRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).Handle(TRequest, CancellationToken)
+  fullName.vb: MediatR.IRequestHandler(Of TRequest, TResponse).Handle(TRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: TQuery
+  name: TQuery
+  nameWithType: TQuery
+  fullName: TQuery
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.CountAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.CountAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_CountAsync__0_System_Linq_IQueryable__1__
+  name: CountAsync
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.CountAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.CountAsync
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).CountAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).CountAsync
+- uid: System.Linq.IQueryable{{TEntity}}
+  commentId: T:System.Linq.IQueryable{`1}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<TEntity>
+  nameWithType: IQueryable<TEntity>
+  fullName: System.Linq.IQueryable<TEntity>
+  nameWithType.vb: IQueryable(Of TEntity)
+  fullName.vb: System.Linq.IQueryable(Of TEntity)
+  name.vb: IQueryable(Of TEntity)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment.html
+  name: OrderBySegment
+  nameWithType: OrderBySegment
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter(`0)
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_Filter__0_
+  name: Filter(TQuery)
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.Filter(TQuery)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.Filter(TQuery)
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).Filter(TQuery)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).Filter(TQuery)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter(`0)
+    name: Filter
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_Filter__0_
+  - name: (
+  - name: TQuery
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter(`0)
+    name: Filter
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_Filter__0_
+  - name: (
+  - name: TQuery
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.DefaultOrderBy*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.DefaultOrderBy
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_DefaultOrderBy__0_System_Linq_IQueryable__1__
+  name: DefaultOrderBy
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.DefaultOrderBy
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.DefaultOrderBy
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).DefaultOrderBy
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).DefaultOrderBy
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.Filter
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_Filter__0_
+  name: Filter
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.Filter
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.Filter
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).Filter
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).Filter
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.FilterAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.FilterAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_FilterAsync__0_
+  name: FilterAsync
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.FilterAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.FilterAsync
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).FilterAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).FilterAsync
+- uid: System.Threading.Tasks.Task{System.Linq.IQueryable{{TEntity}}}
+  commentId: T:System.Threading.Tasks.Task{System.Linq.IQueryable{`1}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<IQueryable<TEntity>>
+  nameWithType: Task<IQueryable<TEntity>>
+  fullName: System.Threading.Tasks.Task<System.Linq.IQueryable<TEntity>>
+  nameWithType.vb: Task(Of IQueryable(Of TEntity))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Linq.IQueryable(Of TEntity))
+  name.vb: Task(Of IQueryable(Of TEntity))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+  - name: )
+- uid: System.Linq.IQueryable
+  commentId: T:System.Linq.IQueryable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable
+  name: IQueryable
+  nameWithType: IQueryable
+  fullName: System.Linq.IQueryable
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ProjectToView*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ProjectToView
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_ProjectToView__0_System_Linq_IQueryable__1__
+  name: ProjectToView
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.ProjectToView
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.ProjectToView
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).ProjectToView
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).ProjectToView
+- uid: System.Linq.IQueryable{{TView}}
+  commentId: T:System.Linq.IQueryable{`2}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<TView>
+  nameWithType: IQueryable<TView>
+  fullName: System.Linq.IQueryable<TView>
+  nameWithType.vb: IQueryable(Of TView)
+  fullName.vb: System.Linq.IQueryable(Of TView)
+  name.vb: IQueryable(Of TView)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: TView
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ToListAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase`3.ToListAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase-3.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_PageableQueryHandlerBase_3_ToListAsync__0_System_Linq_IQueryable__2__
+  name: ToListAsync
+  nameWithType: PageableQueryHandlerBase<TQuery, TEntity, TView>.ToListAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase<TQuery, TEntity, TView>.ToListAsync
+  nameWithType.vb: PageableQueryHandlerBase(Of TQuery, TEntity, TView).ToListAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.PageableQueryHandlerBase(Of TQuery, TEntity, TView).ToListAsync
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{{TView}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{`2}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<TView>>
+  nameWithType: Task<List<TView>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<TView>>
+  nameWithType.vb: Task(Of List(Of TView))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of TView))
+  name.vb: Task(Of List(Of TView))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: TView
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TView
+  - name: )
+  - name: )

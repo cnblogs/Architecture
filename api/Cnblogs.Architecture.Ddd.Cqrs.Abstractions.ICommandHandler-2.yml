@@ -1,0 +1,265 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`2
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler`2
+  id: ICommandHandler`2
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: ICommandHandler<TCommand, TError>
+  nameWithType: ICommandHandler<TCommand, TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler<TCommand, TError>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICommandHandler.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ICommandHandler
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICommandHandler.cs
+    startLine: 11
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Definitions of handler that handles <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface ICommandHandler<TCommand, TError> : IRequestHandler<TCommand, CommandResponse<TError>> where TCommand : ICommand<TError> where TError : Enumeration'
+    typeParameters:
+    - id: TCommand
+      description: The command type for this handler.
+    - id: TError
+      description: The error type for this handler.
+    content.vb: Public Interface ICommandHandler(Of TCommand As ICommand(Of TError), TError As Enumeration) Inherits IRequestHandler(Of TCommand, CommandResponse(Of TError))
+  inheritedMembers:
+  - MediatR.IRequestHandler{{TCommand},Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}.Handle({TCommand},System.Threading.CancellationToken)
+  nameWithType.vb: ICommandHandler(Of TCommand, TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommandHandler(Of TCommand, TError)
+  name.vb: ICommandHandler(Of TCommand, TError)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  name: ICommand<TError>
+  nameWithType: ICommand<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand<TError>
+  nameWithType.vb: ICommand(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand(Of TError)
+  name.vb: ICommand(Of TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: MediatR.IRequestHandler{{TCommand},Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}.Handle({TCommand},System.Threading.CancellationToken)
+  commentId: M:MediatR.IRequestHandler{`0,Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{`1}}.Handle(`0,System.Threading.CancellationToken)
+  parent: MediatR.IRequestHandler{{TCommand},Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}
+  definition: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TCommand, CancellationToken)
+  nameWithType: IRequestHandler<TCommand, CommandResponse<TError>>.Handle(TCommand, CancellationToken)
+  fullName: MediatR.IRequestHandler<TCommand, Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>>.Handle(TCommand, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TCommand, CommandResponse(Of TError)).Handle(TCommand, CancellationToken)
+  fullName.vb: MediatR.IRequestHandler(Of TCommand, Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError)).Handle(TCommand, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler{`0,Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{`1}}.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TCommand
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.IRequestHandler{`0,Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{`1}}.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TCommand
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  commentId: M:MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TRequest, CancellationToken)
+  nameWithType: IRequestHandler<TRequest, TResponse>.Handle(TRequest, CancellationToken)
+  fullName: MediatR.IRequestHandler<TRequest, TResponse>.Handle(TRequest, System.Threading.CancellationToken)
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse).Handle(TRequest, CancellationToken)
+  fullName.vb: MediatR.IRequestHandler(Of TRequest, TResponse).Handle(TRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MediatR.IRequestHandler{{TCommand},Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}
+  commentId: T:MediatR.IRequestHandler{`0,Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{`1}}
+  parent: MediatR
+  definition: MediatR.IRequestHandler`2
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  name: IRequestHandler<TCommand, CommandResponse<TError>>
+  nameWithType: IRequestHandler<TCommand, CommandResponse<TError>>
+  fullName: MediatR.IRequestHandler<TCommand, Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>>
+  nameWithType.vb: IRequestHandler(Of TCommand, CommandResponse(Of TError))
+  fullName.vb: MediatR.IRequestHandler(Of TCommand, Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError))
+  name.vb: IRequestHandler(Of TCommand, CommandResponse(Of TError))
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: <
+  - name: TCommand
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCommand
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+  - name: )
+- uid: MediatR.IRequestHandler`2
+  commentId: T:MediatR.IRequestHandler`2
+  isExternal: true
+  name: IRequestHandler<TRequest, TResponse>
+  nameWithType: IRequestHandler<TRequest, TResponse>
+  fullName: MediatR.IRequestHandler<TRequest, TResponse>
+  nameWithType.vb: IRequestHandler(Of TRequest, TResponse)
+  fullName.vb: MediatR.IRequestHandler(Of TRequest, TResponse)
+  name.vb: IRequestHandler(Of TRequest, TResponse)
+  spec.csharp:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: <
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.IRequestHandler`2
+    name: IRequestHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TRequest
+  - name: ','
+  - name: " "
+  - name: TResponse
+  - name: )
+- uid: MediatR
+  commentId: N:MediatR
+  href: MediatR.html
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR

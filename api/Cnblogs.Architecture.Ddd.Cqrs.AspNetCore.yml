@@ -1,0 +1,156 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  id: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ApiControllerBase
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CommandEndpointHandler
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptions
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptionsInjector
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsModelBinderProvider
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResult
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResultExtensions
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.PagingParamsModelBinder
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.QueryEndpointHandler
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ApiControllerBase
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ApiControllerBase
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ApiControllerBase.html
+  name: ApiControllerBase
+  nameWithType: ApiControllerBase
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ApiControllerBase
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CommandEndpointHandler
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CommandEndpointHandler
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CommandEndpointHandler.html
+  name: CommandEndpointHandler
+  nameWithType: CommandEndpointHandler
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CommandEndpointHandler
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptions
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptions.html
+  name: CqrsHttpOptions
+  nameWithType: CqrsHttpOptions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptions
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptionsInjector
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptionsInjector
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptionsInjector.html
+  name: CqrsHttpOptionsInjector
+  nameWithType: CqrsHttpOptionsInjector
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsHttpOptionsInjector
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsModelBinderProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsModelBinderProvider
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsModelBinderProvider.html
+  name: CqrsModelBinderProvider
+  nameWithType: CqrsModelBinderProvider
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsModelBinderProvider
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult.html
+  name: CqrsObjectResult
+  nameWithType: CqrsObjectResult
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsObjectResult
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResult
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResult
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResult.html
+  name: CqrsResult
+  nameWithType: CqrsResult
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResult
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResultExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResultExtensions
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResultExtensions.html
+  name: CqrsResultExtensions
+  nameWithType: CqrsResultExtensions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsResultExtensions
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper.html
+  name: CqrsRouteMapper
+  nameWithType: CqrsRouteMapper
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.CqrsRouteMapper
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType.html
+  name: ErrorResponseType
+  nameWithType: ErrorResponseType
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.ErrorResponseType
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.html
+  name: MapNullableRouteParameter
+  nameWithType: MapNullableRouteParameter
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.PagingParamsModelBinder
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.PagingParamsModelBinder
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.PagingParamsModelBinder.html
+  name: PagingParamsModelBinder
+  nameWithType: PagingParamsModelBinder
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.PagingParamsModelBinder
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.QueryEndpointHandler
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.QueryEndpointHandler
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.QueryEndpointHandler.html
+  name: QueryEndpointHandler
+  nameWithType: QueryEndpointHandler
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.QueryEndpointHandler
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html

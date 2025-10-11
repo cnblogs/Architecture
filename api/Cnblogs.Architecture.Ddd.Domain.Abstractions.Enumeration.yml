@@ -1,0 +1,1012 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  id: Enumeration
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.#ctor(System.Int32,System.String)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(System.Object)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(System.Object)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName``1(System.String)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue``1(System.Int32)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll``1
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+  langs:
+  - csharp
+  - vb
+  name: Enumeration
+  nameWithType: Enumeration
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Enumeration
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 7
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 枚举基类。
+  example: []
+  syntax:
+    content: 'public abstract class Enumeration : IComparable'
+    content.vb: Public MustInherit Class Enumeration Implements IComparable
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  implements:
+  - System.IComparable
+  inheritedMembers:
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.#ctor(System.Int32,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.#ctor(System.Int32,System.String)
+  id: '#ctor(System.Int32,System.String)'
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: Enumeration(int, string)
+  nameWithType: Enumeration.Enumeration(int, string)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Enumeration(int, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 14
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 构造一个枚举值。
+  example: []
+  syntax:
+    content: protected Enumeration(int id, string name)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: 枚举 Id。
+    - id: name
+      type: System.String
+      description: 枚举值名称。
+    content.vb: Protected Sub New(id As Integer, name As String)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.#ctor*
+  nameWithType.vb: Enumeration.New(Integer, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.New(Integer, String)
+  name.vb: New(Integer, String)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  id: Name
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Enumeration.Name
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Name
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 22
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 枚举值的名称。
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+  id: Id
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: Enumeration.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Id
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 27
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 枚举值的 Id。
+  example: []
+  syntax:
+    content: public int Id { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Id As Integer
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(System.Object)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(System.Object)
+  id: CompareTo(System.Object)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: CompareTo(object?)
+  nameWithType: Enumeration.CompareTo(object?)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(object?)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CompareTo
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 34
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 比较两个枚举值。
+  example: []
+  syntax:
+    content: public int CompareTo(object? other)
+    parameters:
+    - id: other
+      type: System.Object
+      description: 另一个枚举值。
+    return:
+      type: System.Int32
+      description: 比较结果。
+    content.vb: Public Function CompareTo(other As Object) As Integer
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo*
+  implements:
+  - System.IComparable.CompareTo(System.Object)
+  nameWithType.vb: Enumeration.CompareTo(Object)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(Object)
+  name.vb: CompareTo(Object)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  id: AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: AbsoluteDifference(Enumeration, Enumeration)
+  nameWithType: Enumeration.AbsoluteDifference(Enumeration, Enumeration)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration, Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AbsoluteDifference
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 45
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 两个枚举值之间的绝对距离。
+  example: []
+  syntax:
+    content: public static int AbsoluteDifference(Enumeration firstValue, Enumeration secondValue)
+    parameters:
+    - id: firstValue
+      type: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+      description: 第一个值。
+    - id: secondValue
+      type: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+      description: 第二个值。
+    return:
+      type: System.Int32
+      description: <code class="paramref">firstValue</code> 和 <code class="paramref">secondValue</code> 之间距离的绝对值。
+    content.vb: Public Shared Function AbsoluteDifference(firstValue As Enumeration, secondValue As Enumeration) As Integer
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(System.Object)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(System.Object)
+  id: Equals(System.Object)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: Equals(object?)
+  nameWithType: Enumeration.Equals(object?)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(object?)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Equals
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 56
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 两个枚举是否相等。
+  example: []
+  syntax:
+    content: public override bool Equals(object? obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: 另一个枚举。
+    return:
+      type: System.Boolean
+      description: 是否相等。
+    content.vb: Public Overrides Function Equals(obj As Object) As Boolean
+  overridden: System.Object.Equals(System.Object)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals*
+  nameWithType.vb: Enumeration.Equals(Object)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(Object)
+  name.vb: Equals(Object)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName``1(System.String)
+  id: FromDisplayName``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: FromDisplayName<T>(string)
+  nameWithType: Enumeration.FromDisplayName<T>(string)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName<T>(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: FromDisplayName
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 76
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 从枚举值名称获取对应的枚举对象。
+  example: []
+  syntax:
+    content: 'public static T FromDisplayName<T>(string displayName) where T : Enumeration'
+    parameters:
+    - id: displayName
+      type: System.String
+      description: 枚举名称。
+    typeParameters:
+    - id: T
+      description: 要获取的枚举类型。
+    return:
+      type: '{T}'
+      description: 枚举对象。
+    content.vb: Public Shared Function FromDisplayName(Of T As Enumeration)(displayName As String) As T
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: <code class="typeparamref">T</code> 没有与 <code class="paramref">displayName</code> 对应的枚举值对象。
+  nameWithType.vb: Enumeration.FromDisplayName(Of T)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName(Of T)(String)
+  name.vb: FromDisplayName(Of T)(String)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue``1(System.Int32)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue``1(System.Int32)
+  id: FromValue``1(System.Int32)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: FromValue<T>(int)
+  nameWithType: Enumeration.FromValue<T>(int)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue<T>(int)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: FromValue
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 90
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 从枚举值 Id 获取对应的枚举对象。
+  example: []
+  syntax:
+    content: 'public static T FromValue<T>(int value) where T : Enumeration'
+    parameters:
+    - id: value
+      type: System.Int32
+      description: 枚举值 Id。
+    typeParameters:
+    - id: T
+      description: 要获取的枚举类型。
+    return:
+      type: '{T}'
+      description: <code class="paramref">value</code> 对应的枚举值对象。
+    content.vb: Public Shared Function FromValue(Of T As Enumeration)(value As Integer) As T
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue*
+  exceptions:
+  - type: System.InvalidOperationException
+    commentId: T:System.InvalidOperationException
+    description: <code class="typeparamref">T</code> 没有与 <code class="paramref">value</code> 对应的枚举值对象。
+  nameWithType.vb: Enumeration.FromValue(Of T)(Integer)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue(Of T)(Integer)
+  name.vb: FromValue(Of T)(Integer)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll``1
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll``1
+  id: GetAll``1
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: GetAll<T>()
+  nameWithType: Enumeration.GetAll<T>()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll<T>()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetAll
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 102
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 获取枚举所有可能的值。
+  example: []
+  syntax:
+    content: 'public static IEnumerable<T> GetAll<T>() where T : Enumeration'
+    typeParameters:
+    - id: T
+      description: 枚举类型。
+    return:
+      type: System.Collections.Generic.IEnumerable{{T}}
+      description: 所有可能的枚举值。
+    content.vb: Public Shared Function GetAll(Of T As Enumeration)() As IEnumerable(Of T)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll*
+  nameWithType.vb: Enumeration.GetAll(Of T)()
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll(Of T)()
+  name.vb: GetAll(Of T)()
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+  id: GetHashCode
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: GetHashCode()
+  nameWithType: Enumeration.GetHashCode()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetHashCode
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 114
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 获取哈希值。
+  example: []
+  syntax:
+    content: public override int GetHashCode()
+    return:
+      type: System.Int32
+      description: 哈希值。
+    content.vb: Public Overrides Function GetHashCode() As Integer
+  overridden: System.Object.GetHashCode
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+  id: ToString
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Enumeration.ToString()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ToString
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Enumeration.cs
+    startLine: 136
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 获取枚举值的 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name" data-throw-if-not-resolved="false"></xref>。
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name" data-throw-if-not-resolved="false"></xref>。
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString*
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.IComparable
+  commentId: T:System.IComparable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable
+  name: IComparable
+  nameWithType: IComparable
+  fullName: System.IComparable
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.#ctor
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration__ctor_System_Int32_System_String_
+  name: Enumeration
+  nameWithType: Enumeration.Enumeration
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Enumeration
+  nameWithType.vb: Enumeration.New
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_Name
+  name: Name
+  nameWithType: Enumeration.Name
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_Id
+  name: Id
+  nameWithType: Enumeration.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_CompareTo_System_Object_
+  name: CompareTo
+  nameWithType: Enumeration.CompareTo
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo
+- uid: System.IComparable.CompareTo(System.Object)
+  commentId: M:System.IComparable.CompareTo(System.Object)
+  parent: System.IComparable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable.compareto
+  name: CompareTo(object)
+  nameWithType: IComparable.CompareTo(object)
+  fullName: System.IComparable.CompareTo(object)
+  nameWithType.vb: IComparable.CompareTo(Object)
+  fullName.vb: System.IComparable.CompareTo(Object)
+  name.vb: CompareTo(Object)
+  spec.csharp:
+  - uid: System.IComparable.CompareTo(System.Object)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable.compareto
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.IComparable.CompareTo(System.Object)
+    name: CompareTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.icomparable.compareto
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_AbsoluteDifference_Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_
+  name: AbsoluteDifference
+  nameWithType: Enumeration.AbsoluteDifference
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html
+  name: Enumeration
+  nameWithType: Enumeration
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_Equals_System_Object_
+  name: Equals
+  nameWithType: Enumeration.Equals
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.InvalidOperationException
+  commentId: T:System.InvalidOperationException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.invalidoperationexception
+  name: InvalidOperationException
+  nameWithType: InvalidOperationException
+  fullName: System.InvalidOperationException
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_FromDisplayName__1_System_String_
+  name: FromDisplayName
+  nameWithType: Enumeration.FromDisplayName
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_FromValue__1_System_Int32_
+  name: FromValue
+  nameWithType: Enumeration.FromValue
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_GetAll__1
+  name: GetAll
+  nameWithType: Enumeration.GetAll
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll
+- uid: System.Collections.Generic.IEnumerable{{T}}
+  commentId: T:System.Collections.Generic.IEnumerable{``0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_GetHashCode
+  name: GetHashCode
+  nameWithType: Enumeration.GetHashCode
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_Name
+  name: Name
+  nameWithType: Enumeration.Name
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_ToString
+  name: ToString
+  nameWithType: Enumeration.ToString
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString

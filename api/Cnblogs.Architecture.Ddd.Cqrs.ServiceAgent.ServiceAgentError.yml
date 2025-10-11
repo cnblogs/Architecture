@@ -1,0 +1,653 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  id: ServiceAgentError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.#ctor(System.Int32,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.UnknownError
+  langs:
+  - csharp
+  - vb
+  name: ServiceAgentError
+  nameWithType: ServiceAgentError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/ServiceAgentError.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ServiceAgentError
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/ServiceAgentError.cs
+    startLine: 7
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: ServiceAgent errors.
+  example: []
+  syntax:
+    content: 'public class ServiceAgentError : Enumeration, IComparable'
+    content.vb: Public Class ServiceAgentError Inherits Enumeration Implements IComparable
+  inheritance:
+  - System.Object
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  implements:
+  - System.IComparable
+  inheritedMembers:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(System.Object)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(System.Object)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName``1(System.String)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue``1(System.Int32)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll``1
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.UnknownError
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.UnknownError
+  id: UnknownError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  langs:
+  - csharp
+  - vb
+  name: UnknownError
+  nameWithType: ServiceAgentError.UnknownError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.UnknownError
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/ServiceAgentError.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UnknownError
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/ServiceAgentError.cs
+    startLine: 12
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: The default error code.
+  example: []
+  syntax:
+    content: public static readonly ServiceAgentError UnknownError
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+    content.vb: Public Shared ReadOnly UnknownError As ServiceAgentError
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.#ctor(System.Int32,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.#ctor(System.Int32,System.String)
+  id: '#ctor(System.Int32,System.String)'
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  langs:
+  - csharp
+  - vb
+  name: ServiceAgentError(int, string)
+  nameWithType: ServiceAgentError.ServiceAgentError(int, string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.ServiceAgentError(int, string)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/ServiceAgentError.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/ServiceAgentError.cs
+    startLine: 19
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Create a service agent error.
+  example: []
+  syntax:
+    content: public ServiceAgentError(int id, string name)
+    parameters:
+    - id: id
+      type: System.Int32
+      description: The error code.
+    - id: name
+      type: System.String
+      description: The error name.
+    content.vb: Public Sub New(id As Integer, name As String)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.#ctor*
+  nameWithType.vb: ServiceAgentError.New(Integer, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.New(Integer, String)
+  name.vb: New(Integer, String)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+    name: ServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+    name: ServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html
+  name: Enumeration
+  nameWithType: Enumeration
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+- uid: System.IComparable
+  commentId: T:System.IComparable
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.icomparable
+  name: IComparable
+  nameWithType: IComparable
+  fullName: System.IComparable
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_Enumeration_Name
+  name: Name
+  nameWithType: Enumeration.Name
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Name
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  name: Id
+  nameWithType: Enumeration.Id
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Id
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(System.Object)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(System.Object)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: CompareTo(object)
+  nameWithType: Enumeration.CompareTo(object)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(object)
+  nameWithType.vb: Enumeration.CompareTo(Object)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(Object)
+  name.vb: CompareTo(Object)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(System.Object)
+    name: CompareTo
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.CompareTo(System.Object)
+    name: CompareTo
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  name: AbsoluteDifference(Enumeration, Enumeration)
+  nameWithType: Enumeration.AbsoluteDifference(Enumeration, Enumeration)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration, Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+    name: AbsoluteDifference
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+    name: Enumeration
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+    name: Enumeration
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.AbsoluteDifference(Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration,Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration)
+    name: AbsoluteDifference
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+    name: Enumeration
+  - name: ','
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+    name: Enumeration
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(System.Object)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(System.Object)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: Equals(object)
+  nameWithType: Enumeration.Equals(object)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(object)
+  nameWithType.vb: Enumeration.Equals(Object)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(System.Object)
+    name: Equals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.Equals(System.Object)
+    name: Equals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: FromDisplayName<T>(string)
+  nameWithType: Enumeration.FromDisplayName<T>(string)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName<T>(string)
+  nameWithType.vb: Enumeration.FromDisplayName(Of T)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName(Of T)(String)
+  name.vb: FromDisplayName(Of T)(String)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName``1(System.String)
+    name: FromDisplayName
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromDisplayName``1(System.String)
+    name: FromDisplayName
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue``1(System.Int32)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue``1(System.Int32)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: FromValue<T>(int)
+  nameWithType: Enumeration.FromValue<T>(int)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue<T>(int)
+  nameWithType.vb: Enumeration.FromValue(Of T)(Integer)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue(Of T)(Integer)
+  name.vb: FromValue(Of T)(Integer)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue``1(System.Int32)
+    name: FromValue
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.FromValue``1(System.Int32)
+    name: FromValue
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll``1
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll``1
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  name: GetAll<T>()
+  nameWithType: Enumeration.GetAll<T>()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll<T>()
+  nameWithType.vb: Enumeration.GetAll(Of T)()
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll(Of T)()
+  name.vb: GetAll(Of T)()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll``1
+    name: GetAll
+  - name: <
+  - name: T
+  - name: '>'
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetAll``1
+    name: GetAll
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  name: GetHashCode()
+  nameWithType: Enumeration.GetHashCode()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+    name: GetHashCode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.GetHashCode
+    name: GetHashCode
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration
+  name: ToString()
+  nameWithType: Enumeration.ToString()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+    name: ToString
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Enumeration.ToString
+    name: ToString
+  - name: (
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.html
+  name: ServiceAgentError
+  nameWithType: ServiceAgentError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.#ctor
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_ServiceAgentError__ctor_System_Int32_System_String_
+  name: ServiceAgentError
+  nameWithType: ServiceAgentError.ServiceAgentError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.ServiceAgentError
+  nameWithType.vb: ServiceAgentError.New
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.New
+  name.vb: New
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

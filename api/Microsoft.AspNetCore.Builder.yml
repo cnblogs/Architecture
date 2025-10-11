@@ -1,0 +1,23 @@
+### YamlMime:ManagedReference
+items:
+- uid: Microsoft.AspNetCore.Builder
+  commentId: N:Microsoft.AspNetCore.Builder
+  id: Microsoft.AspNetCore.Builder
+  children:
+  - Microsoft.AspNetCore.Builder.EndPointExtensions
+  langs:
+  - csharp
+  - vb
+  name: Microsoft.AspNetCore.Builder
+  nameWithType: Microsoft.AspNetCore.Builder
+  fullName: Microsoft.AspNetCore.Builder
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr
+references:
+- uid: Microsoft.AspNetCore.Builder.EndPointExtensions
+  commentId: T:Microsoft.AspNetCore.Builder.EndPointExtensions
+  href: Microsoft.AspNetCore.Builder.EndPointExtensions.html
+  name: EndPointExtensions
+  nameWithType: EndPointExtensions
+  fullName: Microsoft.AspNetCore.Builder.EndPointExtensions

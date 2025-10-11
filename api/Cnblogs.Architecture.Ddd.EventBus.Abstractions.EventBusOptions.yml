@@ -1,0 +1,620 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  id: EventBusOptions
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.DowngradeInterval
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.FailureCountBeforeDowngrade
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.Interval
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBatchSize
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.SuccessCountBeforeRecover
+  langs:
+  - csharp
+  - vb
+  name: EventBusOptions
+  nameWithType: EventBusOptions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: EventBusOptions
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Options for event bus.
+  example: []
+  syntax:
+    content: public class EventBusOptions
+    content.vb: Public Class EventBusOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.Interval
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.Interval
+  id: Interval
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  langs:
+  - csharp
+  - vb
+  name: Interval
+  nameWithType: EventBusOptions.Interval
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.Interval
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Interval
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Interval for publish integration event. Defaults to 1000ms.
+  example: []
+  syntax:
+    content: public int Interval { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property Interval As Integer
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.Interval*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBatchSize
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBatchSize
+  id: MaximumBatchSize
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  langs:
+  - csharp
+  - vb
+  name: MaximumBatchSize
+  nameWithType: EventBusOptions.MaximumBatchSize
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBatchSize
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MaximumBatchSize
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Maximum number of events that can be sent in one cycle. Pass <code>null</code> to disable limit. Defaults to <code>null</code>.
+  example: []
+  syntax:
+    content: public int? MaximumBatchSize { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property MaximumBatchSize As Integer?
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBatchSize*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  id: MaximumBufferSize
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  langs:
+  - csharp
+  - vb
+  name: MaximumBufferSize
+  nameWithType: EventBusOptions.MaximumBufferSize
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MaximumBufferSize
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+    startLine: 20
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Maximum number of events that can be stored in buffer. An <xref href="Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException" data-throw-if-not-resolved="false"></xref> would be thrown when the number of events in buffer exceeds this limit. Pass <code>null</code> to disable limit. Defaults to <code>null</code>.
+  example: []
+  syntax:
+    content: public int? MaximumBufferSize { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property MaximumBufferSize As Integer?
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.FailureCountBeforeDowngrade
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.FailureCountBeforeDowngrade
+  id: FailureCountBeforeDowngrade
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  langs:
+  - csharp
+  - vb
+  name: FailureCountBeforeDowngrade
+  nameWithType: EventBusOptions.FailureCountBeforeDowngrade
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.FailureCountBeforeDowngrade
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: FailureCountBeforeDowngrade
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+    startLine: 25
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: The maximum number of failure before downgrade. Defaults to 5.
+  example: []
+  syntax:
+    content: public int FailureCountBeforeDowngrade { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property FailureCountBeforeDowngrade As Integer
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.FailureCountBeforeDowngrade*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.DowngradeInterval
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.DowngradeInterval
+  id: DowngradeInterval
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  langs:
+  - csharp
+  - vb
+  name: DowngradeInterval
+  nameWithType: EventBusOptions.DowngradeInterval
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.DowngradeInterval
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DowngradeInterval
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+    startLine: 30
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Interval when downgraded. Defaults to 60000ms(1min).
+  example: []
+  syntax:
+    content: public int DowngradeInterval { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property DowngradeInterval As Integer
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.DowngradeInterval*
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.SuccessCountBeforeRecover
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.SuccessCountBeforeRecover
+  id: SuccessCountBeforeRecover
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions
+  langs:
+  - csharp
+  - vb
+  name: SuccessCountBeforeRecover
+  nameWithType: EventBusOptions.SuccessCountBeforeRecover
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.SuccessCountBeforeRecover
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SuccessCountBeforeRecover
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/EventBusOptions.cs
+    startLine: 35
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: The maximum number of success before recover. Defaults to 1.
+  example: []
+  syntax:
+    content: public int SuccessCountBeforeRecover { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SuccessCountBeforeRecover As Integer
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.SuccessCountBeforeRecover*
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.Interval*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.Interval
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBusOptions_Interval
+  name: Interval
+  nameWithType: EventBusOptions.Interval
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.Interval
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBatchSize*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBatchSize
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBusOptions_MaximumBatchSize
+  name: MaximumBatchSize
+  nameWithType: EventBusOptions.MaximumBatchSize
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBatchSize
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException.html
+  name: EventBufferOverflowException
+  nameWithType: EventBufferOverflowException
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBufferOverflowException
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBusOptions_MaximumBufferSize
+  name: MaximumBufferSize
+  nameWithType: EventBusOptions.MaximumBufferSize
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.MaximumBufferSize
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.FailureCountBeforeDowngrade*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.FailureCountBeforeDowngrade
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBusOptions_FailureCountBeforeDowngrade
+  name: FailureCountBeforeDowngrade
+  nameWithType: EventBusOptions.FailureCountBeforeDowngrade
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.FailureCountBeforeDowngrade
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.DowngradeInterval*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.DowngradeInterval
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBusOptions_DowngradeInterval
+  name: DowngradeInterval
+  nameWithType: EventBusOptions.DowngradeInterval
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.DowngradeInterval
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.SuccessCountBeforeRecover*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.SuccessCountBeforeRecover
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_EventBusOptions_SuccessCountBeforeRecover
+  name: SuccessCountBeforeRecover
+  nameWithType: EventBusOptions.SuccessCountBeforeRecover
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.EventBusOptions.SuccessCountBeforeRecover

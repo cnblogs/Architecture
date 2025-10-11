@@ -1,0 +1,341 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  id: IDomainEventSource
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.ClearDomainEvents
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.DomainEvents
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  langs:
+  - csharp
+  - vb
+  name: IDomainEventSource
+  nameWithType: IDomainEventSource
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IDomainEventSource
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 领域事件来源，通常是实体 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity" data-throw-if-not-resolved="false"></xref>。
+  example: []
+  syntax:
+    content: public interface IDomainEventSource
+    content.vb: Public Interface IDomainEventSource
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.DomainEvents
+  commentId: P:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.DomainEvents
+  id: DomainEvents
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  langs:
+  - csharp
+  - vb
+  name: DomainEvents
+  nameWithType: IDomainEventSource.DomainEvents
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.DomainEvents
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DomainEvents
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+    startLine: 11
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 获取该来源包含的领域事件。
+  example: []
+  syntax:
+    content: IReadOnlyCollection<IDomainEvent>? DomainEvents { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+      description: 领域事件。
+    content.vb: ReadOnly Property DomainEvents As IReadOnlyCollection(Of IDomainEvent)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.DomainEvents*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  id: AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  langs:
+  - csharp
+  - vb
+  name: AddDomainEvent(IDomainEvent)
+  nameWithType: IDomainEventSource.AddDomainEvent(IDomainEvent)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.AddDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AddDomainEvent
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+    startLine: 17
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 添加领域事件。
+  example: []
+  syntax:
+    content: void AddDomainEvent(IDomainEvent domainEvent)
+    parameters:
+    - id: domainEvent
+      type: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+      description: 要添加的事件。
+    content.vb: Sub AddDomainEvent(domainEvent As IDomainEvent)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.AddDomainEvent*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  id: RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  langs:
+  - csharp
+  - vb
+  name: RemoveDomainEvent(IDomainEvent)
+  nameWithType: IDomainEventSource.RemoveDomainEvent(IDomainEvent)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.RemoveDomainEvent(Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: RemoveDomainEvent
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+    startLine: 23
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 清除领域事件。
+  example: []
+  syntax:
+    content: void RemoveDomainEvent(IDomainEvent domainEvent)
+    parameters:
+    - id: domainEvent
+      type: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+      description: 要清除的事件。
+    content.vb: Sub RemoveDomainEvent(domainEvent As IDomainEvent)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.RemoveDomainEvent*
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.ClearDomainEvents
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.ClearDomainEvents
+  id: ClearDomainEvents
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource
+  langs:
+  - csharp
+  - vb
+  name: ClearDomainEvents()
+  nameWithType: IDomainEventSource.ClearDomainEvents()
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.ClearDomainEvents()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ClearDomainEvents
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IDomainEventSource.cs
+    startLine: 28
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 清除领域事件。
+  example: []
+  syntax:
+    content: void ClearDomainEvents()
+    content.vb: Sub ClearDomainEvents()
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.ClearDomainEvents*
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity.html
+  name: Entity
+  nameWithType: Entity
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.Entity
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.DomainEvents*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.DomainEvents
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEventSource_DomainEvents
+  name: DomainEvents
+  nameWithType: IDomainEventSource.DomainEvents
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.DomainEvents
+- uid: System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<IDomainEvent>
+  nameWithType: IReadOnlyCollection<IDomainEvent>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent>
+  nameWithType.vb: IReadOnlyCollection(Of IDomainEvent)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent)
+  name.vb: IReadOnlyCollection(Of IDomainEvent)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+    name: IDomainEvent
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.AddDomainEvent*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.AddDomainEvent
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEventSource_AddDomainEvent_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent_
+  name: AddDomainEvent
+  nameWithType: IDomainEventSource.AddDomainEvent
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.AddDomainEvent
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent.html
+  name: IDomainEvent
+  nameWithType: IDomainEvent
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEvent
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.RemoveDomainEvent*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.RemoveDomainEvent
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEventSource_RemoveDomainEvent_Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEvent_
+  name: RemoveDomainEvent
+  nameWithType: IDomainEventSource.RemoveDomainEvent
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.RemoveDomainEvent
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.ClearDomainEvents*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.ClearDomainEvents
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IDomainEventSource_ClearDomainEvents
+  name: ClearDomainEvents
+  nameWithType: IDomainEventSource.ClearDomainEvents
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IDomainEventSource.ClearDomainEvents

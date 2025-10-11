@@ -1,0 +1,670 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+  id: QueryableExtensions
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.String})
+  langs:
+  - csharp
+  - vb
+  name: QueryableExtensions
+  nameWithType: QueryableExtensions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/QueryableExtensions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: QueryableExtensions
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/QueryableExtensions.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 查询用的扩展方法。
+  example: []
+  syntax:
+    content: public static class QueryableExtensions
+    content.vb: Public Module QueryableExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})
+  id: AggregateIncludes``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}})
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+  langs:
+  - csharp
+  - vb
+  name: AggregateIncludes<TEntity>(IQueryable<TEntity>, IEnumerable<Expression<Func<TEntity, object?>>>)
+  nameWithType: QueryableExtensions.AggregateIncludes<TEntity>(IQueryable<TEntity>, IEnumerable<Expression<Func<TEntity, object?>>>)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes<TEntity>(System.Linq.IQueryable<TEntity>, System.Collections.Generic.IEnumerable<System.Linq.Expressions.Expression<System.Func<TEntity, object?>>>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/QueryableExtensions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AggregateIncludes
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/QueryableExtensions.cs
+    startLine: 18
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: 对 <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref> 应用多个 Include 语句。
+  example: []
+  syntax:
+    content: 'public static IQueryable<TEntity> AggregateIncludes<TEntity>(this IQueryable<TEntity> query, IEnumerable<Expression<Func<TEntity, object?>>> includes) where TEntity : class'
+    parameters:
+    - id: query
+      type: System.Linq.IQueryable{{TEntity}}
+      description: 源查询。
+    - id: includes
+      type: System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{{TEntity},System.Object}}}
+      description: Include 表达式数组。
+    typeParameters:
+    - id: TEntity
+      description: 实体类型。
+    return:
+      type: System.Linq.IQueryable{{TEntity}}
+      description: ''
+    content.vb: Public Shared Function AggregateIncludes(Of TEntity As Class)(query As IQueryable(Of TEntity), includes As IEnumerable(Of Expression(Of Func(Of TEntity, Object)))) As IQueryable(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes*
+  nameWithType.vb: QueryableExtensions.AggregateIncludes(Of TEntity)(IQueryable(Of TEntity), IEnumerable(Of Expression(Of Func(Of TEntity, Object))))
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes(Of TEntity)(System.Linq.IQueryable(Of TEntity), System.Collections.Generic.IEnumerable(Of System.Linq.Expressions.Expression(Of System.Func(Of TEntity, Object))))
+  name.vb: AggregateIncludes(Of TEntity)(IQueryable(Of TEntity), IEnumerable(Of Expression(Of Func(Of TEntity, Object))))
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.String})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.String})
+  id: AggregateIncludes``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{System.String})
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions
+  langs:
+  - csharp
+  - vb
+  name: AggregateIncludes<TEntity>(IQueryable<TEntity>, IEnumerable<string>)
+  nameWithType: QueryableExtensions.AggregateIncludes<TEntity>(IQueryable<TEntity>, IEnumerable<string>)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes<TEntity>(System.Linq.IQueryable<TEntity>, System.Collections.Generic.IEnumerable<string>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/QueryableExtensions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AggregateIncludes
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/QueryableExtensions.cs
+    startLine: 33
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  summary: Apply multiple includes to <code class="paramref">query</code>.
+  example: []
+  syntax:
+    content: 'public static IQueryable<TEntity> AggregateIncludes<TEntity>(this IQueryable<TEntity> query, IEnumerable<string> includes) where TEntity : class'
+    parameters:
+    - id: query
+      type: System.Linq.IQueryable{{TEntity}}
+      description: The source queryable.
+    - id: includes
+      type: System.Collections.Generic.IEnumerable{System.String}
+      description: Include strings.
+    typeParameters:
+    - id: TEntity
+      description: The type of entity.
+    return:
+      type: System.Linq.IQueryable{{TEntity}}
+      description: ''
+    content.vb: Public Shared Function AggregateIncludes(Of TEntity As Class)(query As IQueryable(Of TEntity), includes As IEnumerable(Of String)) As IQueryable(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes*
+  nameWithType.vb: QueryableExtensions.AggregateIncludes(Of TEntity)(IQueryable(Of TEntity), IEnumerable(Of String))
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes(Of TEntity)(System.Linq.IQueryable(Of TEntity), System.Collections.Generic.IEnumerable(Of String))
+  name.vb: AggregateIncludes(Of TEntity)(IQueryable(Of TEntity), IEnumerable(Of String))
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+    name: EntityFramework
+    href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework
+    name: EntityFramework
+    href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes
+  href: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.html#Cnblogs_Architecture_Ddd_Infrastructure_EntityFramework_QueryableExtensions_AggregateIncludes__1_System_Linq_IQueryable___0__System_Collections_Generic_IEnumerable_System_Linq_Expressions_Expression_System_Func___0_System_Object____
+  name: AggregateIncludes
+  nameWithType: QueryableExtensions.AggregateIncludes
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.QueryableExtensions.AggregateIncludes
+- uid: System.Linq.IQueryable{{TEntity}}
+  commentId: T:System.Linq.IQueryable{`1}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<TEntity>
+  nameWithType: IQueryable<TEntity>
+  fullName: System.Linq.IQueryable<TEntity>
+  nameWithType.vb: IQueryable(Of TEntity)
+  fullName.vb: System.Linq.IQueryable(Of TEntity)
+  name.vb: IQueryable(Of TEntity)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{{TEntity},System.Object}}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Linq.Expressions.Expression{System.Func{``0,System.Object}}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<Expression<Func<TEntity, object>>>
+  nameWithType: IEnumerable<Expression<Func<TEntity, object>>>
+  fullName: System.Collections.Generic.IEnumerable<System.Linq.Expressions.Expression<System.Func<TEntity, object>>>
+  nameWithType.vb: IEnumerable(Of Expression(Of Func(Of TEntity, Object)))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Linq.Expressions.Expression(Of System.Func(Of TEntity, Object)))
+  name.vb: IEnumerable(Of Expression(Of Func(Of TEntity, Object)))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: <
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: <
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '>'
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Linq.Expressions.Expression`1
+    name: Expression
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.expressions.expression-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Func`2
+    name: Func
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.func-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  - name: )
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable{System.String}
+  commentId: T:System.Collections.Generic.IEnumerable{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<string>
+  nameWithType: IEnumerable<string>
+  fullName: System.Collections.Generic.IEnumerable<string>
+  nameWithType.vb: IEnumerable(Of String)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of String)
+  name.vb: IEnumerable(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )

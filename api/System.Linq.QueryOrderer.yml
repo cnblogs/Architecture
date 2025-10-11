@@ -1,0 +1,713 @@
+### YamlMime:ManagedReference
+items:
+- uid: System.Linq.QueryOrderer
+  commentId: T:System.Linq.QueryOrderer
+  id: QueryOrderer
+  parent: System.Linq
+  children:
+  - System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment)
+  - System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment})
+  - System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment})
+  langs:
+  - csharp
+  - vb
+  name: QueryOrderer
+  nameWithType: QueryOrderer
+  fullName: System.Linq.QueryOrderer
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryOrderer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: QueryOrderer
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryOrderer.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: System.Linq
+  summary: <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment" data-throw-if-not-resolved="false"></xref> 用于 <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref> 的扩展方法。
+  example: []
+  syntax:
+    content: public static class QueryOrderer
+    content.vb: Public Module QueryOrderer
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment)
+  commentId: M:System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment)
+  id: OrderBy``1(System.Linq.IQueryable{``0},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment)
+  isExtensionMethod: true
+  parent: System.Linq.QueryOrderer
+  langs:
+  - csharp
+  - vb
+  name: OrderBy<TSource>(IQueryable<TSource>, OrderBySegment)
+  nameWithType: QueryOrderer.OrderBy<TSource>(IQueryable<TSource>, OrderBySegment)
+  fullName: System.Linq.QueryOrderer.OrderBy<TSource>(System.Linq.IQueryable<TSource>, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryOrderer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: OrderBy
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryOrderer.cs
+    startLine: 28
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: System.Linq
+  summary: 使用 <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment" data-throw-if-not-resolved="false"></xref> 进行排序。
+  example: []
+  syntax:
+    content: public static IQueryable<TSource> OrderBy<TSource>(this IQueryable<TSource> queryable, OrderBySegment segment)
+    parameters:
+    - id: queryable
+      type: System.Linq.IQueryable{{TSource}}
+      description: 要排序的列表。
+    - id: segment
+      type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+      description: 排序参数。
+    typeParameters:
+    - id: TSource
+      description: 要排序的类型。
+    return:
+      type: System.Linq.IQueryable{{TSource}}
+      description: 排好序的 <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>。
+    content.vb: Public Shared Function OrderBy(Of TSource)(queryable As IQueryable(Of TSource), segment As OrderBySegment) As IQueryable(Of TSource)
+  overload: System.Linq.QueryOrderer.OrderBy*
+  nameWithType.vb: QueryOrderer.OrderBy(Of TSource)(IQueryable(Of TSource), OrderBySegment)
+  fullName.vb: System.Linq.QueryOrderer.OrderBy(Of TSource)(System.Linq.IQueryable(Of TSource), Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment)
+  name.vb: OrderBy(Of TSource)(IQueryable(Of TSource), OrderBySegment)
+- uid: System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment})
+  commentId: M:System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment})
+  id: OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment})
+  isExtensionMethod: true
+  parent: System.Linq.QueryOrderer
+  langs:
+  - csharp
+  - vb
+  name: OrderBy<TSource>(IQueryable<TSource>, IReadOnlyCollection<OrderBySegment>)
+  nameWithType: QueryOrderer.OrderBy<TSource>(IQueryable<TSource>, IReadOnlyCollection<OrderBySegment>)
+  fullName: System.Linq.QueryOrderer.OrderBy<TSource>(System.Linq.IQueryable<TSource>, System.Collections.Generic.IReadOnlyCollection<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryOrderer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: OrderBy
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryOrderer.cs
+    startLine: 44
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: System.Linq
+  summary: 使用 <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment" data-throw-if-not-resolved="false"></xref> 进行排序。
+  example: []
+  syntax:
+    content: public static IQueryable<TSource> OrderBy<TSource>(this IQueryable<TSource> queryable, IReadOnlyCollection<OrderBySegment> segments)
+    parameters:
+    - id: queryable
+      type: System.Linq.IQueryable{{TSource}}
+      description: 要排序的列表。
+    - id: segments
+      type: System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment}
+      description: 排序参数。
+    typeParameters:
+    - id: TSource
+      description: 要排序的类型。
+    return:
+      type: System.Linq.IQueryable{{TSource}}
+      description: 排好序的 <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>。
+    content.vb: Public Shared Function OrderBy(Of TSource)(queryable As IQueryable(Of TSource), segments As IReadOnlyCollection(Of OrderBySegment)) As IQueryable(Of TSource)
+  overload: System.Linq.QueryOrderer.OrderBy*
+  nameWithType.vb: QueryOrderer.OrderBy(Of TSource)(IQueryable(Of TSource), IReadOnlyCollection(Of OrderBySegment))
+  fullName.vb: System.Linq.QueryOrderer.OrderBy(Of TSource)(System.Linq.IQueryable(Of TSource), System.Collections.Generic.IReadOnlyCollection(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment))
+  name.vb: OrderBy(Of TSource)(IQueryable(Of TSource), IReadOnlyCollection(Of OrderBySegment))
+- uid: System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment})
+  commentId: M:System.Linq.QueryOrderer.OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment})
+  id: OrderBy``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment})
+  isExtensionMethod: true
+  parent: System.Linq.QueryOrderer
+  langs:
+  - csharp
+  - vb
+  name: OrderBy<TSource>(IQueryable<TSource>, IEnumerable<OrderBySegment>)
+  nameWithType: QueryOrderer.OrderBy<TSource>(IQueryable<TSource>, IEnumerable<OrderBySegment>)
+  fullName: System.Linq.QueryOrderer.OrderBy<TSource>(System.Linq.IQueryable<TSource>, System.Collections.Generic.IEnumerable<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryOrderer.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: OrderBy
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryOrderer.cs
+    startLine: 61
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: System.Linq
+  summary: 使用 <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment" data-throw-if-not-resolved="false"></xref> 进行排序。
+  example: []
+  syntax:
+    content: public static IQueryable<TSource> OrderBy<TSource>(this IQueryable<TSource> queryable, IEnumerable<OrderBySegment> segments)
+    parameters:
+    - id: queryable
+      type: System.Linq.IQueryable{{TSource}}
+      description: 要排序的列表。
+    - id: segments
+      type: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment}
+      description: 排序参数。
+    typeParameters:
+    - id: TSource
+      description: 要排序的类型。
+    return:
+      type: System.Linq.IQueryable{{TSource}}
+      description: 排好序的 <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref>。
+    content.vb: Public Shared Function OrderBy(Of TSource)(queryable As IQueryable(Of TSource), segments As IEnumerable(Of OrderBySegment)) As IQueryable(Of TSource)
+  overload: System.Linq.QueryOrderer.OrderBy*
+  nameWithType.vb: QueryOrderer.OrderBy(Of TSource)(IQueryable(Of TSource), IEnumerable(Of OrderBySegment))
+  fullName.vb: System.Linq.QueryOrderer.OrderBy(Of TSource)(System.Linq.IQueryable(Of TSource), System.Collections.Generic.IEnumerable(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment))
+  name.vb: OrderBy(Of TSource)(IQueryable(Of TSource), IEnumerable(Of OrderBySegment))
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment.html
+  name: OrderBySegment
+  nameWithType: OrderBySegment
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Linq.QueryOrderer.OrderBy*
+  commentId: Overload:System.Linq.QueryOrderer.OrderBy
+  href: System.Linq.QueryOrderer.html#System_Linq_QueryOrderer_OrderBy__1_System_Linq_IQueryable___0__Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_OrderBySegment_
+  name: OrderBy
+  nameWithType: QueryOrderer.OrderBy
+  fullName: System.Linq.QueryOrderer.OrderBy
+- uid: System.Linq.IQueryable{{TSource}}
+  commentId: T:System.Linq.IQueryable{``0}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<TSource>
+  nameWithType: IQueryable<TSource>
+  fullName: System.Linq.IQueryable<TSource>
+  nameWithType.vb: IQueryable(Of TSource)
+  fullName.vb: System.Linq.IQueryable(Of TSource)
+  name.vb: IQueryable(Of TSource)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: TSource
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TSource
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment}
+  commentId: T:System.Collections.Generic.IReadOnlyCollection{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IReadOnlyCollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<OrderBySegment>
+  nameWithType: IReadOnlyCollection<OrderBySegment>
+  fullName: System.Collections.Generic.IReadOnlyCollection<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment>
+  nameWithType.vb: IReadOnlyCollection(Of OrderBySegment)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment)
+  name.vb: IReadOnlyCollection(Of OrderBySegment)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+    name: OrderBySegment
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+    name: OrderBySegment
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment.html
+  - name: )
+- uid: System.Collections.Generic.IReadOnlyCollection`1
+  commentId: T:System.Collections.Generic.IReadOnlyCollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  name: IReadOnlyCollection<T>
+  nameWithType: IReadOnlyCollection<T>
+  fullName: System.Collections.Generic.IReadOnlyCollection<T>
+  nameWithType.vb: IReadOnlyCollection(Of T)
+  fullName.vb: System.Collections.Generic.IReadOnlyCollection(Of T)
+  name.vb: IReadOnlyCollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IReadOnlyCollection`1
+    name: IReadOnlyCollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ireadonlycollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment}
+  commentId: T:System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<OrderBySegment>
+  nameWithType: IEnumerable<OrderBySegment>
+  fullName: System.Collections.Generic.IEnumerable<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment>
+  nameWithType.vb: IEnumerable(Of OrderBySegment)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment)
+  name.vb: IEnumerable(Of OrderBySegment)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+    name: OrderBySegment
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment
+    name: OrderBySegment
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.OrderBySegment.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

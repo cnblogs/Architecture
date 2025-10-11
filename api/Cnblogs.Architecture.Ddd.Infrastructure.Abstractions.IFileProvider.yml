@@ -1,0 +1,765 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  id: IFileProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync(System.Collections.Generic.IList{System.String})
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(System.String,System.Byte[])
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(System.String,System.IO.Stream)
+  langs:
+  - csharp
+  - vb
+  name: IFileProvider
+  nameWithType: IFileProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IFileProvider
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Provides abstractions for accessing file system.
+  example: []
+  syntax:
+    content: public interface IFileProvider
+    content.vb: Public Interface IFileProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync(System.String)
+  id: GetFileStreamAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  langs:
+  - csharp
+  - vb
+  name: GetFileStreamAsync(string)
+  nameWithType: IFileProvider.GetFileStreamAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetFileStreamAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Get file content by filename.
+  example: []
+  syntax:
+    content: Task<Stream> GetFileStreamAsync(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename.
+    return:
+      type: System.Threading.Tasks.Task{System.IO.Stream}
+      description: File's content stream.
+    content.vb: Function GetFileStreamAsync(filename As String) As Task(Of Stream)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync*
+  exceptions:
+  - type: System.IO.FileNotFoundException
+    commentId: T:System.IO.FileNotFoundException
+    description: Throw if file with filename does not exist.
+  nameWithType.vb: IFileProvider.GetFileStreamAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync(String)
+  name.vb: GetFileStreamAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync(System.String)
+  id: GetFileBytesAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  langs:
+  - csharp
+  - vb
+  name: GetFileBytesAsync(string)
+  nameWithType: IFileProvider.GetFileBytesAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetFileBytesAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+    startLine: 21
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Get file content by filename.
+  example: []
+  syntax:
+    content: Task<byte[]> GetFileBytesAsync(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename.
+    return:
+      type: System.Threading.Tasks.Task{System.Byte[]}
+      description: File's content in byte array.
+    content.vb: Function GetFileBytesAsync(filename As String) As Task(Of Byte())
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync*
+  exceptions:
+  - type: System.IO.FileNotFoundException
+    commentId: T:System.IO.FileNotFoundException
+    description: Throw if file with filename does not exist.
+  nameWithType.vb: IFileProvider.GetFileBytesAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync(String)
+  name.vb: GetFileBytesAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(System.String,System.IO.Stream)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(System.String,System.IO.Stream)
+  id: SaveFileAsync(System.String,System.IO.Stream)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  langs:
+  - csharp
+  - vb
+  name: SaveFileAsync(string, Stream)
+  nameWithType: IFileProvider.SaveFileAsync(string, Stream)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(string, System.IO.Stream)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SaveFileAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+    startLine: 29
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Save file to given filename.
+  example: []
+  syntax:
+    content: Task SaveFileAsync(string filename, Stream filestream)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The path to save file to.
+    - id: filestream
+      type: System.IO.Stream
+      description: The file content.
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Function SaveFileAsync(filename As String, filestream As Stream) As Task
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync*
+  nameWithType.vb: IFileProvider.SaveFileAsync(String, Stream)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(String, System.IO.Stream)
+  name.vb: SaveFileAsync(String, Stream)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(System.String,System.Byte[])
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(System.String,System.Byte[])
+  id: SaveFileAsync(System.String,System.Byte[])
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  langs:
+  - csharp
+  - vb
+  name: SaveFileAsync(string, byte[])
+  nameWithType: IFileProvider.SaveFileAsync(string, byte[])
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(string, byte[])
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SaveFileAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+    startLine: 37
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Save file to given filename.
+  example: []
+  syntax:
+    content: Task SaveFileAsync(string filename, byte[] bytes)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The path to save file to.
+    - id: bytes
+      type: System.Byte[]
+      description: The file content in byte array.
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Function SaveFileAsync(filename As String, bytes As Byte()) As Task
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync*
+  nameWithType.vb: IFileProvider.SaveFileAsync(String, Byte())
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync(String, Byte())
+  name.vb: SaveFileAsync(String, Byte())
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync(System.String)
+  id: FileExistsAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  langs:
+  - csharp
+  - vb
+  name: FileExistsAsync(string)
+  nameWithType: IFileProvider.FileExistsAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: FileExistsAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+    startLine: 44
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Check if file exists.
+  example: []
+  syntax:
+    content: Task<bool> FileExistsAsync(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename to check.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if file exists.
+    content.vb: Function FileExistsAsync(filename As String) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync*
+  nameWithType.vb: IFileProvider.FileExistsAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync(String)
+  name.vb: FileExistsAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync(System.String)
+  id: DeleteFileAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  langs:
+  - csharp
+  - vb
+  name: DeleteFileAsync(string)
+  nameWithType: IFileProvider.DeleteFileAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DeleteFileAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+    startLine: 51
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Delete file with certain filename.
+  example: []
+  syntax:
+    content: Task DeleteFileAsync(string filename)
+    parameters:
+    - id: filename
+      type: System.String
+      description: The filename to delete.
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Function DeleteFileAsync(filename As String) As Task
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync*
+  nameWithType.vb: IFileProvider.DeleteFileAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync(String)
+  name.vb: DeleteFileAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync(System.Collections.Generic.IList{System.String})
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync(System.Collections.Generic.IList{System.String})
+  id: DeleteFilesAsync(System.Collections.Generic.IList{System.String})
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider
+  langs:
+  - csharp
+  - vb
+  name: DeleteFilesAsync(IList<string>)
+  nameWithType: IFileProvider.DeleteFilesAsync(IList<string>)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync(System.Collections.Generic.IList<string>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DeleteFilesAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/IFileProvider.cs
+    startLine: 58
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: Bulk delete files by filenames.
+  example: []
+  syntax:
+    content: Task DeleteFilesAsync(IList<string> filenames)
+    parameters:
+    - id: filenames
+      type: System.Collections.Generic.IList{System.String}
+      description: The files to be deleted.
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Function DeleteFilesAsync(filenames As IList(Of String)) As Task
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync*
+  nameWithType.vb: IFileProvider.DeleteFilesAsync(IList(Of String))
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync(System.Collections.Generic.IList(Of String))
+  name.vb: DeleteFilesAsync(IList(Of String))
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: System.IO.FileNotFoundException
+  commentId: T:System.IO.FileNotFoundException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.filenotfoundexception
+  name: FileNotFoundException
+  nameWithType: FileNotFoundException
+  fullName: System.IO.FileNotFoundException
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_IFileProvider_GetFileStreamAsync_System_String_
+  name: GetFileStreamAsync
+  nameWithType: IFileProvider.GetFileStreamAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileStreamAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{System.IO.Stream}
+  commentId: T:System.Threading.Tasks.Task{System.IO.Stream}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<Stream>
+  nameWithType: Task<Stream>
+  fullName: System.Threading.Tasks.Task<System.IO.Stream>
+  nameWithType.vb: Task(Of Stream)
+  fullName.vb: System.Threading.Tasks.Task(Of System.IO.Stream)
+  name.vb: Task(Of Stream)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.IO.Stream
+    name: Stream
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_IFileProvider_GetFileBytesAsync_System_String_
+  name: GetFileBytesAsync
+  nameWithType: IFileProvider.GetFileBytesAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.GetFileBytesAsync
+- uid: System.Threading.Tasks.Task{System.Byte[]}
+  commentId: T:System.Threading.Tasks.Task{System.Byte[]}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<byte[]>
+  nameWithType: Task<byte[]>
+  fullName: System.Threading.Tasks.Task<byte[]>
+  nameWithType.vb: Task(Of Byte())
+  fullName.vb: System.Threading.Tasks.Task(Of Byte())
+  name.vb: Task(Of Byte())
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_IFileProvider_SaveFileAsync_System_String_System_IO_Stream_
+  name: SaveFileAsync
+  nameWithType: IFileProvider.SaveFileAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.SaveFileAsync
+- uid: System.IO.Stream
+  commentId: T:System.IO.Stream
+  parent: System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.io.stream
+  name: Stream
+  nameWithType: Stream
+  fullName: System.IO.Stream
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.IO
+    name: IO
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.io
+- uid: System.Byte[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.byte
+  name: byte[]
+  nameWithType: byte[]
+  fullName: byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.byte
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_IFileProvider_FileExistsAsync_System_String_
+  name: FileExistsAsync
+  nameWithType: IFileProvider.FileExistsAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.FileExistsAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_IFileProvider_DeleteFileAsync_System_String_
+  name: DeleteFileAsync
+  nameWithType: IFileProvider.DeleteFileAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFileAsync
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_IFileProvider_DeleteFilesAsync_System_Collections_Generic_IList_System_String__
+  name: DeleteFilesAsync
+  nameWithType: IFileProvider.DeleteFilesAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.IFileProvider.DeleteFilesAsync
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<string>
+  nameWithType: IList<string>
+  fullName: System.Collections.Generic.IList<string>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic

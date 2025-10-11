@@ -1,0 +1,144 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  id: ICommand`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1.ValidateOnly
+  langs:
+  - csharp
+  - vb
+  name: ICommand<TError>
+  nameWithType: ICommand<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand<TError>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICommand.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ICommand
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICommand.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Definition for command.
+  example: []
+  syntax:
+    content: 'public interface ICommand<TError> : IRequest<CommandResponse<TError>>, IBaseRequest where TError : Enumeration'
+    typeParameters:
+    - id: TError
+      description: The error type when command execution failed.
+    content.vb: Public Interface ICommand(Of TError As Enumeration) Inherits IRequest(Of CommandResponse(Of TError)), IBaseRequest
+  nameWithType.vb: ICommand(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand(Of TError)
+  name.vb: ICommand(Of TError)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1.ValidateOnly
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1.ValidateOnly
+  id: ValidateOnly
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  langs:
+  - csharp
+  - vb
+  name: ValidateOnly
+  nameWithType: ICommand<TError>.ValidateOnly
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand<TError>.ValidateOnly
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICommand.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ValidateOnly
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICommand.cs
+    startLine: 19
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Only execute validation logic.
+  remarks: This logic must be implemented manually in command handler and not guaranteed by framework.
+  example: []
+  syntax:
+    content: bool ValidateOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property ValidateOnly As Boolean
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1.ValidateOnly*
+  nameWithType.vb: ICommand(Of TError).ValidateOnly
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand(Of TError).ValidateOnly
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1.ValidateOnly*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1.ValidateOnly
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ICommand_1_ValidateOnly
+  name: ValidateOnly
+  nameWithType: ICommand<TError>.ValidateOnly
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand<TError>.ValidateOnly
+  nameWithType.vb: ICommand(Of TError).ValidateOnly
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand(Of TError).ValidateOnly
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

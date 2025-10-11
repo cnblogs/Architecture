@@ -1,0 +1,638 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  id: IUnitOfWork`2
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add(`0)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete(`0)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync(`1)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update(`0)
+  langs:
+  - csharp
+  - vb
+  name: IUnitOfWork<TEntity, TKey>
+  nameWithType: IUnitOfWork<TEntity, TKey>
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IUnitOfWork
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+    startLine: 7
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 定义 UnitOfWork。
+  example: []
+  syntax:
+    content: 'public interface IUnitOfWork<TEntity, TKey> where TEntity : EntityBase, IAggregateRoot where TKey : IComparable<TKey>'
+    typeParameters:
+    - id: TEntity
+      description: 实体类型。
+    - id: TKey
+      description: 主键类型。
+    content.vb: Public Interface IUnitOfWork(Of TEntity As {EntityBase, IAggregateRoot}, TKey As IComparable(Of TKey))
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey)
+  name.vb: IUnitOfWork(Of TEntity, TKey)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync(`1)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync(`1)
+  id: GetAsync(`1)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  langs:
+  - csharp
+  - vb
+  name: GetAsync(TKey)
+  nameWithType: IUnitOfWork<TEntity, TKey>.GetAsync(TKey)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.GetAsync(TKey)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetAsync
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+    startLine: 16
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 获取实体以供更改。
+  example: []
+  syntax:
+    content: Task<TEntity?> GetAsync(TKey key)
+    parameters:
+    - id: key
+      type: '{TKey}'
+      description: 主键。
+    return:
+      type: System.Threading.Tasks.Task{{TEntity}}
+      description: 获取到的实体。
+    content.vb: Function GetAsync(key As TKey) As Task(Of TEntity)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync*
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).GetAsync(TKey)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).GetAsync(TKey)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add(`0)
+  id: Add(`0)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  langs:
+  - csharp
+  - vb
+  name: Add(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Add(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Add(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Add
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+    startLine: 23
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 添加实体，调用 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveEntitiesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 或 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveChangesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 后才会写入数据库。
+  example: []
+  syntax:
+    content: TEntity Add(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要添加实体。
+    return:
+      type: '{TEntity}'
+      description: 被添加的实体。
+    content.vb: Function Add(entity As TEntity) As TEntity
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add*
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Add(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Add(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update(`0)
+  id: Update(`0)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  langs:
+  - csharp
+  - vb
+  name: Update(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Update(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Update(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Update
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+    startLine: 30
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 更新实体，调用 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveEntitiesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 或 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveChangesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 后才会写入数据库。
+  example: []
+  syntax:
+    content: TEntity Update(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要更新的实体。
+    return:
+      type: '{TEntity}'
+      description: 被更新的实体。
+    content.vb: Function Update(entity As TEntity) As TEntity
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update*
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Update(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Update(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete(`0)
+  id: Delete(`0)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  langs:
+  - csharp
+  - vb
+  name: Delete(TEntity)
+  nameWithType: IUnitOfWork<TEntity, TKey>.Delete(TEntity)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Delete(TEntity)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Delete
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+    startLine: 37
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 删除实体，调用 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveEntitiesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 或 <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork%602.SaveChangesAsync(System.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref> 后才会写入数据库。
+  example: []
+  syntax:
+    content: TEntity Delete(TEntity entity)
+    parameters:
+    - id: entity
+      type: '{TEntity}'
+      description: 要删除的实体。
+    return:
+      type: '{TEntity}'
+      description: ''
+    content.vb: Function Delete(entity As TEntity) As TEntity
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete*
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Delete(TEntity)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Delete(TEntity)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+  id: SaveChangesAsync(System.Threading.CancellationToken)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  langs:
+  - csharp
+  - vb
+  name: SaveChangesAsync(CancellationToken)
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveChangesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveChangesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SaveChangesAsync
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+    startLine: 44
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 提交所有更改（但不发布领域事件）。
+  example: []
+  syntax:
+    content: Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>。
+    return:
+      type: System.Threading.Tasks.Task{System.Int32}
+      description: 更改的行数。
+    content.vb: Function SaveChangesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Integer)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync*
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveChangesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveChangesAsync(System.Threading.CancellationToken)
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+  id: SaveEntitiesAsync(System.Threading.CancellationToken)
+  parent: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2
+  langs:
+  - csharp
+  - vb
+  name: SaveEntitiesAsync(CancellationToken)
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: SaveEntitiesAsync
+    path: src/Cnblogs.Architecture.Ddd.Domain.Abstractions/IUnitOfWork.cs
+    startLine: 51
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Domain.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  summary: 提交所有实体，会发送领域事件（如果有）。
+  example: []
+  syntax:
+    content: Task<bool> SaveEntitiesAsync(CancellationToken cancellationToken = default)
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: <xref href="System.Threading.CancellationToken" data-throw-if-not-resolved="false"></xref>。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 提交是否成功。
+    content.vb: Function SaveEntitiesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync*
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync(System.Threading.CancellationToken)
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Domain.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain
+    name: Domain
+    href: Cnblogs.Architecture.Ddd.Domain.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.GetAsync
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_GetAsync__1_
+  name: GetAsync
+  nameWithType: IUnitOfWork<TEntity, TKey>.GetAsync
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.GetAsync
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).GetAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).GetAsync
+- uid: '{TKey}'
+  commentId: '!:TKey'
+  definition: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: System.Threading.Tasks.Task{{TEntity}}
+  commentId: T:System.Threading.Tasks.Task{`0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TEntity>
+  nameWithType: Task<TEntity>
+  fullName: System.Threading.Tasks.Task<TEntity>
+  nameWithType.vb: Task(Of TEntity)
+  fullName.vb: System.Threading.Tasks.Task(Of TEntity)
+  name.vb: Task(Of TEntity)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TEntity
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEntity
+  - name: )
+- uid: TKey
+  name: TKey
+  nameWithType: TKey
+  fullName: TKey
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveEntitiesAsync_System_Threading_CancellationToken_
+  name: SaveEntitiesAsync(CancellationToken)
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+    name: SaveEntitiesAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveEntitiesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync(System.Threading.CancellationToken)
+    name: SaveEntitiesAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveEntitiesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+  commentId: M:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveChangesAsync_System_Threading_CancellationToken_
+  name: SaveChangesAsync(CancellationToken)
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveChangesAsync(CancellationToken)
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveChangesAsync(System.Threading.CancellationToken)
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveChangesAsync(CancellationToken)
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveChangesAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+    name: SaveChangesAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveChangesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync(System.Threading.CancellationToken)
+    name: SaveChangesAsync
+    href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveChangesAsync_System_Threading_CancellationToken_
+  - name: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Add
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_Add__0_
+  name: Add
+  nameWithType: IUnitOfWork<TEntity, TKey>.Add
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Add
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Add
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Add
+- uid: '{TEntity}'
+  commentId: '!:TEntity'
+  definition: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: TEntity
+  name: TEntity
+  nameWithType: TEntity
+  fullName: TEntity
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Update
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_Update__0_
+  name: Update
+  nameWithType: IUnitOfWork<TEntity, TKey>.Update
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Update
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Update
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Update
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.Delete
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_Delete__0_
+  name: Delete
+  nameWithType: IUnitOfWork<TEntity, TKey>.Delete
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.Delete
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).Delete
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).Delete
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveChangesAsync
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveChangesAsync_System_Threading_CancellationToken_
+  name: SaveChangesAsync
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveChangesAsync
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveChangesAsync
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveChangesAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveChangesAsync
+- uid: System.Threading.Tasks.Task{System.Int32}
+  commentId: T:System.Threading.Tasks.Task{System.Int32}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<int>
+  nameWithType: Task<int>
+  fullName: System.Threading.Tasks.Task<int>
+  nameWithType.vb: Task(Of Integer)
+  fullName.vb: System.Threading.Tasks.Task(Of Integer)
+  name.vb: Task(Of Integer)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork`2.SaveEntitiesAsync
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork-2.html#Cnblogs_Architecture_Ddd_Domain_Abstractions_IUnitOfWork_2_SaveEntitiesAsync_System_Threading_CancellationToken_
+  name: SaveEntitiesAsync
+  nameWithType: IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork<TEntity, TKey>.SaveEntitiesAsync
+  nameWithType.vb: IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Domain.Abstractions.IUnitOfWork(Of TEntity, TKey).SaveEntitiesAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )

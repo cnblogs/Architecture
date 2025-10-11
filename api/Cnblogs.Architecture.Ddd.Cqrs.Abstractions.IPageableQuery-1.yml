@@ -1,0 +1,262 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+  id: IPageableQuery`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1.PagingParams
+  langs:
+  - csharp
+  - vb
+  name: IPageableQuery<TElement>
+  nameWithType: IPageableQuery<TElement>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery<TElement>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IPageableQuery.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IPageableQuery
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IPageableQuery.cs
+    startLine: 8
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents a <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery%601" data-throw-if-not-resolved="false"></xref> with paged results.
+  example: []
+  syntax:
+    content: 'public interface IPageableQuery<TElement> : IOrderedQuery<PagedList<TElement>>, IListQuery<PagedList<TElement>>, IRequest<PagedList<TElement>>, IBaseRequest'
+    typeParameters:
+    - id: TElement
+      description: The type for each item in results.
+    content.vb: Public Interface IPageableQuery(Of TElement) Inherits IOrderedQuery(Of PagedList(Of TElement)), IListQuery(Of PagedList(Of TElement)), IRequest(Of PagedList(Of TElement)), IBaseRequest
+  inheritedMembers:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TElement}}}.OrderByString
+  nameWithType.vb: IPageableQuery(Of TElement)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery(Of TElement)
+  name.vb: IPageableQuery(Of TElement)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1.PagingParams
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1.PagingParams
+  id: PagingParams
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1
+  langs:
+  - csharp
+  - vb
+  name: PagingParams
+  nameWithType: IPageableQuery<TElement>.PagingParams
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery<TElement>.PagingParams
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IPageableQuery.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PagingParams
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IPageableQuery.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: The paging parameters, include page index and page size.
+  example: []
+  syntax:
+    content: PagingParams? PagingParams { get; }
+    parameters: []
+    return:
+      type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+    content.vb: ReadOnly Property PagingParams As PagingParams
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1.PagingParams*
+  nameWithType.vb: IPageableQuery(Of TElement).PagingParams
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery(Of TElement).PagingParams
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  name: IOrderedQuery<TList>
+  nameWithType: IOrderedQuery<TList>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery<TList>
+  nameWithType.vb: IOrderedQuery(Of TList)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery(Of TList)
+  name.vb: IOrderedQuery(Of TList)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+    name: IOrderedQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  - name: <
+  - name: TList
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+    name: IOrderedQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TList
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TElement}}}.OrderByString
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{`0}}.OrderByString
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TElement}}}
+  definition: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_IOrderedQuery_1_OrderByString
+  name: OrderByString
+  nameWithType: IOrderedQuery<PagedList<TElement>>.OrderByString
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList<TElement>>.OrderByString
+  nameWithType.vb: IOrderedQuery(Of PagedList(Of TElement)).OrderByString
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList(Of TElement)).OrderByString
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1.OrderByString
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_IOrderedQuery_1_OrderByString
+  name: OrderByString
+  nameWithType: IOrderedQuery<TList>.OrderByString
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery<TList>.OrderByString
+  nameWithType.vb: IOrderedQuery(Of TList).OrderByString
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery(Of TList).OrderByString
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TElement}}}
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{`0}}
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  definition: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  name: IOrderedQuery<PagedList<TElement>>
+  nameWithType: IOrderedQuery<PagedList<TElement>>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList<TElement>>
+  nameWithType.vb: IOrderedQuery(Of PagedList(Of TElement))
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList(Of TElement))
+  name.vb: IOrderedQuery(Of PagedList(Of TElement))
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+    name: IOrderedQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: <
+  - name: TElement
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery`1
+    name: IOrderedQuery
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IOrderedQuery-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TElement
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1.PagingParams*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery`1.PagingParams
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_IPageableQuery_1_PagingParams
+  name: PagingParams
+  nameWithType: IPageableQuery<TElement>.PagingParams
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery<TElement>.PagingParams
+  nameWithType.vb: IPageableQuery(Of TElement).PagingParams
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IPageableQuery(Of TElement).PagingParams
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html
+  name: PagingParams
+  nameWithType: PagingParams
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html

@@ -1,0 +1,545 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  id: ICacheProvider
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync``1(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+  langs:
+  - csharp
+  - vb
+  name: ICacheProvider
+  nameWithType: ICacheProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ICacheProvider
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 缓存提供器。
+  example: []
+  syntax:
+    content: public interface ICacheProvider
+    content.vb: Public Interface ICacheProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,``0)
+  id: AddAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  langs:
+  - csharp
+  - vb
+  name: AddAsync<TResult>(string, TResult)
+  nameWithType: ICacheProvider.AddAsync<TResult>(string, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync<TResult>(string, TResult)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AddAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+    startLine: 14
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 添加 <code class="paramref">value</code> 到缓存。
+  example: []
+  syntax:
+    content: Task<bool> AddAsync<TResult>(string cacheKey, TResult value)
+    parameters:
+    - id: cacheKey
+      type: System.String
+      description: 缓存键。
+    - id: value
+      type: '{TResult}'
+      description: 缓存值。
+    typeParameters:
+    - id: TResult
+      description: 缓存类型。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 添加是否成功。
+    content.vb: Function AddAsync(Of TResult)(cacheKey As String, value As TResult) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync*
+  nameWithType.vb: ICacheProvider.AddAsync(Of TResult)(String, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync(Of TResult)(String, TResult)
+  name.vb: AddAsync(Of TResult)(String, TResult)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync``1(System.String,System.TimeSpan,``0)
+  id: AddAsync``1(System.String,System.TimeSpan,``0)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  langs:
+  - csharp
+  - vb
+  name: AddAsync<TResult>(string, TimeSpan, TResult)
+  nameWithType: ICacheProvider.AddAsync<TResult>(string, TimeSpan, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync<TResult>(string, System.TimeSpan, TResult)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AddAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+    startLine: 24
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 添加 <code class="paramref">value</code> 到缓存，并设置过期时间。
+  example: []
+  syntax:
+    content: Task<bool> AddAsync<TResult>(string cacheKey, TimeSpan expires, TResult value)
+    parameters:
+    - id: cacheKey
+      type: System.String
+      description: 缓存键。
+    - id: expires
+      type: System.TimeSpan
+      description: 过期时间。
+    - id: value
+      type: '{TResult}'
+      description: 缓存值。
+    typeParameters:
+    - id: TResult
+      description: 缓存类型。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 添加是否成功。
+    content.vb: Function AddAsync(Of TResult)(cacheKey As String, expires As TimeSpan, value As TResult) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync*
+  nameWithType.vb: ICacheProvider.AddAsync(Of TResult)(String, TimeSpan, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync(Of TResult)(String, System.TimeSpan, TResult)
+  name.vb: AddAsync(Of TResult)(String, TimeSpan, TResult)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync``1(System.String)
+  id: GetAsync``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  langs:
+  - csharp
+  - vb
+  name: GetAsync<TResult>(string)
+  nameWithType: ICacheProvider.GetAsync<TResult>(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync<TResult>(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+    startLine: 32
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 从缓存中获取 <code class="paramref">cacheKey</code> 对应的值。
+  example: []
+  syntax:
+    content: Task<CacheEntry<TResult>?> GetAsync<TResult>(string cacheKey)
+    parameters:
+    - id: cacheKey
+      type: System.String
+      description: 缓存键。
+    typeParameters:
+    - id: TResult
+      description: 缓存值类型。
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry{{TResult}}}
+      description: 获取的缓存结果。
+    content.vb: Function GetAsync(Of TResult)(cacheKey As String) As Task(Of CacheEntry(Of TResult))
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync*
+  nameWithType.vb: ICacheProvider.GetAsync(Of TResult)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync(Of TResult)(String)
+  name.vb: GetAsync(Of TResult)(String)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(System.String)
+  id: RemoveAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  langs:
+  - csharp
+  - vb
+  name: RemoveAsync(string)
+  nameWithType: ICacheProvider.RemoveAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: RemoveAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+    startLine: 39
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 删除 <code class="paramref">cacheKey</code> 对应的缓存。
+  example: []
+  syntax:
+    content: Task<bool> RemoveAsync(string cacheKey)
+    parameters:
+    - id: cacheKey
+      type: System.String
+      description: 缓存键。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 删除是否成功。
+    content.vb: Function RemoveAsync(cacheKey As String) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync*
+  nameWithType.vb: ICacheProvider.RemoveAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync(String)
+  name.vb: RemoveAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0)
+  id: UpdateAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync<TResult>(string, TResult)
+  nameWithType: ICacheProvider.UpdateAsync<TResult>(string, TResult)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync<TResult>(string, TResult)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UpdateAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+    startLine: 48
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 更新 <code class="paramref">cacheKey</code> 对应的缓存。
+  example: []
+  syntax:
+    content: Task<bool> UpdateAsync<TResult>(string cacheKey, TResult value)
+    parameters:
+    - id: cacheKey
+      type: System.String
+      description: 缓存键。
+    - id: value
+      type: '{TResult}'
+      description: 缓存值。
+    typeParameters:
+    - id: TResult
+      description: 缓存值的类型。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 更新是否成功。
+    content.vb: Function UpdateAsync(Of TResult)(cacheKey As String, value As TResult) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync*
+  nameWithType.vb: ICacheProvider.UpdateAsync(Of TResult)(String, TResult)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync(Of TResult)(String, TResult)
+  name.vb: UpdateAsync(Of TResult)(String, TResult)
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync``1(System.String,``0,System.TimeSpan)
+  id: UpdateAsync``1(System.String,``0,System.TimeSpan)
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync<TResult>(string, TResult, TimeSpan)
+  nameWithType: ICacheProvider.UpdateAsync<TResult>(string, TResult, TimeSpan)
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync<TResult>(string, TResult, System.TimeSpan)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UpdateAsync
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/ICacheProvider.cs
+    startLine: 58
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  summary: 更新 <code class="paramref">cacheKey</code> 对应的缓存。
+  example: []
+  syntax:
+    content: Task<bool> UpdateAsync<TResult>(string cacheKey, TResult value, TimeSpan expires)
+    parameters:
+    - id: cacheKey
+      type: System.String
+      description: 缓存键。
+    - id: value
+      type: '{TResult}'
+      description: 缓存值。
+    - id: expires
+      type: System.TimeSpan
+      description: 缓存过期时间。
+    typeParameters:
+    - id: TResult
+      description: 缓存值的类型。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 更新是否成功。
+    content.vb: Function UpdateAsync(Of TResult)(cacheKey As String, value As TResult, expires As TimeSpan) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync*
+  nameWithType.vb: ICacheProvider.UpdateAsync(Of TResult)(String, TResult, TimeSpan)
+  fullName.vb: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync(Of TResult)(String, TResult, System.TimeSpan)
+  name.vb: UpdateAsync(Of TResult)(String, TResult, TimeSpan)
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_AddAsync__1_System_String___0_
+  name: AddAsync
+  nameWithType: ICacheProvider.AddAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.AddAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: '{TResult}'
+  commentId: '!:TResult'
+  definition: TResult
+  name: TResult
+  nameWithType: TResult
+  fullName: TResult
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: TResult
+  name: TResult
+  nameWithType: TResult
+  fullName: TResult
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_GetAsync__1_System_String_
+  name: GetAsync
+  nameWithType: ICacheProvider.GetAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.GetAsync
+- uid: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry{{TResult}}}
+  commentId: T:System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CacheEntry<TResult>>
+  nameWithType: Task<CacheEntry<TResult>>
+  fullName: System.Threading.Tasks.Task<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry<TResult>>
+  nameWithType.vb: Task(Of CacheEntry(Of TResult))
+  fullName.vb: System.Threading.Tasks.Task(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry(Of TResult))
+  name.vb: Task(Of CacheEntry(Of TResult))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry`1
+    name: CacheEntry
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry-1.html
+  - name: <
+  - name: TResult
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry`1
+    name: CacheEntry
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.CacheEntry-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_RemoveAsync_System_String_
+  name: RemoveAsync
+  nameWithType: ICacheProvider.RemoveAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.RemoveAsync
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.html#Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_ICacheProvider_UpdateAsync__1_System_String___0_
+  name: UpdateAsync
+  nameWithType: ICacheProvider.UpdateAsync
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.ICacheProvider.UpdateAsync

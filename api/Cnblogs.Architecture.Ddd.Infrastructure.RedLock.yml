@@ -1,0 +1,37 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+  id: Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.RedLock.CqrsInjectorExtensions
+  - Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockDistributionLockProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockOptions
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.RedLock
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.CqrsInjectorExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.RedLock.CqrsInjectorExtensions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.CqrsInjectorExtensions.html
+  name: CqrsInjectorExtensions
+  nameWithType: CqrsInjectorExtensions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.CqrsInjectorExtensions
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockDistributionLockProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockDistributionLockProvider
+  href: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockDistributionLockProvider.html
+  name: RedLockDistributionLockProvider
+  nameWithType: RedLockDistributionLockProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockDistributionLockProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockOptions
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockOptions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockOptions.html
+  name: RedLockOptions
+  nameWithType: RedLockOptions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.RedLock.RedLockOptions

@@ -1,0 +1,1696 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  id: CqrsServiceAgent`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.#ctor(System.Net.Http.HttpClient)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.BatchGetItemsAsync``2(System.String,System.String,System.Collections.Generic.IEnumerable{``1})
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync``1(System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.GetItemAsync``1(System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HasItemAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HttpClient
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListItemsAsync``1(System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync``1(System.String,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams,System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync``1(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync``1(System.String,``0)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync``2(System.String,``1)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync(System.String)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync``1(System.String,``0)
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync``2(System.String,``1)
+  langs:
+  - csharp
+  - vb
+  name: CqrsServiceAgent<TError>
+  nameWithType: CqrsServiceAgent<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CqrsServiceAgent
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 29
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Service Agent for CQRS
+  example: []
+  syntax:
+    content: 'public abstract class CqrsServiceAgent<TError> where TError : Enumeration'
+    typeParameters:
+    - id: TError
+      description: The type of error for this service.
+    content.vb: Public MustInherit Class CqrsServiceAgent(Of TError As Enumeration)
+  inheritance:
+  - System.Object
+  derivedClasses:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: CqrsServiceAgent(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError)
+  name.vb: CqrsServiceAgent(Of TError)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HttpClient
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HttpClient
+  id: HttpClient
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: HttpClient
+  nameWithType: CqrsServiceAgent<TError>.HttpClient
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.HttpClient
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: HttpClient
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 35
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: The underlying <xref href="Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent%601.HttpClient" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: protected HttpClient HttpClient { get; }
+    parameters: []
+    return:
+      type: System.Net.Http.HttpClient
+    content.vb: Protected ReadOnly Property HttpClient As HttpClient
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HttpClient*
+  nameWithType.vb: CqrsServiceAgent(Of TError).HttpClient
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).HttpClient
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.#ctor(System.Net.Http.HttpClient)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.#ctor(System.Net.Http.HttpClient)
+  id: '#ctor(System.Net.Http.HttpClient)'
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: CqrsServiceAgent(HttpClient)
+  nameWithType: CqrsServiceAgent<TError>.CqrsServiceAgent(HttpClient)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.CqrsServiceAgent(System.Net.Http.HttpClient)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 41
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Create a service agent for cqrs api.
+  example: []
+  syntax:
+    content: protected CqrsServiceAgent(HttpClient httpClient)
+    parameters:
+    - id: httpClient
+      type: System.Net.Http.HttpClient
+      description: The underlying HttpClient.
+    content.vb: Protected Sub New(httpClient As HttpClient)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.#ctor*
+  nameWithType.vb: CqrsServiceAgent(Of TError).New(HttpClient)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).New(System.Net.Http.HttpClient)
+  name.vb: New(HttpClient)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync``1(System.String)
+  id: DeleteCommandAsync``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: DeleteCommandAsync<TResponse>(string)
+  nameWithType: CqrsServiceAgent<TError>.DeleteCommandAsync<TResponse>(string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.DeleteCommandAsync<TResponse>(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DeleteCommandAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 52
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Execute a command with DELETE method.
+  example: []
+  syntax:
+    content: public Task<CommandResponse<TResponse, TError>> DeleteCommandAsync<TResponse>(string url)
+    parameters:
+    - id: url
+      type: System.String
+      description: The url.
+    typeParameters:
+    - id: TResponse
+      description: Response type.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TResponse},{TError}}}
+      description: The response.
+    content.vb: Public Function DeleteCommandAsync(Of TResponse)(url As String) As Task(Of CommandResponse(Of TResponse, TError))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).DeleteCommandAsync(Of TResponse)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).DeleteCommandAsync(Of TResponse)(String)
+  name.vb: DeleteCommandAsync(Of TResponse)(String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync(System.String)
+  id: DeleteCommandAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: DeleteCommandAsync(string)
+  nameWithType: CqrsServiceAgent<TError>.DeleteCommandAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.DeleteCommandAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DeleteCommandAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 62
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Execute a command with DELETE method.
+  example: []
+  syntax:
+    content: public Task<CommandResponse<TError>> DeleteCommandAsync(string url)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}
+    content.vb: Public Function DeleteCommandAsync(url As String) As Task(Of CommandResponse(Of TError))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).DeleteCommandAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).DeleteCommandAsync(String)
+  name.vb: DeleteCommandAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync(System.String)
+  id: PostCommandAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: PostCommandAsync(string)
+  nameWithType: CqrsServiceAgent<TError>.PostCommandAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.PostCommandAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PostCommandAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 72
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Execute a command with POST method.
+  example: []
+  syntax:
+    content: public Task<CommandResponse<TError>> PostCommandAsync(string url)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}
+    content.vb: Public Function PostCommandAsync(url As String) As Task(Of CommandResponse(Of TError))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).PostCommandAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).PostCommandAsync(String)
+  name.vb: PostCommandAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync``1(System.String,``0)
+  id: PostCommandAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: PostCommandAsync<TPayload>(string, TPayload)
+  nameWithType: CqrsServiceAgent<TError>.PostCommandAsync<TPayload>(string, TPayload)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.PostCommandAsync<TPayload>(string, TPayload)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PostCommandAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 84
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Execute a command with POST method and payload.
+  example: []
+  syntax:
+    content: public Task<CommandResponse<TError>> PostCommandAsync<TPayload>(string url, TPayload payload)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    - id: payload
+      type: '{TPayload}'
+      description: The request body.
+    typeParameters:
+    - id: TPayload
+      description: The type of request body.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}
+    content.vb: Public Function PostCommandAsync(Of TPayload)(url As String, payload As TPayload) As Task(Of CommandResponse(Of TError))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).PostCommandAsync(Of TPayload)(String, TPayload)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).PostCommandAsync(Of TPayload)(String, TPayload)
+  name.vb: PostCommandAsync(Of TPayload)(String, TPayload)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync``2(System.String,``1)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync``2(System.String,``1)
+  id: PostCommandAsync``2(System.String,``1)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: PostCommandAsync<TResponse, TPayload>(string, TPayload)
+  nameWithType: CqrsServiceAgent<TError>.PostCommandAsync<TResponse, TPayload>(string, TPayload)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.PostCommandAsync<TResponse, TPayload>(string, TPayload)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PostCommandAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 98
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Execute a command with POST method and payload.
+  example: []
+  syntax:
+    content: public Task<CommandResponse<TResponse, TError>> PostCommandAsync<TResponse, TPayload>(string url, TPayload payload)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    - id: payload
+      type: '{TPayload}'
+      description: The request body.
+    typeParameters:
+    - id: TResponse
+      description: The type of response body.
+    - id: TPayload
+      description: The type of request body.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TResponse},{TError}}}
+      description: The response body.
+    content.vb: Public Function PostCommandAsync(Of TResponse, TPayload)(url As String, payload As TPayload) As Task(Of CommandResponse(Of TResponse, TError))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).PostCommandAsync(Of TResponse, TPayload)(String, TPayload)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).PostCommandAsync(Of TResponse, TPayload)(String, TPayload)
+  name.vb: PostCommandAsync(Of TResponse, TPayload)(String, TPayload)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync(System.String)
+  id: PutCommandAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: PutCommandAsync(string)
+  nameWithType: CqrsServiceAgent<TError>.PutCommandAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.PutCommandAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PutCommandAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 110
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Execute a command with PUT method and payload.
+  example: []
+  syntax:
+    content: public Task<CommandResponse<TError>> PutCommandAsync(string url)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of API.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}
+    content.vb: Public Function PutCommandAsync(url As String) As Task(Of CommandResponse(Of TError))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).PutCommandAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).PutCommandAsync(String)
+  name.vb: PutCommandAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync``1(System.String,``0)
+  id: PutCommandAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: PutCommandAsync<TPayload>(string, TPayload)
+  nameWithType: CqrsServiceAgent<TError>.PutCommandAsync<TPayload>(string, TPayload)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.PutCommandAsync<TPayload>(string, TPayload)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PutCommandAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 123
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Execute a command with PUT method and payload.
+  example: []
+  syntax:
+    content: public Task<CommandResponse<TError>> PutCommandAsync<TPayload>(string url, TPayload payload)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of API.
+    - id: payload
+      type: '{TPayload}'
+      description: The request body.
+    typeParameters:
+    - id: TPayload
+      description: The type of request body.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}
+      description: The command response.
+    content.vb: Public Function PutCommandAsync(Of TPayload)(url As String, payload As TPayload) As Task(Of CommandResponse(Of TError))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).PutCommandAsync(Of TPayload)(String, TPayload)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).PutCommandAsync(Of TPayload)(String, TPayload)
+  name.vb: PutCommandAsync(Of TPayload)(String, TPayload)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync``2(System.String,``1)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync``2(System.String,``1)
+  id: PutCommandAsync``2(System.String,``1)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: PutCommandAsync<TResponse, TPayload>(string, TPayload)
+  nameWithType: CqrsServiceAgent<TError>.PutCommandAsync<TResponse, TPayload>(string, TPayload)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.PutCommandAsync<TResponse, TPayload>(string, TPayload)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PutCommandAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 137
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Execute a command with PUT method and payload.
+  example: []
+  syntax:
+    content: public Task<CommandResponse<TResponse, TError>> PutCommandAsync<TResponse, TPayload>(string url, TPayload payload)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of API.
+    - id: payload
+      type: '{TPayload}'
+      description: The request body.
+    typeParameters:
+    - id: TResponse
+      description: The type of response body.
+    - id: TPayload
+      description: The type of request body.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TResponse},{TError}}}
+      description: The response body.
+    content.vb: Public Function PutCommandAsync(Of TResponse, TPayload)(url As String, payload As TPayload) As Task(Of CommandResponse(Of TResponse, TError))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).PutCommandAsync(Of TResponse, TPayload)(String, TPayload)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).PutCommandAsync(Of TResponse, TPayload)(String, TPayload)
+  name.vb: PutCommandAsync(Of TResponse, TPayload)(String, TPayload)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.GetItemAsync``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.GetItemAsync``1(System.String)
+  id: GetItemAsync``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: GetItemAsync<T>(string)
+  nameWithType: CqrsServiceAgent<TError>.GetItemAsync<T>(string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.GetItemAsync<T>(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetItemAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 151
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Query item with GET method.
+  example: []
+  syntax:
+    content: public Task<T?> GetItemAsync<T>(string url)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    typeParameters:
+    - id: T
+      description: The type of item to get.
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+      description: The query result, can be null if item does not exists or status code is 404.
+    content.vb: Public Function GetItemAsync(Of T)(url As String) As Task(Of T)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.GetItemAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).GetItemAsync(Of T)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).GetItemAsync(Of T)(String)
+  name.vb: GetItemAsync(Of T)(String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HasItemAsync(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HasItemAsync(System.String)
+  id: HasItemAsync(System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: HasItemAsync(string)
+  nameWithType: CqrsServiceAgent<TError>.HasItemAsync(string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.HasItemAsync(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: HasItemAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 166
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Query item with HEAD method.
+  example: []
+  syntax:
+    content: public Task<bool> HasItemAsync(string url)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: True if status code is 2xx, False if status code is 404.
+    content.vb: Public Function HasItemAsync(url As String) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HasItemAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).HasItemAsync(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).HasItemAsync(String)
+  name.vb: HasItemAsync(String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.BatchGetItemsAsync``2(System.String,System.String,System.Collections.Generic.IEnumerable{``1})
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.BatchGetItemsAsync``2(System.String,System.String,System.Collections.Generic.IEnumerable{``1})
+  id: BatchGetItemsAsync``2(System.String,System.String,System.Collections.Generic.IEnumerable{``1})
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: BatchGetItemsAsync<TResponse, TId>(string, string, IEnumerable<TId>)
+  nameWithType: CqrsServiceAgent<TError>.BatchGetItemsAsync<TResponse, TId>(string, string, IEnumerable<TId>)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.BatchGetItemsAsync<TResponse, TId>(string, string, System.Collections.Generic.IEnumerable<TId>)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: BatchGetItemsAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 193
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Batch get items with GET method.
+  example: []
+  syntax:
+    content: 'public Task<List<TResponse>> BatchGetItemsAsync<TResponse, TId>(string url, string paramName, IEnumerable<TId> ids) where TId : notnull'
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    - id: paramName
+      type: System.String
+      description: The name of id field.
+    - id: ids
+      type: System.Collections.Generic.IEnumerable{{TId}}
+      description: The id list.
+    typeParameters:
+    - id: TResponse
+      description: The type of the query result item.
+    - id: TId
+      description: The type of the id.
+    return:
+      type: System.Threading.Tasks.Task{System.Collections.Generic.List{{TResponse}}}
+      description: A list of items that contains id that in <code class="paramref">ids</code>, the order or count of the items are not guaranteed.
+    content.vb: Public Function BatchGetItemsAsync(Of TResponse, TId)(url As String, paramName As String, ids As IEnumerable(Of TId)) As Task(Of List(Of TResponse))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.BatchGetItemsAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).BatchGetItemsAsync(Of TResponse, TId)(String, String, IEnumerable(Of TId))
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).BatchGetItemsAsync(Of TResponse, TId)(String, String, System.Collections.Generic.IEnumerable(Of TId))
+  name.vb: BatchGetItemsAsync(Of TResponse, TId)(String, String, IEnumerable(Of TId))
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync``1(System.String,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync``1(System.String,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams,System.String)
+  id: ListPagedItemsAsync``1(System.String,Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams,System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: ListPagedItemsAsync<TItem>(string, PagingParams?, string?)
+  nameWithType: CqrsServiceAgent<TError>.ListPagedItemsAsync<TItem>(string, PagingParams?, string?)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.ListPagedItemsAsync<TItem>(string, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams?, string?)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ListPagedItemsAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 214
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Get paged list of items based on url.
+  example: []
+  syntax:
+    content: public Task<PagedList<TItem>> ListPagedItemsAsync<TItem>(string url, PagingParams? pagingParams = null, string? orderByString = null)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    - id: pagingParams
+      type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+      description: The paging parameters, including page size and page index.
+    - id: orderByString
+      type: System.String
+      description: Specifies the order of items to return.
+    typeParameters:
+    - id: TItem
+      description: The type of items to query.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TItem}}}
+      description: The paged list of items. An empty list is returned when there is no result.
+    content.vb: Public Function ListPagedItemsAsync(Of TItem)(url As String, pagingParams As PagingParams = Nothing, orderByString As String = Nothing) As Task(Of PagedList(Of TItem))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).ListPagedItemsAsync(Of TItem)(String, PagingParams, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).ListPagedItemsAsync(Of TItem)(String, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams, String)
+  name.vb: ListPagedItemsAsync(Of TItem)(String, PagingParams, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync``1(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync``1(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)
+  id: ListPagedItemsAsync``1(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: ListPagedItemsAsync<TItem>(string, int?, int?, string?)
+  nameWithType: CqrsServiceAgent<TError>.ListPagedItemsAsync<TItem>(string, int?, int?, string?)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.ListPagedItemsAsync<TItem>(string, int?, int?, string?)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ListPagedItemsAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 231
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Get paged list of items.
+  example: []
+  syntax:
+    content: public Task<PagedList<TItem>> ListPagedItemsAsync<TItem>(string url, int? pageIndex, int? pageSize, string? orderByString = null)
+    parameters:
+    - id: url
+      type: System.String
+      description: The route of the API.
+    - id: pageIndex
+      type: System.Nullable{System.Int32}
+      description: The page index.
+    - id: pageSize
+      type: System.Nullable{System.Int32}
+      description: The page size.
+    - id: orderByString
+      type: System.String
+      description: Specifies the order of items to return.
+    typeParameters:
+    - id: TItem
+      description: The type of items to query.
+    return:
+      type: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TItem}}}
+      description: The paged list of items. An empty list is returned when there is no result.
+    content.vb: Public Function ListPagedItemsAsync(Of TItem)(url As String, pageIndex As Integer?, pageSize As Integer?, orderByString As String = Nothing) As Task(Of PagedList(Of TItem))
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).ListPagedItemsAsync(Of TItem)(String, Integer?, Integer?, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).ListPagedItemsAsync(Of TItem)(String, Integer?, Integer?, String)
+  name.vb: ListPagedItemsAsync(Of TItem)(String, Integer?, Integer?, String)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListItemsAsync``1(System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListItemsAsync``1(System.String)
+  id: ListItemsAsync``1(System.String)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  langs:
+  - csharp
+  - vb
+  name: ListItemsAsync<TList>(string)
+  nameWithType: CqrsServiceAgent<TError>.ListItemsAsync<TList>(string)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.ListItemsAsync<TList>(string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ListItemsAsync
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/CqrsServiceAgent.cs
+    startLine: 252
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  summary: Get list of items.
+  example: []
+  syntax:
+    content: 'public Task<TList> ListItemsAsync<TList>(string url) where TList : new()'
+    parameters:
+    - id: url
+      type: System.String
+      description: The url to send GET request.
+    typeParameters:
+    - id: TList
+      description: The type of list.
+    return:
+      type: System.Threading.Tasks.Task{{TList}}
+      description: The fetched list.
+    content.vb: Public Function ListItemsAsync(Of TList As New)(url As String) As Task(Of TList)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListItemsAsync*
+  nameWithType.vb: CqrsServiceAgent(Of TError).ListItemsAsync(Of TList)(String)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).ListItemsAsync(Of TList)(String)
+  name.vb: ListItemsAsync(Of TList)(String)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+    name: ServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+    name: ServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HttpClient
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HttpClient
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_HttpClient
+  name: HttpClient
+  nameWithType: CqrsServiceAgent<TError>.HttpClient
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.HttpClient
+  nameWithType.vb: CqrsServiceAgent(Of TError).HttpClient
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).HttpClient
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HttpClient*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HttpClient
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_HttpClient
+  name: HttpClient
+  nameWithType: CqrsServiceAgent<TError>.HttpClient
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.HttpClient
+  nameWithType.vb: CqrsServiceAgent(Of TError).HttpClient
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).HttpClient
+- uid: System.Net.Http.HttpClient
+  commentId: T:System.Net.Http.HttpClient
+  parent: System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.net.http.httpclient
+  name: HttpClient
+  nameWithType: HttpClient
+  fullName: System.Net.Http.HttpClient
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Net
+    name: Net
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net
+  - name: .
+  - uid: System.Net.Http
+    name: Http
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.net.http
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.#ctor
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1__ctor_System_Net_Http_HttpClient_
+  name: CqrsServiceAgent
+  nameWithType: CqrsServiceAgent<TError>.CqrsServiceAgent
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.CqrsServiceAgent
+  nameWithType.vb: CqrsServiceAgent(Of TError).New
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).New
+  name.vb: New
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.DeleteCommandAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_DeleteCommandAsync__1_System_String_
+  name: DeleteCommandAsync
+  nameWithType: CqrsServiceAgent<TError>.DeleteCommandAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.DeleteCommandAsync
+  nameWithType.vb: CqrsServiceAgent(Of TError).DeleteCommandAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).DeleteCommandAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TResponse},{TError}}}
+  commentId: T:System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{``0,`0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CommandResponse<TResponse, TError>>
+  nameWithType: Task<CommandResponse<TResponse, TError>>
+  fullName: System.Threading.Tasks.Task<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TResponse, TError>>
+  nameWithType.vb: Task(Of CommandResponse(Of TResponse, TError))
+  fullName.vb: System.Threading.Tasks.Task(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TResponse, TError))
+  name.vb: Task(Of CommandResponse(Of TResponse, TError))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-2.html
+  - name: <
+  - name: TResponse
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-2.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: ','
+  - name: " "
+  - name: TError
+  - name: )
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{{TError}}}
+  commentId: T:System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse{`0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<CommandResponse<TError>>
+  nameWithType: Task<CommandResponse<TError>>
+  fullName: System.Threading.Tasks.Task<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>>
+  nameWithType.vb: Task(Of CommandResponse(Of TError))
+  fullName.vb: System.Threading.Tasks.Task(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError))
+  name.vb: Task(Of CommandResponse(Of TError))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PostCommandAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_PostCommandAsync_System_String_
+  name: PostCommandAsync
+  nameWithType: CqrsServiceAgent<TError>.PostCommandAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.PostCommandAsync
+  nameWithType.vb: CqrsServiceAgent(Of TError).PostCommandAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).PostCommandAsync
+- uid: '{TPayload}'
+  commentId: '!:TPayload'
+  definition: TPayload
+  name: TPayload
+  nameWithType: TPayload
+  fullName: TPayload
+- uid: TPayload
+  name: TPayload
+  nameWithType: TPayload
+  fullName: TPayload
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.PutCommandAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_PutCommandAsync_System_String_
+  name: PutCommandAsync
+  nameWithType: CqrsServiceAgent<TError>.PutCommandAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.PutCommandAsync
+  nameWithType.vb: CqrsServiceAgent(Of TError).PutCommandAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).PutCommandAsync
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.GetItemAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.GetItemAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_GetItemAsync__1_System_String_
+  name: GetItemAsync
+  nameWithType: CqrsServiceAgent<TError>.GetItemAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.GetItemAsync
+  nameWithType.vb: CqrsServiceAgent(Of TError).GetItemAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).GetItemAsync
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HasItemAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.HasItemAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_HasItemAsync_System_String_
+  name: HasItemAsync
+  nameWithType: CqrsServiceAgent<TError>.HasItemAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.HasItemAsync
+  nameWithType.vb: CqrsServiceAgent(Of TError).HasItemAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).HasItemAsync
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.BatchGetItemsAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.BatchGetItemsAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_BatchGetItemsAsync__2_System_String_System_String_System_Collections_Generic_IEnumerable___1__
+  name: BatchGetItemsAsync
+  nameWithType: CqrsServiceAgent<TError>.BatchGetItemsAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.BatchGetItemsAsync
+  nameWithType.vb: CqrsServiceAgent(Of TError).BatchGetItemsAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).BatchGetItemsAsync
+- uid: System.Collections.Generic.IEnumerable{{TId}}
+  commentId: T:System.Collections.Generic.IEnumerable{``1}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<TId>
+  nameWithType: IEnumerable<TId>
+  fullName: System.Collections.Generic.IEnumerable<TId>
+  nameWithType.vb: IEnumerable(Of TId)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of TId)
+  name.vb: IEnumerable(Of TId)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: TId
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TId
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Collections.Generic.List{{TResponse}}}
+  commentId: T:System.Threading.Tasks.Task{System.Collections.Generic.List{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<List<TResponse>>
+  nameWithType: Task<List<TResponse>>
+  fullName: System.Threading.Tasks.Task<System.Collections.Generic.List<TResponse>>
+  nameWithType.vb: Task(Of List(Of TResponse))
+  fullName.vb: System.Threading.Tasks.Task(Of System.Collections.Generic.List(Of TResponse))
+  name.vb: Task(Of List(Of TResponse))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: TResponse
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResponse
+  - name: )
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListPagedItemsAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_ListPagedItemsAsync__1_System_String_Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_PagingParams_System_String_
+  name: ListPagedItemsAsync
+  nameWithType: CqrsServiceAgent<TError>.ListPagedItemsAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.ListPagedItemsAsync
+  nameWithType.vb: CqrsServiceAgent(Of TError).ListPagedItemsAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).ListPagedItemsAsync
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html
+  name: PagingParams
+  nameWithType: PagingParams
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+- uid: System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{{TItem}}}
+  commentId: T:System.Threading.Tasks.Task{Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList{``0}}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<PagedList<TItem>>
+  nameWithType: Task<PagedList<TItem>>
+  fullName: System.Threading.Tasks.Task<Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList<TItem>>
+  nameWithType.vb: Task(Of PagedList(Of TItem))
+  fullName.vb: System.Threading.Tasks.Task(Of Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList(Of TItem))
+  name.vb: Task(Of PagedList(Of TItem))
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: <
+  - name: TItem
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList`1
+    name: PagedList
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagedList-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TItem
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int?
+  nameWithType: int?
+  fullName: int?
+  nameWithType.vb: Integer?
+  fullName.vb: Integer?
+  name.vb: Integer?
+  spec.csharp:
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+  spec.vb:
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListItemsAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1.ListItemsAsync
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html#Cnblogs_Architecture_Ddd_Cqrs_ServiceAgent_CqrsServiceAgent_1_ListItemsAsync__1_System_String_
+  name: ListItemsAsync
+  nameWithType: CqrsServiceAgent<TError>.ListItemsAsync
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>.ListItemsAsync
+  nameWithType.vb: CqrsServiceAgent(Of TError).ListItemsAsync
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError).ListItemsAsync
+- uid: System.Threading.Tasks.Task{{TList}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TList>
+  nameWithType: Task<TList>
+  fullName: System.Threading.Tasks.Task<TList>
+  nameWithType.vb: Task(Of TList)
+  fullName.vb: System.Threading.Tasks.Task(Of TList)
+  name.vb: Task(Of TList)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TList
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TList
+  - name: )

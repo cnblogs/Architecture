@@ -1,0 +1,150 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+  id: IDbConnectionFactory
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.CreateDbConnection
+  langs:
+  - csharp
+  - vb
+  name: IDbConnectionFactory
+  nameWithType: IDbConnectionFactory
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Dapper/IDbConnectionFactory.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IDbConnectionFactory
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Dapper/IDbConnectionFactory.cs
+    startLine: 7
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  summary: 提供 DbConnection 的工厂接口。
+  example: []
+  syntax:
+    content: public interface IDbConnectionFactory
+    content.vb: Public Interface IDbConnectionFactory
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.CreateDbConnection
+  commentId: M:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.CreateDbConnection
+  id: CreateDbConnection
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory
+  langs:
+  - csharp
+  - vb
+  name: CreateDbConnection()
+  nameWithType: IDbConnectionFactory.CreateDbConnection()
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.CreateDbConnection()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Dapper/IDbConnectionFactory.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CreateDbConnection
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Dapper/IDbConnectionFactory.cs
+    startLine: 13
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  namespace: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  summary: 获取 DbConnection。
+  example: []
+  syntax:
+    content: IDbConnection CreateDbConnection()
+    return:
+      type: System.Data.IDbConnection
+      description: ''
+    content.vb: Function CreateDbConnection() As IDbConnection
+  overload: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.CreateDbConnection*
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+    name: Dapper
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper
+    name: Dapper
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.html
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.CreateDbConnection*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.CreateDbConnection
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.html#Cnblogs_Architecture_Ddd_Infrastructure_Dapper_IDbConnectionFactory_CreateDbConnection
+  name: CreateDbConnection
+  nameWithType: IDbConnectionFactory.CreateDbConnection
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Dapper.IDbConnectionFactory.CreateDbConnection
+- uid: System.Data.IDbConnection
+  commentId: T:System.Data.IDbConnection
+  parent: System.Data
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.data.idbconnection
+  name: IDbConnection
+  nameWithType: IDbConnection
+  fullName: System.Data.IDbConnection
+- uid: System.Data
+  commentId: N:System.Data
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Data
+  nameWithType: System.Data
+  fullName: System.Data
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Data
+    name: Data
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.data

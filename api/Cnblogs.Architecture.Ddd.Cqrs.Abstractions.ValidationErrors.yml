@@ -1,0 +1,1403 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  id: ValidationErrors
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Clear
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Count
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.GetEnumerator
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.IsReadOnly
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  langs:
+  - csharp
+  - vb
+  name: ValidationErrors
+  nameWithType: ValidationErrors
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ValidationErrors
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 7
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Collection of <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public class ValidationErrors : ICollection<ValidationError>, IEnumerable<ValidationError>, IEnumerable'
+    content.vb: Public Class ValidationErrors Implements ICollection(Of ValidationError), IEnumerable(Of ValidationError), IEnumerable
+  inheritance:
+  - System.Object
+  implements:
+  - System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  - System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  - System.Collections.IEnumerable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  id: Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: Add(ValidationError)
+  nameWithType: ValidationErrors.Add(ValidationError)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Add
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Add a new validation error.
+  example: []
+  syntax:
+    content: public void Add(ValidationError validationError)
+    parameters:
+    - id: validationError
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+      description: The validation error.
+    content.vb: Public Sub Add(validationError As ValidationError)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Add*
+  implements:
+  - System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Clear
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Clear
+  id: Clear
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ValidationErrors.Clear()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Clear()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Clear
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 23
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Clear all validation errors.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Clear*
+  implements:
+  - System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Clear
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  id: Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: Contains(ValidationError)
+  nameWithType: ValidationErrors.Contains(ValidationError)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Contains
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 29
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Determines whether the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> contains a specific value.
+  example: []
+  syntax:
+    content: public bool Contains(ValidationError item)
+    parameters:
+    - id: item
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+      description: The object to locate in the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">item</code> is found in the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public Function Contains(item As ValidationError) As Boolean
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Contains*
+  implements:
+  - System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+  id: CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: CopyTo(ValidationError[], int)
+  nameWithType: ValidationErrors.CopyTo(ValidationError[], int)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[], int)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CopyTo
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 32
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Copies the elements of the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> to an <xref href="System.Array" data-throw-if-not-resolved="false"></xref>, starting at a particular <xref href="System.Array" data-throw-if-not-resolved="false"></xref> index.
+  example: []
+  syntax:
+    content: public void CopyTo(ValidationError[] array, int arrayIndex)
+    parameters:
+    - id: array
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[]
+      description: The one-dimensional <xref href="System.Array" data-throw-if-not-resolved="false"></xref> that is the destination of the elements copied from <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>. The <xref href="System.Array" data-throw-if-not-resolved="false"></xref> must have zero-based indexing.
+    - id: arrayIndex
+      type: System.Int32
+      description: The zero-based index in <code class="paramref">array</code> at which copying begins.
+    content.vb: Public Sub CopyTo(array As ValidationError(), arrayIndex As Integer)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo*
+  exceptions:
+  - type: System.ArgumentNullException
+    commentId: T:System.ArgumentNullException
+    description: <code class="paramref">array</code> is <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/keywords/null">null</a>.
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">arrayIndex</code> is less than 0.
+  - type: System.ArgumentException
+    commentId: T:System.ArgumentException
+    description: The number of elements in the source <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is greater than the available space from <code class="paramref">arrayIndex</code> to the end of the destination <code class="paramref">array</code>.
+  implements:
+  - System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+  nameWithType.vb: ValidationErrors.CopyTo(ValidationError(), Integer)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError(), Integer)
+  name.vb: CopyTo(ValidationError(), Integer)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  id: Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: Remove(ValidationError)
+  nameWithType: ValidationErrors.Remove(ValidationError)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Remove
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 35
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Removes the first occurrence of a specific object from the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public bool Remove(ValidationError item)
+    parameters:
+    - id: item
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+      description: The object to remove from the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if <code class="paramref">item</code> was successfully removed from the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>. This method also returns <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a> if <code class="paramref">item</code> is not found in the original <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Function Remove(item As ValidationError) As Boolean
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Remove*
+  exceptions:
+  - type: System.NotSupportedException
+    commentId: T:System.NotSupportedException
+    description: The <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is read-only.
+  implements:
+  - System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Count
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Count
+  id: Count
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: ValidationErrors.Count
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Count
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Count
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 38
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Gets the number of elements contained in the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+      description: The number of elements contained in the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Count*
+  implements:
+  - System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Count
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.IsReadOnly
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.IsReadOnly
+  id: IsReadOnly
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: IsReadOnly
+  nameWithType: ValidationErrors.IsReadOnly
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.IsReadOnly
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IsReadOnly
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 41
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Gets a value indicating whether the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is read-only.
+  example: []
+  syntax:
+    content: public bool IsReadOnly { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">true</a> if the <xref href="System.Collections.Generic.ICollection%601" data-throw-if-not-resolved="false"></xref> is read-only; otherwise, <a href="https://learn.microsoft.com/dotnet/csharp/language-reference/builtin-types/bool">false</a>.
+    content.vb: Public ReadOnly Property IsReadOnly As Boolean
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.IsReadOnly*
+  implements:
+  - System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.IsReadOnly
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.GetEnumerator
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.GetEnumerator
+  id: GetEnumerator
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors
+  langs:
+  - csharp
+  - vb
+  name: GetEnumerator()
+  nameWithType: ValidationErrors.GetEnumerator()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.GetEnumerator()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetEnumerator
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ValidationErrors.cs
+    startLine: 44
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Returns an enumerator that iterates through the collection.
+  example: []
+  syntax:
+    content: public IEnumerator<ValidationError> GetEnumerator()
+    return:
+      type: System.Collections.Generic.IEnumerator{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+      description: An enumerator that can be used to iterate through the collection.
+    content.vb: Public Function GetEnumerator() As IEnumerator(Of ValidationError)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.GetEnumerator*
+  implements:
+  - System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.GetEnumerator
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  name: ValidationError
+  nameWithType: ValidationError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  commentId: T:System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.ICollection`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<ValidationError>
+  nameWithType: ICollection<ValidationError>
+  fullName: System.Collections.Generic.ICollection<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>
+  nameWithType.vb: ICollection(Of ValidationError)
+  fullName.vb: System.Collections.Generic.ICollection(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  name.vb: ICollection(Of ValidationError)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  commentId: T:System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<ValidationError>
+  nameWithType: IEnumerable<ValidationError>
+  fullName: System.Collections.Generic.IEnumerable<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>
+  nameWithType.vb: IEnumerable(Of ValidationError)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  name.vb: IEnumerable(Of ValidationError)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+- uid: System.Collections.IEnumerable
+  commentId: T:System.Collections.IEnumerable
+  parent: System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.ienumerable
+  name: IEnumerable
+  nameWithType: IEnumerable
+  fullName: System.Collections.IEnumerable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.ICollection`1
+  commentId: T:System.Collections.Generic.ICollection`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  name: ICollection<T>
+  nameWithType: ICollection<T>
+  fullName: System.Collections.Generic.ICollection<T>
+  nameWithType.vb: ICollection(Of T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T)
+  name.vb: ICollection(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1
+    name: ICollection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections
+  commentId: N:System.Collections
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections
+  nameWithType: System.Collections
+  fullName: System.Collections
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Add*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Add
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_Add_Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationError_
+  name: Add
+  nameWithType: ValidationErrors.Add
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Add
+- uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  commentId: M:System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  parent: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  definition: System.Collections.Generic.ICollection`1.Add(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  name: Add(ValidationError)
+  nameWithType: ICollection<ValidationError>.Add(ValidationError)
+  fullName: System.Collections.Generic.ICollection<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  nameWithType.vb: ICollection(Of ValidationError).Add(ValidationError)
+  fullName.vb: System.Collections.Generic.ICollection(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError).Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Add(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Add(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Add(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  name: Add(T)
+  nameWithType: ICollection<T>.Add(T)
+  fullName: System.Collections.Generic.ICollection<T>.Add(T)
+  nameWithType.vb: ICollection(Of T).Add(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Add(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Add(`0)
+    name: Add
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.add
+  - name: (
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Clear*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Clear
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_Clear
+  name: Clear
+  nameWithType: ValidationErrors.Clear
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Clear
+- uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Clear
+  commentId: M:System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Clear
+  parent: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  definition: System.Collections.Generic.ICollection`1.Clear
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  name: Clear()
+  nameWithType: ICollection<ValidationError>.Clear()
+  fullName: System.Collections.Generic.ICollection<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>.Clear()
+  nameWithType.vb: ICollection(Of ValidationError).Clear()
+  fullName.vb: System.Collections.Generic.ICollection(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError).Clear()
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Clear
+  commentId: M:System.Collections.Generic.ICollection`1.Clear
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  name: Clear()
+  nameWithType: ICollection<T>.Clear()
+  fullName: System.Collections.Generic.ICollection<T>.Clear()
+  nameWithType.vb: ICollection(Of T).Clear()
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Clear()
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Clear
+    name: Clear
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.clear
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Contains*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Contains
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_Contains_Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationError_
+  name: Contains
+  nameWithType: ValidationErrors.Contains
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Contains
+- uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  commentId: M:System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  parent: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  definition: System.Collections.Generic.ICollection`1.Contains(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  name: Contains(ValidationError)
+  nameWithType: ICollection<ValidationError>.Contains(ValidationError)
+  fullName: System.Collections.Generic.ICollection<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  nameWithType.vb: ICollection(Of ValidationError).Contains(ValidationError)
+  fullName.vb: System.Collections.Generic.ICollection(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError).Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Contains(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.Collections.Generic.ICollection`1.Contains(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Contains(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  name: Contains(T)
+  nameWithType: ICollection<T>.Contains(T)
+  fullName: System.Collections.Generic.ICollection<T>.Contains(T)
+  nameWithType.vb: ICollection(Of T).Contains(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Contains(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Contains(`0)
+    name: Contains
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.contains
+  - name: (
+  - name: T
+  - name: )
+- uid: System.Array
+  commentId: T:System.Array
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.array
+  name: Array
+  nameWithType: Array
+  fullName: System.Array
+- uid: System.ArgumentNullException
+  commentId: T:System.ArgumentNullException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentnullexception
+  name: ArgumentNullException
+  nameWithType: ArgumentNullException
+  fullName: System.ArgumentNullException
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: System.ArgumentException
+  commentId: T:System.ArgumentException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentexception
+  name: ArgumentException
+  nameWithType: ArgumentException
+  fullName: System.ArgumentException
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_CopyTo_Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationError___System_Int32_
+  name: CopyTo
+  nameWithType: ValidationErrors.CopyTo
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.CopyTo
+- uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+  commentId: M:System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+  parent: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  definition: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  name: CopyTo(ValidationError[], int)
+  nameWithType: ICollection<ValidationError>.CopyTo(ValidationError[], int)
+  fullName: System.Collections.Generic.ICollection<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[], int)
+  nameWithType.vb: ICollection(Of ValidationError).CopyTo(ValidationError(), Integer)
+  fullName.vb: System.Collections.Generic.ICollection(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError).CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError(), Integer)
+  name.vb: CopyTo(ValidationError(), Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.CopyTo(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[]
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  name: ValidationError[]
+  nameWithType: ValidationError[]
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError[]
+  nameWithType.vb: ValidationError()
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError()
+  name.vb: ValidationError()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: (
+  - name: )
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  commentId: M:System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  name: CopyTo(T[], int)
+  nameWithType: ICollection<T>.CopyTo(T[], int)
+  fullName: System.Collections.Generic.ICollection<T>.CopyTo(T[], int)
+  nameWithType.vb: ICollection(Of T).CopyTo(T(), Integer)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).CopyTo(T(), Integer)
+  name.vb: CopyTo(T(), Integer)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - name: T
+  - name: '['
+  - name: ']'
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: int
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.CopyTo(`0[],System.Int32)
+    name: CopyTo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.copyto
+  - name: (
+  - name: T
+  - name: (
+  - name: )
+  - name: ','
+  - name: " "
+  - uid: System.Int32
+    name: Integer
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.int32
+  - name: )
+- uid: System.NotSupportedException
+  commentId: T:System.NotSupportedException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.notsupportedexception
+  name: NotSupportedException
+  nameWithType: NotSupportedException
+  fullName: System.NotSupportedException
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Remove*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Remove
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_Remove_Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationError_
+  name: Remove
+  nameWithType: ValidationErrors.Remove
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Remove
+- uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  commentId: M:System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  parent: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  definition: System.Collections.Generic.ICollection`1.Remove(`0)
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  name: Remove(ValidationError)
+  nameWithType: ICollection<ValidationError>.Remove(ValidationError)
+  fullName: System.Collections.Generic.ICollection<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  nameWithType.vb: ICollection(Of ValidationError).Remove(ValidationError)
+  fullName.vb: System.Collections.Generic.ICollection(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError).Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Remove(Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+- uid: System.Collections.Generic.ICollection`1.Remove(`0)
+  commentId: M:System.Collections.Generic.ICollection`1.Remove(`0)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  name: Remove(T)
+  nameWithType: ICollection<T>.Remove(T)
+  fullName: System.Collections.Generic.ICollection<T>.Remove(T)
+  nameWithType.vb: ICollection(Of T).Remove(T)
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Remove(T)
+  spec.csharp:
+  - uid: System.Collections.Generic.ICollection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - name: T
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.ICollection`1.Remove(`0)
+    name: Remove
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.remove
+  - name: (
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Count*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Count
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_Count
+  name: Count
+  nameWithType: ValidationErrors.Count
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.Count
+- uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Count
+  commentId: P:System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.Count
+  parent: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  definition: System.Collections.Generic.ICollection`1.Count
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.count
+  name: Count
+  nameWithType: ICollection<ValidationError>.Count
+  fullName: System.Collections.Generic.ICollection<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>.Count
+  nameWithType.vb: ICollection(Of ValidationError).Count
+  fullName.vb: System.Collections.Generic.ICollection(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError).Count
+- uid: System.Collections.Generic.ICollection`1.Count
+  commentId: P:System.Collections.Generic.ICollection`1.Count
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.count
+  name: Count
+  nameWithType: ICollection<T>.Count
+  fullName: System.Collections.Generic.ICollection<T>.Count
+  nameWithType.vb: ICollection(Of T).Count
+  fullName.vb: System.Collections.Generic.ICollection(Of T).Count
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.IsReadOnly*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.IsReadOnly
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_IsReadOnly
+  name: IsReadOnly
+  nameWithType: ValidationErrors.IsReadOnly
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.IsReadOnly
+- uid: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.IsReadOnly
+  commentId: P:System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.IsReadOnly
+  parent: System.Collections.Generic.ICollection{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  definition: System.Collections.Generic.ICollection`1.IsReadOnly
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.isreadonly
+  name: IsReadOnly
+  nameWithType: ICollection<ValidationError>.IsReadOnly
+  fullName: System.Collections.Generic.ICollection<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>.IsReadOnly
+  nameWithType.vb: ICollection(Of ValidationError).IsReadOnly
+  fullName.vb: System.Collections.Generic.ICollection(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError).IsReadOnly
+- uid: System.Collections.Generic.ICollection`1.IsReadOnly
+  commentId: P:System.Collections.Generic.ICollection`1.IsReadOnly
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.icollection-1.isreadonly
+  name: IsReadOnly
+  nameWithType: ICollection<T>.IsReadOnly
+  fullName: System.Collections.Generic.ICollection<T>.IsReadOnly
+  nameWithType.vb: ICollection(Of T).IsReadOnly
+  fullName.vb: System.Collections.Generic.ICollection(Of T).IsReadOnly
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.GetEnumerator*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.GetEnumerator
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ValidationErrors_GetEnumerator
+  name: GetEnumerator
+  nameWithType: ValidationErrors.GetEnumerator
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationErrors.GetEnumerator
+- uid: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.GetEnumerator
+  parent: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  definition: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<ValidationError>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of ValidationError).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  commentId: T:System.Collections.Generic.IEnumerator{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerator`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<ValidationError>
+  nameWithType: IEnumerator<ValidationError>
+  fullName: System.Collections.Generic.IEnumerator<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError>
+  nameWithType.vb: IEnumerator(Of ValidationError)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError)
+  name.vb: IEnumerator(Of ValidationError)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError
+    name: ValidationError
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ValidationError.html
+  - name: )
+- uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+  commentId: M:System.Collections.Generic.IEnumerable`1.GetEnumerator
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  name: GetEnumerator()
+  nameWithType: IEnumerable<T>.GetEnumerator()
+  fullName: System.Collections.Generic.IEnumerable<T>.GetEnumerator()
+  nameWithType.vb: IEnumerable(Of T).GetEnumerator()
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T).GetEnumerator()
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1.GetEnumerator
+    name: GetEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator
+  - name: (
+  - name: )
+- uid: System.Collections.Generic.IEnumerator`1
+  commentId: T:System.Collections.Generic.IEnumerator`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  name: IEnumerator<T>
+  nameWithType: IEnumerator<T>
+  fullName: System.Collections.Generic.IEnumerator<T>
+  nameWithType.vb: IEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerator(Of T)
+  name.vb: IEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerator`1
+    name: IEnumerator
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerator-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

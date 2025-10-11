@@ -1,0 +1,162 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  id: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.InjectExtensions
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase`1
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent.html
+  name: CqrsServiceAgent
+  nameWithType: CqrsServiceAgent
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html
+  name: CqrsServiceAgent<TError>
+  nameWithType: CqrsServiceAgent<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent<TError>
+  nameWithType.vb: CqrsServiceAgent(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent(Of TError)
+  name.vb: CqrsServiceAgent(Of TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+    name: CqrsServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent`1
+    name: CqrsServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.CqrsServiceAgent-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException-1.html
+  name: IApiException<TException>
+  nameWithType: IApiException<TException>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException<TException>
+  nameWithType.vb: IApiException(Of TException)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException(Of TException)
+  name.vb: IApiException(Of TException)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+    name: IApiException
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException-1.html
+  - name: <
+  - name: TException
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException`1
+    name: IApiException
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.IApiException-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TException
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.InjectExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.InjectExtensions
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.InjectExtensions.html
+  name: InjectExtensions
+  nameWithType: InjectExtensions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.InjectExtensions
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase-1.html
+  name: ServiceAgentBase<TException>
+  nameWithType: ServiceAgentBase<TException>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase<TException>
+  nameWithType.vb: ServiceAgentBase(Of TException)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase(Of TException)
+  name.vb: ServiceAgentBase(Of TException)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase`1
+    name: ServiceAgentBase
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase-1.html
+  - name: <
+  - name: TException
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase`1
+    name: ServiceAgentBase
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentBase-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TException
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError.html
+  name: ServiceAgentError
+  nameWithType: ServiceAgentError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.ServiceAgentError
+- uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+    name: ServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent
+    name: ServiceAgent
+    href: Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.html

@@ -1,0 +1,474 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  id: ICachableRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheGroupKey
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheKey
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.GetCacheKeyParameters
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalCacheBehavior
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalExpires
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteCacheBehavior
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteExpires
+  langs:
+  - csharp
+  - vb
+  name: ICachableRequest
+  nameWithType: ICachableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ICachableRequest
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Definition for cachable request.
+  example: []
+  syntax:
+    content: public interface ICachableRequest
+    content.vb: Public Interface ICachableRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalCacheBehavior
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalCacheBehavior
+  id: LocalCacheBehavior
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  langs:
+  - csharp
+  - vb
+  name: LocalCacheBehavior
+  nameWithType: ICachableRequest.LocalCacheBehavior
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalCacheBehavior
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: LocalCacheBehavior
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Configuration for local cache provider.
+  example: []
+  syntax:
+    content: CacheBehavior LocalCacheBehavior { get; }
+    parameters: []
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+    content.vb: ReadOnly Property LocalCacheBehavior As CacheBehavior
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalCacheBehavior*
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteCacheBehavior
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteCacheBehavior
+  id: RemoteCacheBehavior
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  langs:
+  - csharp
+  - vb
+  name: RemoteCacheBehavior
+  nameWithType: ICachableRequest.RemoteCacheBehavior
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteCacheBehavior
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: RemoteCacheBehavior
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Configuration for remote cache provider.
+  example: []
+  syntax:
+    content: CacheBehavior RemoteCacheBehavior { get; }
+    parameters: []
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+    content.vb: ReadOnly Property RemoteCacheBehavior As CacheBehavior
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteCacheBehavior*
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalExpires
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalExpires
+  id: LocalExpires
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  langs:
+  - csharp
+  - vb
+  name: LocalExpires
+  nameWithType: ICachableRequest.LocalExpires
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalExpires
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: LocalExpires
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+    startLine: 20
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: The expire time for local cache.
+  example: []
+  syntax:
+    content: TimeSpan? LocalExpires { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.TimeSpan}
+    content.vb: ReadOnly Property LocalExpires As TimeSpan?
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalExpires*
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteExpires
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteExpires
+  id: RemoteExpires
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  langs:
+  - csharp
+  - vb
+  name: RemoteExpires
+  nameWithType: ICachableRequest.RemoteExpires
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteExpires
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: RemoteExpires
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+    startLine: 25
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: The expire time for remote cache.
+  example: []
+  syntax:
+    content: TimeSpan? RemoteExpires { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.TimeSpan}
+    content.vb: ReadOnly Property RemoteExpires As TimeSpan?
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteExpires*
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheGroupKey
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheGroupKey
+  id: CacheGroupKey
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  langs:
+  - csharp
+  - vb
+  name: CacheGroupKey()
+  nameWithType: ICachableRequest.CacheGroupKey()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheGroupKey()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CacheGroupKey
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+    startLine: 31
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Generate key for cache group, return <code>null</code> for no group.
+  example: []
+  syntax:
+    content: string? CacheGroupKey()
+    return:
+      type: System.String
+      description: ''
+    content.vb: Function CacheGroupKey() As String
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheGroupKey*
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheKey
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheKey
+  id: CacheKey
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  langs:
+  - csharp
+  - vb
+  name: CacheKey()
+  nameWithType: ICachableRequest.CacheKey()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheKey()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CacheKey
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+    startLine: 37
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Generate cache key for each request.
+  example: []
+  syntax:
+    content: string CacheKey()
+    return:
+      type: System.String
+      description: The cache key for current request.
+    content.vb: Function CacheKey() As String
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheKey*
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.GetCacheKeyParameters
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.GetCacheKeyParameters
+  id: GetCacheKeyParameters
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  langs:
+  - csharp
+  - vb
+  name: GetCacheKeyParameters()
+  nameWithType: ICachableRequest.GetCacheKeyParameters()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.GetCacheKeyParameters()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetCacheKeyParameters
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ICachableRequest.cs
+    startLine: 46
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Get parameters for generating cache key, will call <xref href="System.Object.ToString" data-throw-if-not-resolved="false"></xref> to each object been provided.
+  example: []
+  syntax:
+    content: object?[] GetCacheKeyParameters()
+    return:
+      type: System.Object[]
+      description: The parameter array.
+    content.vb: Function GetCacheKeyParameters() As Object()
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.GetCacheKeyParameters*
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalCacheBehavior*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalCacheBehavior
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ICachableRequest_LocalCacheBehavior
+  name: LocalCacheBehavior
+  nameWithType: ICachableRequest.LocalCacheBehavior
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalCacheBehavior
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.html
+  name: CacheBehavior
+  nameWithType: CacheBehavior
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteCacheBehavior*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteCacheBehavior
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ICachableRequest_RemoteCacheBehavior
+  name: RemoteCacheBehavior
+  nameWithType: ICachableRequest.RemoteCacheBehavior
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteCacheBehavior
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalExpires*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalExpires
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ICachableRequest_LocalExpires
+  name: LocalExpires
+  nameWithType: ICachableRequest.LocalExpires
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.LocalExpires
+- uid: System.Nullable{System.TimeSpan}
+  commentId: T:System.Nullable{System.TimeSpan}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan?
+  nameWithType: TimeSpan?
+  fullName: System.TimeSpan?
+  spec.csharp:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+  spec.vb:
+  - uid: System.TimeSpan
+    name: TimeSpan
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.timespan
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteExpires*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteExpires
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ICachableRequest_RemoteExpires
+  name: RemoteExpires
+  nameWithType: ICachableRequest.RemoteExpires
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.RemoteExpires
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheGroupKey*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheGroupKey
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ICachableRequest_CacheGroupKey
+  name: CacheGroupKey
+  nameWithType: ICachableRequest.CacheGroupKey
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheGroupKey
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheKey*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheKey
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ICachableRequest_CacheKey
+  name: CacheKey
+  nameWithType: ICachableRequest.CacheKey
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.CacheKey
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.GetCacheKeyParameters*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.GetCacheKeyParameters
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ICachableRequest_GetCacheKeyParameters
+  name: GetCacheKeyParameters
+  nameWithType: ICachableRequest.GetCacheKeyParameters
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.GetCacheKeyParameters
+- uid: System.Object[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object[]
+  nameWithType: object[]
+  fullName: object[]
+  nameWithType.vb: Object()
+  fullName.vb: Object()
+  name.vb: Object()
+  spec.csharp:
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: (
+  - name: )
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object

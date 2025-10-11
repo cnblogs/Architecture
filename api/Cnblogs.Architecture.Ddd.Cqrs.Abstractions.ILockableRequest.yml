@@ -1,0 +1,133 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  id: ILockableRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+  langs:
+  - csharp
+  - vb
+  name: ILockableRequest
+  nameWithType: ILockableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ILockableRequest
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableRequest.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Represents a request that needs distributed locks.
+  example: []
+  syntax:
+    content: public interface ILockableRequest
+    content.vb: Public Interface ILockableRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+  id: GetLockKey
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  langs:
+  - csharp
+  - vb
+  name: GetLockKey()
+  nameWithType: ILockableRequest.GetLockKey()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetLockKey
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/ILockableRequest.cs
+    startLine: 11
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Get the key of distributed lock.
+  example: []
+  syntax:
+    content: string GetLockKey()
+    return:
+      type: System.String
+      description: The key of distributed lock.
+    content.vb: Function GetLockKey() As String
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey*
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ILockableRequest_GetLockKey
+  name: GetLockKey
+  nameWithType: ILockableRequest.GetLockKey
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

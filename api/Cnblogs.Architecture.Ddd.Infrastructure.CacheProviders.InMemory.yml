@@ -1,0 +1,85 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  id: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  children:
+  - Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.InMemoryCacheProvider
+  - Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.Injectors
+  langs:
+  - csharp
+  - vb
+  name: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  type: Namespace
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.Injectors
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.Injectors
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  href: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.Injectors.html
+  name: Injectors
+  nameWithType: Injectors
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.Injectors
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.InMemoryCacheProvider
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.InMemoryCacheProvider
+  href: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.InMemoryCacheProvider.html
+  name: InMemoryCacheProvider
+  nameWithType: InMemoryCacheProvider
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.InMemoryCacheProvider
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders
+    name: CacheProviders
+    href: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+    name: InMemory
+    href: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders
+    name: CacheProviders
+    href: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory
+    name: InMemory
+    href: Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.html

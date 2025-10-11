@@ -1,0 +1,1346 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  id: DefaultEventBus
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.#ctor(Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus})
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync``1(System.String,``0)
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync``1(``0)
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync``1(``0)
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TraceId
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync``1(System.String,``0)
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync``1(``0)
+  langs:
+  - csharp
+  - vb
+  name: DefaultEventBus
+  nameWithType: DefaultEventBus
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DefaultEventBus
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+    startLine: 8
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Default implementation for <xref href="Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: 'public class DefaultEventBus : IEventBus'
+    content.vb: Public Class DefaultEventBus Implements IEventBus
+  inheritance:
+  - System.Object
+  implements:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.#ctor(Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus})
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.#ctor(Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus})
+  id: '#ctor(Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer,MediatR.IMediator,Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus})'
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  langs:
+  - csharp
+  - vb
+  name: DefaultEventBus(IEventBuffer, IMediator, ILogger<DefaultEventBus>)
+  nameWithType: DefaultEventBus.DefaultEventBus(IEventBuffer, IMediator, ILogger<DefaultEventBus>)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.DefaultEventBus(Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer, MediatR.IMediator, Microsoft.Extensions.Logging.ILogger<Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus>)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+    startLine: 20
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: Create a <xref href="Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus" data-throw-if-not-resolved="false"></xref> instance.
+  example: []
+  syntax:
+    content: public DefaultEventBus(IEventBuffer eventBuffer, IMediator mediator, ILogger<DefaultEventBus> logger)
+    parameters:
+    - id: eventBuffer
+      type: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+      description: The underlying event buffer.
+    - id: mediator
+      type: MediatR.IMediator
+      description: The IMediator.
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus}
+      description: The logger.
+    content.vb: Public Sub New(eventBuffer As IEventBuffer, mediator As IMediator, logger As ILogger(Of DefaultEventBus))
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.#ctor*
+  nameWithType.vb: DefaultEventBus.New(IEventBuffer, IMediator, ILogger(Of DefaultEventBus))
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.New(Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer, MediatR.IMediator, Microsoft.Extensions.Logging.ILogger(Of Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus))
+  name.vb: New(IEventBuffer, IMediator, ILogger(Of DefaultEventBus))
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync``1(``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync``1(``0)
+  id: PublishAsync``1(``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  langs:
+  - csharp
+  - vb
+  name: PublishAsync<TEvent>(TEvent)
+  nameWithType: DefaultEventBus.PublishAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync<TEvent>(TEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PublishAsync
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+    startLine: 28
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 发布事件。
+  example: []
+  syntax:
+    content: 'public Task PublishAsync<TEvent>(TEvent @event) where TEvent : IntegrationEvent'
+    parameters:
+    - id: event
+      type: '{TEvent}'
+      description: 要发布的事件。
+    typeParameters:
+    - id: TEvent
+      description: 事件类型。
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function PublishAsync(Of TEvent As IntegrationEvent)([event] As TEvent) As Task
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1({TEvent})
+  nameWithType.vb: DefaultEventBus.PublishAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync(Of TEvent)(TEvent)
+  name.vb: PublishAsync(Of TEvent)(TEvent)
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync``1(System.String,``0)
+  id: PublishAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  langs:
+  - csharp
+  - vb
+  name: PublishAsync<TEvent>(string, TEvent)
+  nameWithType: DefaultEventBus.PublishAsync<TEvent>(string, TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync<TEvent>(string, TEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: PublishAsync
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+    startLine: 35
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 发布事件。
+  example: []
+  syntax:
+    content: 'public Task PublishAsync<TEvent>(string eventName, TEvent @event) where TEvent : IntegrationEvent'
+    parameters:
+    - id: eventName
+      type: System.String
+      description: 要发布的事件名称。
+    - id: event
+      type: '{TEvent}'
+      description: 事件内容。
+    typeParameters:
+    - id: TEvent
+      description: 事件类型。
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function PublishAsync(Of TEvent As IntegrationEvent)(eventName As String, [event] As TEvent) As Task
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,{TEvent})
+  nameWithType.vb: DefaultEventBus.PublishAsync(Of TEvent)(String, TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync(Of TEvent)(String, TEvent)
+  name.vb: PublishAsync(Of TEvent)(String, TEvent)
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync``1(``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync``1(``0)
+  id: TryPublishAsync``1(``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  langs:
+  - csharp
+  - vb
+  name: TryPublishAsync<TEvent>(TEvent)
+  nameWithType: DefaultEventBus.TryPublishAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync<TEvent>(TEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: TryPublishAsync
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+    startLine: 44
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 尝试发布集成事件。
+  example: []
+  syntax:
+    content: 'public Task<bool> TryPublishAsync<TEvent>(TEvent @event) where TEvent : IntegrationEvent'
+    parameters:
+    - id: event
+      type: '{TEvent}'
+      description: 要发布的集成事件。
+    typeParameters:
+    - id: TEvent
+      description: 集成事件类型。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 发布是否成功。
+    content.vb: Public Function TryPublishAsync(Of TEvent As IntegrationEvent)([event] As TEvent) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1({TEvent})
+  nameWithType.vb: DefaultEventBus.TryPublishAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync(Of TEvent)(TEvent)
+  name.vb: TryPublishAsync(Of TEvent)(TEvent)
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync``1(System.String,``0)
+  id: TryPublishAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  langs:
+  - csharp
+  - vb
+  name: TryPublishAsync<TEvent>(string, TEvent)
+  nameWithType: DefaultEventBus.TryPublishAsync<TEvent>(string, TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync<TEvent>(string, TEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: TryPublishAsync
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+    startLine: 51
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 尝试发布集成事件。
+  example: []
+  syntax:
+    content: 'public Task<bool> TryPublishAsync<TEvent>(string eventName, TEvent @event) where TEvent : IntegrationEvent'
+    parameters:
+    - id: eventName
+      type: System.String
+      description: 集成事件名称。
+    - id: event
+      type: '{TEvent}'
+      description: 集成事件。
+    typeParameters:
+    - id: TEvent
+      description: 集成事件类型。
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+      description: 发布是否成功。
+    content.vb: Public Function TryPublishAsync(Of TEvent As IntegrationEvent)(eventName As String, [event] As TEvent) As Task(Of Boolean)
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,{TEvent})
+  nameWithType.vb: DefaultEventBus.TryPublishAsync(Of TEvent)(String, TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync(Of TEvent)(String, TEvent)
+  name.vb: TryPublishAsync(Of TEvent)(String, TEvent)
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync``1(``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync``1(``0)
+  id: ReceiveAsync``1(``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  langs:
+  - csharp
+  - vb
+  name: ReceiveAsync<TEvent>(TEvent)
+  nameWithType: DefaultEventBus.ReceiveAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync<TEvent>(TEvent)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ReceiveAsync
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+    startLine: 67
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 接收并处理集成事件。
+  example: []
+  syntax:
+    content: 'public Task ReceiveAsync<TEvent>(TEvent receivedEvent) where TEvent : IntegrationEvent'
+    parameters:
+    - id: receivedEvent
+      type: '{TEvent}'
+      description: 收到的集成事件。
+    typeParameters:
+    - id: TEvent
+      description: 集成事件类型。
+    return:
+      type: System.Threading.Tasks.Task
+      description: ''
+    content.vb: Public Function ReceiveAsync(Of TEvent As IntegrationEvent)(receivedEvent As TEvent) As Task
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync*
+  implements:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1({TEvent})
+  nameWithType.vb: DefaultEventBus.ReceiveAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync(Of TEvent)(TEvent)
+  name.vb: ReceiveAsync(Of TEvent)(TEvent)
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TraceId
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TraceId
+  id: TraceId
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  langs:
+  - csharp
+  - vb
+  name: TraceId
+  nameWithType: DefaultEventBus.TraceId
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TraceId
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: TraceId
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/DefaultEventBus.cs
+    startLine: 81
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  summary: 当前上下文的 TraceId。
+  example: []
+  syntax:
+    content: public Guid? TraceId { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Guid}
+    content.vb: Public Property TraceId As Guid?
+  overload: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TraceId*
+  implements:
+  - Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TraceId
+references:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html
+  name: IEventBus
+  nameWithType: IEventBus
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html
+  name: DefaultEventBus
+  nameWithType: DefaultEventBus
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.#ctor
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_DefaultEventBus__ctor_Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBuffer_MediatR_IMediator_Microsoft_Extensions_Logging_ILogger_Cnblogs_Architecture_Ddd_EventBus_Abstractions_DefaultEventBus__
+  name: DefaultEventBus
+  nameWithType: DefaultEventBus.DefaultEventBus
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.DefaultEventBus
+  nameWithType.vb: DefaultEventBus.New
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.New
+  name.vb: New
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer.html
+  name: IEventBuffer
+  nameWithType: IEventBuffer
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBuffer
+- uid: MediatR.IMediator
+  commentId: T:MediatR.IMediator
+  parent: MediatR
+  isExternal: true
+  name: IMediator
+  nameWithType: IMediator
+  fullName: MediatR.IMediator
+- uid: Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus}
+  commentId: T:Microsoft.Extensions.Logging.ILogger{Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus}
+  parent: Microsoft.Extensions.Logging
+  definition: Microsoft.Extensions.Logging.ILogger`1
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<DefaultEventBus>
+  nameWithType: ILogger<DefaultEventBus>
+  fullName: Microsoft.Extensions.Logging.ILogger<Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus>
+  nameWithType.vb: ILogger(Of DefaultEventBus)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus)
+  name.vb: ILogger(Of DefaultEventBus)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+    name: DefaultEventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus
+    name: DefaultEventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html
+  - name: )
+- uid: MediatR
+  commentId: N:MediatR
+  href: MediatR.html
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR
+- uid: Microsoft.Extensions.Logging.ILogger`1
+  commentId: T:Microsoft.Extensions.Logging.ILogger`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  name: ILogger<TCategoryName>
+  nameWithType: ILogger<TCategoryName>
+  fullName: Microsoft.Extensions.Logging.ILogger<TCategoryName>
+  nameWithType.vb: ILogger(Of TCategoryName)
+  fullName.vb: Microsoft.Extensions.Logging.ILogger(Of TCategoryName)
+  name.vb: ILogger(Of TCategoryName)
+  spec.csharp:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: <
+  - name: TCategoryName
+  - name: '>'
+  spec.vb:
+  - uid: Microsoft.Extensions.Logging.ILogger`1
+    name: ILogger
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TCategoryName
+  - name: )
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/microsoft
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+  spec.csharp:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+  spec.vb:
+  - uid: Microsoft
+    name: Microsoft
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft
+  - name: .
+  - uid: Microsoft.Extensions
+    name: Extensions
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions
+  - name: .
+  - uid: Microsoft.Extensions.Logging
+    name: Logging
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/microsoft.extensions.logging
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_DefaultEventBus_PublishAsync__1___0_
+  name: PublishAsync
+  nameWithType: DefaultEventBus.PublishAsync
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.PublishAsync
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1({TEvent})
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  definition: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(``0)
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1___0_
+  name: PublishAsync<TEvent>(TEvent)
+  nameWithType: IEventBus.PublishAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync<TEvent>(TEvent)
+  nameWithType.vb: IEventBus.PublishAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync(Of TEvent)(TEvent)
+  name.vb: PublishAsync(Of TEvent)(TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(``0)
+    name: PublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(``0)
+    name: PublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - name: TEvent
+  - name: )
+- uid: '{TEvent}'
+  commentId: '!:TEvent'
+  definition: TEvent
+  name: TEvent
+  nameWithType: TEvent
+  fullName: TEvent
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(``0)
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1___0_
+  name: PublishAsync<TEvent>(TEvent)
+  nameWithType: IEventBus.PublishAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync<TEvent>(TEvent)
+  nameWithType.vb: IEventBus.PublishAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync(Of TEvent)(TEvent)
+  name.vb: PublishAsync(Of TEvent)(TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(``0)
+    name: PublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(``0)
+    name: PublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - name: TEvent
+  - name: )
+- uid: TEvent
+  name: TEvent
+  nameWithType: TEvent
+  fullName: TEvent
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Threading
+    name: Threading
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading
+  - name: .
+  - uid: System.Threading.Tasks
+    name: Tasks
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,{TEvent})
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  definition: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,``0)
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1_System_String___0_
+  name: PublishAsync<TEvent>(string, TEvent)
+  nameWithType: IEventBus.PublishAsync<TEvent>(string, TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync<TEvent>(string, TEvent)
+  nameWithType.vb: IEventBus.PublishAsync(Of TEvent)(String, TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync(Of TEvent)(String, TEvent)
+  name.vb: PublishAsync(Of TEvent)(String, TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,``0)
+    name: PublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1_System_String___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,``0)
+    name: PublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TEvent
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,``0)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1_System_String___0_
+  name: PublishAsync<TEvent>(string, TEvent)
+  nameWithType: IEventBus.PublishAsync<TEvent>(string, TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync<TEvent>(string, TEvent)
+  nameWithType.vb: IEventBus.PublishAsync(Of TEvent)(String, TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync(Of TEvent)(String, TEvent)
+  name.vb: PublishAsync(Of TEvent)(String, TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,``0)
+    name: PublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1_System_String___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.PublishAsync``1(System.String,``0)
+    name: PublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_PublishAsync__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TEvent
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_DefaultEventBus_TryPublishAsync__1___0_
+  name: TryPublishAsync
+  nameWithType: DefaultEventBus.TryPublishAsync
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TryPublishAsync
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1({TEvent})
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  definition: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(``0)
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1___0_
+  name: TryPublishAsync<TEvent>(TEvent)
+  nameWithType: IEventBus.TryPublishAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync<TEvent>(TEvent)
+  nameWithType.vb: IEventBus.TryPublishAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync(Of TEvent)(TEvent)
+  name.vb: TryPublishAsync(Of TEvent)(TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(``0)
+    name: TryPublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(``0)
+    name: TryPublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - name: TEvent
+  - name: )
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<bool>
+  nameWithType: Task<bool>
+  fullName: System.Threading.Tasks.Task<bool>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(``0)
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1___0_
+  name: TryPublishAsync<TEvent>(TEvent)
+  nameWithType: IEventBus.TryPublishAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync<TEvent>(TEvent)
+  nameWithType.vb: IEventBus.TryPublishAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync(Of TEvent)(TEvent)
+  name.vb: TryPublishAsync(Of TEvent)(TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(``0)
+    name: TryPublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(``0)
+    name: TryPublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - name: TEvent
+  - name: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: <
+  - name: TResult
+  - name: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.tasks.task-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TResult
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,{TEvent})
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  definition: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,``0)
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1_System_String___0_
+  name: TryPublishAsync<TEvent>(string, TEvent)
+  nameWithType: IEventBus.TryPublishAsync<TEvent>(string, TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync<TEvent>(string, TEvent)
+  nameWithType.vb: IEventBus.TryPublishAsync(Of TEvent)(String, TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync(Of TEvent)(String, TEvent)
+  name.vb: TryPublishAsync(Of TEvent)(String, TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,``0)
+    name: TryPublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1_System_String___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,``0)
+    name: TryPublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TEvent
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,``0)
+  isExternal: true
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1_System_String___0_
+  name: TryPublishAsync<TEvent>(string, TEvent)
+  nameWithType: IEventBus.TryPublishAsync<TEvent>(string, TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync<TEvent>(string, TEvent)
+  nameWithType.vb: IEventBus.TryPublishAsync(Of TEvent)(String, TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync(Of TEvent)(String, TEvent)
+  name.vb: TryPublishAsync(Of TEvent)(String, TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,``0)
+    name: TryPublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1_System_String___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TryPublishAsync``1(System.String,``0)
+    name: TryPublishAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TryPublishAsync__1_System_String___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: TEvent
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_DefaultEventBus_ReceiveAsync__1___0_
+  name: ReceiveAsync
+  nameWithType: DefaultEventBus.ReceiveAsync
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.ReceiveAsync
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1({TEvent})
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1(``0)
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  definition: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1(``0)
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_ReceiveAsync__1___0_
+  name: ReceiveAsync<TEvent>(TEvent)
+  nameWithType: IEventBus.ReceiveAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync<TEvent>(TEvent)
+  nameWithType.vb: IEventBus.ReceiveAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync(Of TEvent)(TEvent)
+  name.vb: ReceiveAsync(Of TEvent)(TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1(``0)
+    name: ReceiveAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_ReceiveAsync__1___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1(``0)
+    name: ReceiveAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_ReceiveAsync__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - name: TEvent
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1(``0)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1(``0)
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_ReceiveAsync__1___0_
+  name: ReceiveAsync<TEvent>(TEvent)
+  nameWithType: IEventBus.ReceiveAsync<TEvent>(TEvent)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync<TEvent>(TEvent)
+  nameWithType.vb: IEventBus.ReceiveAsync(Of TEvent)(TEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync(Of TEvent)(TEvent)
+  name.vb: ReceiveAsync(Of TEvent)(TEvent)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1(``0)
+    name: ReceiveAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_ReceiveAsync__1___0_
+  - name: <
+  - name: TEvent
+  - name: '>'
+  - name: (
+  - name: TEvent
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.ReceiveAsync``1(``0)
+    name: ReceiveAsync
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_ReceiveAsync__1___0_
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TEvent
+  - name: )
+  - name: (
+  - name: TEvent
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TraceId*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TraceId
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_DefaultEventBus_TraceId
+  name: TraceId
+  nameWithType: DefaultEventBus.TraceId
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.DefaultEventBus.TraceId
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TraceId
+  commentId: P:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TraceId
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html#Cnblogs_Architecture_Ddd_EventBus_Abstractions_IEventBus_TraceId
+  name: TraceId
+  nameWithType: IEventBus.TraceId
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.TraceId
+- uid: System.Nullable{System.Guid}
+  commentId: T:System.Nullable{System.Guid}
+  parent: System
+  definition: System.Nullable`1
+  href: https://learn.microsoft.com/dotnet/api/system.guid
+  name: Guid?
+  nameWithType: Guid?
+  fullName: System.Guid?
+  spec.csharp:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+  spec.vb:
+  - uid: System.Guid
+    name: Guid
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.guid
+  - name: '?'
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.nullable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )

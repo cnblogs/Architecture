@@ -1,0 +1,149 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  id: CacheBehavior
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.DisabledCache
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.UpdateCacheIfMiss
+  langs:
+  - csharp
+  - vb
+  name: CacheBehavior
+  nameWithType: CacheBehavior
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  type: Enum
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CacheBehavior.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CacheBehavior
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CacheBehavior.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Options for handing <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public enum CacheBehavior
+    content.vb: Public Enum CacheBehavior
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.UpdateCacheIfMiss
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.UpdateCacheIfMiss
+  id: UpdateCacheIfMiss
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  langs:
+  - csharp
+  - vb
+  name: UpdateCacheIfMiss
+  nameWithType: CacheBehavior.UpdateCacheIfMiss
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.UpdateCacheIfMiss
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CacheBehavior.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: UpdateCacheIfMiss
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CacheBehavior.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Update cache after cache missed, this is the default behavior.
+  example: []
+  syntax:
+    content: UpdateCacheIfMiss = 1
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.DisabledCache
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.DisabledCache
+  id: DisabledCache
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  langs:
+  - csharp
+  - vb
+  name: DisabledCache
+  nameWithType: CacheBehavior.DisabledCache
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.DisabledCache
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CacheBehavior.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: DisabledCache
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CacheBehavior.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Do not cache this request.
+  example: []
+  syntax:
+    content: DisabledCache = 2
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest.html
+  name: ICachableRequest
+  nameWithType: ICachableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICachableRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior.html
+  name: CacheBehavior
+  nameWithType: CacheBehavior
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CacheBehavior

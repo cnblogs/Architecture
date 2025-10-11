@@ -1,0 +1,158 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+  id: IConfigurableLockableRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.ExpiresIn
+  langs:
+  - csharp
+  - vb
+  name: IConfigurableLockableRequest
+  nameWithType: IConfigurableLockableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IConfigurableLockableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IConfigurableLockableRequest
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IConfigurableLockableRequest.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Definitions of a <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest" data-throw-if-not-resolved="false"></xref> with some configurations.
+  example: []
+  syntax:
+    content: 'public interface IConfigurableLockableRequest : ILockableRequest'
+    content.vb: Public Interface IConfigurableLockableRequest Inherits ILockableRequest
+  inheritedMembers:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.ExpiresIn
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.ExpiresIn
+  id: ExpiresIn
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest
+  langs:
+  - csharp
+  - vb
+  name: ExpiresIn
+  nameWithType: IConfigurableLockableRequest.ExpiresIn
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.ExpiresIn
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IConfigurableLockableRequest.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ExpiresIn
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IConfigurableLockableRequest.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: The maximum waiting time for requiring a lock.
+  example: []
+  syntax:
+    content: TimeSpan ExpiresIn { get; }
+    parameters: []
+    return:
+      type: System.TimeSpan
+    content.vb: ReadOnly Property ExpiresIn As TimeSpan
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.ExpiresIn*
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.html
+  name: ILockableRequest
+  nameWithType: ILockableRequest
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ILockableRequest_GetLockKey
+  name: GetLockKey()
+  nameWithType: ILockableRequest.GetLockKey()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+    name: GetLockKey
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ILockableRequest_GetLockKey
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.GetLockKey
+    name: GetLockKey
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_ILockableRequest_GetLockKey
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.ExpiresIn*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.ExpiresIn
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_IConfigurableLockableRequest_ExpiresIn
+  name: ExpiresIn
+  nameWithType: IConfigurableLockableRequest.ExpiresIn
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IConfigurableLockableRequest.ExpiresIn
+- uid: System.TimeSpan
+  commentId: T:System.TimeSpan
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.timespan
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: System.TimeSpan
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System

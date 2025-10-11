@@ -1,0 +1,593 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+  id: CqrsInjectorExtensions
+  parent: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  children:
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector,System.Reflection.Assembly)
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector,System.String)
+  langs:
+  - csharp
+  - vb
+  name: CqrsInjectorExtensions
+  nameWithType: CqrsInjectorExtensions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Dapr/CqrsInjectorExtensions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CqrsInjectorExtensions
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Dapr/CqrsInjectorExtensions.cs
+    startLine: 9
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  summary: 添加 Dapr 到 <xref href="Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector" data-throw-if-not-resolved="false"></xref>
+  example: []
+  syntax:
+    content: public static class CqrsInjectorExtensions
+    content.vb: Public Module CqrsInjectorExtensions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector,System.Reflection.Assembly)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector,System.Reflection.Assembly)
+  id: AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector,System.Reflection.Assembly)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddDaprEventBus(CqrsInjector, Assembly)
+  nameWithType: CqrsInjectorExtensions.AddDaprEventBus(CqrsInjector, Assembly)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector, System.Reflection.Assembly)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Dapr/CqrsInjectorExtensions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AddDaprEventBus
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Dapr/CqrsInjectorExtensions.cs
+    startLine: 17
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  summary: 添加 Dapr 实现的 <xref href="Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus" data-throw-if-not-resolved="false"></xref>。
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use builder.AddCqrs().AddEventBus(o => o.UseDapr(assembly)) instead.", true)]
+
+      public static CqrsInjector AddDaprEventBus(this CqrsInjector cqrsInjector, Assembly integrationEventAssembly)
+    parameters:
+    - id: cqrsInjector
+      type: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+      description: <xref href="Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector" data-throw-if-not-resolved="false"></xref>
+    - id: integrationEventAssembly
+      type: System.Reflection.Assembly
+      description: 集成事件所在的 Assembly。
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+      description: ''
+    content.vb: >-
+      <Obsolete("Use builder.AddCqrs().AddEventBus(o => o.UseDapr(assembly)) instead.", True)>
+
+      Public Shared Function AddDaprEventBus(cqrsInjector As CqrsInjector, integrationEventAssembly As Assembly) As CqrsInjector
+  overload: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: Use builder.AddCqrs().AddEventBus(o => o.UseDapr(assembly)) instead.
+    - type: System.Boolean
+      value: true
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector,System.String)
+  commentId: M:Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector,System.String)
+  id: AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector,System.String)
+  isExtensionMethod: true
+  parent: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions
+  langs:
+  - csharp
+  - vb
+  name: AddDaprEventBus(CqrsInjector, string)
+  nameWithType: CqrsInjectorExtensions.AddDaprEventBus(CqrsInjector, string)
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector, string)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.EventBus.Dapr/CqrsInjectorExtensions.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: AddDaprEventBus
+    path: src/Cnblogs.Architecture.Ddd.EventBus.Dapr/CqrsInjectorExtensions.cs
+    startLine: 29
+  assemblies:
+  - Cnblogs.Architecture.Ddd.EventBus.Dapr
+  namespace: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  summary: 添加 DaprClient
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("Use builder.AddCqrs().AddEventBus(o => o.UseDapr(appName)) instead.", true)]
+
+      public static CqrsInjector AddDaprEventBus(this CqrsInjector cqrsInjector, string appName)
+    parameters:
+    - id: cqrsInjector
+      type: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+      description: <xref href="Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector" data-throw-if-not-resolved="false"></xref>
+    - id: appName
+      type: System.String
+      description: 发布事件时使用的 appName。
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+      description: ''
+    content.vb: >-
+      <Obsolete("Use builder.AddCqrs().AddEventBus(o => o.UseDapr(appName)) instead.", True)>
+
+      Public Shared Function AddDaprEventBus(cqrsInjector As CqrsInjector, appName As String) As CqrsInjector
+  overload: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: Use builder.AddCqrs().AddEventBus(o => o.UseDapr(appName)) instead.
+    - type: System.Boolean
+      value: true
+  nameWithType.vb: CqrsInjectorExtensions.AddDaprEventBus(CqrsInjector, String)
+  fullName.vb: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus(Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector, String)
+  name.vb: AddDaprEventBus(CqrsInjector, String)
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+  parent: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  href: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector.html
+  name: CqrsInjector
+  nameWithType: CqrsInjector
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.CqrsInjector
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Dapr
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Dapr
+    name: Dapr
+    href: Cnblogs.Architecture.Ddd.EventBus.Dapr.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Dapr
+    name: Dapr
+    href: Cnblogs.Architecture.Ddd.EventBus.Dapr.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+    name: DependencyInjection
+    href: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection
+    name: DependencyInjection
+    href: Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  commentId: T:Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+  parent: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus.html
+  name: IEventBus
+  nameWithType: IEventBus
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions.IEventBus
+- uid: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus*
+  commentId: Overload:Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus
+  href: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.html#Cnblogs_Architecture_Ddd_EventBus_Dapr_CqrsInjectorExtensions_AddDaprEventBus_Cnblogs_Architecture_Ddd_Cqrs_DependencyInjection_CqrsInjector_System_Reflection_Assembly_
+  name: AddDaprEventBus
+  nameWithType: CqrsInjectorExtensions.AddDaprEventBus
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Dapr.CqrsInjectorExtensions.AddDaprEventBus
+- uid: System.Reflection.Assembly
+  commentId: T:System.Reflection.Assembly
+  parent: System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.reflection.assembly
+  name: Assembly
+  nameWithType: Assembly
+  fullName: System.Reflection.Assembly
+- uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus
+    name: EventBus
+    href: Cnblogs.Architecture.Ddd.EventBus.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.EventBus.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.EventBus.Abstractions.html
+- uid: System.Reflection
+  commentId: N:System.Reflection
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Reflection
+  nameWithType: System.Reflection
+  fullName: System.Reflection
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Reflection
+    name: Reflection
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.reflection
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String

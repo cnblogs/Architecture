@@ -1,0 +1,536 @@
+### YamlMime:ManagedReference
+items:
+- uid: System.Linq.QueryPager
+  commentId: T:System.Linq.QueryPager
+  id: QueryPager
+  parent: System.Linq
+  children:
+  - System.Linq.QueryPager.Paging``1(System.Linq.IQueryable{``0},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams)
+  - System.Linq.QueryPager.Paging``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: QueryPager
+  nameWithType: QueryPager
+  fullName: System.Linq.QueryPager
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryPager.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: QueryPager
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryPager.cs
+    startLine: 8
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: System.Linq
+  summary: <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams" data-throw-if-not-resolved="false"></xref> 用于 <xref href="System.Linq.IQueryable%601" data-throw-if-not-resolved="false"></xref> 的扩展方法。
+  example: []
+  syntax:
+    content: public static class QueryPager
+    content.vb: Public Module QueryPager
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+- uid: System.Linq.QueryPager.Paging``1(System.Linq.IQueryable{``0},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams)
+  commentId: M:System.Linq.QueryPager.Paging``1(System.Linq.IQueryable{``0},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams)
+  id: Paging``1(System.Linq.IQueryable{``0},Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams)
+  isExtensionMethod: true
+  parent: System.Linq.QueryPager
+  langs:
+  - csharp
+  - vb
+  name: Paging<T>(IQueryable<T>, PagingParams)
+  nameWithType: QueryPager.Paging<T>(IQueryable<T>, PagingParams)
+  fullName: System.Linq.QueryPager.Paging<T>(System.Linq.IQueryable<T>, Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryPager.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Paging
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryPager.cs
+    startLine: 17
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: System.Linq
+  summary: 使用 <xref href="Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams" data-throw-if-not-resolved="false"></xref> 进行分页。
+  example: []
+  syntax:
+    content: public static IQueryable<T> Paging<T>(this IQueryable<T> queryable, PagingParams pagingParams)
+    parameters:
+    - id: queryable
+      type: System.Linq.IQueryable{{T}}
+      description: 要分页的列表。
+    - id: pagingParams
+      type: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+      description: 分页参数。
+    typeParameters:
+    - id: T
+      description: 被分页的元素类型。
+    return:
+      type: System.Linq.IQueryable{{T}}
+      description: 分页后的列表。
+    content.vb: Public Shared Function Paging(Of T)(queryable As IQueryable(Of T), pagingParams As PagingParams) As IQueryable(Of T)
+  overload: System.Linq.QueryPager.Paging*
+  nameWithType.vb: QueryPager.Paging(Of T)(IQueryable(Of T), PagingParams)
+  fullName.vb: System.Linq.QueryPager.Paging(Of T)(System.Linq.IQueryable(Of T), Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams)
+  name.vb: Paging(Of T)(IQueryable(Of T), PagingParams)
+- uid: System.Linq.QueryPager.Paging``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)
+  commentId: M:System.Linq.QueryPager.Paging``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)
+  id: Paging``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)
+  isExtensionMethod: true
+  parent: System.Linq.QueryPager
+  langs:
+  - csharp
+  - vb
+  name: Paging<T>(IQueryable<T>, int, int)
+  nameWithType: QueryPager.Paging<T>(IQueryable<T>, int, int)
+  fullName: System.Linq.QueryPager.Paging<T>(System.Linq.IQueryable<T>, int, int)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryPager.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Paging
+    path: src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/QueryPager.cs
+    startLine: 33
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  namespace: System.Linq
+  summary: 对查询进行分页。
+  example: []
+  syntax:
+    content: public static IQueryable<T> Paging<T>(this IQueryable<T> queryable, int pageIndex, int pageSize)
+    parameters:
+    - id: queryable
+      type: System.Linq.IQueryable{{T}}
+      description: 被分页的查询。
+    - id: pageIndex
+      type: System.Int32
+      description: 要查询的页码。
+    - id: pageSize
+      type: System.Int32
+      description: 要查询的元素数。
+    typeParameters:
+    - id: T
+      description: 被查询的元素类型。
+    return:
+      type: System.Linq.IQueryable{{T}}
+      description: 分页后的查询。
+    content.vb: Public Shared Function Paging(Of T)(queryable As IQueryable(Of T), pageIndex As Integer, pageSize As Integer) As IQueryable(Of T)
+  overload: System.Linq.QueryPager.Paging*
+  exceptions:
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">pageIndex</code> 小于等于 0。
+  - type: System.ArgumentOutOfRangeException
+    commentId: T:System.ArgumentOutOfRangeException
+    description: <code class="paramref">pageSize</code> 小于等于 0。
+  nameWithType.vb: QueryPager.Paging(Of T)(IQueryable(Of T), Integer, Integer)
+  fullName.vb: System.Linq.QueryPager.Paging(Of T)(System.Linq.IQueryable(Of T), Integer, Integer)
+  name.vb: Paging(Of T)(IQueryable(Of T), Integer, Integer)
+references:
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  commentId: T:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+  parent: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams.html
+  name: PagingParams
+  nameWithType: PagingParams
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.PagingParams
+- uid: System.Linq.IQueryable`1
+  commentId: T:System.Linq.IQueryable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Linq
+  commentId: N:System.Linq
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Linq
+  nameWithType: System.Linq
+  fullName: System.Linq
+  spec.csharp:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+  spec.vb:
+  - uid: System
+    name: System
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Linq
+    name: Linq
+    href: https://learn.microsoft.com/dotnet/api/system.linq
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure
+    name: Infrastructure
+    href: Cnblogs.Architecture.Ddd.Infrastructure.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Linq.QueryPager.Paging*
+  commentId: Overload:System.Linq.QueryPager.Paging
+  href: System.Linq.QueryPager.html#System_Linq_QueryPager_Paging__1_System_Linq_IQueryable___0__Cnblogs_Architecture_Ddd_Infrastructure_Abstractions_PagingParams_
+  name: Paging
+  nameWithType: QueryPager.Paging
+  fullName: System.Linq.QueryPager.Paging
+- uid: System.Linq.IQueryable{{T}}
+  commentId: T:System.Linq.IQueryable{``0}
+  parent: System.Linq
+  definition: System.Linq.IQueryable`1
+  href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  name: IQueryable<T>
+  nameWithType: IQueryable<T>
+  fullName: System.Linq.IQueryable<T>
+  nameWithType.vb: IQueryable(Of T)
+  fullName.vb: System.Linq.IQueryable(Of T)
+  name.vb: IQueryable(Of T)
+  spec.csharp:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Linq.IQueryable`1
+    name: IQueryable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.linq.iqueryable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.ArgumentOutOfRangeException
+  commentId: T:System.ArgumentOutOfRangeException
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.argumentoutofrangeexception
+  name: ArgumentOutOfRangeException
+  nameWithType: ArgumentOutOfRangeException
+  fullName: System.ArgumentOutOfRangeException
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer

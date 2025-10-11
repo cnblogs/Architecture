@@ -1,0 +1,924 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  id: CommandResponse`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor(`0)
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.ErrorCode
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Fail(`0)
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.GetErrorMessage
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.IsSuccess
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Success
+  langs:
+  - csharp
+  - vb
+  name: CommandResponse<TError>
+  nameWithType: CommandResponse<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>
+  type: Class
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: CommandResponse
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+    startLine: 53
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Response returned by <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public record CommandResponse<TError> : CommandResponse, IValidationResponse, ILockableResponse, IEquatable<CommandResponse>, IEquatable<CommandResponse<TError>> where TError : Enumeration'
+    typeParameters:
+    - id: TError
+      description: The enumeration presenting errors.
+    content.vb: Public Class CommandResponse(Of TError As Enumeration) Inherits CommandResponse Implements IValidationResponse, ILockableResponse, IEquatable(Of CommandResponse), IEquatable(Of CommandResponse(Of TError))
+  inheritance:
+  - System.Object
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  derivedClasses:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`2
+  implements:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  - System.IEquatable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse}
+  - System.IEquatable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1}
+  inheritedMembers:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsValidationError
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsConcurrentError
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.ErrorMessage
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.ValidationErrors
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.LockAcquired
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: CommandResponse(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError)
+  name.vb: CommandResponse(Of TError)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor
+  id: '#ctor'
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  langs:
+  - csharp
+  - vb
+  name: CommandResponse()
+  nameWithType: CommandResponse<TError>.CommandResponse()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.CommandResponse()
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+    startLine: 59
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Create a successful <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public CommandResponse()
+    content.vb: Public Sub New()
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor*
+  nameWithType.vb: CommandResponse(Of TError).New()
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).New()
+  name.vb: New()
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor(`0)
+  id: '#ctor(`0)'
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  langs:
+  - csharp
+  - vb
+  name: CommandResponse(TError)
+  nameWithType: CommandResponse<TError>.CommandResponse(TError)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.CommandResponse(TError)
+  type: Constructor
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: .ctor
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+    startLine: 68
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Create a <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse%601" data-throw-if-not-resolved="false"></xref> with given error.
+  example: []
+  syntax:
+    content: public CommandResponse(TError errorCode)
+    parameters:
+    - id: errorCode
+      type: '{TError}'
+      description: The error.
+    content.vb: Public Sub New(errorCode As TError)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor*
+  nameWithType.vb: CommandResponse(Of TError).New(TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).New(TError)
+  name.vb: New(TError)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.ErrorCode
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.ErrorCode
+  id: ErrorCode
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  langs:
+  - csharp
+  - vb
+  name: ErrorCode
+  nameWithType: CommandResponse<TError>.ErrorCode
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.ErrorCode
+  type: Property
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: ErrorCode
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+    startLine: 77
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: The error returned by handler, can be null if execution succeeded.
+  example: []
+  syntax:
+    content: public TError? ErrorCode { get; set; }
+    parameters: []
+    return:
+      type: '{TError}'
+    content.vb: Public Property ErrorCode As TError
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.ErrorCode*
+  nameWithType.vb: CommandResponse(Of TError).ErrorCode
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).ErrorCode
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Fail(`0)
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Fail(`0)
+  id: Fail(`0)
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  langs:
+  - csharp
+  - vb
+  name: Fail(TError)
+  nameWithType: CommandResponse<TError>.Fail(TError)
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.Fail(TError)
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Fail
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+    startLine: 84
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Create a failed <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse%601" data-throw-if-not-resolved="false"></xref> with given error.
+  example: []
+  syntax:
+    content: public static CommandResponse<TError> Fail(TError errorCode)
+    parameters:
+    - id: errorCode
+      type: '{TError}'
+      description: The error.
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+      description: A failed <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse%601" data-throw-if-not-resolved="false"></xref> with given error.
+    content.vb: Public Shared Function Fail(errorCode As TError) As CommandResponse(Of TError)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Fail*
+  nameWithType.vb: CommandResponse(Of TError).Fail(TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).Fail(TError)
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.IsSuccess
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.IsSuccess
+  id: IsSuccess
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  langs:
+  - csharp
+  - vb
+  name: IsSuccess()
+  nameWithType: CommandResponse<TError>.IsSuccess()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.IsSuccess()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IsSuccess
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+    startLine: 90
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Check if command executed successfully.
+  example: []
+  syntax:
+    content: public override bool IsSuccess()
+    return:
+      type: System.Boolean
+      description: Return true if executed successfully, else return false.
+    content.vb: Public Overrides Function IsSuccess() As Boolean
+  overridden: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsSuccess
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.IsSuccess*
+  nameWithType.vb: CommandResponse(Of TError).IsSuccess()
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).IsSuccess()
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.GetErrorMessage
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.GetErrorMessage
+  id: GetErrorMessage
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  langs:
+  - csharp
+  - vb
+  name: GetErrorMessage()
+  nameWithType: CommandResponse<TError>.GetErrorMessage()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.GetErrorMessage()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: GetErrorMessage
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+    startLine: 96
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Get error message.
+  example: []
+  syntax:
+    content: public override string GetErrorMessage()
+    return:
+      type: System.String
+      description: The error message, return <xref href="System.String.Empty" data-throw-if-not-resolved="false"></xref> if no error.
+    content.vb: Public Overrides Function GetErrorMessage() As String
+  overridden: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.GetErrorMessage
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.GetErrorMessage*
+  nameWithType.vb: CommandResponse(Of TError).GetErrorMessage()
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).GetErrorMessage()
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Success
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Success
+  id: Success
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  langs:
+  - csharp
+  - vb
+  name: Success()
+  nameWithType: CommandResponse<TError>.Success()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.Success()
+  type: Method
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Success
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/CommandResponse.cs
+    startLine: 105
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Create a successful <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse%601" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: public static CommandResponse<TError> Success()
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+      description: A successful <xref href="Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse%601" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Public Shared Function Success() As CommandResponse(Of TError)
+  overload: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Success*
+  nameWithType.vb: CommandResponse(Of TError).Success()
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).Success()
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  name: ICommand<TError>
+  nameWithType: ICommand<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand<TError>
+  nameWithType.vb: ICommand(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand(Of TError)
+  name.vb: ICommand(Of TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand`1
+    name: ICommand
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ICommand-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html
+  name: CommandResponse
+  nameWithType: CommandResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse.html
+  name: IValidationResponse
+  nameWithType: IValidationResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IValidationResponse
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse.html
+  name: ILockableResponse
+  nameWithType: ILockableResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.ILockableResponse
+- uid: System.IEquatable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse}
+  commentId: T:System.IEquatable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<CommandResponse>
+  nameWithType: IEquatable<CommandResponse>
+  fullName: System.IEquatable<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse>
+  nameWithType.vb: IEquatable(Of CommandResponse)
+  fullName.vb: System.IEquatable(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse)
+  name.vb: IEquatable(Of CommandResponse)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html
+  - name: )
+- uid: System.IEquatable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1}
+  commentId: T:System.IEquatable{Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1}
+  parent: System
+  definition: System.IEquatable`1
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<CommandResponse<TError>>
+  nameWithType: IEquatable<CommandResponse<TError>>
+  fullName: System.IEquatable<Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>>
+  nameWithType.vb: IEquatable(Of CommandResponse(Of TError))
+  fullName.vb: System.IEquatable(Of Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError))
+  name.vb: IEquatable(Of CommandResponse(Of TError))
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsValidationError
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsValidationError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_IsValidationError
+  name: IsValidationError
+  nameWithType: CommandResponse.IsValidationError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsValidationError
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsConcurrentError
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsConcurrentError
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_IsConcurrentError
+  name: IsConcurrentError
+  nameWithType: CommandResponse.IsConcurrentError
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsConcurrentError
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.ErrorMessage
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.ErrorMessage
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_ErrorMessage
+  name: ErrorMessage
+  nameWithType: CommandResponse.ErrorMessage
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.ErrorMessage
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.ValidationErrors
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.ValidationErrors
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_ValidationErrors
+  name: ValidationErrors
+  nameWithType: CommandResponse.ValidationErrors
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.ValidationErrors
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.LockAcquired
+  commentId: P:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.LockAcquired
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_LockAcquired
+  name: LockAcquired
+  nameWithType: CommandResponse.LockAcquired
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.LockAcquired
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.IEquatable`1
+  commentId: T:System.IEquatable`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  name: IEquatable<T>
+  nameWithType: IEquatable<T>
+  fullName: System.IEquatable<T>
+  nameWithType.vb: IEquatable(Of T)
+  fullName.vb: System.IEquatable(Of T)
+  name.vb: IEquatable(Of T)
+  spec.csharp:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.IEquatable`1
+    name: IEquatable
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.iequatable-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  name: CommandResponse<TError>
+  nameWithType: CommandResponse<TError>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>
+  nameWithType.vb: CommandResponse(Of TError)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError)
+  name.vb: CommandResponse(Of TError)
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: <
+  - name: TError
+  - name: '>'
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1
+    name: CommandResponse
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TError
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.#ctor
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_1__ctor
+  name: CommandResponse
+  nameWithType: CommandResponse<TError>.CommandResponse
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.CommandResponse
+  nameWithType.vb: CommandResponse(Of TError).New
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).New
+  name.vb: New
+- uid: '{TError}'
+  commentId: '!:TError'
+  definition: TError
+  name: TError
+  nameWithType: TError
+  fullName: TError
+- uid: TError
+  name: TError
+  nameWithType: TError
+  fullName: TError
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.ErrorCode*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.ErrorCode
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_1_ErrorCode
+  name: ErrorCode
+  nameWithType: CommandResponse<TError>.ErrorCode
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.ErrorCode
+  nameWithType.vb: CommandResponse(Of TError).ErrorCode
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).ErrorCode
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Fail*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Fail
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_1_Fail__0_
+  name: Fail
+  nameWithType: CommandResponse<TError>.Fail
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.Fail
+  nameWithType.vb: CommandResponse(Of TError).Fail
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).Fail
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsSuccess
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsSuccess
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_IsSuccess
+  name: IsSuccess()
+  nameWithType: CommandResponse.IsSuccess()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsSuccess()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsSuccess
+    name: IsSuccess
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_IsSuccess
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.IsSuccess
+    name: IsSuccess
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_IsSuccess
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.IsSuccess*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.IsSuccess
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_1_IsSuccess
+  name: IsSuccess
+  nameWithType: CommandResponse<TError>.IsSuccess
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.IsSuccess
+  nameWithType.vb: CommandResponse(Of TError).IsSuccess
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).IsSuccess
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: System.String.Empty
+  commentId: F:System.String.Empty
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string.empty
+  name: Empty
+  nameWithType: string.Empty
+  fullName: string.Empty
+  nameWithType.vb: String.Empty
+  fullName.vb: String.Empty
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.GetErrorMessage
+  commentId: M:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.GetErrorMessage
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_GetErrorMessage
+  name: GetErrorMessage()
+  nameWithType: CommandResponse.GetErrorMessage()
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.GetErrorMessage()
+  spec.csharp:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.GetErrorMessage
+    name: GetErrorMessage
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_GetErrorMessage
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.GetErrorMessage
+    name: GetErrorMessage
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_GetErrorMessage
+  - name: (
+  - name: )
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.GetErrorMessage*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.GetErrorMessage
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_1_GetErrorMessage
+  name: GetErrorMessage
+  nameWithType: CommandResponse<TError>.GetErrorMessage
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.GetErrorMessage
+  nameWithType.vb: CommandResponse(Of TError).GetErrorMessage
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).GetErrorMessage
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Success*
+  commentId: Overload:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse`1.Success
+  href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse-1.html#Cnblogs_Architecture_Ddd_Cqrs_Abstractions_CommandResponse_1_Success
+  name: Success
+  nameWithType: CommandResponse<TError>.Success
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse<TError>.Success
+  nameWithType.vb: CommandResponse(Of TError).Success
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.CommandResponse(Of TError).Success

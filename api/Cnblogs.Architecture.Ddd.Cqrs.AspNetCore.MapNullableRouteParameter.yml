@@ -1,0 +1,142 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  id: MapNullableRouteParameter
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  children:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.Disable
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.Enable
+  langs:
+  - csharp
+  - vb
+  name: MapNullableRouteParameter
+  nameWithType: MapNullableRouteParameter
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  type: Enum
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/MapNullableRouteParameter.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: MapNullableRouteParameter
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/MapNullableRouteParameter.cs
+    startLine: 5
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Defines behavior for nullable route parameters.
+  example: []
+  syntax:
+    content: public enum MapNullableRouteParameter
+    content.vb: Public Enum MapNullableRouteParameter
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.Enable
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.Enable
+  id: Enable
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  langs:
+  - csharp
+  - vb
+  name: Enable
+  nameWithType: MapNullableRouteParameter.Enable
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.Enable
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/MapNullableRouteParameter.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Enable
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/MapNullableRouteParameter.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Map different routes to present <code>null</code> for nullable route parameters.
+  example: []
+  syntax:
+    content: Enable = 1
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.Disable
+  commentId: F:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.Disable
+  id: Disable
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  langs:
+  - csharp
+  - vb
+  name: Disable
+  nameWithType: MapNullableRouteParameter.Disable
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.Disable
+  type: Field
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/MapNullableRouteParameter.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: Disable
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/MapNullableRouteParameter.cs
+    startLine: 15
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  summary: Do not map extra route for nullable route parameters.
+  example: []
+  syntax:
+    content: Disable = 2
+    return:
+      type: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+references:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+    name: AspNetCore
+    href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.html
+- uid: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter
+  parent: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore
+  href: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter.html
+  name: MapNullableRouteParameter
+  nameWithType: MapNullableRouteParameter
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.MapNullableRouteParameter

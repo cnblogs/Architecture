@@ -1,0 +1,219 @@
+### YamlMime:ManagedReference
+items:
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler`1
+  commentId: T:Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler`1
+  id: IDomainEventHandler`1
+  parent: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: IDomainEventHandler<TDomainEvent>
+  nameWithType: IDomainEventHandler<TDomainEvent>
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler<TDomainEvent>
+  type: Interface
+  source:
+    remote:
+      path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IDomainEventHandler.cs
+      branch: add-docfx
+      repo: https://github.com/cnblogs/Architecture.git
+    id: IDomainEventHandler
+    path: src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/IDomainEventHandler.cs
+    startLine: 10
+  assemblies:
+  - Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  namespace: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  summary: Definitions of handler for <xref href="Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: 'public interface IDomainEventHandler<TDomainEvent> : INotificationHandler<TDomainEvent> where TDomainEvent : DomainEvent'
+    typeParameters:
+    - id: TDomainEvent
+      description: The domain event type for this handler to handle.
+    content.vb: Public Interface IDomainEventHandler(Of TDomainEvent As DomainEvent) Inherits INotificationHandler(Of TDomainEvent)
+  inheritedMembers:
+  - MediatR.INotificationHandler{{TDomainEvent}}.Handle({TDomainEvent},System.Threading.CancellationToken)
+  nameWithType.vb: IDomainEventHandler(Of TDomainEvent)
+  fullName.vb: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.IDomainEventHandler(Of TDomainEvent)
+  name.vb: IDomainEventHandler(Of TDomainEvent)
+references:
+- uid: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+  commentId: T:Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+  href: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent.html
+  name: DomainEvent
+  nameWithType: DomainEvent
+  fullName: Cnblogs.Architecture.Ddd.Domain.Abstractions.DomainEvent
+- uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  commentId: N:Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  href: Cnblogs.html
+  name: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  nameWithType: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  fullName: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+  spec.csharp:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+  spec.vb:
+  - uid: Cnblogs
+    name: Cnblogs
+    href: Cnblogs.html
+  - name: .
+  - uid: Cnblogs.Architecture
+    name: Architecture
+    href: Cnblogs.Architecture.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd
+    name: Ddd
+    href: Cnblogs.Architecture.Ddd.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs
+    name: Cqrs
+    href: Cnblogs.Architecture.Ddd.Cqrs.html
+  - name: .
+  - uid: Cnblogs.Architecture.Ddd.Cqrs.Abstractions
+    name: Abstractions
+    href: Cnblogs.Architecture.Ddd.Cqrs.Abstractions.html
+- uid: MediatR.INotificationHandler{{TDomainEvent}}.Handle({TDomainEvent},System.Threading.CancellationToken)
+  commentId: M:MediatR.INotificationHandler{`0}.Handle(`0,System.Threading.CancellationToken)
+  parent: MediatR.INotificationHandler{{TDomainEvent}}
+  definition: MediatR.INotificationHandler`1.Handle(`0,System.Threading.CancellationToken)
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TDomainEvent, CancellationToken)
+  nameWithType: INotificationHandler<TDomainEvent>.Handle(TDomainEvent, CancellationToken)
+  fullName: MediatR.INotificationHandler<TDomainEvent>.Handle(TDomainEvent, System.Threading.CancellationToken)
+  nameWithType.vb: INotificationHandler(Of TDomainEvent).Handle(TDomainEvent, CancellationToken)
+  fullName.vb: MediatR.INotificationHandler(Of TDomainEvent).Handle(TDomainEvent, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.INotificationHandler{`0}.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TDomainEvent
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.INotificationHandler{`0}.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TDomainEvent
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MediatR.INotificationHandler`1.Handle(`0,System.Threading.CancellationToken)
+  commentId: M:MediatR.INotificationHandler`1.Handle(`0,System.Threading.CancellationToken)
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  name: Handle(TNotification, CancellationToken)
+  nameWithType: INotificationHandler<TNotification>.Handle(TNotification, CancellationToken)
+  fullName: MediatR.INotificationHandler<TNotification>.Handle(TNotification, System.Threading.CancellationToken)
+  nameWithType.vb: INotificationHandler(Of TNotification).Handle(TNotification, CancellationToken)
+  fullName.vb: MediatR.INotificationHandler(Of TNotification).Handle(TNotification, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: MediatR.INotificationHandler`1.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TNotification
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+  spec.vb:
+  - uid: MediatR.INotificationHandler`1.Handle(`0,System.Threading.CancellationToken)
+    name: Handle
+    isExternal: true
+  - name: (
+  - name: TNotification
+  - name: ','
+  - name: " "
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.threading.cancellationtoken
+  - name: )
+- uid: MediatR.INotificationHandler{{TDomainEvent}}
+  commentId: T:MediatR.INotificationHandler{`0}
+  parent: MediatR
+  definition: MediatR.INotificationHandler`1
+  name: INotificationHandler<TDomainEvent>
+  nameWithType: INotificationHandler<TDomainEvent>
+  fullName: MediatR.INotificationHandler<TDomainEvent>
+  nameWithType.vb: INotificationHandler(Of TDomainEvent)
+  fullName.vb: MediatR.INotificationHandler(Of TDomainEvent)
+  name.vb: INotificationHandler(Of TDomainEvent)
+  spec.csharp:
+  - uid: MediatR.INotificationHandler`1
+    name: INotificationHandler
+    isExternal: true
+  - name: <
+  - name: TDomainEvent
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.INotificationHandler`1
+    name: INotificationHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TDomainEvent
+  - name: )
+- uid: MediatR.INotificationHandler`1
+  commentId: T:MediatR.INotificationHandler`1
+  isExternal: true
+  name: INotificationHandler<TNotification>
+  nameWithType: INotificationHandler<TNotification>
+  fullName: MediatR.INotificationHandler<TNotification>
+  nameWithType.vb: INotificationHandler(Of TNotification)
+  fullName.vb: MediatR.INotificationHandler(Of TNotification)
+  name.vb: INotificationHandler(Of TNotification)
+  spec.csharp:
+  - uid: MediatR.INotificationHandler`1
+    name: INotificationHandler
+    isExternal: true
+  - name: <
+  - name: TNotification
+  - name: '>'
+  spec.vb:
+  - uid: MediatR.INotificationHandler`1
+    name: INotificationHandler
+    isExternal: true
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TNotification
+  - name: )
+- uid: MediatR
+  commentId: N:MediatR
+  href: MediatR.html
+  name: MediatR
+  nameWithType: MediatR
+  fullName: MediatR
