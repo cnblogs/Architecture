@@ -3,7 +3,6 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
-using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Errors;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Queries;

@@ -1,9 +1,8 @@
-using System.Net;
 using System.Net.Http.Headers;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
-using Polly;
-using Polly.Extensions.Http;
+using Microsoft.Extensions.Http.Logging;
+using Microsoft.Extensions.Http.Resilience;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent;
 
@@ -17,22 +16,25 @@ public static class InjectExtensions
     /// </summary>
     /// <param name="services">The <see cref="IServiceCollection"/>.</param>
     /// <param name="baseUri">The base uri for api.</param>
-    /// <param name="policy">The polly policy for underlying httpclient.</param>
+    /// <param name="loggingConfigure">Configure logging behavior.</param>
+    /// <param name="pollyConfigure">The polly policy for underlying httpclient.</param>
     /// <typeparam name="TClient">The type of service agent</typeparam>
     /// <returns></returns>
     public static IHttpClientBuilder AddServiceAgent<TClient>(
         this IServiceCollection services,
         string baseUri,
-        IAsyncPolicy<HttpResponseMessage>? policy = null)
+        Action<LoggingOptions>? loggingConfigure = null,
+        Action<HttpStandardResilienceOptions>? pollyConfigure = null)
         where TClient : class
     {
-        policy ??= GetDefaultPolicy();
-        return services.AddHttpClient<TClient>(
-            h =>
-            {
-                h.BaseAddress = new Uri(baseUri);
-                h.AddCqrsAcceptHeaders();
-            }).AddPolicyHandler(policy);
+        var builder = services.AddHttpClient<TClient>(h =>
+        {
+            h.BaseAddress = new Uri(baseUri);
+            h.AddCqrsAcceptHeaders();
+        });
+        builder.AddLogging(loggingConfigure);
+        builder.ApplyResilienceConfigure(pollyConfigure);
+        return builder;
     }
 
     /// <summary>
@@ -40,24 +42,38 @@ public static class InjectExtensions
     /// </summary>
     /// <param name="services">The <see cref="IServiceCollection"/>.</param>
     /// <param name="baseUri">The base uri for api.</param>
-    /// <param name="policy">The polly policy for underlying httpclient.</param>
+    /// <param name="loggingConfigure">Configure logging behavior.</param>
+    /// <param name="pollyConfigure">The polly policy for underlying httpclient.</param>
     /// <typeparam name="TClient">The type of api client.</typeparam>
     /// <typeparam name="TImplementation">The type of service agent</typeparam>
     /// <returns></returns>
     public static IHttpClientBuilder AddServiceAgent<TClient, TImplementation>(
         this IServiceCollection services,
         string baseUri,
-        IAsyncPolicy<HttpResponseMessage>? policy = null)
+        Action<LoggingOptions>? loggingConfigure = null,
+        Action<HttpStandardResilienceOptions>? pollyConfigure = null)
         where TClient : class
         where TImplementation : class, TClient
     {
-        policy ??= GetDefaultPolicy();
-        return services.AddHttpClient<TClient, TImplementation>(
-            h =>
-            {
-                h.BaseAddress = new Uri(baseUri);
-                h.AddCqrsAcceptHeaders();
-            }).AddPolicyHandler(policy);
+        var builder = services.AddHttpClient<TClient, TImplementation>(h =>
+        {
+            h.BaseAddress = new Uri(baseUri);
+            h.AddCqrsAcceptHeaders();
+        });
+        builder.AddLogging(loggingConfigure);
+        builder.ApplyResilienceConfigure(pollyConfigure);
+        return builder;
+    }
+
+    private static void AddLogging(this IHttpClientBuilder h, Action<LoggingOptions>? configure = null)
+    {
+        h.AddExtendedHttpClientLogging(o =>
+        {
+            o.LogBody = false;
+            o.LogRequestStart = false;
+            o.BodySizeLimit = 2000;
+            configure?.Invoke(o);
+        });
     }
 
     private static void AddCqrsAcceptHeaders(this HttpClient h)
@@ -66,10 +82,15 @@ public static class InjectExtensions
         h.DefaultRequestHeaders.AppendCurrentCqrsVersion();
     }
 
-    private static IAsyncPolicy<HttpResponseMessage> GetDefaultPolicy()
+    private static void ApplyResilienceConfigure(
+        this IHttpClientBuilder builder,
+        Action<HttpStandardResilienceOptions>? extraConfigure)
     {
-        return HttpPolicyExtensions.HandleTransientHttpError()
-            .OrResult(msg => msg.StatusCode == HttpStatusCode.TooManyRequests)
-            .WaitAndRetryAsync(3, _ => TimeSpan.FromMilliseconds(1500));
+        builder.AddStandardResilienceHandler(options =>
+        {
+            options.Retry.DisableForUnsafeHttpMethods();
+            options.Retry.MaxRetryAttempts = 3;
+            extraConfigure?.Invoke(options);
+        });
     }
 }
