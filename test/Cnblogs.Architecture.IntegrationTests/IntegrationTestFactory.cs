@@ -1,5 +1,4 @@
-﻿using Cnblogs.Architecture.IntegrationTestProject;
-using Microsoft.AspNetCore.Mvc.Testing;
+﻿using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace Cnblogs.Architecture.IntegrationTests;
 

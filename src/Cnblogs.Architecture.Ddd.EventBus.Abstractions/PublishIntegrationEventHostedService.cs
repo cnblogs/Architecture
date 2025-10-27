@@ -9,7 +9,7 @@ namespace Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 /// <summary>
 ///     The hosted service for publishing integration event at background.
 /// </summary>
-public sealed class PublishIntegrationEventHostedService : BackgroundService
+public sealed partial class PublishIntegrationEventHostedService : BackgroundService
 {
     private readonly EventBusOptions _options;
     private readonly IServiceProvider _serviceProvider;
@@ -38,7 +38,7 @@ public sealed class PublishIntegrationEventHostedService : BackgroundService
     /// <inheritdoc />
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        _logger.LogInformation("Integration event publisher running");
+        LogIntegrationEventPublisherStarted();
         var watch = new Stopwatch();
         var failureCounter = 0;
         var successCounter = 0;
@@ -57,26 +57,18 @@ public sealed class PublishIntegrationEventHostedService : BackgroundService
                 if (sent > 0)
                 {
                     successCounter++;
-                    _logger.LogInformation(
-                        "Published {PublishedEventCount} events in {Duration} ms, resting count: {RestingEventCount}",
-                        sent,
-                        watch.ElapsedMilliseconds,
-                        afterCount);
+                    LogEventsPublished(sent, watch.ElapsedMilliseconds, afterCount);
                 }
             }
             catch (Exception e)
             {
                 failureCounter++;
-                _logger.LogWarning(
-                    e,
-                    "Publish integration event failed, pending count: {Count}, failure count: {FailureCount}",
-                    _eventBuffer.Count,
-                    failureCounter);
+                LogPublishEventFailed(e, _eventBuffer.Count, failureCounter);
             }
 
             if (downgraded == false && failureCounter >= _options.FailureCountBeforeDowngrade)
             {
-                _logger.LogError("Integration event publisher downgraded");
+                LogIntegrationEventPublisherDowngraded();
                 downgraded = true;
                 currentTimer = failedTimer;
                 successCounter = 0;
@@ -87,7 +79,7 @@ public sealed class PublishIntegrationEventHostedService : BackgroundService
                 downgraded = false;
                 currentTimer = normalTimer;
                 failureCounter = 0;
-                _logger.LogWarning("Integration event publisher recovered from downgrade");
+                LogIntegrationEventPublisherRecoveredFromDowngrade();
             }
         }
     }
@@ -117,4 +109,19 @@ public sealed class PublishIntegrationEventHostedService : BackgroundService
 
         return publishedEventCount;
     }
+
+    [LoggerMessage(LogLevel.Information, "Integration event publisher running")]
+    partial void LogIntegrationEventPublisherStarted();
+
+    [LoggerMessage(LogLevel.Information, "Published {PublishedEventCount} events in {Duration} ms, resting count: {RestingEventCount}")]
+    partial void LogEventsPublished(int publishedEventCount, long duration, int restingEventCount);
+
+    [LoggerMessage(LogLevel.Warning, "Publish integration event failed, pending count: {Count}, failure count: {FailureCount}")]
+    partial void LogPublishEventFailed(Exception e, int count, int failureCount);
+
+    [LoggerMessage(LogLevel.Error, "Integration event publisher downgraded")]
+    partial void LogIntegrationEventPublisherDowngraded();
+
+    [LoggerMessage(LogLevel.Warning, "Integration event publisher recovered from downgrade")]
+    partial void LogIntegrationEventPublisherRecoveredFromDowngrade();
 }
