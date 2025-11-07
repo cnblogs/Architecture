@@ -17,7 +17,6 @@ builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegration
     .AddEventBus(o => o.UseDapr(Constants.AppName));
 builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
 
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddCnblogsApiVersioning();
 
 var app = builder.Build();
