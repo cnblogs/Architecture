@@ -1,6 +1,8 @@
 using System.Net.Http.Headers;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
+using Microsoft.Extensions.Compliance.Redaction;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Http.Logging;
 using Microsoft.Extensions.Http.Resilience;
 
@@ -27,6 +29,7 @@ public static class InjectExtensions
         Action<HttpStandardResilienceOptions>? pollyConfigure = null)
         where TClient : class
     {
+        services.TryAddSingleton<IRedactorProvider, NullRedactorProvider>();
         var builder = services.AddHttpClient<TClient>(h =>
         {
             h.BaseAddress = new Uri(baseUri);
@@ -55,6 +58,7 @@ public static class InjectExtensions
         where TClient : class
         where TImplementation : class, TClient
     {
+        services.TryAddSingleton<IRedactorProvider, NullRedactorProvider>();
         var builder = services.AddHttpClient<TClient, TImplementation>(h =>
         {
             h.BaseAddress = new Uri(baseUri);
