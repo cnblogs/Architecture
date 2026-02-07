@@ -71,13 +71,12 @@ public static class InjectExtensions
 
     private static void AddLogging(this IHttpClientBuilder h, Action<LoggingOptions>? configure = null)
     {
-        h.AddExtendedHttpClientLogging(o =>
+        if (configure == null)
         {
-            o.LogBody = false;
-            o.LogRequestStart = false;
-            o.BodySizeLimit = 2000;
-            configure?.Invoke(o);
-        });
+            return;
+        }
+
+        h.AddExtendedHttpClientLogging(configure.Invoke);
     }
 
     private static void AddCqrsAcceptHeaders(this HttpClient h)
