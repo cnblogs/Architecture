@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 namespace Cnblogs.Architecture.Ddd.Cqrs.EntityFramework;
 
 /// <summary>
-///     使用 EF Core 进行分页查询处理。
+///     Handle pageable query with EF Core.
 /// </summary>
-/// <typeparam name="TQuery">查询请求。</typeparam>
-/// <typeparam name="TEntity">查询使用的实体。</typeparam>
-/// <typeparam name="TView">查询最后的结果。</typeparam>
+/// <typeparam name="TQuery">The query parameters type</typeparam>
+/// <typeparam name="TEntity">The entity to query.</typeparam>
+/// <typeparam name="TView">The type to map to.</typeparam>
 public abstract class EfPageableQueryHandler<TQuery, TEntity, TView>
     : PageableQueryHandlerBase<TQuery, TEntity, TView>
     where TQuery : IPageableQuery<TView>
