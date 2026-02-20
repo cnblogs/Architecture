@@ -42,10 +42,11 @@ public static class ServiceCollectionInjector
             assemblies = [typeof(CqrsInjector).Assembly];
         }
 
+        configuration ??= cfg => cfg.RegisterGenericHandlers = true;
         services.AddMediatR(cfg =>
         {
-            cfg.RegisterServicesFromAssemblies(assemblies);
             configuration?.Invoke(cfg);
+            cfg.RegisterServicesFromAssemblies(assemblies);
         });
 
         return new CqrsInjector(services);

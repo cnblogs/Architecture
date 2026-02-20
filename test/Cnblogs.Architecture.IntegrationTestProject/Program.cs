@@ -5,6 +5,7 @@ using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
+using Cnblogs.Architecture.IntegrationTestProject.Models;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using Microsoft.AspNetCore.Mvc;
@@ -38,8 +39,8 @@ v1.MapQuery(
     async (int stringId, [FromQuery] bool found = true)
         => await Task.FromResult(new GetStringQuery(StringId: stringId, Found: found)));
 v1.MapQuery<ListStringsQuery>("strings");
-v1.MapQuery<ListArticlesQuery>("articles");
-v1.MapQuery<ListArticlesQuery>("articles/page:{pageIndex}-{pageSize}");
+v1.MapQuery<ListArticlesQuery<ArticleDto>>("articles");
+v1.MapQuery<ListArticlesQuery<ArticleDto>>("articles/page:{pageIndex}-{pageSize}");
 v1.MapQuery<GetLongToStringQuery>("long-to-string/{id:long}");
 v1.MapCommand<CreateLongToStringCommand>("long-to-string");
 v1.MapCommand(
