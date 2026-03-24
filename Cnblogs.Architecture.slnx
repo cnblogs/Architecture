@@ -15,7 +15,6 @@
     <Project Path="src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/Cnblogs.Architecture.Ddd.EventBus.Abstractions.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.EventBus.Dapr/Cnblogs.Architecture.Ddd.EventBus.Dapr.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.csproj" />
-    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory/Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis/Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse/Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.Dapper/Cnblogs.Architecture.Ddd.Infrastructure.Dapper.csproj" />
