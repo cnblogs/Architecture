@@ -63,47 +63,14 @@ public class CqrsInjector
     }
 
     /// <summary>
-    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICachableRequest" /> 接口的请求。
+    ///     Add cache to the query pipeline, auto cache queries implemented <see cref="ICachableRequest" />.
     /// </summary>
-    /// <typeparam name="TLocal">本地缓存提供器。</typeparam>
-    /// <param name="configure">缓存配置。</param>
     /// <returns></returns>
-    public CqrsInjector AddLocalQueryCache<TLocal>(Action<CacheableRequestOptions>? configure = null)
-        where TLocal : class, ILocalCacheProvider
+    public CqrsInjector AddQueryCache()
     {
-        AddCacheBehaviorPipeline(configure);
-        Services.AddScoped<ICacheProvider, TLocal>();
-        return this;
-    }
-
-    /// <summary>
-    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICachableRequest" /> 接口的请求。
-    /// </summary>
-    /// <typeparam name="TLocal">本地缓存提供器。</typeparam>
-    /// <typeparam name="TRemote">远程缓存提供器。</typeparam>
-    /// <param name="configure">缓存配置。</param>
-    /// <returns></returns>
-    public CqrsInjector AddQueryCache<TLocal, TRemote>(Action<CacheableRequestOptions>? configure = null)
-        where TLocal : class, ILocalCacheProvider
-        where TRemote : class, IRemoteCacheProvider
-    {
-        AddCacheBehaviorPipeline(configure);
-        Services.AddScoped<ICacheProvider, TLocal>();
-        Services.AddScoped<ICacheProvider, TRemote>();
-        return this;
-    }
-
-    /// <summary>
-    ///     启用缓存中间件，自动处理和缓存实现了 <see cref="ICachableRequest" /> 接口的请求。
-    /// </summary>
-    /// <typeparam name="TRemote">远程缓存提供器。</typeparam>
-    /// <param name="configure">缓存配置。</param>
-    /// <returns></returns>
-    public CqrsInjector AddRemoteQueryCache<TRemote>(Action<CacheableRequestOptions>? configure = null)
-        where TRemote : class, IRemoteCacheProvider
-    {
-        AddCacheBehaviorPipeline(configure);
-        Services.AddScoped<ICacheProvider, TRemote>();
+        AddCacheBehaviorPipeline();
+        Services.AddHybridCache(h => h.ReportTagMetrics = false);
+        Services.AddScoped<ICacheProvider, HybridCacheProvider>();
         return this;
     }
 
@@ -152,23 +119,8 @@ public class CqrsInjector
         return this;
     }
 
-    private void AddCacheBehaviorPipeline(Action<CacheableRequestOptions>? configure = null)
+    private void AddCacheBehaviorPipeline()
     {
         Services.TryAddTransient(typeof(IPipelineBehavior<,>), typeof(CacheableRequestBehavior<,>));
-        var builder = Services.AddOptions<CacheableRequestOptions>();
-        if (configure is not null)
-        {
-            builder.Configure(configure);
-        }
-        else
-        {
-            builder.Configure(
-                x =>
-                {
-                    x.ThrowIfFailedOnGet = false;
-                    x.ThrowIfFailedOnRemove = false;
-                    x.ThrowIfFailedOnUpdate = false;
-                });
-        }
     }
 }

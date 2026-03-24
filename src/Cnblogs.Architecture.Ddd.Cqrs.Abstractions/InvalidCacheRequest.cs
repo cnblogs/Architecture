@@ -7,7 +7,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// </summary>
 /// <param name="Request">The request that been cached.</param>
 /// <param name="InvalidWholeGroup">Invalid cache for the group that <paramref name="Request"/> was in.</param>
-/// <param name="ThrowIfFailed">Throw exceptions if fails, overrides same options in <see cref="CacheableRequestOptions"/>.</param>
+/// <param name="ThrowIfFailed">Throw exceptions if fails.</param>
 public record InvalidCacheRequest(
     ICachableRequest Request,
     bool InvalidWholeGroup = false,

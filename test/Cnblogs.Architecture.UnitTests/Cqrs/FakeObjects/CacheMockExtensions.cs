@@ -5,17 +5,16 @@ namespace Cnblogs.Architecture.UnitTests.Cqrs.FakeObjects;
 
 public static class CacheMockExtensions
 {
-    public static ICacheProvider AddCacheValue<T>(this ILocalCacheProvider mock, string key, T value)
+    public static ICacheProvider MockCacheValue<T>(this ICacheProvider mock, string key, T value)
     {
-        mock.GetAsync<T>(key.ToLower())
-            .Returns(new CacheEntry<T>(value, DateTimeOffset.Now.ToUnixTimeSeconds()));
-        return mock;
-    }
-
-    public static IRemoteCacheProvider AddCacheValue<T>(this IRemoteCacheProvider mock, string key, T value)
-    {
-        mock.GetAsync<T>(key.ToLower())
-            .Returns(new CacheEntry<T>(value, DateTimeOffset.Now.ToUnixTimeSeconds()));
+        mock.GetOrCreateAsync(
+                key.ToLower(),
+                Arg.Any<Func<CancellationToken, ValueTask<T>>>(),
+                Arg.Any<TimeSpan?>(),
+                Arg.Any<TimeSpan?>(),
+                Arg.Any<string?>(),
+                Arg.Any<CancellationToken>())
+            .Returns(Task.FromResult(value));
         return mock;
     }
 }

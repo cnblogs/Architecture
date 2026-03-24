@@ -1,8 +1,5 @@
-using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
-using Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Options;
 using StackExchange.Redis;
 
 // ReSharper disable once CheckNamespace
@@ -19,15 +16,15 @@ public static class Injectors
     /// <param name="injector">The injector.</param>
     /// <param name="configuration">The root configuration.</param>
     /// <param name="sectionName">The configuration section name for redis, defaults to Redis.</param>
-    /// <param name="configure">The optional configuration.</param>
+    /// <param name="prefix">The common prefix for redis cache.</param>
     /// <returns></returns>
-    public static CqrsInjector AddRedisCache(
+    public static CqrsInjector AddRedisQueryCache(
         this CqrsInjector injector,
         IConfiguration configuration,
         string sectionName = "Redis",
-        Action<CacheableRequestOptions>? configure = null)
+        string? prefix = null)
     {
-        return AddRedisCache(injector, configuration.GetSection(sectionName), configure);
+        return injector.AddRedisQueryCache(configuration.GetSection(sectionName), prefix);
     }
 
     /// <summary>
@@ -35,15 +32,17 @@ public static class Injectors
     /// </summary>
     /// <param name="injector">The injector.</param>
     /// <param name="section">The configuration section for redis.</param>
-    /// <param name="configure">The optional configuration.</param>
+    /// <param name="prefix">The common prefix for redis keys.</param>
     /// <returns></returns>
-    public static CqrsInjector AddRedisCache(
+    public static CqrsInjector AddRedisQueryCache(
         this CqrsInjector injector,
         IConfigurationSection section,
-        Action<CacheableRequestOptions>? configure = null)
+        string? prefix = null)
     {
-        injector.Services.Configure<RedisOptions>(section);
-        return AddRedisCache(injector, configure);
+        var option = section.Get<ConfigurationOptions>()
+                     ?? throw new InvalidOperationException(
+                         $"The given configuration section can not be mapped to {nameof(ConfigurationOptions)}");
+        return injector.AddRedisQueryCache(option, prefix);
     }
 
     /// <summary>
@@ -51,30 +50,27 @@ public static class Injectors
     /// </summary>
     /// <param name="injector">The injector.</param>
     /// <param name="connectionString">The connection string.</param>
-    /// <param name="redisConfigure">Optional configuration for redis options.</param>
-    /// <param name="configure">The configure for cacheable request options.</param>
+    /// <param name="prefix">Optional key prefix for redis cache.</param>
     /// <returns></returns>
-    public static CqrsInjector AddRedisCache(
+    public static CqrsInjector AddRedisQueryCache(
         this CqrsInjector injector,
         string connectionString,
-        Action<RedisOptions>? redisConfigure = null,
-        Action<CacheableRequestOptions>? configure = null)
+        string? prefix = null)
     {
         var options = ConfigurationOptions.Parse(connectionString, true);
-        injector.Services.Configure<RedisOptions>(o =>
-        {
-            o.Configure = options;
-            redisConfigure?.Invoke(o);
-        });
-        return AddRedisCache(injector, configure);
+        return injector.AddRedisQueryCache(options, prefix);
     }
 
-    private static CqrsInjector AddRedisCache(
+    private static CqrsInjector AddRedisQueryCache(
         this CqrsInjector injector,
-        Action<CacheableRequestOptions>? configure = null)
+        ConfigurationOptions options,
+        string? prefix = null)
     {
-        injector.Services.AddSingleton(
-            sp => ConnectionMultiplexer.Connect(sp.GetRequiredService<IOptions<RedisOptions>>().Value.Configure));
-        return injector.AddRemoteQueryCache<RedisCacheProvider>(configure);
+        injector.Services.AddStackExchangeRedisCache(o =>
+        {
+            o.ConfigurationOptions = options;
+            o.InstanceName = prefix;
+        });
+        return injector.AddQueryCache();
     }
 }
