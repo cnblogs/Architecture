@@ -1,0 +1,35 @@
+<Solution>
+  <Folder Name="/src/">
+    <File Path="src/Directory.Build.props" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse/Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer/Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.Dapper/Cnblogs.Architecture.Ddd.Cqrs.Dapper.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection/Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.EntityFramework/Cnblogs.Architecture.Ddd.Cqrs.EntityFramework.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.MongoDb.Analyzer/Cnblogs.Architecture.Ddd.Cqrs.MongoDb.Analyzer.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.MongoDb/Cnblogs.Architecture.Ddd.Cqrs.MongoDb.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Cnblogs.Architecture.Ddd.Domain.Abstractions.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/Cnblogs.Architecture.Ddd.EventBus.Abstractions.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.EventBus.Dapr/Cnblogs.Architecture.Ddd.EventBus.Dapr.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions/Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory/Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.InMemory.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis/Cnblogs.Architecture.Ddd.Infrastructure.CacheProviders.Redis.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse/Cnblogs.Architecture.Ddd.Infrastructure.Dapper.Clickhouse.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.Dapper/Cnblogs.Architecture.Ddd.Infrastructure.Dapper.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework/Cnblogs.Architecture.Ddd.Infrastructure.EntityFramework.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss/Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb/Cnblogs.Architecture.Ddd.Infrastructure.MongoDb.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Infrastructure.RedLock/Cnblogs.Architecture.Ddd.Infrastructure.RedLock.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <File Path="test/Directory.Build.props" />
+    <Project Path="test/Cnblogs.Architecture.IntegrationTestProject/Cnblogs.Architecture.IntegrationTestProject.csproj" />
+    <Project Path="test/Cnblogs.Architecture.IntegrationTests/Cnblogs.Architecture.IntegrationTests.csproj" />
+    <Project Path="test/Cnblogs.Architecture.TestIntegrationEvents/Cnblogs.Architecture.TestIntegrationEvents.csproj" />
+    <Project Path="test/Cnblogs.Architecture.TestShared/Cnblogs.Architecture.TestShared.csproj" />
+    <Project Path="test/Cnblogs.Architecture.UnitTests/Cnblogs.Architecture.UnitTests.csproj" />
+  </Folder>
+</Solution>
