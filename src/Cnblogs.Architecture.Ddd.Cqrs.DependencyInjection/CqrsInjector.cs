@@ -2,6 +2,7 @@
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using MediatR;
+using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
@@ -65,11 +66,17 @@ public class CqrsInjector
     /// <summary>
     ///     Add cache to the query pipeline, auto cache queries implemented <see cref="ICachableRequest" />.
     /// </summary>
+    /// <param name="setupAction"><see cref="HybridCacheOptions"/></param>
+    /// <param name="builderAction">Hybrid cache build that allows you to configure serializer, etc.</param>
     /// <returns></returns>
-    public CqrsInjector AddQueryCache()
+    public CqrsInjector AddHybridQueryCache(
+        Action<HybridCacheOptions>? setupAction = null,
+        Action<IHybridCacheBuilder>? builderAction = null)
     {
         AddCacheBehaviorPipeline();
-        Services.AddHybridCache(h => h.ReportTagMetrics = false);
+        setupAction ??= h => h.ReportTagMetrics = false;
+        var builder = Services.AddHybridCache(setupAction);
+        builderAction?.Invoke(builder);
         Services.AddScoped<ICacheProvider, HybridCacheProvider>();
         return this;
     }

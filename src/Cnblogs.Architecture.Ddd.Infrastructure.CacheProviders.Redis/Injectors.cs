@@ -71,6 +71,6 @@ public static class Injectors
             o.ConfigurationOptions = options;
             o.InstanceName = prefix;
         });
-        return injector.AddQueryCache();
+        return injector.AddHybridQueryCache();
     }
 }
