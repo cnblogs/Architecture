@@ -9,6 +9,6 @@
     <ProjectReference Include="..\Cnblogs.Architecture.Ddd.EventBus.Abstractions\Cnblogs.Architecture.Ddd.EventBus.Abstractions.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Dapr.AspNetCore" Version="1.17.6" />
+    <PackageReference Include="Dapr.AspNetCore" Version="1.17.7" />
   </ItemGroup>
 </Project>
