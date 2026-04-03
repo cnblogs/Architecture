@@ -29,27 +29,21 @@ public class LoggerBehaviorTests
             Arg.Any<Func<object, Exception?, string>>());
     }
 
-    private class TestLogger<T> : ILogger<T>
+    private class TestLogger<T>(ILogger<T> logger) : ILogger<T>
     {
-        private readonly ILogger<T> _logger;
-
         // ReSharper disable once ContextualLoggerProblem
-        public TestLogger(ILogger<T> logger)
-        {
-            _logger = logger;
-        }
 
         /// <inheritdoc />
         public IDisposable? BeginScope<TState>(TState state)
             where TState : notnull
         {
-            return _logger.BeginScope(state);
+            return logger.BeginScope(state);
         }
 
         /// <inheritdoc />
         public virtual bool IsEnabled(LogLevel logLevel)
         {
-            return _logger.IsEnabled(logLevel);
+            return true;
         }
 
         /// <inheritdoc />
@@ -60,7 +54,7 @@ public class LoggerBehaviorTests
             Exception? exception,
             Func<TState, Exception?, string> formatter)
         {
-            _logger.Log<object>(logLevel, eventId, state!, exception, (_, _) => string.Empty);
+            logger.Log<object>(logLevel, eventId, state!, exception, (_, _) => string.Empty);
         }
     }
 }

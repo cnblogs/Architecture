@@ -6,7 +6,7 @@ namespace Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 /// <summary>
 ///     Default implementation for <see cref="IEventBus"/>
 /// </summary>
-public class DefaultEventBus : IEventBus
+public partial class DefaultEventBus : IEventBus
 {
     private readonly IEventBuffer _eventBuffer;
     private readonly IMediator _mediator;
@@ -59,7 +59,7 @@ public class DefaultEventBus : IEventBus
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "Publish IntegrationEvent({Name}) failed, {Event}", eventName, @event);
+            LogPublishIntegrationEvent(eventName, @event, e);
             return false;
         }
     }
@@ -69,15 +69,17 @@ public class DefaultEventBus : IEventBus
         where TEvent : IntegrationEvent
     {
         var traceId = receivedEvent.TraceId ?? receivedEvent.Id;
-        _logger.LogInformation(
-            "Received integration event, Name: {EventName}, Event: {Event}, TraceId: {TraceId}",
-            typeof(TEvent).Name,
-            receivedEvent,
-            traceId);
+        LogReceivedIntegrationEventName(typeof(TEvent).Name, receivedEvent, traceId);
         TraceId = traceId;
         return _mediator.Publish(receivedEvent);
     }
 
     /// <inheritdoc />
     public Guid? TraceId { get; set; }
+
+    [LoggerMessage(LogLevel.Error, "Publish IntegrationEvent({Name}) failed, {Event}")]
+    partial void LogPublishIntegrationEvent(string name, object @event, Exception exception);
+
+    [LoggerMessage(LogLevel.Information, "Received integration event, Name: {EventName}, Event: {Event}, TraceId: {TraceId}")]
+    partial void LogReceivedIntegrationEventName(string eventName, object @event, Guid traceId);
 }

@@ -8,7 +8,7 @@ namespace Cnblogs.Architecture.Ddd.EventBus.Dapr;
 /// <summary>
 ///     Implementations for <see cref="IEventBusProvider"/> using Dapr.
 /// </summary>
-public class DaprEventBusProvider : IEventBusProvider
+public partial class DaprEventBusProvider : IEventBusProvider
 {
     private readonly DaprClient _daprClient;
     private readonly DaprOptions _daprOptions;
@@ -33,17 +33,14 @@ public class DaprEventBusProvider : IEventBusProvider
     /// <inheritdoc />
     public async Task PublishAsync(string eventName, IntegrationEvent @event)
     {
-        _logger.LogInformation(
-            "Publishing IntegrationEvent, PubSub: {PubSubName}, TopicName: {TopicName}, Name: {EventName}, Body: {Event}, TraceId: {TraceId}",
-            DaprOptions.PubSubName,
-            DaprUtils.GetDaprTopicName(_daprOptions.AppName, eventName),
-            eventName,
-            @event,
-            @event.TraceId ?? @event.Id);
+        LogPublishingIntegrationEvent(DaprOptions.PubSubName, DaprUtils.GetDaprTopicName(_daprOptions.AppName, eventName), eventName, @event, @event.TraceId ?? @event.Id);
         object data = @event; // do not provide type information to serializer since it's base class.
         await _daprClient.PublishEventAsync(
             DaprOptions.PubSubName,
             DaprUtils.GetDaprTopicName(_daprOptions.AppName, eventName),
             data);
     }
+
+    [LoggerMessage(LogLevel.Information, "Publishing IntegrationEvent, PubSub: {PubSubName}, TopicName: {TopicName}, Name: {EventName}, Body: {Event}, TraceId: {TraceId}")]
+    partial void LogPublishingIntegrationEvent(string pubSubName, string topicName, string eventName, IntegrationEvent @event, Guid traceId);
 }

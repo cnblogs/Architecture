@@ -9,7 +9,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// </summary>
 /// <typeparam name="TRequest">The type of request.</typeparam>
 /// <typeparam name="TResponse">The type of response.</typeparam>
-public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public partial class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IRequest<TResponse>
 {
     private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
@@ -29,9 +29,15 @@ public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, 
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        _logger.LogDebug("Handling {@Request}", request);
-        var result = await next();
-        _logger.LogDebug("Handled {@Request}", request);
+        LogHandlingRequest(request);
+        var result = await next(cancellationToken);
+        LogHandledRequest(request);
         return result;
     }
+
+    [LoggerMessage(LogLevel.Debug, "Handling {request}")]
+    partial void LogHandlingRequest(TRequest request);
+
+    [LoggerMessage(LogLevel.Debug, "Handled {Request}")]
+    partial void LogHandledRequest(TRequest request);
 }

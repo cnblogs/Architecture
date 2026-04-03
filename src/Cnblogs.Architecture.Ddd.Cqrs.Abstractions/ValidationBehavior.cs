@@ -9,7 +9,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// </summary>
 /// <typeparam name="TRequest">The type of request.</typeparam>
 /// <typeparam name="TResponse">The type of response.</typeparam>
-public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public partial class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : IValidatable, IRequest<TResponse>
     where TResponse : IValidationResponse, new()
 {
@@ -30,19 +30,15 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        _logger.LogInformation("----- Validating request {RequestType}", request.GetType().Name);
+        LogValidating(request.GetType().Name);
         var errors = new ValidationErrors();
         request.Validate(errors);
         if (errors.Count == 0)
         {
-            return await next();
+            return await next(cancellationToken);
         }
 
-        _logger.LogWarning(
-            "----- Validation failed with error, type: {RequestType}, Request: {Request}, Message: {Message}",
-            request.GetType().Name,
-            request,
-            errors.First().Message);
+        LogValidationFailedWithError(request.GetType().Name, request, errors.First().Message);
 
         return new TResponse
         {
@@ -51,4 +47,10 @@ public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TReques
             ValidationErrors = errors
         };
     }
+
+    [LoggerMessage(LogLevel.Information, "----- Validating request {RequestType}")]
+    partial void LogValidating(string requestType);
+
+    [LoggerMessage(LogLevel.Warning, "----- Validation failed with error, type: {RequestType}, Request: {Request}, Message: {Message}")]
+    partial void LogValidationFailedWithError(string requestType, TRequest request, string message);
 }
