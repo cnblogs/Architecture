@@ -4,27 +4,24 @@ using static Cnblogs.Architecture.IntegrationTestProject.Constants;
 
 namespace Cnblogs.Architecture.IntegrationTestProject.EventHandlers;
 
-public class TestIntegrationEventHandler : IIntegrationEventHandler<TestIntegrationEvent>,
-    IIntegrationEventHandler<BlogPostCreatedIntegrationEvent>
+public partial class TestIntegrationEventHandler(ILogger<TestIntegrationEventHandler> logger)
+    : IIntegrationEventHandler<TestIntegrationEvent>,
+        IIntegrationEventHandler<BlogPostCreatedIntegrationEvent>
 {
-    private readonly ILogger _logger;
-
-    public TestIntegrationEventHandler(ILogger<TestIntegrationEventHandler> logger)
-    {
-        _logger = logger;
-    }
+    private readonly ILogger _logger = logger;
 
     public Task Handle(TestIntegrationEvent notification, CancellationToken cancellationToken)
     {
-        _logger.LogInformation(LogTemplates.HandledIntegratonEvent, notification);
-
+        LogHandledIntegrationEventEvent(notification);
         return Task.CompletedTask;
     }
 
     public Task Handle(BlogPostCreatedIntegrationEvent notification, CancellationToken cancellationToken)
     {
-        _logger.LogInformation(LogTemplates.HandledIntegratonEvent, notification);
-
+        LogHandledIntegrationEventEvent(notification);
         return Task.CompletedTask;
     }
+
+    [LoggerMessage(LogLevel.Information, LogTemplates.HandledIntegratonEvent)]
+    partial void LogHandledIntegrationEventEvent(object @event);
 }

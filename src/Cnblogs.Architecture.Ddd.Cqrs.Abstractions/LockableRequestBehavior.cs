@@ -1,7 +1,5 @@
 ﻿using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
-
 using MediatR;
-
 using Microsoft.Extensions.Logging;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
@@ -11,7 +9,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// </summary>
 /// <typeparam name="TRequest">The type of request.</typeparam>
 /// <typeparam name="TResponse">The type of response.</typeparam>
-public class LockableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public partial class LockableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : ILockableRequest, IRequest<TResponse>
     where TResponse : ILockableResponse, new()
 {
@@ -45,19 +43,21 @@ public class LockableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TR
                 : null;
             var response = await _distributedLockProvider.ExecuteWithLockAsync(
                 request.GetLockKey(),
-                async () => await next(),
+                async () => await next(cancellationToken),
                 expiresIn);
             response.LockAcquired = true;
             return response;
         }
         catch (AcquireDistributionLockFailedException e)
         {
-            _logger.LogError(
-                e,
-                "Acquire Distribution Lock Failed, Request: {@Request}, LockKey: {@LockLey}",
-                request,
-                e.LockKey);
+            LogAcquireDistributionLockFailed(request, e.LockKey, e);
             return new TResponse { IsConcurrentError = true, LockAcquired = false };
         }
     }
+
+    [LoggerMessage(LogLevel.Error, "Acquire Distribution Lock Failed, Request: {@request}, LockKey: {@lockLey}")]
+    partial void LogAcquireDistributionLockFailed(
+        TRequest request,
+        string lockLey,
+        AcquireDistributionLockFailedException acquireDistributionLockFailedException);
 }

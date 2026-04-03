@@ -7,7 +7,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// <summary>
 ///     The default handler for <see cref="InvalidCacheRequest"/>.
 /// </summary>
-public class InvalidCacheRequestHandler : IRequestHandler<InvalidCacheRequest>
+public partial class InvalidCacheRequestHandler : IRequestHandler<InvalidCacheRequest>
 {
     private readonly ICacheProvider _cacheProvider;
     private readonly ILogger<InvalidCacheRequestHandler> _logger;
@@ -41,15 +41,14 @@ public class InvalidCacheRequestHandler : IRequestHandler<InvalidCacheRequest>
         }
         catch (Exception e)
         {
-            _logger.LogError(
-                "----- Invalid Cache Failed, Type: {TypeName}, Request: {RequestBody}, Message: {Message}",
-                request.GetType().Name,
-                request,
-                e.Message);
+            LogInvalidCacheFailed(request.GetType().Name, request, e.Message);
             if (request.ThrowIfFailed == true)
             {
                 throw;
             }
         }
     }
+
+    [LoggerMessage(LogLevel.Error, "----- Invalid Cache Failed, Type: {TypeName}, Request: {RequestBody}, Message: {Message}")]
+    partial void LogInvalidCacheFailed(string typeName, InvalidCacheRequest requestBody, string message);
 }
