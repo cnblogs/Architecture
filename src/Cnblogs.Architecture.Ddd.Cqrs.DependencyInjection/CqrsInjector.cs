@@ -126,6 +126,31 @@ public class CqrsInjector
         return this;
     }
 
+    /// <summary>
+    ///     添加默认 ID 提供器。
+    /// </summary>
+    /// <param name="machineId">机器Id。也可以用 PodId，在应用层面唯一。</param>
+    /// <returns></returns>
+    public CqrsInjector AddDefaultIdProvider(int machineId)
+    {
+        Services.AddSingleton<IIdProvider>(sp => new DefaultIdProvider(
+            sp.GetRequiredService<IDateTimeProvider>(),
+            machineId));
+        return this;
+    }
+
+    /// <summary>
+    ///     添加自定义 ID 提供器。
+    /// </summary>
+    /// <typeparam name="TIdProvider">ID 提供器。</typeparam>
+    /// <returns></returns>
+    public CqrsInjector AddIdProvider<TIdProvider>()
+        where TIdProvider : class, IIdProvider
+    {
+        Services.AddSingleton<IIdProvider, TIdProvider>();
+        return this;
+    }
+
     private void AddCacheBehaviorPipeline()
     {
         Services.TryAddTransient(typeof(IPipelineBehavior<,>), typeof(CacheableRequestBehavior<,>));

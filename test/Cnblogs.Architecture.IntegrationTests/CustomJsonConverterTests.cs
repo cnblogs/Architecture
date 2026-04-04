@@ -91,4 +91,28 @@ public class CustomJsonConverterTests
         // Assert
         Assert.Equal("202410267558024668", model.EnumerateObject().First().Value.GetString());
     }
+
+    [Theory]
+    [InlineData("/api/v1/mvc/json/articles/")]
+    [InlineData("/api/v1/articles/")]
+    public async Task Trimmed_ReadTrimmedString_SuccessAsync(string url)
+    {
+        // Arrange
+        const string json = """
+                            {
+                                "title": " string needs to be trimmed "
+                            }
+                            """;
+
+        var builder = new WebApplicationFactory<Program>();
+
+        // Act
+        var response = await builder.CreateClient().PostAsync(
+            url,
+            new StringContent(json, Encoding.UTF8, "application/json"));
+        var model = await response.Content.ReadFromJsonAsync<ArticleDto>(WebDefaults);
+
+        // Assert
+        Assert.Equal("string needs to be trimmed", model?.Title);
+    }
 }
