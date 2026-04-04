@@ -40,4 +40,11 @@ public class TestController(IMediator mediator) : ApiControllerBase
         var response = await mediator.Send(new CreateLongToStringCommand(model.Id));
         return HandleCommandResponse(response);
     }
+
+    [HttpPost("json/articles")]
+    public async Task<IActionResult> CreateArticleAsync([FromBody] CreateArticlePayload payload)
+    {
+        var response = await mediator.Send(new CreateArticleCommand(payload.Title));
+        return HandleCommandResponse(response);
+    }
 }
