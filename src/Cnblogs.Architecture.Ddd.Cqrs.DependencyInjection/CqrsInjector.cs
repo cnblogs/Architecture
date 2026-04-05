@@ -127,15 +127,27 @@ public class CqrsInjector
     }
 
     /// <summary>
+    ///     添加默认 ID 提供器，使用随机 instanceId。
+    /// </summary>
+    /// <returns></returns>
+    public CqrsInjector AddDefaultIdProvider()
+    {
+        return AddDefaultIdProvider(Random.Shared.Next(1000));
+    }
+
+    /// <summary>
     ///     添加默认 ID 提供器。
     /// </summary>
-    /// <param name="machineId">机器Id。也可以用 PodId，在应用层面唯一。</param>
+    /// <param name="instanceId">实例Id。也可以用 PodId，在应用层面唯一。</param>
+    /// <param name="configures">ID 的额外配置。</param>
     /// <returns></returns>
-    public CqrsInjector AddDefaultIdProvider(int machineId)
+    public CqrsInjector AddDefaultIdProvider(int instanceId, Action<DefaultIdProviderOption>? configures = null)
     {
+        var option = new DefaultIdProviderOption { InstanceId = instanceId, };
+        configures?.Invoke(option);
         Services.AddSingleton<IIdProvider>(sp => new DefaultIdProvider(
             sp.GetRequiredService<IDateTimeProvider>(),
-            machineId));
+            option));
         return this;
     }
 
