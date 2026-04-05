@@ -6,10 +6,13 @@ namespace Cnblogs.Architecture.UnitTests.Domain;
 public class DefaultIdProviderTests
 {
     [Fact]
-    public void NextReadable_NoEigen_UseIdAsEigen()
+    public void NextReadable_NoEigen_UseInstanceIdAsEigen()
     {
         // Arrange
-        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), 999);
+        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), new DefaultIdProviderOption()
+        {
+            InstanceId = 999
+        });
 
         // Act
         var id = provider.NextReadable().ToString();
@@ -22,7 +25,10 @@ public class DefaultIdProviderTests
     public void NextReadable_WithEigen_UseGivenEigen()
     {
         // Arrange
-        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), 999);
+        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), new DefaultIdProviderOption()
+        {
+            InstanceId = 999
+        });
 
         // Act
         var id = provider.NextReadable(888).ToString();
@@ -35,7 +41,10 @@ public class DefaultIdProviderTests
     public void NextReadable_Concurrent_UniqueIn100()
     {
         // Arrange
-        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), 999);
+        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), new DefaultIdProviderOption()
+        {
+            InstanceId = 999
+        });
 
         // Act
         var distinctCount = Enumerable.Range(0, 100).Select(_ => provider.NextReadable()).Distinct().Count();
@@ -45,23 +54,51 @@ public class DefaultIdProviderTests
     }
 
     [Fact]
-    public void NextReadable_Concurrent_FailWhenAbove100()
+    public void NextReadable_SetThrowWhenOverflow_ThrowWhenAbove100()
     {
         // Arrange
-        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), 999);
+        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), new DefaultIdProviderOption()
+        {
+            InstanceId = 999,
+            WhenSequenceOverflow = SequenceOverflowStrategy.Throw
+        });
 
         // Act
-        var distinctCount = Enumerable.Range(0, 120).Select(_ => provider.NextReadable()).Distinct().Count();
+        var act = () =>
+        {
+            var ids = Enumerable.Range(0, 120).Select(_ => provider.NextReadable()).Distinct().ToList();
+            Assert.Equal(120, ids.Count);
+        };
 
         // Assert
-        Assert.Equal(100, distinctCount);
+        Assert.Throws<InvalidOperationException>(act);
+    }
+
+    [Fact]
+    public void NextReadable_SpinWaitWhenOverflow_NotThrowWhenAbove100()
+    {
+        // Arrange
+        var provider = new DefaultIdProvider(new DefaultDateTimeProvider(), new DefaultIdProviderOption()
+        {
+            InstanceId = 999,
+            WhenSequenceOverflow = SequenceOverflowStrategy.SpinWait
+        });
+
+        // Act
+        var ids = Enumerable.Range(0, 120).Select(_ => provider.NextReadable()).Distinct().Count();
+
+        // Assert
+        Assert.Equal(120, ids);
     }
 
     [Fact]
     public void NextNumeric_Concurrent_UniqueAndProgressive()
     {
         // Arrange
-        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), 999);
+        var provider = new DefaultIdProvider(GetStoppedDatetimeProvider(), new DefaultIdProviderOption
+        {
+            InstanceId = 999
+        });
 
         // Act
         var distinct = Enumerable.Range(0, 120).Select(_ => provider.NextNumeric()).Distinct().ToList();
