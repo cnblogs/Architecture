@@ -95,13 +95,14 @@ public class CqrsInjector
     /// <returns></returns>
     public CqrsInjector AddEnrichers(Assembly[] assemblies, int maxInterfaceImplementations = 1000)
     {
-        Services.TryAddSingleton<EnricherMappingCache>();
-        Services.TryAddTransient(typeof(IPipelineBehavior<,>), typeof(EnricherBehavior<,>));
-
         var concreteTypes = assemblies
             .SelectMany(a => a.GetTypes())
             .Where(t => t is { IsAbstract: false, IsInterface: false })
             .ToList();
+
+        var cache = PreWarmCache(concreteTypes);
+        Services.TryAddSingleton(cache);
+        Services.TryAddTransient(typeof(IPipelineBehavior<,>), typeof(EnricherBehavior<,>));
 
         var enricherTypes = concreteTypes
             .SelectMany(t => t.GetInterfaces(), (t, i) => (Implementation: t, Service: i))
@@ -115,8 +116,32 @@ public class CqrsInjector
         return this;
     }
 
-    private void RegisterEnricher(
-        Type impl, Type service, List<Type> concreteTypes, int maxInterfaceImplementations)
+    private static EnricherMappingCache PreWarmCache(List<Type> concreteTypes)
+    {
+        var cache = new EnricherMappingCache();
+        var responseTypes = new HashSet<Type>();
+
+        var interfaces = concreteTypes.SelectMany(x => x.GetInterfaces()).Where(x => x.IsGenericType);
+        foreach (var iface in interfaces)
+        {
+            var genericDef = iface.GetGenericTypeDefinition();
+            if (genericDef == typeof(IQueryHandler<,>)
+                || genericDef == typeof(IListQueryHandler<,>)
+                || genericDef == typeof(ICommandHandler<,,>))
+            {
+                responseTypes.Add(iface.GetGenericArguments()[1]);
+            }
+        }
+
+        foreach (var type in responseTypes)
+        {
+            cache.GetContainerInfo(type);
+        }
+
+        return cache;
+    }
+
+    private void RegisterEnricher(Type impl, Type service, List<Type> concreteTypes, int maxInterfaceImplementations)
     {
         var targetType = service.GetGenericArguments()[0];
         if (targetType is not { IsInterface: true } and not { IsAbstract: true })
