@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Text.Json.Serialization;
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
@@ -6,7 +7,7 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 ///     分页列表。
 /// </summary>
 /// <typeparam name="T">包含的元素类型。</typeparam>
-public record PagedList<T>
+public record PagedList<T> : IPagedList
 {
     /// <summary>
     ///     创建一个空的 <see cref="PagedList{T}" /> 实例。
@@ -86,4 +87,10 @@ public record PagedList<T>
     ///     元素总数。
     /// </summary>
     public int TotalCount { get; init; }
+
+    /// <inheritdoc />
+    public IEnumerable GetItems()
+    {
+        return Items;
+    }
 }
