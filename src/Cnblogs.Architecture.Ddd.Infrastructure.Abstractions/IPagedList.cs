@@ -2,6 +2,9 @@
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
+/// <summary>
+/// Marker interface for <see cref="PagedList{T}"/>
+/// </summary>
 public interface IPagedList
 {
     /// <summary>

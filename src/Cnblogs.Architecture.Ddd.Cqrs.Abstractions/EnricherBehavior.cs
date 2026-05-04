@@ -1,5 +1,3 @@
-﻿using System.Collections;
-using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -8,75 +6,37 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// <summary>
 ///     Pipeline behavior that enriches DTOs after query execution.
 ///     Automatically resolves <see cref="IEnricher{T}" /> based on the DTO type in the response.
+///     Supports nested containers like <c>PagedList&lt;Dictionary&lt;K,V&gt;&gt;</c>.
 /// </summary>
 /// <typeparam name="TRequest">The type of request.</typeparam>
 /// <typeparam name="TResponse">The type of response.</typeparam>
-public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, EnricherMappingCache enricherMappingCache)
-    : IPipelineBehavior<TRequest, TResponse>
-    where TRequest : class
+public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, EnricherMappingCache cache)
+    : IPipelineBehavior<TRequest, TResponse?>
+    where TRequest : IEnrichableRequest
+    where TResponse : class
 {
+    private const int MaxUnwrapDepth = 3;
+
     /// <inheritdoc />
-    public async Task<TResponse> Handle(
+    public async Task<TResponse?> Handle(
         TRequest request,
-        RequestHandlerDelegate<TResponse> next,
+        RequestHandlerDelegate<TResponse?> next,
         CancellationToken cancellationToken)
     {
         var response = await next(cancellationToken);
-        if (response is null)
+        if (response is null || request.IsEnrichSkipped())
         {
             return response;
         }
 
-        object? itemToMap = response;
-        var isEnumerable = false;
-        var elementType = typeof(TResponse);
-
-        // 是 CommandResponse<T, TError> 吗？
-        if (itemToMap is IObjectResponse objectResponse)
+        var item = UnwrapObjectResponse(response);
+        if (item is null)
         {
-            itemToMap = objectResponse.GetResult();
-            if (itemToMap is null)
-            {
-                return response;
-            }
-
-            elementType = itemToMap.GetType();
+            return response;
         }
 
-        // 是 PagedList 吗？
-        if (itemToMap is IPagedList pagedList)
-        {
-            itemToMap = pagedList.GetItems();
-            elementType = pagedList.GetType().GetGenericArguments()[0];
-            isEnumerable = true;
-        }
-        else if (itemToMap is IDictionary dictionary)
-        {
-            var dictionaryType = elementType
-                .GetInterfaces()
-                .FirstOrDefault(s => s.GetGenericTypeDefinition() == typeof(IDictionary<,>));
-            if (dictionaryType is not null)
-            {
-                isEnumerable = true;
-                itemToMap = dictionary.Values;
-                elementType = dictionaryType.GetGenericArguments()[1];
-            }
-        }
-        else if (itemToMap is IEnumerable and not string)
-        {
-            // 是 IEnumerable 吗？
-            foreach (var iface in elementType.GetInterfaces())
-            {
-                if (iface.IsGenericType && iface.GetGenericTypeDefinition() == typeof(IEnumerable<>))
-                {
-                    elementType = iface.GetGenericArguments()[0];
-                    isEnumerable = true;
-                }
-            }
-        }
-
-        // 是值类型或者 string 吗？
-        if (elementType.IsValueType || itemToMap is string)
+        var toEnrich = UnwrapContainers(item, out var elementType, out var isEnumerable);
+        if (elementType.IsValueType || elementType == typeof(string))
         {
             return response;
         }
@@ -85,14 +45,20 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
         var enrichers = sp.GetServices(enricherType)
             .Where(x => x is not null)
             .Select(x => (IEnricher)x!)
-            .OrderByDescending(x => x.AllowParallel);
+            .OrderByDescending(x => x.AllowParallel)
+            .ToList();
+
+        if (enrichers.Count == 0)
+        {
+            return response;
+        }
+
+        var method = enricherType.GetMethod(isEnumerable ? "BulkEnrichAsync" : "EnrichAsync")!;
+
         var parallelTasks = new List<Task>();
         foreach (var enricherObj in enrichers)
         {
-            var method = (isEnumerable
-                ? enricherType.GetMethod("BulkEnrichAsync")
-                : enricherType.GetMethod("EnrichAsync"))!;
-            var task = (Task)method.Invoke(enricherObj, [itemToMap, cancellationToken])!;
+            var task = (Task)method.Invoke(enricherObj, [toEnrich, cancellationToken])!;
             if (enricherObj.AllowParallel)
             {
                 parallelTasks.Add(task);
@@ -105,5 +71,57 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
 
         await Task.WhenAll(parallelTasks);
         return response;
+    }
+
+    private static object? UnwrapObjectResponse(object response)
+    {
+        var item = response;
+        if (item is IObjectResponse objectResponse)
+        {
+            item = objectResponse.GetResult();
+        }
+
+        return item;
+    }
+
+    private object UnwrapContainers(object item, out Type elementType, out bool isEnumerable)
+    {
+        elementType = item.GetType();
+        isEnumerable = false;
+        object? currentItems = null;
+
+        for (var depth = 0; depth < MaxUnwrapDepth; depth++)
+        {
+            var containerInfo = cache.GetContainerInfo(elementType);
+            if (containerInfo is null)
+            {
+                break;
+            }
+
+            isEnumerable = true;
+            elementType = containerInfo.ElementType;
+
+            currentItems = currentItems is null
+                ? containerInfo.ExtractItems(item)
+                : Flatten(currentItems, containerInfo);
+        }
+
+        return isEnumerable ? currentItems! : item;
+    }
+
+    private static List<object?> Flatten(object items, ContainerInfo containerInfo)
+    {
+        var flattened = new List<object?>();
+        foreach (var obj in (System.Collections.IEnumerable)items)
+        {
+            if (obj is null)
+                continue;
+            foreach (var i in containerInfo.ExtractItems(obj))
+            {
+                flattened.Add(i);
+            }
+        }
+
+        return flattened;
     }
 }

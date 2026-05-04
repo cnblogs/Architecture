@@ -1,4 +1,5 @@
-﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
+﻿using System.Reflection;
+using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using MediatR;
@@ -78,6 +79,30 @@ public class CqrsInjector
         var builder = Services.AddHybridCache(setupAction);
         builderAction?.Invoke(builder);
         Services.AddScoped<ICacheProvider, HybridCacheProvider>();
+        return this;
+    }
+
+    /// <summary>
+    ///     Scan assemblies for <see cref="IEnricher{T}" /> implementations and register them as scoped services.
+    /// </summary>
+    /// <param name="assemblies">The assemblies to scan.</param>
+    /// <returns></returns>
+    public CqrsInjector AddEnrichers(params Assembly[] assemblies)
+    {
+        Services.TryAddSingleton<EnricherMappingCache>();
+        Services.TryAddTransient(typeof(IPipelineBehavior<,>), typeof(EnricherBehavior<,>));
+
+        var enricherTypes = assemblies
+            .SelectMany(a => a.GetTypes())
+            .Where(t => t is { IsAbstract: false, IsInterface: false })
+            .SelectMany(t => t.GetInterfaces(), (t, i) => (Implementation: t, Service: i))
+            .Where(x => x.Service.IsGenericType && x.Service.GetGenericTypeDefinition() == typeof(IEnricher<>));
+
+        foreach (var (impl, service) in enricherTypes)
+        {
+            Services.AddScoped(service, impl);
+        }
+
         return this;
     }
 
