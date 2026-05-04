@@ -1,5 +1,4 @@
 using MediatR;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
@@ -42,16 +41,16 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
         }
 
         var enricherType = typeof(IEnricher<>).MakeGenericType(elementType);
-        var enrichers = sp.GetServices(enricherType)
-            .Where(x => x is not null)
-            .Select(x => (IEnricher)x!)
-            .OrderByDescending(x => x.AllowParallel)
-            .ToList();
-
-        if (enrichers.Count == 0)
+        var enrichersType = typeof(IEnumerable<>).MakeGenericType(enricherType);
+        if (sp.GetService(enrichersType) is not IEnumerable<object> enricherObjects)
         {
             return response;
         }
+
+        var enrichers = enricherObjects
+            .Select(x => (IEnricher)x)
+            .OrderByDescending(x => x.AllowParallel)
+            .ToList();
 
         var method = enricherType.GetMethod(isEnumerable ? "BulkEnrichAsync" : "EnrichAsync")!;
 
@@ -109,9 +108,11 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
         return isEnumerable ? currentItems! : item;
     }
 
-    private static List<object?> Flatten(object items, ContainerInfo containerInfo)
+    private static object Flatten(object items, ContainerInfo containerInfo)
     {
-        var flattened = new List<object?>();
+        var elementType = containerInfo.ElementType;
+        var listType = typeof(List<>).MakeGenericType(elementType);
+        var flattened = (System.Collections.IList)Activator.CreateInstance(listType)!;
         foreach (var obj in (System.Collections.IEnumerable)items)
         {
             if (obj is null)

@@ -23,6 +23,11 @@ public class EnricherMappingCache
 
     private static ContainerInfo? ResolveContainerInfo(Type t)
     {
+        if (t == typeof(string))
+        {
+            return null;
+        }
+
         // IPagedList<T>
         if (typeof(IPagedList).IsAssignableFrom(t) && t.IsGenericType)
         {
@@ -34,8 +39,8 @@ public class EnricherMappingCache
         }
 
         // IDictionary<K,V> (Dictionary<K,V>, ConcurrentDictionary<K,V>, SortedDictionary<K,V>, etc.)
-        var dictInterface = t.GetInterfaces()
-            .FirstOrDefault(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IDictionary<,>));
+        var interfaces = t.GetInterfaces();
+        var dictInterface = GetGenericInterfaceType(typeof(IDictionary<,>));
         if (dictInterface is not null)
         {
             return new ContainerInfo(
@@ -44,8 +49,7 @@ public class EnricherMappingCache
         }
 
         // IReadOnlyDictionary<K,V> (ReadOnlyDictionary<K,V>, FrozenDictionary<K,V>, etc.)
-        var readOnlyDictInterface = t.GetInterfaces()
-            .FirstOrDefault(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IReadOnlyDictionary<,>));
+        var readOnlyDictInterface = GetGenericInterfaceType(typeof(IReadOnlyDictionary<,>));
         if (readOnlyDictInterface is not null)
         {
             var valuesProp = t.GetProperty("Values")!;
@@ -54,14 +58,8 @@ public class EnricherMappingCache
                 obj => (IEnumerable)valuesProp.GetValue(obj)!);
         }
 
-        if (t == typeof(string))
-        {
-            return null;
-        }
-
         // IEnumerable<T> (List<T>, T[], etc.)
-        var enumInterface = t.GetInterfaces()
-            .FirstOrDefault(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEnumerable<>));
+        var enumInterface = GetGenericInterfaceType(typeof(IEnumerable<>));
         if (enumInterface is not null)
         {
             return new ContainerInfo(
@@ -70,6 +68,12 @@ public class EnricherMappingCache
         }
 
         return null;
+
+        Type? GetGenericInterfaceType(Type genericInterfaceType)
+        {
+            return interfaces
+                .FirstOrDefault(i => i.IsGenericType && i.GetGenericTypeDefinition() == genericInterfaceType);
+        }
     }
 }
 
