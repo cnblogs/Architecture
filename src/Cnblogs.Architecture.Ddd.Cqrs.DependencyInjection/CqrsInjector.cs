@@ -14,15 +14,19 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 /// </summary>
 public class CqrsInjector
 {
+    private readonly Assembly[] _assemblies;
+
     /// <summary>
     ///     创建一个 <see cref="CqrsInjector" /> 的新实例。
     /// </summary>
     /// <param name="services">
     ///     <see cref="IServiceCollection" />
     /// </param>
-    internal CqrsInjector(IServiceCollection services)
+    /// <param name="assemblies"></param>
+    internal CqrsInjector(IServiceCollection services, Assembly[] assemblies)
     {
         Services = services;
+        _assemblies = assemblies;
     }
 
     /// <summary>
@@ -87,6 +91,21 @@ public class CqrsInjector
     ///     When an enricher implements <c>IEnricher&lt;T&gt;</c> where <c>T</c> is an interface or abstract class,
     ///     it will automatically be registered for all concrete types implementing that interface/abstract class.
     /// </summary>
+    /// <param name="maxInterfaceImplementations">
+    ///     The maximum number of concrete implementations allowed when expanding an interface-based enricher.
+    ///     Defaults to 1000. If exceeded, an <see cref="InvalidOperationException" /> is thrown.
+    /// </param>
+    /// <returns></returns>
+    public CqrsInjector AddEnrichers(int maxInterfaceImplementations = 1000)
+    {
+        return AddEnrichers(_assemblies, maxInterfaceImplementations);
+    }
+
+    /// <summary>
+    ///     Scan assemblies for <see cref="IEnricher{T}" /> implementations and register them as scoped services.
+    ///     When an enricher implements <c>IEnricher&lt;T&gt;</c> where <c>T</c> is an interface or abstract class,
+    ///     it will automatically be registered for all concrete types implementing that interface/abstract class.
+    /// </summary>
     /// <param name="assemblies">The assemblies to scan.</param>
     /// <param name="maxInterfaceImplementations">
     ///     The maximum number of concrete implementations allowed when expanding an interface-based enricher.
@@ -102,7 +121,7 @@ public class CqrsInjector
 
         var cache = PreWarmCache(concreteTypes);
         Services.TryAddSingleton(cache);
-        Services.TryAddTransient(typeof(IPipelineBehavior<,>), typeof(EnricherBehavior<,>));
+        Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(EnricherBehavior<,>));
 
         var enricherTypes = concreteTypes
             .SelectMany(t => t.GetInterfaces(), (t, i) => (Implementation: t, Service: i))
@@ -133,9 +152,16 @@ public class CqrsInjector
             }
         }
 
+        var modelTypes = concreteTypes.Where(c => c.IsAssignableTo(typeof(IModel)));
+        foreach (var modelType in modelTypes)
+        {
+            responseTypes.Add(modelType);
+        }
+
         foreach (var type in responseTypes)
         {
             cache.GetContainerInfo(type);
+            cache.GetEnricherTypeInfo(type);
         }
 
         return cache;
@@ -253,6 +279,6 @@ public class CqrsInjector
 
     private void AddCacheBehaviorPipeline()
     {
-        Services.TryAddTransient(typeof(IPipelineBehavior<,>), typeof(CacheableRequestBehavior<,>));
+        Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheableRequestBehavior<,>));
     }
 }

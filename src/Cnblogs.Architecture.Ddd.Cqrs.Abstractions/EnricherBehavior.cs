@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using MediatR;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
@@ -11,8 +12,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// <typeparam name="TResponse">The type of response.</typeparam>
 public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, EnricherMappingCache cache)
     : IPipelineBehavior<TRequest, TResponse?>
-    where TRequest : IEnrichableRequest
-    where TResponse : class
+    where TRequest : IEnrichableRequest, IRequest<TResponse>
 {
     private const int MaxUnwrapDepth = 3;
 
@@ -28,6 +28,13 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
             return response;
         }
 
+        return await EnrichResponseAsync(response, cancellationToken);
+    }
+
+    private async Task<TResponse?> EnrichResponseAsync(
+        [DisallowNull] TResponse response,
+        CancellationToken cancellationToken)
+    {
         var item = UnwrapObjectResponse(response);
         if (item is null)
         {
@@ -40,9 +47,8 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
             return response;
         }
 
-        var enricherType = typeof(IEnricher<>).MakeGenericType(elementType);
-        var enrichersType = typeof(IEnumerable<>).MakeGenericType(enricherType);
-        if (sp.GetService(enrichersType) is not IEnumerable<object> enricherObjects)
+        var typeInfo = cache.GetEnricherTypeInfo(elementType);
+        if (sp.GetService(typeInfo.EnrichersServiceType) is not IEnumerable<object> enricherObjects)
         {
             return response;
         }
@@ -52,8 +58,7 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
             .OrderByDescending(x => x.AllowParallel)
             .ToList();
 
-        var method = enricherType.GetMethod(isEnumerable ? "BulkEnrichAsync" : "EnrichAsync")!;
-
+        var method = isEnumerable ? typeInfo.BulkEnrichMethod : typeInfo.EnrichMethod;
         var parallelTasks = new List<Task>();
         foreach (var enricherObj in enrichers)
         {
@@ -85,15 +90,17 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
 
     private object UnwrapContainers(object item, out Type elementType, out bool isEnumerable)
     {
-        elementType = item.GetType();
+        var currentType = item.GetType();
+        elementType = currentType;
         isEnumerable = false;
         object? currentItems = null;
 
         for (var depth = 0; depth < MaxUnwrapDepth; depth++)
         {
-            var containerInfo = cache.GetContainerInfo(elementType);
-            if (containerInfo is null)
+            var containerInfo = cache.GetContainerInfo(currentType);
+            if (!containerInfo.IsEnumerable)
             {
+                elementType = containerInfo.ElementType;
                 break;
             }
 
@@ -101,8 +108,10 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
             elementType = containerInfo.ElementType;
 
             currentItems = currentItems is null
-                ? containerInfo.ExtractItems(item)
+                ? containerInfo.ExtractItems!(item)
                 : Flatten(currentItems, containerInfo);
+
+            currentType = containerInfo.ElementType;
         }
 
         return isEnumerable ? currentItems! : item;
@@ -117,7 +126,7 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
         {
             if (obj is null)
                 continue;
-            foreach (var i in containerInfo.ExtractItems(obj))
+            foreach (var i in containerInfo.ExtractItems!(obj))
             {
                 flattened.Add(i);
             }
