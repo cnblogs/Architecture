@@ -9,7 +9,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// </summary>
 /// <typeparam name="TView">The result type for command.</typeparam>
 /// <typeparam name="TError">The error code type when command failed.</typeparam>
-public interface ICommand<TView, TError> : IRequest<CommandResponse<TView, TError>>
+public interface ICommand<TView, TError> : IRequest<CommandResponse<TView, TError>>, IEnrichableRequest
     where TError : Enumeration
 {
     /// <summary>
@@ -18,5 +18,5 @@ public interface ICommand<TView, TError> : IRequest<CommandResponse<TView, TErro
     /// <remarks>
     ///     This logic must be implemented manually in command handler and not guaranteed by framework.
     /// </remarks>
-    public bool ValidateOnly { get; }
+    bool ValidateOnly { get; }
 }

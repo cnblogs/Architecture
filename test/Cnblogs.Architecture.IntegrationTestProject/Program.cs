@@ -15,6 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
     .AddLongToStringJsonConverter()
     .AddDefaultIdProvider(0)
+    .AddEnrichers()
     .AddDefaultDateTimeAndRandomProvider()
     .AddEventBus(o => o.UseDapr(Constants.AppName));
 builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
@@ -40,6 +41,7 @@ v1.MapQuery(
     async (int stringId, [FromQuery] bool found = true)
         => await Task.FromResult(new GetStringQuery(StringId: stringId, Found: found)));
 v1.MapQuery<ListStringsQuery>("strings");
+v1.MapQuery<GetArticleQuery>("articles/{id:int}");
 v1.MapQuery<ListArticlesQuery<ArticleDto>>("articles");
 v1.MapQuery<ListArticlesQuery<ArticleDto>>("articles/page:{pageIndex}-{pageSize}");
 v1.MapQuery<GetLongToStringQuery>("long-to-string/{id:long}");

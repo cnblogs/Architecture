@@ -1,4 +1,5 @@
-﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
+﻿using System.Reflection;
+using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using MediatR;
@@ -13,15 +14,19 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 /// </summary>
 public class CqrsInjector
 {
+    private readonly Assembly[] _assemblies;
+
     /// <summary>
     ///     创建一个 <see cref="CqrsInjector" /> 的新实例。
     /// </summary>
     /// <param name="services">
     ///     <see cref="IServiceCollection" />
     /// </param>
-    internal CqrsInjector(IServiceCollection services)
+    /// <param name="assemblies"></param>
+    internal CqrsInjector(IServiceCollection services, Assembly[] assemblies)
     {
         Services = services;
+        _assemblies = assemblies;
     }
 
     /// <summary>
@@ -79,6 +84,115 @@ public class CqrsInjector
         builderAction?.Invoke(builder);
         Services.AddScoped<ICacheProvider, HybridCacheProvider>();
         return this;
+    }
+
+    /// <summary>
+    ///     Scan assemblies for <see cref="IEnricher{T}" /> implementations and register them as scoped services.
+    ///     When an enricher implements <c>IEnricher&lt;T&gt;</c> where <c>T</c> is an interface or abstract class,
+    ///     it will automatically be registered for all concrete types implementing that interface/abstract class.
+    /// </summary>
+    /// <param name="maxInterfaceImplementations">
+    ///     The maximum number of concrete implementations allowed when expanding an interface-based enricher.
+    ///     Defaults to 1000. If exceeded, an <see cref="InvalidOperationException" /> is thrown.
+    /// </param>
+    /// <returns></returns>
+    public CqrsInjector AddEnrichers(int maxInterfaceImplementations = 1000)
+    {
+        return AddEnrichers(_assemblies, maxInterfaceImplementations);
+    }
+
+    /// <summary>
+    ///     Scan assemblies for <see cref="IEnricher{T}" /> implementations and register them as scoped services.
+    ///     When an enricher implements <c>IEnricher&lt;T&gt;</c> where <c>T</c> is an interface or abstract class,
+    ///     it will automatically be registered for all concrete types implementing that interface/abstract class.
+    /// </summary>
+    /// <param name="assemblies">The assemblies to scan.</param>
+    /// <param name="maxInterfaceImplementations">
+    ///     The maximum number of concrete implementations allowed when expanding an interface-based enricher.
+    ///     Defaults to 1000. If exceeded, an <see cref="InvalidOperationException" /> is thrown.
+    /// </param>
+    /// <returns></returns>
+    public CqrsInjector AddEnrichers(Assembly[] assemblies, int maxInterfaceImplementations = 1000)
+    {
+        var concreteTypes = assemblies
+            .SelectMany(a => a.GetTypes())
+            .Where(t => t is { IsAbstract: false, IsInterface: false })
+            .ToList();
+
+        var cache = PreWarmCache(concreteTypes);
+        Services.TryAddSingleton(cache);
+        Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(EnricherBehavior<,>));
+
+        var enricherTypes = concreteTypes
+            .SelectMany(t => t.GetInterfaces(), (t, i) => (Implementation: t, Service: i))
+            .Where(x => x.Service.IsGenericType && x.Service.GetGenericTypeDefinition() == typeof(IEnricher<>));
+
+        foreach (var (impl, service) in enricherTypes)
+        {
+            RegisterEnricher(impl, service, concreteTypes, maxInterfaceImplementations);
+        }
+
+        return this;
+    }
+
+    private static EnricherMappingCache PreWarmCache(List<Type> concreteTypes)
+    {
+        var cache = new EnricherMappingCache();
+        var responseTypes = new HashSet<Type>();
+
+        var interfaces = concreteTypes.SelectMany(x => x.GetInterfaces()).Where(x => x.IsGenericType);
+        foreach (var iface in interfaces)
+        {
+            var genericDef = iface.GetGenericTypeDefinition();
+            if (genericDef == typeof(IQueryHandler<,>)
+                || genericDef == typeof(IListQueryHandler<,>)
+                || genericDef == typeof(ICommandHandler<,,>))
+            {
+                responseTypes.Add(iface.GetGenericArguments()[1]);
+            }
+        }
+
+        var modelTypes = concreteTypes.Where(c => c.IsAssignableTo(typeof(IModel)));
+        foreach (var modelType in modelTypes)
+        {
+            responseTypes.Add(modelType);
+        }
+
+        foreach (var type in responseTypes)
+        {
+            cache.GetContainerInfo(type);
+            cache.GetEnricherTypeInfo(type);
+        }
+
+        return cache;
+    }
+
+    private void RegisterEnricher(Type impl, Type service, List<Type> concreteTypes, int maxInterfaceImplementations)
+    {
+        var targetType = service.GetGenericArguments()[0];
+        if (targetType is not { IsInterface: true } and not { IsAbstract: true })
+        {
+            Services.AddScoped(service, impl);
+            return;
+        }
+
+        var implementations = concreteTypes.Where(targetType.IsAssignableFrom).ToList();
+        if (implementations.Count > maxInterfaceImplementations)
+        {
+            throw new InvalidOperationException(
+                $"IEnricher<{targetType.Name}> matches {implementations.Count} concrete types, "
+                + $"which exceeds the limit of {maxInterfaceImplementations}. "
+                + "Consider narrowing the interface or increasing the limit.");
+        }
+
+        Services.AddScoped(service, impl);
+
+        foreach (var concreteTarget in implementations)
+        {
+            var closedService = typeof(IEnricher<>).MakeGenericType(concreteTarget);
+            var adapterType = typeof(InterfaceEnricherAdapter<,>).MakeGenericType(targetType, concreteTarget);
+            Services.AddScoped(closedService, adapterType);
+        }
     }
 
     /// <summary>
@@ -165,6 +279,6 @@ public class CqrsInjector
 
     private void AddCacheBehaviorPipeline()
     {
-        Services.TryAddTransient(typeof(IPipelineBehavior<,>), typeof(CacheableRequestBehavior<,>));
+        Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CacheableRequestBehavior<,>));
     }
 }
