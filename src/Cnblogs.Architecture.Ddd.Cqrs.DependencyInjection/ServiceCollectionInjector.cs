@@ -49,6 +49,6 @@ public static class ServiceCollectionInjector
             cfg.RegisterServicesFromAssemblies(assemblies);
         });
 
-        return new CqrsInjector(services);
+        return new CqrsInjector(services, assemblies);
     }
 }

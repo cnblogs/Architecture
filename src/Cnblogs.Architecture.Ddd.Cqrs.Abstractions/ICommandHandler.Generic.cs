@@ -10,6 +10,7 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// <typeparam name="TCommand">The command type for this handler.</typeparam>
 /// <typeparam name="TView">The result type for this handler.</typeparam>
 /// <typeparam name="TError">The error type for this handler.</typeparam>
-public interface ICommandHandler<TCommand, TView, TError> : IRequestHandler<TCommand, CommandResponse<TView, TError>>
+public interface ICommandHandler<TCommand, TView, TError>
+    : IRequestHandler<TCommand, CommandResponse<TView, TError>>, IEnrichableRequest
     where TCommand : ICommand<TView, TError>
     where TError : Enumeration;
