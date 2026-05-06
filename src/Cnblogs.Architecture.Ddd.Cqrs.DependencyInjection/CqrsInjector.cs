@@ -140,18 +140,6 @@ public class CqrsInjector
         var cache = new EnricherMappingCache();
         var responseTypes = new HashSet<Type>();
 
-        var interfaces = concreteTypes.SelectMany(x => x.GetInterfaces()).Where(x => x.IsGenericType);
-        foreach (var iface in interfaces)
-        {
-            var genericDef = iface.GetGenericTypeDefinition();
-            if (genericDef == typeof(IQueryHandler<,>)
-                || genericDef == typeof(IListQueryHandler<,>)
-                || genericDef == typeof(ICommandHandler<,,>))
-            {
-                responseTypes.Add(iface.GetGenericArguments()[1]);
-            }
-        }
-
         var modelTypes = concreteTypes.Where(c => c.IsAssignableTo(typeof(IModel)));
         foreach (var modelType in modelTypes)
         {
