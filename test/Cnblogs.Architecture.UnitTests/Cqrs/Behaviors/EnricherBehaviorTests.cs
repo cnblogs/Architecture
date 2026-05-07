@@ -22,6 +22,7 @@ public class EnricherBehaviorTests
         var sp = Substitute.For<IServiceProvider>();
         sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
             .Returns(new[] { enricher as IEnricher<FakePostDto> });
+        sp.GetService(typeof(TrackingEnricher)).Returns(enricher);
         return (enricher, sp);
     }
 
@@ -368,10 +369,12 @@ public class EnricherBehaviorTests
         // Arrange
         var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var enricher1 = new TrackingEnricher();
-        var enricher2 = new TrackingEnricher();
+        var enricher2 = new TrackingEnricher2();
         var sp = Substitute.For<IServiceProvider>();
         sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
             .Returns(new IEnricher<FakePostDto>[] { enricher1, enricher2 });
+        sp.GetService(typeof(TrackingEnricher)).Returns(enricher1);
+        sp.GetService(typeof(TrackingEnricher2)).Returns(enricher2);
         var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
 
         // Act
@@ -391,10 +394,12 @@ public class EnricherBehaviorTests
         // Arrange
         var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var enricher1 = new TrackingEnricher { AllowParallel = true };
-        var enricher2 = new TrackingEnricher { AllowParallel = true };
+        var enricher2 = new TrackingEnricher2 { AllowParallel = true };
         var sp = Substitute.For<IServiceProvider>();
         sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
             .Returns(new IEnricher<FakePostDto>[] { enricher1, enricher2 });
+        sp.GetService(typeof(TrackingEnricher)).Returns(enricher1);
+        sp.GetService(typeof(TrackingEnricher2)).Returns(enricher2);
         var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
 
         // Act
@@ -406,6 +411,103 @@ public class EnricherBehaviorTests
         // Assert
         Assert.Single(enricher1.EnrichedItems);
         Assert.Single(enricher2.EnrichedItems);
+    }
+
+    [Fact]
+    public async Task EnrichAfter_BasicOrdering_DependencyRunsFirst()
+    {
+        // Arrange
+        var log = new List<string>();
+        var a = new EnricherA { ExecutionLog = log };
+        var b = new EnricherB { ExecutionLog = log };
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
+            .Returns(new IEnricher<FakePostDto>[] { a, b });
+        sp.GetService(typeof(EnricherA)).Returns(a);
+        sp.GetService(typeof(EnricherB)).Returns(b);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
+
+        // Act
+        await behavior.Handle(
+            new FakeEnrichableRequest<FakePostDto>(),
+            _ => Task.FromResult<FakePostDto?>(dto),
+            CancellationToken.None);
+
+        // Assert
+        Assert.Equal(["EnricherA", "EnricherB"], log);
+    }
+
+    [Fact]
+    public async Task EnrichAfter_TransitiveOrdering_RespectsFullChain()
+    {
+        // Arrange
+        var log = new List<string>();
+        var a = new EnricherA { ExecutionLog = log };
+        var b = new EnricherB { ExecutionLog = log };
+        var c = new EnricherC { ExecutionLog = log };
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
+            .Returns(new IEnricher<FakePostDto>[] { a, b, c });
+        sp.GetService(typeof(EnricherA)).Returns(a);
+        sp.GetService(typeof(EnricherB)).Returns(b);
+        sp.GetService(typeof(EnricherC)).Returns(c);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
+
+        // Act
+        await behavior.Handle(
+            new FakeEnrichableRequest<FakePostDto>(),
+            _ => Task.FromResult<FakePostDto?>(dto),
+            CancellationToken.None);
+
+        // Assert — C depends on A and B, B depends on A → order: A, B, C
+        Assert.Equal(["EnricherA", "EnricherB", "EnricherC"], log);
+    }
+
+    [Fact]
+    public async Task EnrichAfter_IndependentEnrichers_RunInFirstStage()
+    {
+        // Arrange — A has no deps, TrackingEnricher has no deps → both in stage 1
+        var log = new List<string>();
+        var a = new EnricherA { ExecutionLog = log };
+        var b = new EnricherB { ExecutionLog = log };
+        var tracking = new TrackingEnricher();
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
+            .Returns(new IEnricher<FakePostDto>[] { a, b, tracking });
+        sp.GetService(typeof(EnricherA)).Returns(a);
+        sp.GetService(typeof(EnricherB)).Returns(b);
+        sp.GetService(typeof(TrackingEnricher)).Returns(tracking);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
+
+        // Act
+        await behavior.Handle(
+            new FakeEnrichableRequest<FakePostDto>(),
+            _ => Task.FromResult<FakePostDto?>(dto),
+            CancellationToken.None);
+
+        // Assert — A and TrackingEnricher in stage 1, B in stage 2
+        Assert.True(log.IndexOf("EnricherA") < log.IndexOf("EnricherB"));
+        Assert.True(log.IndexOf("TrackingEnricher") < log.IndexOf("EnricherB"));
+        Assert.Single(tracking.EnrichedItems);
+    }
+
+    [Fact]
+    public void EnrichAfter_CircularDependency_Throws()
+    {
+        var cache = new EnricherMappingCache();
+        Assert.Throws<InvalidOperationException>(() =>
+            cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(CircularA), typeof(CircularB)]));
+    }
+
+    [Fact]
+    public void EnrichAfter_MissingDependency_Throws()
+    {
+        var cache = new EnricherMappingCache();
+        Assert.Throws<InvalidOperationException>(() =>
+            cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(EnricherB)]));
     }
 }
 

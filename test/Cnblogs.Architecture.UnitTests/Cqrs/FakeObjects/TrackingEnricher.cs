@@ -17,3 +17,5 @@ public class TrackingEnricher : IEnricher<FakePostDto>
         return Task.CompletedTask;
     }
 }
+
+public class TrackingEnricher2 : TrackingEnricher;

@@ -33,7 +33,7 @@ public class AddEnrichersTests
         // Arrange
         var services = new ServiceCollection();
         var injector = services.AddCqrs(typeof(AddEnrichersTests).Assembly);
-        injector.AddEnrichers([typeof(AddEnrichersTests).Assembly]);
+        injector.AddEnrichers(new List<Type> { typeof(UserInfoEnricher) });
 
         // Act
         var sp = services.BuildServiceProvider();
@@ -51,7 +51,7 @@ public class AddEnrichersTests
         // Arrange
         var services = new ServiceCollection();
         var injector = services.AddCqrs(typeof(AddEnrichersTests).Assembly);
-        injector.AddEnrichers([typeof(AddEnrichersTests).Assembly]);
+        injector.AddEnrichers(new List<Type> { typeof(TrackingEnricher) });
 
         // Act
         var sp = services.BuildServiceProvider();

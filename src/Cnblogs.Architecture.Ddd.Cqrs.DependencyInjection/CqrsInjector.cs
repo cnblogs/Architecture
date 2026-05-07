@@ -119,6 +119,51 @@ public class CqrsInjector
             .Where(t => t is { IsAbstract: false, IsInterface: false })
             .ToList();
 
+        return RegisterEnrichers(concreteTypes, maxInterfaceImplementations);
+    }
+
+    /// <summary>
+    ///     Register the given <see cref="IEnricher{T}" /> types as scoped services.
+    ///     Target types are automatically resolved from the <c>IEnricher&lt;T&gt;</c> interface.
+    ///     When the target is an interface or abstract class, concrete implementations are discovered
+    ///     by scanning the enricher types' assemblies.
+    /// </summary>
+    /// <param name="enricherTypes">The enricher types to register.</param>
+    /// <param name="maxInterfaceImplementations">
+    ///     The maximum number of concrete implementations allowed when expanding an interface-based enricher.
+    ///     Defaults to 1000. If exceeded, an <see cref="InvalidOperationException" /> is thrown.
+    /// </param>
+    /// <returns></returns>
+    public CqrsInjector AddEnrichers(ICollection<Type> enricherTypes, int maxInterfaceImplementations = 1000)
+    {
+        var concreteTypes = new HashSet<Type>(enricherTypes);
+
+        // Find interface/abstract target types that need expansion
+        var interfaceTargets = enricherTypes
+            .SelectMany(t => t.GetInterfaces())
+            .Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEnricher<>))
+            .Select(i => i.GetGenericArguments()[0])
+            .Where(t => t.IsInterface || t.IsAbstract)
+            .ToHashSet();
+
+        if (interfaceTargets.Count > 0)
+        {
+            var assemblies = enricherTypes.Select(t => t.Assembly).Distinct().ToArray();
+            foreach (var type in assemblies.SelectMany(a => a.GetTypes())
+                         .Where(t => t is { IsAbstract: false, IsInterface: false }))
+            {
+                if (interfaceTargets.Any(it => it.IsAssignableFrom(type)))
+                {
+                    concreteTypes.Add(type);
+                }
+            }
+        }
+
+        return RegisterEnrichers(concreteTypes, maxInterfaceImplementations);
+    }
+
+    private CqrsInjector RegisterEnrichers(ICollection<Type> concreteTypes, int maxInterfaceImplementations)
+    {
         Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(EnricherBehavior<,>));
 
         var enricherTypes = concreteTypes
@@ -150,7 +195,9 @@ public class CqrsInjector
         return this;
     }
 
-    private static EnricherMappingCache PreWarmCache(List<Type> concreteTypes, Dictionary<Type, List<Type>> enricherMap)
+    private static EnricherMappingCache PreWarmCache(
+        ICollection<Type> concreteTypes,
+        Dictionary<Type, List<Type>> enricherMap)
     {
         var cache = new EnricherMappingCache();
         var responseTypes = new HashSet<Type>();
@@ -178,7 +225,7 @@ public class CqrsInjector
     private List<Type> RegisterEnricher(
         Type impl,
         Type service,
-        List<Type> concreteTypes,
+        ICollection<Type> concreteTypes,
         int maxInterfaceImplementations,
         out Type targetType)
     {
