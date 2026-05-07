@@ -9,36 +9,38 @@ namespace Cnblogs.Architecture.UnitTests.Cqrs.Behaviors;
 
 public class EnricherBehaviorTests
 {
-    private static EnricherBehavior<TRequest, TResponse> CreateBehavior<TRequest, TResponse>(IServiceProvider sp)
+    private static EnricherBehavior<TRequest, TResponse> CreateBehavior<TRequest, TResponse>(
+        IServiceProvider sp,
+        EnricherMappingCache? cache = null)
         where TRequest : IEnrichableRequest, IRequest<TResponse>
         where TResponse : class
     {
-        return new EnricherBehavior<TRequest, TResponse>(sp, new EnricherMappingCache());
+        return new EnricherBehavior<TRequest, TResponse>(sp, cache ?? new EnricherMappingCache());
     }
 
-    private static (TrackingEnricher Enricher, IServiceProvider Sp) CreateSpWithEnricher()
+    private static (TrackingEnricher Enricher, IServiceProvider Sp, EnricherMappingCache Cache)
+        CreateSpWithEnricher()
     {
         var enricher = new TrackingEnricher();
         var sp = Substitute.For<IServiceProvider>();
-        sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
-            .Returns(new[] { enricher as IEnricher<FakePostDto> });
-        return (enricher, sp);
+        sp.GetService(typeof(TrackingEnricher)).Returns(enricher);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(TrackingEnricher)]);
+        return (enricher, sp, cache);
     }
 
-    private static IServiceProvider CreateSpWithoutEnricher()
+    private static (IServiceProvider Sp, EnricherMappingCache Cache) CreateSpWithoutEnricher()
     {
         var sp = Substitute.For<IServiceProvider>();
-        sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
-            .Returns(Array.Empty<IEnricher<FakePostDto>>());
-        return sp;
+        return (sp, new EnricherMappingCache());
     }
 
     [Fact]
     public async Task EarlyReturn_NullResponse_NoEnrichmentAsync()
     {
         // Arrange
-        var sp = CreateSpWithoutEnricher();
-        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        var (sp, cache) = CreateSpWithoutEnricher();
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
 
         // Act
         var result = await behavior.Handle(
@@ -54,9 +56,9 @@ public class EnricherBehaviorTests
     public async Task EarlyReturn_SkipEnrichRequested_NoEnrichmentAsync()
     {
         // Arrange
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
-        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -72,8 +74,8 @@ public class EnricherBehaviorTests
     public async Task EarlyReturn_StringResponse_NoEnrichmentAsync()
     {
         // Arrange
-        var sp = CreateSpWithoutEnricher();
-        var behavior = CreateBehavior<FakeEnrichableRequest<string>, string>(sp);
+        var (sp, cache) = CreateSpWithoutEnricher();
+        var behavior = CreateBehavior<FakeEnrichableRequest<string>, string>(sp, cache);
 
         // Act
         var result = await behavior.Handle(
@@ -89,8 +91,8 @@ public class EnricherBehaviorTests
     public async Task EarlyReturn_ElementTypeIsValueType_NoEnrichmentAsync()
     {
         // Arrange
-        var sp = CreateSpWithoutEnricher();
-        var behavior = CreateBehavior<FakeEnrichableRequest<List<int>>, List<int>>(sp);
+        var (sp, cache) = CreateSpWithoutEnricher();
+        var behavior = CreateBehavior<FakeEnrichableRequest<List<int>>, List<int>>(sp, cache);
 
         // Act
         var result = await behavior.Handle(
@@ -106,9 +108,9 @@ public class EnricherBehaviorTests
     public async Task EarlyReturn_NoEnricherRegistered_NoErrorAsync()
     {
         // Arrange
-        var sp = CreateSpWithoutEnricher();
+        var (sp, cache) = CreateSpWithoutEnricher();
         var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
-        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
 
         // Act
         var result = await behavior.Handle(
@@ -125,8 +127,8 @@ public class EnricherBehaviorTests
     {
         // Arrange
         var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
-        var (enricher, sp) = CreateSpWithEnricher();
-        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        var (enricher, sp, cache) = CreateSpWithEnricher();
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -145,8 +147,8 @@ public class EnricherBehaviorTests
         // Arrange
         var dto1 = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var dto2 = new FakePostDto(2, DateTimeOffset.Now, DateTimeOffset.Now);
-        var (enricher, sp) = CreateSpWithEnricher();
-        var behavior = CreateBehavior<FakeEnrichableRequest<List<FakePostDto>>, List<FakePostDto>>(sp);
+        var (enricher, sp, cache) = CreateSpWithEnricher();
+        var behavior = CreateBehavior<FakeEnrichableRequest<List<FakePostDto>>, List<FakePostDto>>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -167,9 +169,9 @@ public class EnricherBehaviorTests
         var dto1 = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var dto2 = new FakePostDto(2, DateTimeOffset.Now, DateTimeOffset.Now);
         var pagedList = new PagedList<FakePostDto?>([dto1, null, dto2], 1, 10, 3);
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior =
-            CreateBehavior<FakeEnrichableRequest<PagedList<FakePostDto?>>, PagedList<FakePostDto?>>(sp);
+            CreateBehavior<FakeEnrichableRequest<PagedList<FakePostDto?>>, PagedList<FakePostDto?>>(sp, cache);
 
         // Act
         var response = await behavior.Handle(
@@ -189,9 +191,9 @@ public class EnricherBehaviorTests
     {
         // Arrange
         var pagedList = new PagedList<FakePostDto>();
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior =
-            CreateBehavior<FakeEnrichableRequest<PagedList<FakePostDto>>, PagedList<FakePostDto>>(sp);
+            CreateBehavior<FakeEnrichableRequest<PagedList<FakePostDto>>, PagedList<FakePostDto>>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -210,9 +212,11 @@ public class EnricherBehaviorTests
         var dto1 = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var dto2 = new FakePostDto(2, DateTimeOffset.Now, DateTimeOffset.Now);
         var dict = new Dictionary<int, FakePostDto> { { 1, dto1 }, { 2, dto2 } };
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior =
-            CreateBehavior<FakeEnrichableRequest<Dictionary<int, FakePostDto>>, Dictionary<int, FakePostDto>>(sp);
+            CreateBehavior<FakeEnrichableRequest<Dictionary<int, FakePostDto>>, Dictionary<int, FakePostDto>>(
+                sp,
+                cache);
 
         // Act
         await behavior.Handle(
@@ -232,9 +236,9 @@ public class EnricherBehaviorTests
         var dto2 = new FakePostDto(2, DateTimeOffset.Now, DateTimeOffset.Now);
         var dict = new ReadOnlyDictionary<int, FakePostDto>(
             new Dictionary<int, FakePostDto> { { 1, dto1 }, { 2, dto2 } });
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior = CreateBehavior<FakeEnrichableRequest<ReadOnlyDictionary<int, FakePostDto>>,
-            ReadOnlyDictionary<int, FakePostDto>>(sp);
+            ReadOnlyDictionary<int, FakePostDto>>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -252,9 +256,9 @@ public class EnricherBehaviorTests
         // Arrange
         var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var response = new FakeObjectResponse<FakePostDto>(dto);
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior = CreateBehavior<FakeEnrichableRequest<FakeObjectResponse<FakePostDto>>,
-            FakeObjectResponse<FakePostDto>>(sp);
+            FakeObjectResponse<FakePostDto>>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -272,9 +276,9 @@ public class EnricherBehaviorTests
     {
         // Arrange
         var response = new FakeObjectResponse<FakePostDto>(null);
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior = CreateBehavior<FakeEnrichableRequest<FakeObjectResponse<FakePostDto>>,
-            FakeObjectResponse<FakePostDto>>(sp);
+            FakeObjectResponse<FakePostDto>>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -294,9 +298,9 @@ public class EnricherBehaviorTests
         var dto2 = new FakePostDto(2, DateTimeOffset.Now, DateTimeOffset.Now);
         var pagedList = new PagedList<FakePostDto>([dto1, dto2], 1, 10, 2);
         var response = new FakeObjectResponse<PagedList<FakePostDto>>(pagedList);
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior = CreateBehavior<FakeEnrichableRequest<FakeObjectResponse<PagedList<FakePostDto>>>,
-            FakeObjectResponse<PagedList<FakePostDto>>>(sp);
+            FakeObjectResponse<PagedList<FakePostDto>>>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -321,10 +325,10 @@ public class EnricherBehaviorTests
             { 3, null }
         };
         var pagedList = new PagedList<Dictionary<int, FakePostDto?>>([dict], 1, 10, 1);
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior = CreateBehavior<
             FakeEnrichableRequest<PagedList<Dictionary<int, FakePostDto?>>>,
-            PagedList<Dictionary<int, FakePostDto?>>>(sp);
+            PagedList<Dictionary<int, FakePostDto?>>>(sp, cache);
 
         // Act
         var response = await behavior.Handle(
@@ -347,10 +351,10 @@ public class EnricherBehaviorTests
         var dto2 = new FakePostDto(2, DateTimeOffset.Now, DateTimeOffset.Now);
         var list = new List<FakePostDto> { dto1, dto2 };
         var dict = new Dictionary<int, List<FakePostDto>> { { 1, list } };
-        var (enricher, sp) = CreateSpWithEnricher();
+        var (enricher, sp, cache) = CreateSpWithEnricher();
         var behavior = CreateBehavior<
             FakeEnrichableRequest<Dictionary<int, List<FakePostDto>>>,
-            Dictionary<int, List<FakePostDto>>>(sp);
+            Dictionary<int, List<FakePostDto>>>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -368,11 +372,13 @@ public class EnricherBehaviorTests
         // Arrange
         var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var enricher1 = new TrackingEnricher();
-        var enricher2 = new TrackingEnricher();
+        var enricher2 = new TrackingEnricher2();
         var sp = Substitute.For<IServiceProvider>();
-        sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
-            .Returns(new IEnricher<FakePostDto>[] { enricher1, enricher2 });
-        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        sp.GetService(typeof(TrackingEnricher)).Returns(enricher1);
+        sp.GetService(typeof(TrackingEnricher2)).Returns(enricher2);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(TrackingEnricher), typeof(TrackingEnricher2)]);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -391,11 +397,13 @@ public class EnricherBehaviorTests
         // Arrange
         var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var enricher1 = new TrackingEnricher { AllowParallel = true };
-        var enricher2 = new TrackingEnricher { AllowParallel = true };
+        var enricher2 = new TrackingEnricher2 { AllowParallel = true };
         var sp = Substitute.For<IServiceProvider>();
-        sp.GetService(typeof(IEnumerable<IEnricher<FakePostDto>>))
-            .Returns(new IEnricher<FakePostDto>[] { enricher1, enricher2 });
-        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp);
+        sp.GetService(typeof(TrackingEnricher)).Returns(enricher1);
+        sp.GetService(typeof(TrackingEnricher2)).Returns(enricher2);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(TrackingEnricher), typeof(TrackingEnricher2)]);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
 
         // Act
         await behavior.Handle(
@@ -406,6 +414,105 @@ public class EnricherBehaviorTests
         // Assert
         Assert.Single(enricher1.EnrichedItems);
         Assert.Single(enricher2.EnrichedItems);
+    }
+
+    [Fact]
+    public async Task EnrichAfter_BasicOrdering_DependencyRunsFirst()
+    {
+        // Arrange
+        var log = new List<string>();
+        var a = new EnricherA { ExecutionLog = log };
+        var b = new EnricherB { ExecutionLog = log };
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(EnricherA)).Returns(a);
+        sp.GetService(typeof(EnricherB)).Returns(b);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(EnricherA), typeof(EnricherB)]);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
+        var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
+
+        // Act
+        await behavior.Handle(
+            new FakeEnrichableRequest<FakePostDto>(),
+            _ => Task.FromResult<FakePostDto?>(dto),
+            CancellationToken.None);
+
+        // Assert
+        Assert.Equal(["EnricherA", "EnricherB"], log);
+    }
+
+    [Fact]
+    public async Task EnrichAfter_TransitiveOrdering_RespectsFullChain()
+    {
+        // Arrange
+        var log = new List<string>();
+        var a = new EnricherA { ExecutionLog = log };
+        var b = new EnricherB { ExecutionLog = log };
+        var c = new EnricherC { ExecutionLog = log };
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(EnricherA)).Returns(a);
+        sp.GetService(typeof(EnricherB)).Returns(b);
+        sp.GetService(typeof(EnricherC)).Returns(c);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(EnricherA), typeof(EnricherB), typeof(EnricherC)]);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
+        var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
+
+        // Act
+        await behavior.Handle(
+            new FakeEnrichableRequest<FakePostDto>(),
+            _ => Task.FromResult<FakePostDto?>(dto),
+            CancellationToken.None);
+
+        // Assert — C depends on A and B, B depends on A → order: A, B, C
+        Assert.Equal(["EnricherA", "EnricherB", "EnricherC"], log);
+    }
+
+    [Fact]
+    public async Task EnrichAfter_IndependentEnrichers_RunInFirstStage()
+    {
+        // Arrange — A has no deps, TrackingEnricher has no deps → both in stage 1
+        var log = new List<string>();
+        var a = new EnricherA { ExecutionLog = log };
+        var b = new EnricherB { ExecutionLog = log };
+        var tracking = new TrackingEnricher();
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(EnricherA)).Returns(a);
+        sp.GetService(typeof(EnricherB)).Returns(b);
+        sp.GetService(typeof(TrackingEnricher)).Returns(tracking);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(
+            typeof(FakePostDto),
+            [typeof(EnricherA), typeof(EnricherB), typeof(TrackingEnricher)]);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
+        var dto = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
+
+        // Act
+        await behavior.Handle(
+            new FakeEnrichableRequest<FakePostDto>(),
+            _ => Task.FromResult<FakePostDto?>(dto),
+            CancellationToken.None);
+
+        // Assert — A and TrackingEnricher in stage 1, B in stage 2
+        Assert.True(log.IndexOf("EnricherA") < log.IndexOf("EnricherB"));
+        Assert.True(log.IndexOf("TrackingEnricher") < log.IndexOf("EnricherB"));
+        Assert.Single(tracking.EnrichedItems);
+    }
+
+    [Fact]
+    public void EnrichAfter_CircularDependency_Throws()
+    {
+        var cache = new EnricherMappingCache();
+        Assert.Throws<InvalidOperationException>(() =>
+            cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(CircularA), typeof(CircularB)]));
+    }
+
+    [Fact]
+    public void EnrichAfter_MissingDependency_Throws()
+    {
+        var cache = new EnricherMappingCache();
+        Assert.Throws<InvalidOperationException>(() =>
+            cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(EnricherB)]));
     }
 }
 

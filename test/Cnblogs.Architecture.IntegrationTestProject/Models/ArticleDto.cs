@@ -9,4 +9,7 @@ public class ArticleDto : IModel, IEnrichableModel
     public string Title { get; set; } = string.Empty;
 
     public bool Enriched { get; set; }
+
+    /// <inheritdoc />
+    public bool EnrichedAfter { get; set; }
 }

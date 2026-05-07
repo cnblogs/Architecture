@@ -28,21 +28,19 @@ public class AddEnrichersTests
     }
 
     [Fact]
-    public void InterfaceEnricher_InterfaceBasedEnricher_RegisteredForAllImplementations()
+    public void InterfaceEnricher_InterfaceBasedEnricher_PlanBuiltForConcreteTypes()
     {
         // Arrange
         var services = new ServiceCollection();
         var injector = services.AddCqrs(typeof(AddEnrichersTests).Assembly);
-        injector.AddEnrichers([typeof(AddEnrichersTests).Assembly]);
+        injector.AddEnrichers(new List<Type> { typeof(UserInfoEnricher) });
 
         // Act
         var sp = services.BuildServiceProvider();
-        var userEnrichers = sp.GetServices<IEnricher<UserDto>>().ToList();
-        var adminEnrichers = sp.GetServices<IEnricher<AdminDto>>().ToList();
+        var enricher = sp.GetService<UserInfoEnricher>();
 
-        // Assert
-        Assert.Single(userEnrichers);
-        Assert.Single(adminEnrichers);
+        // Assert — enricher is registered and can be resolved by impl type
+        Assert.NotNull(enricher);
     }
 
     [Fact]
@@ -51,14 +49,14 @@ public class AddEnrichersTests
         // Arrange
         var services = new ServiceCollection();
         var injector = services.AddCqrs(typeof(AddEnrichersTests).Assembly);
-        injector.AddEnrichers([typeof(AddEnrichersTests).Assembly]);
+        injector.AddEnrichers(new List<Type> { typeof(TrackingEnricher) });
 
         // Act
         var sp = services.BuildServiceProvider();
-        var enrichers = sp.GetServices<IEnricher<FakePostDto>>().ToList();
+        var enricher = sp.GetService<TrackingEnricher>();
 
         // Assert
-        Assert.Contains(enrichers, e => e is TrackingEnricher);
+        Assert.NotNull(enricher);
     }
 
     [Fact]

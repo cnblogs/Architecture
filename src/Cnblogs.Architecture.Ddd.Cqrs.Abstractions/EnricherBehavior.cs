@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using Cnblogs.Architecture.Ddd.Cqrs.Abstractions.Internals;
 using MediatR;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
@@ -48,23 +49,40 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
             return response;
         }
 
-        var typeInfo = cache.GetEnricherTypeInfo(elementType);
-        if (sp.GetService(typeInfo.EnrichersServiceType) is not IEnumerable<object> enricherObjects)
+        var enricherPlan = cache.GetEnricherPlan(elementType);
+        if (enricherPlan is null)
         {
             return response;
         }
 
-        var enrichers = enricherObjects
-            .Select(x => (IEnricher)x)
-            .OrderByDescending(x => x.AllowParallel)
-            .ToList();
-
-        var method = isEnumerable ? typeInfo.BulkEnrichMethod : typeInfo.EnrichMethod;
-        var parallelTasks = new List<Task>();
-        foreach (var enricherObj in enrichers)
+        foreach (var stage in enricherPlan)
         {
+            await RunEnrichStageAsync(stage, isEnumerable, toEnrich, cancellationToken);
+        }
+
+        return response;
+    }
+
+    private async Task RunEnrichStageAsync(
+        EnricherStage stage,
+        bool isEnumerable,
+        object toEnrich,
+        CancellationToken cancellationToken)
+    {
+        var parallelTasks = new List<Task>();
+
+        foreach (var descriptor in stage.Entries)
+        {
+            var enricherObj = sp.GetService(descriptor.ImplType);
+            if (enricherObj is null)
+            {
+                continue;
+            }
+
+            var method = isEnumerable ? descriptor.BulkEnrichMethod : descriptor.EnrichMethod;
             var task = (Task)method.Invoke(enricherObj, [toEnrich, cancellationToken])!;
-            if (enricherObj.AllowParallel)
+
+            if (((IEnricher)enricherObj).AllowParallel)
             {
                 parallelTasks.Add(task);
             }
@@ -75,7 +93,6 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
         }
 
         await Task.WhenAll(parallelTasks);
-        return response;
     }
 
     private static object? UnwrapObjectResponse(object response)
