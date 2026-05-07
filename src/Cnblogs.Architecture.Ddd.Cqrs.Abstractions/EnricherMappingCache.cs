@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Concurrent;
+using System.Reflection;
+using Cnblogs.Architecture.Ddd.Cqrs.Abstractions.Internals;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
@@ -11,6 +13,7 @@ public class EnricherMappingCache
 {
     private readonly ConcurrentDictionary<Type, ContainerInfo> _containerInfoCache = new();
     private readonly ConcurrentDictionary<Type, EnricherTypeInfo> _enricherTypeInfoCache = new();
+    private readonly ConcurrentDictionary<Type, List<EnricherStage>> _enricherPlans = new();
 
     /// <summary>
     ///     Get container info for a type, caching the result.
@@ -28,6 +31,99 @@ public class EnricherMappingCache
     public EnricherTypeInfo GetEnricherTypeInfo(Type elementType)
     {
         return _enricherTypeInfoCache.GetOrAdd(elementType, static t => new EnricherTypeInfo(t));
+    }
+
+    /// <summary>
+    ///     Build enrich plan with given <paramref name="targetType"/> and <paramref name="enricherTypes"/>
+    /// </summary>
+    /// <param name="targetType">The element type to enrich.</param>
+    /// <param name="enricherTypes">Types of enrichers.</param>
+    public void BuildEnrichPlan(Type targetType, ICollection<Type> enricherTypes)
+    {
+        GetOrAddEnricherPlan(targetType, enricherTypes);
+    }
+
+    internal List<EnricherStage> GetOrAddEnricherPlan(Type targetType, ICollection<Type> enricherTypes)
+    {
+        // ReSharper disable once HeapView.CanAvoidClosure
+        return _enricherPlans.GetOrAdd(targetType, _ => CompileEnricherPlan(targetType, enricherTypes));
+    }
+
+    internal List<EnricherStage>? GetEnricherPlan(Type elementType)
+    {
+        var success = _enricherPlans.TryGetValue(elementType, out var list);
+        return success ? list : null;
+    }
+
+    private static List<EnricherStage> CompileEnricherPlan(Type elementType, ICollection<Type> enricherTypes)
+    {
+        if (enricherTypes.Count == 0)
+        {
+            return [];
+        }
+
+        var typeSet = enricherTypes.ToHashSet();
+        var inDegree = enricherTypes.ToDictionary(x => x, _ => 0);
+        var adjacencyList = enricherTypes.ToDictionary(x => x, _ => new List<Type>());
+        var enricherType = typeof(IEnricher<>).MakeGenericType(elementType);
+
+        // Build edges from EnrichAfterAttribute
+        foreach (var type in enricherTypes)
+        {
+            var attrs = type.GetCustomAttributes<EnrichAfterAttribute>();
+            foreach (var dep in attrs.SelectMany(x => x.DependencyTypes).Where(x => x.IsAssignableTo(enricherType)))
+            {
+                if (typeSet.Contains(dep))
+                {
+                    // Edge: dep -> type (dep must run BEFORE type)
+                    adjacencyList[dep].Add(type);
+                    inDegree[type]++;
+                    continue;
+                }
+
+                // Dependency is not in the same group, this is a configuration error
+                throw new InvalidOperationException(
+                    $"Enricher '{type}' depends on '{dep}', but '{dep}' is not registered/resolved for this element type.");
+            }
+        }
+
+        var stages = BuildDag(enricherTypes, inDegree, adjacencyList);
+
+        return stages;
+    }
+
+    private static List<EnricherStage> BuildDag(
+        ICollection<Type> enricherTypes,
+        Dictionary<Type, int> inDegree,
+        Dictionary<Type, List<Type>> adjacencyList)
+    {
+        var stages = new List<EnricherStage>();
+        var currentStageNodes = inDegree.Where(x => x.Value == 0).Select(x => x.Key).ToList();
+        var processedCount = 0;
+
+        // Process level by level
+        while (currentStageNodes.Count > 0)
+        {
+            stages.Add(new EnricherStage(currentStageNodes));
+            processedCount += currentStageNodes.Count;
+
+            var nextStageNodes = new List<Type>();
+            foreach (var dependent in currentStageNodes.SelectMany(node => adjacencyList[node]))
+            {
+                inDegree[dependent]--;
+                if (inDegree[dependent] == 0)
+                {
+                    nextStageNodes.Add(dependent);
+                }
+            }
+
+            currentStageNodes = nextStageNodes;
+        }
+
+        // Circular dependency check
+        return processedCount == enricherTypes.Count
+            ? stages
+            : throw new InvalidOperationException("Circular dependency detected among enrichers.");
     }
 
     private static ContainerInfo ResolveContainerInfo(Type t)

@@ -119,23 +119,38 @@ public class CqrsInjector
             .Where(t => t is { IsAbstract: false, IsInterface: false })
             .ToList();
 
-        var cache = PreWarmCache(concreteTypes);
-        Services.TryAddSingleton(cache);
         Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(EnricherBehavior<,>));
 
         var enricherTypes = concreteTypes
             .SelectMany(t => t.GetInterfaces(), (t, i) => (Implementation: t, Service: i))
             .Where(x => x.Service.IsGenericType && x.Service.GetGenericTypeDefinition() == typeof(IEnricher<>));
 
+        var enricherMap = new Dictionary<Type, List<Type>>();
         foreach (var (impl, service) in enricherTypes)
         {
-            RegisterEnricher(impl, service, concreteTypes, maxInterfaceImplementations);
+            var injected = RegisterEnricher(
+                impl,
+                service,
+                concreteTypes,
+                maxInterfaceImplementations,
+                out var elementType);
+            if (enricherMap.TryGetValue(elementType, out var value))
+            {
+                value.AddRange(injected);
+            }
+            else
+            {
+                enricherMap.Add(elementType, injected);
+            }
         }
+
+        var cache = PreWarmCache(concreteTypes, enricherMap);
+        Services.TryAddSingleton(cache);
 
         return this;
     }
 
-    private static EnricherMappingCache PreWarmCache(List<Type> concreteTypes)
+    private static EnricherMappingCache PreWarmCache(List<Type> concreteTypes, Dictionary<Type, List<Type>> enricherMap)
     {
         var cache = new EnricherMappingCache();
         var responseTypes = new HashSet<Type>();
@@ -152,16 +167,29 @@ public class CqrsInjector
             cache.GetEnricherTypeInfo(type);
         }
 
+        foreach (var item in enricherMap)
+        {
+            cache.BuildEnrichPlan(item.Key, item.Value);
+        }
+
         return cache;
     }
 
-    private void RegisterEnricher(Type impl, Type service, List<Type> concreteTypes, int maxInterfaceImplementations)
+    private List<Type> RegisterEnricher(
+        Type impl,
+        Type service,
+        List<Type> concreteTypes,
+        int maxInterfaceImplementations,
+        out Type targetType)
     {
-        var targetType = service.GetGenericArguments()[0];
+        var injected = new List<Type>();
+        targetType = service.GetGenericArguments()[0];
         if (targetType is not { IsInterface: true } and not { IsAbstract: true })
         {
+            Services.AddScoped(impl);
             Services.AddScoped(service, impl);
-            return;
+            injected.Add(impl);
+            return injected;
         }
 
         var implementations = concreteTypes.Where(targetType.IsAssignableFrom).ToList();
@@ -173,14 +201,20 @@ public class CqrsInjector
                 + "Consider narrowing the interface or increasing the limit.");
         }
 
+        injected.Add(impl);
         Services.AddScoped(service, impl);
+        Services.AddScoped(impl);
 
         foreach (var concreteTarget in implementations)
         {
             var closedService = typeof(IEnricher<>).MakeGenericType(concreteTarget);
             var adapterType = typeof(InterfaceEnricherAdapter<,>).MakeGenericType(targetType, concreteTarget);
             Services.AddScoped(closedService, adapterType);
+            Services.TryAddScoped(concreteTarget);
+            injected.Add(concreteTarget);
         }
+
+        return injected;
     }
 
     /// <summary>

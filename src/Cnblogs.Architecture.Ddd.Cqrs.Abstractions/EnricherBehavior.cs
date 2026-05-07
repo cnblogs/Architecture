@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Diagnostics.CodeAnalysis;
+using Cnblogs.Architecture.Ddd.Cqrs.Abstractions.Internals;
 using MediatR;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
@@ -48,14 +49,37 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
             return response;
         }
 
+        var enricherPlan = cache.GetEnricherPlan(elementType);
         var typeInfo = cache.GetEnricherTypeInfo(elementType);
-        if (sp.GetService(typeInfo.EnrichersServiceType) is not IEnumerable<object> enricherObjects)
+        if (enricherPlan is null)
         {
-            return response;
+            if (sp.GetService(typeInfo.EnrichersServiceType) is not IEnumerable<object> enricherObjects)
+            {
+                return response;
+            }
+
+            enricherPlan = cache.GetOrAddEnricherPlan(elementType, enricherObjects.Select(e => e.GetType()).ToList());
         }
 
+        foreach (var stage in enricherPlan)
+        {
+            await RunEnrichStageAsync(stage, isEnumerable, typeInfo, toEnrich, cancellationToken);
+        }
+
+        return response;
+    }
+
+    private async Task RunEnrichStageAsync(
+        EnricherStage stage,
+        bool isEnumerable,
+        EnricherTypeInfo typeInfo,
+        object toEnrich,
+        CancellationToken cancellationToken)
+    {
+        var enricherObjects = stage.EnricherTypes.Select(sp.GetService);
         var enrichers = enricherObjects
-            .Select(x => (IEnricher)x)
+            .Where(x => x is not null)
+            .Select(x => (IEnricher)x!)
             .OrderByDescending(x => x.AllowParallel)
             .ToList();
 
@@ -75,7 +99,6 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
         }
 
         await Task.WhenAll(parallelTasks);
-        return response;
     }
 
     private static object? UnwrapObjectResponse(object response)
