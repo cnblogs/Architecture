@@ -9,8 +9,7 @@ namespace Cnblogs.Architecture.UnitTests.Cqrs.Behaviors;
 
 public class EnricherBehaviorTests
 {
-    private static EnricherBehavior<TRequest, TResponse> CreateBehavior<TRequest, TResponse>(
-        IServiceProvider sp)
+    private static EnricherBehavior<TRequest, TResponse> CreateBehavior<TRequest, TResponse>(IServiceProvider sp)
         where TRequest : IEnrichableRequest, IRequest<TResponse>
         where TResponse : class
     {
@@ -167,18 +166,19 @@ public class EnricherBehaviorTests
         // Arrange
         var dto1 = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var dto2 = new FakePostDto(2, DateTimeOffset.Now, DateTimeOffset.Now);
-        var pagedList = new PagedList<FakePostDto>([dto1, dto2], 1, 10, 2);
+        var pagedList = new PagedList<FakePostDto?>([dto1, null, dto2], 1, 10, 3);
         var (enricher, sp) = CreateSpWithEnricher();
         var behavior =
-            CreateBehavior<FakeEnrichableRequest<PagedList<FakePostDto>>, PagedList<FakePostDto>>(sp);
+            CreateBehavior<FakeEnrichableRequest<PagedList<FakePostDto?>>, PagedList<FakePostDto?>>(sp);
 
         // Act
-        await behavior.Handle(
-            new FakeEnrichableRequest<PagedList<FakePostDto>>(),
-            _ => Task.FromResult<PagedList<FakePostDto>?>(pagedList),
+        var response = await behavior.Handle(
+            new FakeEnrichableRequest<PagedList<FakePostDto?>>(),
+            _ => Task.FromResult<PagedList<FakePostDto?>?>(pagedList),
             CancellationToken.None);
 
         // Assert
+        Assert.Equivalent(pagedList, response);
         Assert.Equal(2, enricher.EnrichedItems.Count);
         Assert.Same(dto1, enricher.EnrichedItems[0]);
         Assert.Same(dto2, enricher.EnrichedItems[1]);
@@ -212,8 +212,7 @@ public class EnricherBehaviorTests
         var dict = new Dictionary<int, FakePostDto> { { 1, dto1 }, { 2, dto2 } };
         var (enricher, sp) = CreateSpWithEnricher();
         var behavior =
-            CreateBehavior<FakeEnrichableRequest<Dictionary<int, FakePostDto>>, Dictionary<int, FakePostDto>>(
-                sp);
+            CreateBehavior<FakeEnrichableRequest<Dictionary<int, FakePostDto>>, Dictionary<int, FakePostDto>>(sp);
 
         // Act
         await behavior.Handle(
@@ -315,20 +314,26 @@ public class EnricherBehaviorTests
         // Arrange
         var dto1 = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
         var dto2 = new FakePostDto(2, DateTimeOffset.Now, DateTimeOffset.Now);
-        var dict = new Dictionary<int, FakePostDto> { { 1, dto1 }, { 2, dto2 } };
-        var pagedList = new PagedList<Dictionary<int, FakePostDto>>([dict], 1, 10, 1);
+        var dict = new Dictionary<int, FakePostDto?>
+        {
+            { 1, dto1 },
+            { 2, dto2 },
+            { 3, null }
+        };
+        var pagedList = new PagedList<Dictionary<int, FakePostDto?>>([dict], 1, 10, 1);
         var (enricher, sp) = CreateSpWithEnricher();
         var behavior = CreateBehavior<
-            FakeEnrichableRequest<PagedList<Dictionary<int, FakePostDto>>>,
-            PagedList<Dictionary<int, FakePostDto>>>(sp);
+            FakeEnrichableRequest<PagedList<Dictionary<int, FakePostDto?>>>,
+            PagedList<Dictionary<int, FakePostDto?>>>(sp);
 
         // Act
-        await behavior.Handle(
-            new FakeEnrichableRequest<PagedList<Dictionary<int, FakePostDto>>>(),
-            _ => Task.FromResult<PagedList<Dictionary<int, FakePostDto>>?>(pagedList),
+        var response = await behavior.Handle(
+            new FakeEnrichableRequest<PagedList<Dictionary<int, FakePostDto?>>>(),
+            _ => Task.FromResult<PagedList<Dictionary<int, FakePostDto?>>?>(pagedList),
             CancellationToken.None);
 
         // Assert
+        Assert.Equivalent(pagedList, response);
         Assert.Equal(2, enricher.EnrichedItems.Count);
         Assert.Contains(dto1, enricher.EnrichedItems);
         Assert.Contains(dto2, enricher.EnrichedItems);

@@ -21,7 +21,7 @@ public class AddEnrichersTests
             return Task.CompletedTask;
         }
 
-        public Task BulkEnrichAsync(IEnumerable<IContainUserInfo?> models, CancellationToken cancellationToken = default)
+        public Task BulkEnrichAsync(IEnumerable<IContainUserInfo> models, CancellationToken cancellationToken)
         {
             return Task.CompletedTask;
         }

@@ -6,18 +6,19 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 ///     Adapts an <see cref="IEnricher{TAbstract}" /> to work as an <see cref="IEnricher{TConcrete}" />,
 ///     enabling interface-based enricher registrations.
 /// </summary>
-internal sealed class InterfaceEnricherAdapter<TAbstract, TConcrete>(IEnricher<TAbstract> inner) : IEnricher<TConcrete>
+internal sealed class InterfaceEnricherAdapter<TAbstract, TConcrete>(IEnricher<TAbstract> inner)
+    : IEnricher<TConcrete>
     where TAbstract : class
     where TConcrete : class, TAbstract
 {
     public bool AllowParallel => inner.AllowParallel;
 
-    public Task EnrichAsync(TConcrete? model, CancellationToken cancellationToken = default)
+    public Task EnrichAsync(TConcrete model, CancellationToken cancellationToken)
     {
         return inner.EnrichAsync(model, cancellationToken);
     }
 
-    public Task BulkEnrichAsync(IEnumerable<TConcrete?> models, CancellationToken cancellationToken = default)
+    public Task BulkEnrichAsync(IEnumerable<TConcrete> models, CancellationToken cancellationToken)
     {
         return inner.BulkEnrichAsync(models, cancellationToken);
     }

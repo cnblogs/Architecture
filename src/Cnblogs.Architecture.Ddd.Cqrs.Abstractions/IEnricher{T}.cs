@@ -13,7 +13,7 @@ public interface IEnricher<T> : IEnricher
     /// <param name="model">The model to be enriched.</param>
     /// <param name="cancellationToken">The cancellation token to use.</param>
     /// <returns></returns>
-    Task EnrichAsync(T? model, CancellationToken cancellationToken = default);
+    Task EnrichAsync(T model, CancellationToken cancellationToken);
 
     /// <summary>
     ///     Enrich a batch of models.
@@ -21,5 +21,18 @@ public interface IEnricher<T> : IEnricher
     /// <param name="models">The models to be enriched.</param>
     /// <param name="cancellationToken">The cancellation token to use.</param>
     /// <returns></returns>
-    Task BulkEnrichAsync(IEnumerable<T?> models, CancellationToken cancellationToken = default);
+    async Task BulkEnrichAsync(IEnumerable<T> models, CancellationToken cancellationToken)
+    {
+        if (AllowParallel)
+        {
+            await Task.WhenAll(models.Select(x => EnrichAsync(x, cancellationToken)));
+            return;
+        }
+
+        foreach (var model in models)
+        {
+            cancellationToken.ThrowIfCancellationRequested();
+            await EnrichAsync(model, cancellationToken);
+        }
+    }
 }

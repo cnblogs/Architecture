@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Diagnostics.CodeAnalysis;
 using MediatR;
 
@@ -93,7 +94,7 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
         var currentType = item.GetType();
         elementType = currentType;
         isEnumerable = false;
-        object? currentItems = null;
+        IEnumerable? currentItems = null;
 
         for (var depth = 0; depth < MaxUnwrapDepth; depth++)
         {
@@ -108,25 +109,43 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
             elementType = containerInfo.ElementType;
 
             currentItems = currentItems is null
-                ? containerInfo.ExtractItems!(item)
+                ? containerInfo.ExtractItems!.Invoke(item)
                 : Flatten(currentItems, containerInfo);
 
             currentType = containerInfo.ElementType;
         }
 
-        return isEnumerable ? currentItems! : item;
+        return isEnumerable ? ExtractNonNulls(currentItems!, elementType) : item;
     }
 
-    private static object Flatten(object items, ContainerInfo containerInfo)
+    private static IEnumerable ExtractNonNulls(IEnumerable items, Type elementType)
+    {
+        var listType = typeof(List<>).MakeGenericType(elementType);
+        var nonNulls = (IList)Activator.CreateInstance(listType)!;
+        foreach (var obj in items)
+        {
+            if (obj is not null)
+            {
+                nonNulls.Add(obj);
+            }
+        }
+
+        return nonNulls;
+    }
+
+    private static IEnumerable Flatten(object items, ContainerInfo containerInfo)
     {
         var elementType = containerInfo.ElementType;
         var listType = typeof(List<>).MakeGenericType(elementType);
-        var flattened = (System.Collections.IList)Activator.CreateInstance(listType)!;
-        foreach (var obj in (System.Collections.IEnumerable)items)
+        var flattened = (IList)Activator.CreateInstance(listType)!;
+        foreach (var obj in (IEnumerable)items)
         {
             if (obj is null)
+            {
                 continue;
-            foreach (var i in containerInfo.ExtractItems!(obj))
+            }
+
+            foreach (var i in containerInfo.ExtractItems!.Invoke(obj))
             {
                 flattened.Add(i);
             }
