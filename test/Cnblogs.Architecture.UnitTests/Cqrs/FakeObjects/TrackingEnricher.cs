@@ -10,20 +10,10 @@ public class TrackingEnricher : IEnricher<FakePostDto>
     public bool AllowParallel { get; set; }
 
     /// <inheritdoc />
-    public Task EnrichAsync(FakePostDto? model, CancellationToken cancellationToken = default)
+    public Task EnrichAsync(FakePostDto model, CancellationToken cancellationToken = default)
     {
-        if (model is not null)
-        {
-            EnrichedItems.Add(model);
-        }
-
-        return Task.CompletedTask;
-    }
-
-    /// <inheritdoc />
-    public Task BulkEnrichAsync(IEnumerable<FakePostDto?> models, CancellationToken cancellationToken = default)
-    {
-        EnrichedItems.AddRange(models.Where(m => m is not null).Cast<FakePostDto>());
+        ArgumentNullException.ThrowIfNull(model);
+        EnrichedItems.Add(model);
         return Task.CompletedTask;
     }
 }
