@@ -1,4 +1,4 @@
-using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
+﻿using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 
 namespace Cnblogs.Architecture.UnitTests.Cqrs.FakeObjects;
 

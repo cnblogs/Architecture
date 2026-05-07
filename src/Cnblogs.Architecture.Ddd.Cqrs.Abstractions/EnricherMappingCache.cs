@@ -12,7 +12,6 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 public class EnricherMappingCache
 {
     private readonly ConcurrentDictionary<Type, ContainerInfo> _containerInfoCache = new();
-    private readonly ConcurrentDictionary<Type, EnricherTypeInfo> _enricherTypeInfoCache = new();
     private readonly ConcurrentDictionary<Type, List<EnricherStage>> _enricherPlans = new();
 
     /// <summary>
@@ -25,28 +24,14 @@ public class EnricherMappingCache
     }
 
     /// <summary>
-    ///     Get enricher type info for an element type, caching the result.
-    /// </summary>
-    /// <param name="elementType">The element type to resolve enrichers for.</param>
-    public EnricherTypeInfo GetEnricherTypeInfo(Type elementType)
-    {
-        return _enricherTypeInfoCache.GetOrAdd(elementType, static t => new EnricherTypeInfo(t));
-    }
-
-    /// <summary>
     ///     Build enrich plan with given <paramref name="targetType"/> and <paramref name="enricherTypes"/>
     /// </summary>
     /// <param name="targetType">The element type to enrich.</param>
     /// <param name="enricherTypes">Types of enrichers.</param>
     public void BuildEnrichPlan(Type targetType, ICollection<Type> enricherTypes)
     {
-        GetOrAddEnricherPlan(targetType, enricherTypes);
-    }
-
-    internal List<EnricherStage> GetOrAddEnricherPlan(Type targetType, ICollection<Type> enricherTypes)
-    {
         // ReSharper disable once HeapView.CanAvoidClosure
-        return _enricherPlans.GetOrAdd(targetType, _ => CompileEnricherPlan(targetType, enricherTypes));
+        _enricherPlans.GetOrAdd(targetType, _ => CompileEnricherPlan(enricherTypes));
     }
 
     internal List<EnricherStage>? GetEnricherPlan(Type elementType)
@@ -55,16 +40,20 @@ public class EnricherMappingCache
         return success ? list : null;
     }
 
-    private static List<EnricherStage> CompileEnricherPlan(Type elementType, ICollection<Type> enricherTypes)
+    private static List<EnricherStage> CompileEnricherPlan(ICollection<Type> enricherTypes)
     {
         if (enricherTypes.Count == 0)
         {
             return [];
         }
 
+        var descriptors = enricherTypes.ToDictionary(t => t, CreateDescriptor);
         var typeSet = enricherTypes.ToHashSet();
         var inDegree = enricherTypes.ToDictionary(x => x, _ => 0);
         var adjacencyList = enricherTypes.ToDictionary(x => x, _ => new List<Type>());
+
+        // Resolve the enricher interface for type checking
+        var elementType = descriptors.Values.First().EnrichMethod.GetParameters()[0].ParameterType;
         var enricherType = typeof(IEnricher<>).MakeGenericType(elementType);
 
         // Build edges from EnrichAfterAttribute
@@ -87,13 +76,22 @@ public class EnricherMappingCache
             }
         }
 
-        var stages = BuildDag(enricherTypes, inDegree, adjacencyList);
+        return BuildDag(enricherTypes, descriptors, inDegree, adjacencyList);
+    }
 
-        return stages;
+    private static EnricherDescriptor CreateDescriptor(Type enricherType)
+    {
+        var enricherInterface = enricherType.GetInterfaces()
+            .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEnricher<>));
+        return new EnricherDescriptor(
+            enricherType,
+            enricherInterface.GetMethod("EnrichAsync")!,
+            enricherInterface.GetMethod("BulkEnrichAsync")!);
     }
 
     private static List<EnricherStage> BuildDag(
         ICollection<Type> enricherTypes,
+        Dictionary<Type, EnricherDescriptor> descriptors,
         Dictionary<Type, int> inDegree,
         Dictionary<Type, List<Type>> adjacencyList)
     {
@@ -104,7 +102,7 @@ public class EnricherMappingCache
         // Process level by level
         while (currentStageNodes.Count > 0)
         {
-            stages.Add(new EnricherStage(currentStageNodes));
+            stages.Add(new EnricherStage(currentStageNodes.Select(t => descriptors[t]).ToList()));
             processedCount += currentStageNodes.Count;
 
             var nextStageNodes = new List<Type>();

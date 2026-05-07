@@ -20,6 +20,7 @@ public class EnricherTests
 
         // Assert
         Assert.True(response?.Enriched);
+        Assert.True(response?.EnrichedAfter);
     }
 
     [Fact]
@@ -35,6 +36,7 @@ public class EnricherTests
         // Assert
         Assert.NotNull(response);
         Assert.All(response.Items, a => Assert.True(a.Enriched));
+        Assert.All(response.Items, a => Assert.True(a.EnrichedAfter));
     }
 
     [Fact]
@@ -51,5 +53,6 @@ public class EnricherTests
 
         // Assert
         Assert.True(commandResponse?.Enriched);
+        Assert.True(commandResponse?.EnrichedAfter);
     }
 }

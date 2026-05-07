@@ -50,20 +50,14 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
         }
 
         var enricherPlan = cache.GetEnricherPlan(elementType);
-        var typeInfo = cache.GetEnricherTypeInfo(elementType);
         if (enricherPlan is null)
         {
-            if (sp.GetService(typeInfo.EnrichersServiceType) is not IEnumerable<object> enricherObjects)
-            {
-                return response;
-            }
-
-            enricherPlan = cache.GetOrAddEnricherPlan(elementType, enricherObjects.Select(e => e.GetType()).ToList());
+            return response;
         }
 
         foreach (var stage in enricherPlan)
         {
-            await RunEnrichStageAsync(stage, isEnumerable, typeInfo, toEnrich, cancellationToken);
+            await RunEnrichStageAsync(stage, isEnumerable, toEnrich, cancellationToken);
         }
 
         return response;
@@ -72,23 +66,23 @@ public class EnricherBehavior<TRequest, TResponse>(IServiceProvider sp, Enricher
     private async Task RunEnrichStageAsync(
         EnricherStage stage,
         bool isEnumerable,
-        EnricherTypeInfo typeInfo,
         object toEnrich,
         CancellationToken cancellationToken)
     {
-        var enricherObjects = stage.EnricherTypes.Select(sp.GetService);
-        var enrichers = enricherObjects
-            .Where(x => x is not null)
-            .Select(x => (IEnricher)x!)
-            .OrderByDescending(x => x.AllowParallel)
-            .ToList();
-
-        var method = isEnumerable ? typeInfo.BulkEnrichMethod : typeInfo.EnrichMethod;
         var parallelTasks = new List<Task>();
-        foreach (var enricherObj in enrichers)
+
+        foreach (var descriptor in stage.Entries)
         {
+            var enricherObj = sp.GetService(descriptor.ImplType);
+            if (enricherObj is null)
+            {
+                continue;
+            }
+
+            var method = isEnumerable ? descriptor.BulkEnrichMethod : descriptor.EnrichMethod;
             var task = (Task)method.Invoke(enricherObj, [toEnrich, cancellationToken])!;
-            if (enricherObj.AllowParallel)
+
+            if (((IEnricher)enricherObj).AllowParallel)
             {
                 parallelTasks.Add(task);
             }
