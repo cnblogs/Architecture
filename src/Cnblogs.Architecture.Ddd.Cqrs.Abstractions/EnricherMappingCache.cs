@@ -47,17 +47,17 @@ public class EnricherMappingCache
             return [];
         }
 
-        var descriptors = enricherTypes.ToDictionary(t => t, CreateDescriptor);
         var typeSet = enricherTypes.ToHashSet();
-        var inDegree = enricherTypes.ToDictionary(x => x, _ => 0);
-        var adjacencyList = enricherTypes.ToDictionary(x => x, _ => new List<Type>());
+        var descriptors = typeSet.ToDictionary(t => t, CreateDescriptor);
+        var inDegree = typeSet.ToDictionary(x => x, _ => 0);
+        var adjacencyList = typeSet.ToDictionary(x => x, _ => new List<Type>());
 
         // Resolve the enricher interface for type checking
         var elementType = descriptors.Values.First().EnrichMethod.GetParameters()[0].ParameterType;
         var enricherType = typeof(IEnricher<>).MakeGenericType(elementType);
 
         // Build edges from EnrichAfterAttribute
-        foreach (var type in enricherTypes)
+        foreach (var type in typeSet)
         {
             var attrs = type.GetCustomAttributes<EnrichAfterAttribute>();
             foreach (var dep in attrs.SelectMany(x => x.DependencyTypes).Where(x => x.IsAssignableTo(enricherType)))
@@ -76,7 +76,7 @@ public class EnricherMappingCache
             }
         }
 
-        return BuildDag(enricherTypes, descriptors, inDegree, adjacencyList);
+        return BuildDag(typeSet, descriptors, inDegree, adjacencyList);
     }
 
     private static EnricherDescriptor CreateDescriptor(Type enricherType)
@@ -90,7 +90,7 @@ public class EnricherMappingCache
     }
 
     private static List<EnricherStage> BuildDag(
-        ICollection<Type> enricherTypes,
+        HashSet<Type> enricherTypes,
         Dictionary<Type, EnricherDescriptor> descriptors,
         Dictionary<Type, int> inDegree,
         Dictionary<Type, List<Type>> adjacencyList)
