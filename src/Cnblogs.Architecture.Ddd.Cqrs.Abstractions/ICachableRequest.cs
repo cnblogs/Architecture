@@ -32,6 +32,16 @@ public interface ICachableRequest
     string? CacheGroupKey();
 
     /// <summary>
+    ///     Associate this request with multiple cache groups, return <c>null</c> for no group.
+    /// </summary>
+    /// <returns></returns>
+    string[]? CacheGroupKeys()
+    {
+        var group = CacheGroupKey();
+        return group == null ? null : [group];
+    }
+
+    /// <summary>
     ///     Generate cache key for each request.
     /// </summary>
     /// <returns>The cache key for current request.</returns>

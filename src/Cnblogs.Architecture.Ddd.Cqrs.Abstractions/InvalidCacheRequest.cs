@@ -11,4 +11,5 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 public record InvalidCacheRequest(
     ICachableRequest Request,
     bool InvalidWholeGroup = false,
-    bool? ThrowIfFailed = null) : IRequest;
+    bool? ThrowIfFailed = null)
+    : IRequest;

@@ -16,7 +16,7 @@ public class HybridCacheProvider(HybridCache hybridCache) : ICacheProvider
         Func<CancellationToken, ValueTask<TResult>> factory,
         TimeSpan? remoteExpires = null,
         TimeSpan? localExpires = null,
-        string? groupName = null,
+        string[]? groupNames = null,
         CancellationToken cancellationToken = default)
     {
         if (remoteExpires is null && localExpires is null)
@@ -36,23 +36,30 @@ public class HybridCacheProvider(HybridCache hybridCache) : ICacheProvider
             LocalCacheExpiration = localExpires,
             Flags = flag
         };
+
+        if (groupNames?.Length > 0)
+        {
+            groupNames = groupNames.Select(x => x.ToLowerInvariant()).ToArray();
+        }
+
         return await hybridCache.GetOrCreateAsync(
             cacheKey,
             factory,
             options,
-            groupName == null ? null : [groupName],
+            groupNames,
             cancellationToken);
     }
 
     /// <inheritdoc />
     public ValueTask RemoveAsync(string cacheKey, CancellationToken cancellationToken = default)
     {
-        return hybridCache.RemoveAsync(cacheKey.ToLower(), cancellationToken);
+        return hybridCache.RemoveAsync(cacheKey.ToLowerInvariant(), cancellationToken);
     }
 
     /// <inheritdoc />
-    public ValueTask RemoveGroupAsync(string groupName, CancellationToken cancellationToken = default)
+    public ValueTask RemoveGroupAsync(string[] groupNames, CancellationToken cancellationToken = default)
     {
-        return hybridCache.RemoveByTagAsync(groupName.ToLower(), cancellationToken);
+        var lowered = groupNames.Select(x => x.ToLowerInvariant()).ToArray();
+        return hybridCache.RemoveByTagAsync(lowered, cancellationToken);
     }
 }

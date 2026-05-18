@@ -12,7 +12,7 @@ public interface ICacheProvider
     /// <param name="factory">factory used when cache miss.</param>
     /// <param name="remoteExpires">remote expiration</param>
     /// <param name="localExpires">how long to cache</param>
-    /// <param name="groupName">group key for cache.</param>
+    /// <param name="groupNames">group key for cache.</param>
     /// <param name="cancellationToken">cancellation token to use.</param>
     /// <typeparam name="TResult">The result type.</typeparam>
     /// <returns></returns>
@@ -21,7 +21,7 @@ public interface ICacheProvider
         Func<CancellationToken, ValueTask<TResult>> factory,
         TimeSpan? remoteExpires = null,
         TimeSpan? localExpires = null,
-        string? groupName = null,
+        string[]? groupNames = null,
         CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -34,8 +34,8 @@ public interface ICacheProvider
     /// <summary>
     ///     Remove all the cache in the group.
     /// </summary>
-    /// <param name="groupName"></param>
+    /// <param name="groupNames"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    ValueTask RemoveGroupAsync(string groupName, CancellationToken cancellationToken = default);
+    ValueTask RemoveGroupAsync(string[] groupNames, CancellationToken cancellationToken = default);
 }
