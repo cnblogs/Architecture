@@ -72,7 +72,55 @@ public class InvalidCacheRequestHandlerTests
             CancellationToken.None);
 
         // Assert
-        await remote.Received(1).RemoveGroupAsync(Arg.Any<string>());
+        await remote.Received(1).RemoveGroupAsync(Arg.Any<string[]>());
+    }
+
+    [Fact]
+    public async Task InvalidCacheGroups_RemoveGroupCacheAsync()
+    {
+        // Arrange
+        var remote = Substitute.For<ICacheProvider>();
+        var handler = CreateInvalidCacheRequestHandler(remote);
+
+        // Act
+        await handler.Handle(
+            new InvalidCacheGroupsRequest(["group1", "group2"]),
+            CancellationToken.None);
+
+        // Assert
+        await remote.Received(1).RemoveGroupAsync(Arg.Any<string[]>());
+    }
+
+    [Fact]
+    public async Task InvalidCacheGroups_ThrowOnRemove_NotThrowAsync()
+    {
+        // Arrange
+        var provider = Substitute.For<ICacheProvider>();
+        provider.RemoveGroupAsync(Arg.Any<string[]>())
+            .Throws(new InvalidOperationException());
+        var handler = CreateInvalidCacheRequestHandler(provider);
+
+        // Act
+        await handler.Handle(
+            new InvalidCacheGroupsRequest(["group1"]),
+            CancellationToken.None);
+
+        // Assert-Not throws.
+    }
+
+    [Fact]
+    public async Task InvalidCacheGroups_ThrowOnRemove_ThrowWhenRequestedAsync()
+    {
+        // Arrange
+        var provider = Substitute.For<ICacheProvider>();
+        provider.RemoveGroupAsync(Arg.Any<string[]>())
+            .Throws(new InvalidOperationException());
+        var handler = CreateInvalidCacheRequestHandler(provider);
+
+        // Act & Assert
+        await Assert.ThrowsAsync<InvalidOperationException>(() => handler.Handle(
+            new InvalidCacheGroupsRequest(["group1"], true),
+            CancellationToken.None));
     }
 
     private InvalidCacheRequestHandler CreateInvalidCacheRequestHandler(ICacheProvider cacheProvider)

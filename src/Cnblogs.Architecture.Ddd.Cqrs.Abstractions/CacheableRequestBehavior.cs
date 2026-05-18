@@ -38,7 +38,7 @@ public class CacheableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<T
         }
 
         var cacheKey = request.CacheKey();
-        var cacheGroupKey = request.CacheGroupKey();
+        var cacheGroupKey = request.CacheGroupKeys();
         return await _cache.GetOrCreateAsync(
             cacheKey,
             async token => await next(token),

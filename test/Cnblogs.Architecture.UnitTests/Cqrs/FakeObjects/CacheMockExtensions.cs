@@ -12,7 +12,7 @@ public static class CacheMockExtensions
                 Arg.Any<Func<CancellationToken, ValueTask<T>>>(),
                 Arg.Any<TimeSpan?>(),
                 Arg.Any<TimeSpan?>(),
-                Arg.Any<string?>(),
+                Arg.Any<string[]?>(),
                 Arg.Any<CancellationToken>())
             .Returns(Task.FromResult(value));
         return mock;
