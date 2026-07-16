@@ -40,7 +40,7 @@ public class IntegrationEventPublishTests
         Assert.False(string.IsNullOrEmpty(content));
         await eventBusMock.Received(1).PublishAsync(
             Arg.Any<string>(),
-            Arg.Is<TestIntegrationEvent>(t => t.Message == data));
+            Arg.Is<TestIntegrationEvent>(t => t!.Message == data));
     }
 
     [Fact]
@@ -78,7 +78,7 @@ public class IntegrationEventPublishTests
         Assert.False(string.IsNullOrEmpty(content));
         await eventBusMock.Received(2).PublishAsync(
             Arg.Any<string>(),
-            Arg.Is<TestIntegrationEvent>(t => t.Message == data));
+            Arg.Is<TestIntegrationEvent>(t => t!.Message == data));
     }
 
     [Fact]
@@ -189,6 +189,6 @@ public class IntegrationEventPublishTests
 
         // Assert
         await eventBusMock.Received(2)
-            .PublishAsync(Arg.Any<string>(), Arg.Is<TestIntegrationEvent>(t => t.Message == data));
+            .PublishAsync(Arg.Any<string>(), Arg.Is<TestIntegrationEvent>(t => t!.Message == data));
     }
 }

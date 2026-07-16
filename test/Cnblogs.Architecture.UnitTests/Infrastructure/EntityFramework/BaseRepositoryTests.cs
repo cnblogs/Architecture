@@ -149,10 +149,10 @@ public class BaseRepositoryTests
 
         // Assert
         await mediator.Received(1).Publish(
-            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1),
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d!).FakeValue == 1),
             Arg.Any<CancellationToken>());
         await mediator.Received(1).Publish(
-            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2),
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d!).FakeValue == 2),
             Arg.Any<CancellationToken>());
     }
 
@@ -183,10 +183,10 @@ public class BaseRepositoryTests
 
         // Assert
         await mediator.Received(1).Publish(
-            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 1),
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d!).FakeValue == 1),
             Arg.Any<CancellationToken>());
         await mediator.Received(1).Publish(
-            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).FakeValue == 2),
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d!).FakeValue == 2),
             Arg.Any<CancellationToken>());
     }
 
@@ -213,10 +213,10 @@ public class BaseRepositoryTests
 
         // Assert
         await mediator.Received(1).Publish(
-            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d!).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
             Arg.Any<CancellationToken>());
         await mediator.Received(entity.Posts.Count).Publish(
-            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 2),
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d!).Id != 0 && ((FakeDomainEvent)d).FakeValue == 2),
             Arg.Any<CancellationToken>());
     }
 
@@ -248,10 +248,10 @@ public class BaseRepositoryTests
         var exception = await Assert.ThrowsAsync<AggregateException>(act);
         Assert.Equal(eventCount, exception.InnerExceptions.Count);
         await mediator.Received(1).Publish(
-            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d!).Id != 0 && ((FakeDomainEvent)d).FakeValue == 1),
             Arg.Any<CancellationToken>());
         await mediator.Received(entity.Posts.Count).Publish(
-            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d).Id != 0 && ((FakeDomainEvent)d).FakeValue == 2),
+            Arg.Is<IDomainEvent>(d => ((FakeDomainEvent)d!).Id != 0 && ((FakeDomainEvent)d).FakeValue == 2),
             Arg.Any<CancellationToken>());
     }
 }
