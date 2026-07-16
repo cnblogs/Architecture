@@ -186,7 +186,7 @@ public class MongoBaseRepositoryTests
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
             .BulkWriteAsync(
                 Arg.Any<IClientSessionHandle>(),
-                Arg.Is<IEnumerable<WriteModel<FakeBlog>>>(y => y.Any(z => z is ReplaceOneModel<FakeBlog>)),
+                Arg.Is<IEnumerable<WriteModel<FakeBlog>>>(y => y!.Any(z => z is ReplaceOneModel<FakeBlog>)),
                 Arg.Any<BulkWriteOptions>(),
                 Arg.Any<CancellationToken>());
         await repository.MediatorMock.Received(1).Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
