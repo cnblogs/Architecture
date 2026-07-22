@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>cnb</ToolCommandName>
+    <PackageId>cnb-arch-tool</PackageId>
+    <Description>
+      dotnet-cnblogs-sa: generates strongly-typed CQRS service agents (IXxxService / XxxService) from a
+      Cnblogs.Architecture API project that uses MapQuery / MapCommand.
+    </Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>
