@@ -115,6 +115,16 @@ public static class CqrsRouteMapper
         bool enableHead = false)
     {
         var (queryType, returnType) = EnsureReturnTypeIsQuery(handler);
+        var descriptor = CqrsEndpointDescriptorBuilder.Build(
+            handler,
+            "GET",
+            route,
+            true,
+            queryType,
+            returnType,
+            null,
+            enableHead,
+            mapNullableRouteParameters == MapNullableRouteParameter.Enable);
         if (mapNullableRouteParameters is MapNullableRouteParameter.Disable)
         {
             return MapRoutes(queryType, returnType, route);
@@ -161,6 +171,7 @@ public static class CqrsRouteMapper
             var builder = endpoint.AddEndpointFilter<QueryEndpointHandler>()
                 .Produces(200, queryFor)
                 .WithTags("Queries");
+            builder.WithMetadata(descriptor);
             if (query.GetInterfaces().Any(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IQuery<>)))
             {
                 // may be null
@@ -278,6 +289,8 @@ public static class CqrsRouteMapper
         var builder = app.MapPost(route, handler)
             .AddEndpointFilter<CommandEndpointHandler>()
             .AddCommandOpenApiDescriptions(commandType, responseType, errorType);
+        builder.WithMetadata(
+            CqrsEndpointDescriptorBuilder.Build(handler, "POST", route, false, commandType, responseType, errorType));
         return builder;
     }
 
@@ -308,8 +321,11 @@ public static class CqrsRouteMapper
         Delegate handler)
     {
         var (commandType, responseType, errorType) = EnsureReturnTypeIsCommand(handler);
-        return app.MapPut(route, handler).AddEndpointFilter<CommandEndpointHandler>()
+        var builder = app.MapPut(route, handler).AddEndpointFilter<CommandEndpointHandler>()
             .AddCommandOpenApiDescriptions(commandType, responseType, errorType);
+        builder.WithMetadata(
+            CqrsEndpointDescriptorBuilder.Build(handler, "PUT", route, false, commandType, responseType, errorType));
+        return builder;
     }
 
     /// <summary>
@@ -339,8 +355,11 @@ public static class CqrsRouteMapper
         Delegate handler)
     {
         var (commandType, responseType, errorType) = EnsureReturnTypeIsCommand(handler);
-        return app.MapDelete(route, handler).AddEndpointFilter<CommandEndpointHandler>()
+        var builder = app.MapDelete(route, handler).AddEndpointFilter<CommandEndpointHandler>()
             .AddCommandOpenApiDescriptions(commandType, responseType, errorType);
+        builder.WithMetadata(
+            CqrsEndpointDescriptorBuilder.Build(handler, "DELETE", route, false, commandType, responseType, errorType));
+        return builder;
     }
 
     /// <summary>

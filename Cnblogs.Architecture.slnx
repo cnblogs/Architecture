@@ -11,6 +11,8 @@
     <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.MongoDb.Analyzer/Cnblogs.Architecture.Ddd.Cqrs.MongoDb.Analyzer.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.MongoDb/Cnblogs.Architecture.Ddd.Cqrs.MongoDb.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent/Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.csproj" />
+    <Project Path="src/Cnblogs.Architecture.ServiceAgent.Design/Cnblogs.Architecture.ServiceAgent.Design.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Tool/Cnblogs.Architecture.Tool.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Domain.Abstractions/Cnblogs.Architecture.Ddd.Domain.Abstractions.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.EventBus.Abstractions/Cnblogs.Architecture.Ddd.EventBus.Abstractions.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.EventBus.Dapr/Cnblogs.Architecture.Ddd.EventBus.Dapr.csproj" />

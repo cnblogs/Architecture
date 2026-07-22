@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>
+      Design-time support for generating strongly-typed CQRS service agents. Install this package in the API
+      project; it is activated (as a no-op-otherwise hosting startup) by the dotnet-cnblogs-sa global tool to
+      export the registered CQRS endpoints as a manifest.
+    </Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
+  </ItemGroup>
+</Project>

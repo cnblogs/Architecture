@@ -7,17 +7,22 @@ using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
 using Cnblogs.Architecture.IntegrationTestProject.Models;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
+using Cnblogs.Architecture.ServiceAgent.Design;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
+var cqrs = builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
     .AddLongToStringJsonConverter()
     .AddDefaultIdProvider(0)
     .AddEnrichers()
-    .AddDefaultDateTimeAndRandomProvider()
-    .AddEventBus(o => o.UseDapr(Constants.AppName));
+    .AddDefaultDateTimeAndRandomProvider();
+if (!ServiceAgentGeneration.IsActive)
+{
+    cqrs.AddEventBus(o => o.UseDapr(Constants.AppName));
+}
+
 builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
 
 builder.Services.AddCnblogsApiVersioning();
@@ -28,7 +33,10 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Subscribe<TestIntegrationEvent>();
+if (!ServiceAgentGeneration.IsActive)
+{
+    app.Subscribe<TestIntegrationEvent>();
+}
 
 var apis = app.NewVersionedApi();
 var v1 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(1);
