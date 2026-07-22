@@ -13,15 +13,12 @@ using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var cqrs = builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
+builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegrationEvent).Assembly)
     .AddLongToStringJsonConverter()
     .AddDefaultIdProvider(0)
+    .AddEventBus(o => o.UseDapr(Constants.AppName))
     .AddEnrichers()
     .AddDefaultDateTimeAndRandomProvider();
-if (!ServiceAgentGeneration.IsActive)
-{
-    cqrs.AddEventBus(o => o.UseDapr(Constants.AppName));
-}
 
 builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
 
@@ -32,11 +29,6 @@ var app = builder.Build();
 app.UseAuthorization();
 
 app.MapControllers();
-
-if (!ServiceAgentGeneration.IsActive)
-{
-    app.Subscribe<TestIntegrationEvent>();
-}
 
 var apis = app.NewVersionedApi();
 var v1 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(1);
@@ -68,6 +60,7 @@ v1.MapPostCommand<CreateCommand>("generic-map/strings");
 v1.MapPutCommand<UpdateCommand>("generic-map/strings");
 v1.MapDeleteCommand<DeleteCommand>("generic-map/strings/{id:int}");
 
+app.Subscribe<TestIntegrationEvent>();
 app.Run();
 
 namespace Cnblogs.Architecture.IntegrationTestProject
