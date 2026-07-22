@@ -54,6 +54,14 @@ public static class CqrsEndpointDescriptorBuilder
             ? GetNullableRouteParameters(requestType, routeTokens, nullabilityContext)
             : Array.Empty<string>();
 
+        // When the body parameter's type is the command itself (the generic MapPostCommand<T>/MapPutCommand<T> form,
+        // where the synthesized handler is ([FromBody] T command) => command), capture its wire shape so the generator
+        // can emit a payload POCO instead of forcing the client to reference the command's assembly.
+        var bodyParameter = parameters.FirstOrDefault(p => p.Source == ParameterSource.Body);
+        var payloadProperties = bodyParameter is not null && bodyParameter.ClrType == requestType
+            ? BuildPayloadProperties(bodyParameter.ClrType, nullabilityContext)
+            : [];
+
         return new CqrsEndpointDescriptor
         {
             HttpMethod = httpMethod,
@@ -63,7 +71,8 @@ public static class CqrsEndpointDescriptorBuilder
             ResponseType = responseType,
             ErrorType = errorType,
             ResponseShape = DetermineResponseShape(isQuery, responseType),
-            PayloadType = parameters.FirstOrDefault(p => p.Source == ParameterSource.Body)?.ClrType,
+            PayloadType = bodyParameter?.ClrType,
+            PayloadProperties = payloadProperties,
             Parameters = parameters,
             EnableHead = enableHead,
             NullableRouteParameters = nullableRouteParameters
@@ -307,6 +316,30 @@ public static class CqrsEndpointDescriptorBuilder
     {
         return type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
             .Where(p => p.GetMethod != null && p.SetMethod != null);
+    }
+
+    private static IReadOnlyList<EndpointPayloadProperty> BuildPayloadProperties(
+        Type type,
+        NullabilityInfoContext context)
+    {
+        // The body is deserialized from JSON, so its wire shape is the publicly settable properties. Capture each —
+        // excluding indexers (which are not JSON members) and [JsonIgnore] properties (which the serializer ignores) —
+        // so the generator can emit a payload POCO that round-trips without referencing this type.
+        return GetBindableProperties(type)
+            .Where(p => p.GetIndexParameters().Length == 0)
+            .Where(p => !IsJsonIgnore(p))
+            .Select(p => new EndpointPayloadProperty
+            {
+                Name = p.Name,
+                ClrType = p.PropertyType,
+                IsNullable = IsNullableProperty(p, context)
+            })
+            .ToList();
+    }
+
+    private static bool IsJsonIgnore(PropertyInfo property)
+    {
+        return property.CustomAttributes.Any(a => a.AttributeType.Name == "JsonIgnoreAttribute");
     }
 
     private static bool IsNullable(ParameterInfo parameter, NullabilityInfoContext context)

@@ -9,6 +9,7 @@ internal sealed class ManifestEndpoint
     public ResponseShape ResponseShape { get; set; }
     public ClrTypeRef? ResponseType { get; set; }
     public ClrTypeRef? PayloadType { get; set; }
+    public PayloadContract? PayloadContract { get; set; }
     public string RequestTypeName { get; set; } = string.Empty;
     public List<ManifestParameter> Parameters { get; set; } = [];
     public List<string> NullableRouteParameters { get; set; } = [];

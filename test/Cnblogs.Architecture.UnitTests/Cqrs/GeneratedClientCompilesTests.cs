@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.Extensions.DependencyInjection;
+
 // ReSharper disable UnusedParameter.Local
 namespace Cnblogs.Architecture.UnitTests.Cqrs;
 
@@ -39,6 +40,7 @@ public class GeneratedClientCompilesTests
             app.MapQuery<CqrsEndpointDescriptorBuilderTests.SingleQuery>("apps/{appId}/strings/{stringId:int}/value");
             app.MapPostCommand<CqrsEndpointDescriptorBuilderTests.CreateCommand>("items");
             app.MapDeleteCommand<CqrsEndpointDescriptorBuilderTests.DeleteCommand>("items/{id:int}");
+            app.MapPostCommand<CqrsEndpointDescriptorBuilderTests.CreateBlogCommand>("blogs");
             app.MapPostCommand(
                 "items/payload",
                 (CqrsEndpointDescriptorBuilderTests.CreatePayload payload)
@@ -89,6 +91,20 @@ public class GeneratedClientCompilesTests
                 f => !f.IsExtensionsFile
                      && f.Content.Contains(
                          ": CqrsServiceAgent<CqrsEndpointDescriptorBuilderTests.TestError>(httpClient)",
+                         StringComparison.Ordinal));
+
+            // The command-as-body form (MapPostCommand<CreateBlogCommand>) generates a CreateBlogPayload POCO and uses
+            // it as the body type; the command type itself is never referenced in any emitted file.
+            Assert.Contains(files, f => f.FileName == "CreateBlogPayload.cs");
+            Assert.Contains(
+                files,
+                f => !f.IsExtensionsFile
+                     && f.Content.Contains("CreateBlogAsync(CreateBlogPayload payload)", StringComparison.Ordinal));
+            Assert.DoesNotContain(
+                files,
+                f => !f.IsExtensionsFile
+                     && f.Content.Contains(
+                         "CqrsEndpointDescriptorBuilderTests.CreateBlogCommand",
                          StringComparison.Ordinal));
 
             // Compile EVERY emitted .cs file together via Roslyn and collect the diagnostics.

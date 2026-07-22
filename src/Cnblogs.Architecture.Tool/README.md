@@ -65,6 +65,10 @@ Endpoint shapes handled:
   (`Has{X}Async` via `HasItemAsync`).
 - Commands: `POST` / `PUT` / `DELETE`, with or without a body payload and with or without a result.
 - Delegate-form endpoints where the wire payload differs from the command.
+- Command-as-body payloads: when the generic `MapPostCommand<T>` / `MapPutCommand<T>` form is used (so the command
+  itself is the request body), the generator emits a payload POCO (e.g. `CreateBlogCommand` → `CreateBlogPayload`)
+  mirroring the command's settable properties, and uses it as the body type. This keeps the generated client from
+  referencing the command's (Application-layer) assembly. Delegate-form bodies (a separate DTO) are referenced as-is.
 - Mixed route-scalar + body signatures.
 - Nullable-route expansion (`MapNullableRouteParameter.Enable`) collapsed into a single method that substitutes
   `"-"` for missing values.
@@ -89,3 +93,6 @@ A group with conflicting error types, or two groups resolving to the same name, 
 - Two endpoints that produce identical method signatures (same name and parameter types) keep the first and skip
   the rest with a warning — disambiguate with `WithServiceAgentGroup` or a distinct route.
 - `DELETE` commands with a request body are not supported (the base class has no such helper).
+- A generated payload POCO mirrors only the command's own settable properties. A property whose type lives in the
+  command's assembly is still referenced (full decoupling would require recursive POCO generation). `[JsonPropertyName]`
+  is not carried through, so property names rely on the default (case-insensitive) serialization matching.

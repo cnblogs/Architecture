@@ -26,6 +26,12 @@ public sealed class ManifestEndpoint
     /// <summary>The request body type, or <c>null</c> when there is no body.</summary>
     public ClrTypeRef? PayloadType { get; set; }
 
+    /// <summary>
+    ///     The payload POCO contract to generate when the body type is the command itself (so the client need not
+    ///     reference the command's assembly); <c>null</c> for delegate-form bodies (a separate DTO) or bodyless endpoints.
+    /// </summary>
+    public ManifestPayloadContract? PayloadContract { get; set; }
+
     /// <summary>The query/command type name, used to derive the generated method name.</summary>
     public string RequestTypeName { get; set; } = string.Empty;
 

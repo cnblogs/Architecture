@@ -41,6 +41,12 @@ public class CqrsEndpointDescriptorBuilderTests
         public bool ValidateOnly => false;
     }
 
+    public record CreateBlogCommand(string Title, string Body, int TagCount, string? Summary = null)
+        : ICommand<string, TestError>
+    {
+        public bool ValidateOnly => false;
+    }
+
     public record UpdateCommand : ICommand<TestError>
     {
         public bool ValidateOnly => false;
@@ -200,6 +206,43 @@ public class CqrsEndpointDescriptorBuilderTests
         var body = Single(descriptor.Parameters, p => p.Source == ParameterSource.Body);
         Assert.Equal("command", body.Name);
         Assert.Equal(typeof(CreateCommand), body.ClrType);
+
+        // The body is the command itself, so a payload contract is captured — empty here because CreateCommand has only
+        // a get-only property, but present so a generated empty POCO still removes the command reference.
+        Assert.NotNull(descriptor.PayloadProperties);
+        Assert.Empty(descriptor.PayloadProperties);
+    }
+
+    [Fact]
+    public void Build_CommandAsBody_CapturesSettablePayloadProperties()
+    {
+        // Arrange
+        static CreateBlogCommand Handler([FromBody] CreateBlogCommand command) => command;
+
+        // Act
+        var descriptor = CqrsEndpointDescriptorBuilder.Build(
+            Handler,
+            "POST",
+            "blogs",
+            isQuery: false,
+            typeof(CreateBlogCommand),
+            typeof(string),
+            typeof(TestError));
+
+        // Assert — the contract mirrors the command's settable properties (names, types, nullability).
+        Assert.Equal(typeof(CreateBlogCommand), descriptor.PayloadType);
+        Assert.Equal(4, descriptor.PayloadProperties.Count);
+
+        var title = Single(descriptor.PayloadProperties, p => p.Name == "Title");
+        Assert.Equal(typeof(string), title.ClrType);
+        Assert.False(title.IsNullable);
+
+        var summary = Single(descriptor.PayloadProperties, p => p.Name == "Summary");
+        Assert.Equal(typeof(string), summary.ClrType);
+        Assert.True(summary.IsNullable);
+
+        var tagCount = Single(descriptor.PayloadProperties, p => p.Name == "TagCount");
+        Assert.Equal(typeof(int), tagCount.ClrType);
     }
 
     [Fact]
@@ -245,6 +288,10 @@ public class CqrsEndpointDescriptorBuilderTests
         Assert.Equal("p", body.Name);
         Assert.Equal(typeof(CreatePayload), body.ClrType);
         Assert.Equal(typeof(CreatePayload), descriptor.PayloadType);
+
+        // Delegate form: the payload is a separate DTO (not the command), so no payload contract is captured — the
+        // generated client references the DTO as-is.
+        Assert.Empty(descriptor.PayloadProperties);
     }
 
     [Fact]

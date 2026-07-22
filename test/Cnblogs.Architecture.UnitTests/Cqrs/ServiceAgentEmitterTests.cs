@@ -41,7 +41,8 @@ public class ServiceAgentEmitterTests
         ResponseShape shape,
         ClrTypeRef? responseType,
         ClrTypeRef? payloadType,
-        List<ManifestParameter> parameters) =>
+        List<ManifestParameter> parameters,
+        PayloadContract? payloadContract = null) =>
         new()
         {
             HttpMethod = verb,
@@ -51,6 +52,7 @@ public class ServiceAgentEmitterTests
             ResponseShape = shape,
             ResponseType = responseType,
             PayloadType = payloadType,
+            PayloadContract = payloadContract,
             RequestTypeName = requestTypeName,
             Parameters = parameters
         };
@@ -213,5 +215,102 @@ public class ServiceAgentEmitterTests
         Assert.Contains("AddServiceAgent<IVipService, VipService>(baseUri)", ext);
         Assert.Contains("AddServiceAgent<IStoreService, StoreService>(baseUri)", ext);
         Assert.Contains("public static IServiceCollection AddServiceAgents(this IServiceCollection services, string baseUri)", ext);
+    }
+
+    [Fact]
+    public void Emit_CommandAsBody_GeneratesPayloadPocoInsteadOfCommandType()
+    {
+        // Arrange — the command lives in the Application layer; the view lives in a contracts layer (a distinct namespace,
+        // so we can assert the command's namespace is dropped while the view's is kept).
+        var commandType = new ClrTypeRef { Namespace = "Cnblogs.Blog.Application.Commands", Name = "CreateBlogCommand" };
+        var viewType = new ClrTypeRef { Namespace = "Cnblogs.Blog.Contracts", Name = "BlogDto" };
+        var contract = new PayloadContract
+        {
+            Properties =
+            [
+                new PayloadProperty { Name = "Title", ClrType = Sys("String") },
+                new PayloadProperty { Name = "Summary", ClrType = Sys("String"), IsNullable = true }
+            ]
+        };
+
+        // Act
+        var files = new ServiceAgentEmitter().Emit(
+            new EndpointManifest
+            {
+                Groups =
+                [
+                    new ManifestGroup
+                    {
+                        Name = "Blog",
+                        ErrorType = Error("BlogError"),
+                        Endpoints =
+                        [
+                            Command(
+                                "POST",
+                                "/api/blogs",
+                                "CreateBlogCommand",
+                                ResponseShape.Item,
+                                viewType,
+                                commandType,
+                                [Body("payload", commandType)],
+                                payloadContract: contract)
+                        ]
+                    }
+                ]
+            },
+            "Cnblogs.Blog.ServiceAgent");
+
+        // Assert — the signature and call use the generated POCO name, not the command type...
+        var cls = files.First(f => f.FileName == "BlogService.cs").Content;
+        Assert.Contains("Task<CommandResponse<BlogDto, BlogError>> CreateBlogAsync(CreateBlogPayload payload)", cls);
+        Assert.Contains("PostCommandAsync<BlogDto, CreateBlogPayload>(\"/api/blogs\", payload)", cls);
+
+        // ...the command's namespace is NOT imported (the client need not reference the Application project)...
+        Assert.DoesNotContain("using Cnblogs.Blog.Application.Commands;", cls);
+
+        // ...while the view's namespace still is.
+        Assert.Contains("using Cnblogs.Blog.Contracts;", cls);
+
+        // A separate POCO file mirrors the command's settable properties.
+        var poco = files.Single(f => f.FileName == "CreateBlogPayload.cs");
+        Assert.Contains("public class CreateBlogPayload", poco.Content);
+        Assert.Contains("public string Title { get; set; }", poco.Content);
+        Assert.Contains("public string? Summary { get; set; }", poco.Content);
+    }
+
+    [Fact]
+    public void Emit_SameCommandMappedTwice_EmitsSinglePoco()
+    {
+        // Arrange — the same command type mapped at two routes must share one POCO (a duplicate class declaration
+        // would not compile in the shared namespace).
+        var commandType = new ClrTypeRef { Namespace = "Cnblogs.Blog.Application.Commands", Name = "CreateBlogCommand" };
+        var contract = new PayloadContract
+        {
+            Properties = [new PayloadProperty { Name = "Title", ClrType = Sys("String") }]
+        };
+
+        // Act
+        var files = new ServiceAgentEmitter().Emit(
+            new EndpointManifest
+            {
+                Groups =
+                [
+                    new ManifestGroup
+                    {
+                        Name = "Blog",
+                        ErrorType = Error("BlogError"),
+                        Endpoints =
+                        [
+                            Command("POST", "/api/blogs", "CreateBlogCommand", ResponseShape.None, null, commandType, [Body("payload", commandType)], payloadContract: contract),
+                            Command("POST", "/api/v2/blogs", "CreateBlogCommand", ResponseShape.None, null, commandType, [Body("payload", commandType)], payloadContract: contract)
+                        ]
+                    }
+                ]
+            },
+            "Cnblogs.Blog.ServiceAgent");
+
+        // Assert — exactly one POCO file for the shared command body type.
+        Assert.Single(files, f => f.FileName.EndsWith("Payload.cs", StringComparison.Ordinal));
+        Assert.Single(files, f => f.FileName == "CreateBlogPayload.cs");
     }
 }
