@@ -22,6 +22,7 @@ if (!ServiceAgentGeneration.IsActive)
 {
     cqrs.AddEventBus(o => o.UseDapr(Constants.AppName));
 }
+
 builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
 
 builder.Services.AddCnblogsApiVersioning();

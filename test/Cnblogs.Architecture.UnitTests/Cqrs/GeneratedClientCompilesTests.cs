@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.Extensions.DependencyInjection;
-
+// ReSharper disable UnusedParameter.Local
 namespace Cnblogs.Architecture.UnitTests.Cqrs;
 
 [Collection(SerialCollection.Name)]
@@ -173,7 +173,7 @@ public class GeneratedClientCompilesTests
         // Force System.Net.Http (HttpClient) to load — the generated class ctor takes an HttpClient parameter.
         _ = typeof(HttpClient);
         _ = typeof(Uri);
-        _ = typeof(System.Net.Http.HttpMethod);
+        _ = typeof(HttpMethod);
 
         var references = new Dictionary<string, MetadataReference>(StringComparer.OrdinalIgnoreCase);
         var visited = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
