@@ -363,7 +363,7 @@ internal sealed class ServiceAgentEmitter
         foreach (var route in routeParams)
         {
             var type = renderer.Render(route.Parameter.ClrType);
-            if (route.IsNullable && !route.Parameter.ClrType.IsNullable)
+            if (route is { IsNullable: true, Parameter.ClrType.IsNullable: false })
             {
                 type += "?";
             }
@@ -380,13 +380,13 @@ internal sealed class ServiceAgentEmitter
         bool forceCamel)
     {
         var type = renderer.Render(parameter.ClrType);
-        if (parameter.IsNullable && !parameter.ClrType.IsNullable)
+        if (parameter is { IsNullable: true, ClrType.IsNullable: false })
         {
             type += "?";
         }
 
         var name = UniqueName(forceCamel ? ToCamelCase(parameter.Name) : parameter.Name, usedNames);
-        var @default = parameter.HasDefaultValue && parameter.DefaultValueLiteral is not null
+        var @default = parameter is { HasDefaultValue: true, DefaultValueLiteral: not null }
             ? " = " + parameter.DefaultValueLiteral
             : (parameter.IsNullable ? " = null" : null);
         return new MethodParam(name, type, @default, ToCamelCase(parameter.Name));
@@ -416,7 +416,7 @@ internal sealed class ServiceAgentEmitter
         ClrTypeRenderer renderer)
     {
         var verb = endpoint.HttpMethod.ToUpperInvariant();
-        var hasResult = endpoint.ResponseShape == ResponseShape.Item && endpoint.ResponseType is not null;
+        var hasResult = endpoint is { ResponseShape: ResponseShape.Item, ResponseType: not null };
         var view = hasResult ? renderer.Render(endpoint.ResponseType) : null;
         var payloadType = bodyParam is null ? null : renderer.Render(bodyParam.ClrType);
 
