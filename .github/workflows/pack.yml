@@ -9,14 +9,22 @@ jobs:
   pack:
     environment: nuget
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write # required for OIDC token issuance (trusted publishing)
+      contents: read
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '10'
-      - name: Nuget Push
+      - name: NuGet login (OIDC → temp API key)
+        uses: NuGet/login@v1
+        id: login
+        with:
+          user: cnblogs
+      - name: Build, pack and push
         env:
-          nuget_key: ${{ secrets.NUGETAPIKEY }}
+          nuget_key: ${{ steps.login.outputs.NUGET_API_KEY }}
         run: |
           Version=${GITHUB_REF:10}
           dotnet build -c Release
