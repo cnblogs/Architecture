@@ -3,7 +3,7 @@
     <OutputType>Exe</OutputType>
     <PackAsTool>true</PackAsTool>
     <ToolCommandName>dotnet-cnb</ToolCommandName>
-    <PackageId>cnb-arch-tool</PackageId>
+    <PackageId>dotnet-cnb</PackageId>
     <Description>
       dotnet-cnblogs-sa: generates strongly-typed CQRS service agents (IXxxService / XxxService) from a
       Cnblogs.Architecture API project that uses MapQuery / MapCommand.
