@@ -13,7 +13,7 @@ endpoint surface, and this **global tool** turns it into code.
 ## Install
 
 ```bash
-dotnet tool install -g cnb-arch-tool
+dotnet tool install -g dotnet-cnb
 ```
 
 This provides the `dotnet cnb` command.
