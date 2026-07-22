@@ -1,4 +1,4 @@
-# cnb-arch-tool
+# dotnet-cnb
 
 Tooling for [Cnblogs.Architecture](https://github.com/cnblogs/Architecture), installed as the `dotnet cnb` command.
 
