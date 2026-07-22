@@ -2,7 +2,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <PackAsTool>true</PackAsTool>
-    <ToolCommandName>cnb</ToolCommandName>
+    <ToolCommandName>dotnet-cnb</ToolCommandName>
     <PackageId>cnb-arch-tool</PackageId>
     <Description>
       dotnet-cnblogs-sa: generates strongly-typed CQRS service agents (IXxxService / XxxService) from a
