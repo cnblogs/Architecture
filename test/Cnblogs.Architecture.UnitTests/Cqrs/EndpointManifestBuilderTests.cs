@@ -21,6 +21,12 @@ public class EndpointManifestBuilderTests
         public bool ValidateOnly => false;
     }
 
+    public record CreateBlogCommand(string Title, string Body, int TagCount, string? Summary = null)
+        : ICommand<string, TestError>
+    {
+        public bool ValidateOnly => false;
+    }
+
     public record UpdateCommand : ICommand<TestError>
     {
         public bool ValidateOnly => false;
@@ -108,6 +114,15 @@ public class EndpointManifestBuilderTests
         return matches[0];
     }
 
+    private static ManifestPayloadProperty SinglePayloadProperty(List<ManifestPayloadProperty> properties, string name)
+    {
+        var matches = properties.Where(p => p.Name == name).ToList();
+        Assert.True(
+            matches.Count == 1,
+            $"Expected exactly one payload property named {name}, found {matches.Count}.");
+        return matches[0];
+    }
+
     // ===== Tests =====
 
     [Fact]
@@ -164,6 +179,40 @@ public class EndpointManifestBuilderTests
         var group = Assert.Single(manifest.Groups);
         Assert.NotNull(group.ErrorType);
         Assert.EndsWith(nameof(TestError), group.ErrorType!.Name);
+
+        // The body is the command itself (CreateCommand), so a payload contract is attached even though the command has
+        // only a get-only property — an empty generated POCO still removes the Application-project reference.
+        Assert.NotNull(endpoint.PayloadContract);
+        Assert.Empty(endpoint.PayloadContract!.Properties);
+    }
+
+    [Fact]
+    public async Task Build_PostCommandWithBodyAsCommand_AttachesPayloadContractAsync()
+    {
+        // Act
+        var manifest = await BuildManifestAsync(
+            app => app.MapPostCommand<CreateBlogCommand>("blogs"));
+
+        // Assert — the contract mirrors the command's settable properties (names, types, nullability).
+        var endpoint = SingleEndpoint(manifest, nameof(CreateBlogCommand));
+        Assert.NotNull(endpoint.PayloadContract);
+        var properties = endpoint.PayloadContract!.Properties;
+        Assert.Equal(4, properties.Count);
+
+        var title = SinglePayloadProperty(properties, "Title");
+        Assert.Equal("String", title.ClrType.Name);
+        Assert.False(title.IsNullable);
+
+        var body = SinglePayloadProperty(properties, "Body");
+        Assert.Equal("String", body.ClrType.Name);
+
+        var tagCount = SinglePayloadProperty(properties, "TagCount");
+        Assert.Equal("Int32", tagCount.ClrType.Name);
+        Assert.False(tagCount.IsNullable);
+
+        var summary = SinglePayloadProperty(properties, "Summary");
+        Assert.Equal("String", summary.ClrType.Name);
+        Assert.True(summary.IsNullable);
     }
 
     [Fact]

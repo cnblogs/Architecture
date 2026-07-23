@@ -63,6 +63,19 @@ public static class EndpointManifestBuilder
             ResponseShape = descriptor.ResponseShape,
             ResponseType = descriptor.ResponseType is null ? null : ClrTypeRef.FromType(descriptor.ResponseType),
             PayloadType = descriptor.PayloadType is null ? null : ClrTypeRef.FromType(descriptor.PayloadType),
+            PayloadContract = descriptor.PayloadType == descriptor.RequestType
+                ? new ManifestPayloadContract
+                {
+                    Properties = descriptor.PayloadProperties
+                        .Select(p => new ManifestPayloadProperty
+                        {
+                            Name = p.Name,
+                            ClrType = ClrTypeRef.FromType(p.ClrType),
+                            IsNullable = p.IsNullable
+                        })
+                        .ToList()
+                }
+                : null,
             RequestTypeName = descriptor.RequestType.Name,
             Parameters = descriptor.Parameters.Select(BuildParameter).ToList(),
             NullableRouteParameters = descriptor.NullableRouteParameters.ToList(),

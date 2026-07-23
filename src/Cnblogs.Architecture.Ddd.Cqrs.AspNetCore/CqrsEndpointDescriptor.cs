@@ -32,6 +32,14 @@ public sealed class CqrsEndpointDescriptor
     /// <summary>The request body type, if any parameter is bound from the body; otherwise <c>null</c>.</summary>
     public Type? PayloadType { get; init; }
 
+    /// <summary>
+    ///     The settable properties of the request body, captured when the body type is the command itself
+    ///     (<see cref="PayloadType" /> equals <see cref="RequestType" />) so a generator can emit a standalone payload
+    ///     POCO instead of referencing the command type's assembly. Empty otherwise (e.g. a delegate-form endpoint
+    ///     whose body is a separate DTO, or a bodyless endpoint).
+    /// </summary>
+    public IReadOnlyList<EndpointPayloadProperty> PayloadProperties { get; init; } = [];
+
     /// <summary>The normalized method parameters (route/query/body), with <c>[AsParameters]</c> expanded.</summary>
     public required IReadOnlyList<EndpointParameterDescriptor> Parameters { get; init; }
 
