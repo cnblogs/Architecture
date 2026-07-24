@@ -8,7 +8,9 @@ namespace Cnblogs.Architecture.UnitTests.Cqrs.AgentFramework;
 /// <summary>
 ///     <see cref="Enumeration" />-derived error type used by the agent-framework test commands.
 /// </summary>
+#pragma warning disable SA1649
 public class AgentTestError(int id, string name) : Enumeration(id, name)
+#pragma warning restore SA1649
 {
     public static readonly AgentTestError Default = new(1, "DefaultError");
 }

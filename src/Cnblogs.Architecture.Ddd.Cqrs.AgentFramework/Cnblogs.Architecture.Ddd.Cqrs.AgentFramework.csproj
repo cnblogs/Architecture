@@ -10,7 +10,7 @@
       Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsAgentOptions
       Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsToolSet
       Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsInjectorExtensions
-      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.AspNetCore.CqrsAgentEndpointExtensions
+      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsAgentEndpointExtensions
     </Description>
   </PropertyGroup>
 
