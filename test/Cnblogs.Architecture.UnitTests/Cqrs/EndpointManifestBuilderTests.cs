@@ -70,8 +70,6 @@ public class EndpointManifestBuilderTests
         public bool ValidateOnly => false;
     }
 
-    // ===== Helpers =====
-
     private static async Task<EndpointManifest> BuildManifestAsync(
         Action<WebApplication> mapEndpoints)
     {
@@ -122,8 +120,6 @@ public class EndpointManifestBuilderTests
             $"Expected exactly one payload property named {name}, found {matches.Count}.");
         return matches[0];
     }
-
-    // ===== Tests =====
 
     [Fact]
     public async Task Build_SingleGetQuery_ExpandsParametersAndCarriesRouteAsync()
