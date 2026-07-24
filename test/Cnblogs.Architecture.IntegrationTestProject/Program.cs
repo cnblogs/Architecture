@@ -1,4 +1,5 @@
 using System.Reflection;
+using Cnblogs.Architecture.Ddd.Cqrs.AgentFramework;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
@@ -7,7 +8,6 @@ using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Queries;
 using Cnblogs.Architecture.IntegrationTestProject.Models;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
-using Cnblogs.Architecture.ServiceAgent.Design;
 using Cnblogs.Architecture.TestIntegrationEvents;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +18,7 @@ builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegration
     .AddDefaultIdProvider(0)
     .AddEventBus(o => o.UseDapr(Constants.AppName))
     .AddEnrichers()
+    .AddAgentFramework()
     .AddDefaultDateTimeAndRandomProvider();
 
 builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
@@ -61,6 +62,12 @@ v1.MapPutCommand<UpdateCommand>("generic-map/strings");
 v1.MapDeleteCommand<DeleteCommand>("generic-map/strings/{id:int}");
 
 app.Subscribe<TestIntegrationEvent>();
+
+// AI agent entry point: coexists with the MapCommand/MapQuery HTTP endpoints above.
+// POST { "prompt": "..." } to /agents/articles and the typed ArticlesAgent orchestrates its allowed [AgentTool]-tagged Commands/Queries.
+// TODO: register an IChatClient (default or keyed) for the endpoint to resolve and actually run the agent.
+app.MapAgent<ArticlesAgent>("/agents/articles");
+
 app.Run();
 
 namespace Cnblogs.Architecture.IntegrationTestProject

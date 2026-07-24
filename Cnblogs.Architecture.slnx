@@ -2,6 +2,7 @@
   <Folder Name="/src/">
     <File Path="src/Directory.Build.props" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.Abstractions/Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj" />
+    <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.AgentFramework/Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore/Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse/Cnblogs.Architecture.Ddd.Cqrs.Dapper.Clickhouse.csproj" />
     <Project Path="src/Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer/Cnblogs.Architecture.Ddd.Cqrs.Dapper.SqlServer.csproj" />

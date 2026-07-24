@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.AgentFramework\Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.csproj" />
     <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
     <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent\Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent.csproj" />
     <ProjectReference Include="..\..\src\Cnblogs.Architecture.ServiceAgent.Design\Cnblogs.Architecture.ServiceAgent.Design.csproj" />

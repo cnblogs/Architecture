@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>
+      Expose opted-in CQRS Commands and Queries as Microsoft.Extensions.AI tools, dispatched in-process over MediatR's IMediator, and host them behind typed Microsoft Agent Framework agents. Coexists with MapCommand/MapQuery HTTP endpoints; tool calls run through the same validation/logging/cache/lock/enricher pipeline.
+      Commonly used types:
+      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.ICqrsAgent
+      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsAgent
+      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.AgentToolAttribute
+      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsAgentOptions
+      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsToolSet
+      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsInjectorExtensions
+      Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.CqrsAgentEndpointExtensions
+    </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj"/>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj"/>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions\Cnblogs.Architecture.Ddd.Infrastructure.Abstractions.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.AI" Version="10.6.0"/>
+    <PackageReference Include="Microsoft.Agents.AI" Version="1.15.0"/>
+  </ItemGroup>
+
+</Project>

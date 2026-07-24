@@ -35,6 +35,11 @@ public class CqrsInjector
     public IServiceCollection Services { get; }
 
     /// <summary>
+    ///     通过 <see cref="ServiceCollectionInjector.AddCqrs(IServiceCollection, Assembly[])" /> 传入、用于扫描 CQRS 类型（handler / command / query 等）的程序集。
+    /// </summary>
+    public IReadOnlyList<Assembly> Assemblies => _assemblies;
+
+    /// <summary>
     ///     添加自定义时间提供器。
     /// </summary>
     /// <typeparam name="TDateTimeProvider">时间提供器。</typeparam>
