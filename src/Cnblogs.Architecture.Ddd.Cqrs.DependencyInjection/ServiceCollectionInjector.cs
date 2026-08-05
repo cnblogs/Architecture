@@ -2,6 +2,7 @@ using System.Reflection;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using MediatR;
+using Microsoft.AspNetCore.Builder;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;

@@ -1,6 +1,6 @@
+using AlibabaCloud.OSS.V2;
+using AlibabaCloud.OSS.V2.Models;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
-using Cuiliang.AliyunOssSdk;
-using Cuiliang.AliyunOssSdk.Api;
 using Microsoft.Extensions.Options;
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss;
@@ -8,53 +8,48 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss;
 /// <summary>
 ///     An <see cref="IFileProvider"/> implementation using Aliyun OSS.
 /// </summary>
-public class AliyunOssFileProvider : IFileProvider
+/// <param name="ossClient">The underlying Aliyun OSS client.</param>
+/// <param name="options">The Aliyun OSS options.</param>
+public class AliyunOssFileProvider(Client ossClient, IOptions<AliyunOssOptions> options) : IFileProvider
 {
-    private readonly OssClient _ossClient;
-    private readonly AliyunOssOptions _options;
-
-    /// <summary>
-    ///     Create a <see cref="IFileProvider"/> based on Aliyun OSS.
-    /// </summary>
-    /// <param name="ossClient">The underlying Aliyun OSS client.</param>
-    /// <param name="options">The Aliyun OSS options.</param>
-    public AliyunOssFileProvider(OssClient ossClient, IOptions<AliyunOssOptions> options)
-    {
-        _ossClient = ossClient;
-        _options = options.Value;
-    }
+    private readonly AliyunOssOptions _options = options.Value;
 
     /// <inheritdoc />
     public async Task<Stream> GetFileStreamAsync(string filename)
     {
-        var file = await _ossClient.GetObjectAsync(_options.BucketInfo, filename);
-        if (file.IsSuccess == false)
+        var file = await ossClient.GetObjectAsync(
+            new GetObjectRequest { Bucket = _options.BucketName, Key = filename });
+        if (file.StatusCode == 404)
         {
-            throw NewFileNotFoundException(filename, file);
+            throw new FileNotFoundException(filename);
         }
 
-        return await file.SuccessResult.Content.ReadAsStreamAsync();
+        return file.Body ?? throw new FileNotFoundException(filename);
     }
 
     /// <inheritdoc />
     public async Task<byte[]> GetFileBytesAsync(string filename)
     {
-        var file = await _ossClient.GetObjectAsync(_options.BucketInfo, filename);
-        if (file.IsSuccess == false)
-        {
-            throw NewFileNotFoundException(filename, file);
-        }
-
-        return await file.SuccessResult.Content.ReadAsByteArrayAsync();
+        await using var stream = await GetFileStreamAsync(filename);
+        using var memoryStream = new MemoryStream();
+        await stream.CopyToAsync(memoryStream);
+        return memoryStream.ToArray();
     }
 
     /// <inheritdoc />
     public async Task SaveFileAsync(string filename, Stream filestream)
     {
-        var result = await _ossClient.PutObjectAsync(_options.BucketInfo, filename, filestream);
-        if (result.IsSuccess == false)
+        var response = await ossClient.PutObjectAsync(
+            new PutObjectRequest()
+            {
+                Bucket = _options.BucketName,
+                Key = filename,
+                Body = filestream
+            });
+        if (response.StatusCode >= 400)
         {
-            throw new InvalidOperationException(result.ErrorMessage, result.InnerException);
+            throw new InvalidOperationException(
+                $"[{nameof(AliyunOssFileProvider)}] Save file failed, fileName: {filename}, statusCode: {response.StatusCode}, requestId: {response.RequestId}, message: {response.Status}");
         }
     }
 
@@ -66,26 +61,38 @@ public class AliyunOssFileProvider : IFileProvider
     }
 
     /// <inheritdoc />
-    public async Task<bool> FileExistsAsync(string filename)
+    public Task<bool> FileExistsAsync(string filename)
     {
-        var result = await _ossClient.GetObjectMetaAsync(_options.BucketInfo, filename);
-        return result.IsSuccess;
+        return ossClient.IsObjectExistAsync(_options.BucketName, filename);
     }
 
     /// <inheritdoc />
     public async Task DeleteFilesAsync(IList<string> filenames)
     {
-        await _ossClient.DeleteMultipleObjectsAsync(_options.BucketInfo, filenames, true);
+        var requests = filenames.Select(x => new DeleteObject() { Key = x }).ToList();
+        var response = await ossClient.DeleteMultipleObjectsAsync(
+            new DeleteMultipleObjectsRequest() { Bucket = _options.BucketName, Objects = requests });
+        if (response.StatusCode >= 400)
+        {
+            throw new InvalidOperationException(
+                $"[{nameof(AliyunOssFileProvider)}] Delete files failed, statusCode: {response.StatusCode}, requestId: {response.RequestId}, message: {response.Status}");
+        }
     }
 
     /// <inheritdoc />
     public async Task DeleteFileAsync(string filename)
     {
-        await _ossClient.DeleteObjectAsync(_options.BucketInfo, filename);
+        var response = await ossClient.DeleteObjectAsync(
+            new DeleteObjectRequest { Bucket = _options.BucketName, Key = filename });
+        if (response.StatusCode >= 400)
+        {
+            throw new InvalidOperationException(
+                $"[{nameof(AliyunOssFileProvider)}] Delete file failed, fileName: {filename}, statusCode: {response.StatusCode}, requestId: {response.RequestId}, message: {response.Status}");
+        }
     }
 
-    private static FileNotFoundException NewFileNotFoundException<T>(string path, OssResult<T> result)
+    private static FileNotFoundException NewFileNotFoundException(string path)
     {
-        return new FileNotFoundException(result.ErrorMessage, path, result.InnerException);
+        return new FileNotFoundException($"[{nameof(AliyunOssFileProvider)}] File not found", path);
     }
 }

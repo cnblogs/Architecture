@@ -1,5 +1,7 @@
+using AlibabaCloud.OSS.V2;
+using AlibabaCloud.OSS.V2.Models;
+using Cnblogs.Architecture.Ddd.Domain.Abstractions;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
-using Cuiliang.AliyunOssSdk;
 using Microsoft.Extensions.Options;
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss;
@@ -7,34 +9,33 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss;
 /// <summary>
 ///     Aliyun OSS implementation of <see cref="IFileDeliveryProvider"/>.
 /// </summary>
-public class AliyunOssFileDeliveryProvider : IFileDeliveryProvider
+/// <param name="client">The oss client.</param>
+/// <param name="dateTimeProvider">Datetime provider for expiration calculation.</param>
+/// <param name="options">The options for oss client.</param>
+public class AliyunOssFileDeliveryProvider(
+    Client client,
+    IDateTimeProvider dateTimeProvider,
+    IOptions<AliyunOssOptions> options)
+    : IFileDeliveryProvider
 {
-    private readonly OssClient _client;
-    private readonly AliyunOssOptions _options;
-
-    /// <summary>
-    ///     Create a <see cref="AliyunOssFileDeliveryProvider"/>.
-    /// </summary>
-    /// <param name="client">The oss client.</param>
-    /// <param name="options">The options for oss client.</param>
-    public AliyunOssFileDeliveryProvider(OssClient client, IOptions<AliyunOssOptions> options)
-    {
-        _client = client;
-        _options = options.Value;
-    }
+    private readonly AliyunOssOptions _options = options.Value;
 
     /// <inheritdoc />
-    public async Task<string> GetDownloadUrlAsync(string filename, TimeSpan duration)
+    public Task<string> GetDownloadUrlAsync(string filename, TimeSpan duration)
     {
-        var meta = await _client.GetObjectMetaAsync(_options.BucketInfo, filename);
-        if (meta.IsSuccess == false)
+        var link = client.Presign(
+            new GetObjectRequest
+            {
+                Bucket = _options.BucketName, Key = filename,
+            },
+            dateTimeProvider.Now().DateTime.Add(duration));
+
+        if (string.IsNullOrEmpty(link.Url))
         {
-            throw new FileNotFoundException(meta.ErrorMessage, filename, meta.InnerException);
+            throw new InvalidOperationException(
+                $"[{nameof(AliyunOssFileDeliveryProvider)}] Generate presigned link failed for {filename}");
         }
 
-        return _client.GetFileDownloadLink(
-            _options.BucketInfo,
-            filename,
-            (int)Math.Ceiling(duration.TotalSeconds));
+        return Task.FromResult(link.Url);
     }
 }
