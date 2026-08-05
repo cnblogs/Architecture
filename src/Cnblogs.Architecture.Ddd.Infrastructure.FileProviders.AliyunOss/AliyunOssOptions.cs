@@ -1,4 +1,4 @@
-using Cuiliang.AliyunOssSdk.Entites;
+using AlibabaCloud.OSS.V2.Models;
 
 namespace Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss;
 
@@ -7,8 +7,6 @@ namespace Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss;
 /// </summary>
 public class AliyunOssOptions
 {
-    private BucketInfo? _bucketInfo;
-
     /// <summary>
     ///     OSS access key id.
     /// </summary>
@@ -22,7 +20,7 @@ public class AliyunOssOptions
     /// <summary>
     ///     OSS security token.
     /// </summary>
-    public string SecurityToken { get; set; } = string.Empty;
+    public string? SecurityToken { get; set; }
 
     /// <summary>
     ///     The bucket name.
@@ -32,7 +30,7 @@ public class AliyunOssOptions
     /// <summary>
     ///     The region that bucket belongs to.
     /// </summary>
-    public string Region { get; set; } = OssRegions.HangZhou;
+    public string Region { get; set; } = "cn-hangzhou";
 
     /// <summary>
     ///     True if HTTPS is enabled.
@@ -40,13 +38,17 @@ public class AliyunOssOptions
     public bool UseHttps { get; set; }
 
     /// <summary>
-    ///     True if OSS is used by internal resources.
+    ///     Custom OSS endpoint.
     /// </summary>
-    public bool UseInternal { get; set; }
+    public string? Endpoint { get; set; }
 
     /// <summary>
-    ///     The bucket info of OSS.
+    ///     True if OSS is used by internal resources.
     /// </summary>
-    public BucketInfo BucketInfo
-        => _bucketInfo ??= BucketInfo.CreateByRegion(Region, BucketName, UseHttps, UseInternal);
+    public bool UseInternalEndpoint { get; set; }
+
+    /// <summary>
+    ///     True if you want to use OSS accelerate endpoint.
+    /// </summary>
+    public bool UseAccelerateEndpoint { get; set; }
 }

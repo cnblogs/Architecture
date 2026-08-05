@@ -6,6 +6,7 @@ using MediatR;
 using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 
