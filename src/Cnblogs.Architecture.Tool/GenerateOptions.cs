@@ -1,1 +1,1 @@
-internal sealed record GenerateOptions(string ApiProject, string Output, string Namespace, bool Clean);
+internal sealed record GenerateOptions(string ApiProject, string Output, string Namespace, bool Clean, string? BaseUrl);

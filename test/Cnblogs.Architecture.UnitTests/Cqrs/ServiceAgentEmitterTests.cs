@@ -66,8 +66,13 @@ public class ServiceAgentEmitterTests
 
     private static string EmitExtensions(params ManifestGroup[] groups)
     {
+        return EmitExtensions(new ServiceAgentEmitter(), groups);
+    }
+
+    private static string EmitExtensions(ServiceAgentEmitter emitter, params ManifestGroup[] groups)
+    {
         var manifest = new EndpointManifest { Groups = groups.ToList() };
-        var files = new ServiceAgentEmitter().Emit(manifest, "Cnblogs.Vip.ServiceAgent");
+        var files = emitter.Emit(manifest, "Cnblogs.Vip.ServiceAgent");
         return files.First(f => f.IsExtensionsFile).Content;
     }
 
@@ -212,9 +217,24 @@ public class ServiceAgentEmitterTests
             new ManifestGroup { Name = "Vip", ErrorType = Error("VipError"), Endpoints = [] },
             new ManifestGroup { Name = "Store", ErrorType = Error("StoreError"), Endpoints = [] });
 
+        // One AddXxxService method per group, each taking a baseUri argument (no --base-url supplied).
+        Assert.Contains("public static IServiceCollection AddVipService(this IServiceCollection services, string baseUri)", ext);
+        Assert.Contains("public static IServiceCollection AddStoreService(this IServiceCollection services, string baseUri)", ext);
         Assert.Contains("AddServiceAgent<IVipService, VipService>(baseUri)", ext);
         Assert.Contains("AddServiceAgent<IStoreService, StoreService>(baseUri)", ext);
-        Assert.Contains("public static IServiceCollection AddServiceAgents(this IServiceCollection services, string baseUri)", ext);
+        Assert.DoesNotContain("AddServiceAgents", ext);
+    }
+
+    [Fact]
+    public void Emit_Extensions_BaseUrl_BakesUrlAndDropsParam()
+    {
+        var ext = EmitExtensions(
+            new ServiceAgentEmitter { BaseUrl = "http://corp_api" },
+            new ManifestGroup { Name = "Corp", ErrorType = Error("CorpError"), Endpoints = [] });
+
+        Assert.Contains("public static IServiceCollection AddCorpService(this IServiceCollection services)", ext);
+        Assert.Contains("AddServiceAgent<ICorpService, CorpService>(\"http://corp_api\")", ext);
+        Assert.DoesNotContain("baseUri", ext);
     }
 
     [Fact]
