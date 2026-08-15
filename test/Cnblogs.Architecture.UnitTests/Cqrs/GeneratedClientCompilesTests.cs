@@ -51,16 +51,17 @@ public class GeneratedClientCompilesTests
                     => new CqrsEndpointDescriptorBuilderTests.UpdateCommand());
 
             // Act — StartAsync fires ApplicationStarted, which triggers the exporter (writes the manifest and then
-            // stops the host on its own).
+            // stops the host on its own). Poll until the file is non-empty: File.WriteAllText creates the file
+            // before the content lands, and File.Exists alone can race a zero-byte read on Linux.
             await app.StartAsync();
             var deadline = DateTime.UtcNow.AddSeconds(15);
-            while (!File.Exists(path) && DateTime.UtcNow < deadline)
+            while (!IsManifestWritten(path) && DateTime.UtcNow < deadline)
             {
                 await Task.Delay(50);
             }
 
             Assert.True(
-                File.Exists(path),
+                IsManifestWritten(path),
                 "Service-agent manifest was not written within the deadline. Expected path: " + path);
 
             // Read the manifest through the same reader the tool uses (Tool.Manifest.EndpointManifest).
@@ -136,6 +137,19 @@ public class GeneratedClientCompilesTests
             {
                 File.Delete(path);
             }
+        }
+    }
+
+    private static bool IsManifestWritten(string path)
+    {
+        try
+        {
+            return File.Exists(path) && new FileInfo(path).Length > 0;
+        }
+        catch (IOException)
+        {
+            // The writer may still hold the handle; treat as not-yet-written and keep polling.
+            return false;
         }
     }
 
