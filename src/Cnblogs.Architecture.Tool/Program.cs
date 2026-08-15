@@ -50,9 +50,12 @@ static void PrintUsage()
           serviceagent   Generate strongly-typed CQRS service agents.
 
         serviceagent generate:
-          dotnet cnb serviceagent generate --api-project <api-csproj-or-dir> --output <client-dir> --namespace <ns> [--base-url <url>] [--clean]
+          dotnet cnb serviceagent generate --api-project <api-csproj-or-dir> --output <client-dir> --namespace <ns> [--base-url <url>] [--api-version <ver>] [--clean]
 
-          --base-url   Bake this base URL into the generated AddXxxService extensions (otherwise each takes a baseUri argument).
+          --base-url     Bake this base URL into the generated AddXxxService extensions (otherwise each takes a baseUri argument).
+          --api-version  Emit only endpoints declared for this API version, as one un-suffixed IXxxService per group.
+                         Omitted: every version is emitted; a group spanning several versions is split into
+                         IXxxV1Service / IXxxV2Service / ... per version.
 
         Requires the API project to reference the Cnblogs.Architecture.ServiceAgent.Design package.
         """);
@@ -63,6 +66,7 @@ static GenerateOptions? ParseOptions(string[] args)
     string? apiProject = null;
     string? output = null;
     string? baseUrl = null;
+    string? apiVersion = null;
     var ns = "Generated.ServiceAgents";
     var clean = false;
     for (var i = 0; i < args.Length; i++)
@@ -81,6 +85,9 @@ static GenerateOptions? ParseOptions(string[] args)
             case "--base-url":
                 baseUrl = Next(args, ref i);
                 break;
+            case "--api-version":
+                apiVersion = Next(args, ref i);
+                break;
             case "--clean":
                 clean = true;
                 break;
@@ -96,7 +103,7 @@ static GenerateOptions? ParseOptions(string[] args)
         return null;
     }
 
-    return new GenerateOptions(apiProject, output, ns, clean, baseUrl);
+    return new GenerateOptions(apiProject, output, ns, clean, baseUrl, apiVersion);
 }
 
 static string? Next(string[] args, ref int i)
@@ -153,7 +160,7 @@ static async Task<int> RunGenerateAsync(GenerateOptions options)
         CleanGeneratedFiles(options.Output);
     }
 
-    var emitter = new ServiceAgentEmitter { BaseUrl = options.BaseUrl };
+    var emitter = new ServiceAgentEmitter { BaseUrl = options.BaseUrl, RequestedApiVersion = options.ApiVersion };
     var files = emitter.Emit(manifest, options.Namespace);
     foreach (var diagnostic in emitter.Diagnostics)
     {

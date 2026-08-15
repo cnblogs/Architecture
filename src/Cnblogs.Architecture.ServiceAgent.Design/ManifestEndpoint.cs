@@ -43,4 +43,12 @@ public sealed class ManifestEndpoint
 
     /// <summary>Whether <c>HEAD</c> is also mapped (the generator emits an extra <c>HasXxxAsync</c>).</summary>
     public bool EnableHead { get; set; }
+
+    /// <summary>
+    ///     The API versions this endpoint is declared for, as reported by API versioning metadata (e.g.
+    ///     <c>["1"]</c> for a <c>.HasApiVersion(1)</c> group, <c>["1", "2"]</c> when mapped under multiple versions).
+    ///     Empty when the endpoint carries no API-versioning metadata. Used by the generator to select or split
+    ///     generated agents per API version.
+    /// </summary>
+    public List<string> ApiVersions { get; set; } = [];
 }

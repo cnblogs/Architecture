@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 using Cnblogs.Architecture.Tool.Manifest;
@@ -35,9 +36,20 @@ internal sealed class ServiceAgentEmitter
 
     /// <summary>
     ///     The API version substituted for <c>{version:apiVersion}</c> route tokens (the API-versioning route-group
-    ///     convention). Defaults to <c>"1"</c>.
+    ///     convention) when an endpoint declares no API versions of its own. Each endpoint's declared version (from
+    ///     API-versioning metadata) takes precedence: the first declared version wins, or this value for unversioned
+    ///     endpoints.
     /// </summary>
     public string ApiVersion { get; init; } = "1";
+
+    /// <summary>
+    ///     When set, only endpoints declaring this API version are emitted, as one un-suffixed
+    ///     <c>IXxxService</c> per group. When <c>null</c> (the default), all endpoints are emitted; a group whose
+    ///     endpoints span multiple API versions is split into <c>IXxxV1Service</c>, <c>IXxxV2Service</c>, ... per
+    ///     version (a single-version or unversioned group keeps the un-suffixed name). Supplied via the tool's
+    ///     <c>--api-version</c> option.
+    /// </summary>
+    public string? RequestedApiVersion { get; init; }
 
     /// <summary>
     ///     When set, the generated DI extensions bake this base URL into each <c>AddXxxService</c> call and the methods
@@ -52,6 +64,7 @@ internal sealed class ServiceAgentEmitter
         _diagnostics.Clear();
         _pocoNameByBodyType.Clear();
         _pocoDefinitions.Clear();
+        manifest = ApplyApiVersionPolicy(manifest);
         BuildPocoTables(manifest);
         var files = new List<EmittedFile>();
         foreach (var group in manifest.Groups)
@@ -84,10 +97,137 @@ internal sealed class ServiceAgentEmitter
     }
 
     /// <summary>
-    ///     Assign a generated POCO name to each distinct command body type that carries a payload contract, reserving
-    ///     the names the generator already emits (service classes, the extensions class) so a derived payload name
-    ///     cannot collide. One command mapped at several routes shares a single POCO.
+    ///     Apply the API-version policy to the manifest: with <see cref="RequestedApiVersion" /> set, drop endpoints
+    ///     not declaring that version; otherwise split each group spanning multiple declared versions into one group
+    ///     per version (suffixed <c>XxxV2</c>), so the generated types do not collide. Each resulting group carries
+    ///     the API version its <c>{version:apiVersion}</c> route tokens are stamped with during URL rendering.
     /// </summary>
+    private EndpointManifest ApplyApiVersionPolicy(EndpointManifest manifest)
+    {
+        List<ManifestGroup> groups;
+        if (RequestedApiVersion is not null)
+        {
+            var requested = VersionKey(RequestedApiVersion);
+            groups = manifest.Groups
+                .Select(g => new ManifestGroup
+                {
+                    Name = g.Name,
+                    ErrorType = g.ErrorType,
+                    ApiVersion = RequestedApiVersion,
+                    Endpoints = g.Endpoints
+                        .Where(e => e.ApiVersions.Count == 0
+                                    || e.ApiVersions.Any(v => VersionKey(v) == requested))
+                        .ToList()
+                })
+                .Where(g => g.Endpoints.Count > 0)
+                .ToList();
+
+            var dropped = manifest.Groups.Sum(g => g.Endpoints.Count) - groups.Sum(g => g.Endpoints.Count);
+            if (dropped > 0)
+            {
+                _diagnostics.Add(
+                    $"Dropped {dropped} endpoint(s) not declaring API version '{RequestedApiVersion}'.");
+            }
+        }
+        else
+        {
+            groups = manifest.Groups.SelectMany(SplitGroupByApiVersion).ToList();
+        }
+
+        EnsureUniqueGroupNames(groups);
+        return new EndpointManifest { SchemaVersion = manifest.SchemaVersion, Groups = groups };
+    }
+
+    private static List<ManifestGroup> SplitGroupByApiVersion(ManifestGroup group)
+    {
+        // An endpoint declared under multiple versions joins each version's group; an unversioned endpoint stays in
+        // the un-suffixed group. A single (or absent) version across the group keeps the original name — the V-suffix
+        // only exists to disambiguate concurrent versions.
+        var versions = group.Endpoints
+            .SelectMany(e => e.ApiVersions)
+            .Select(VersionKey)
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+        if (versions.Count <= 1)
+        {
+            return
+            [
+                new ManifestGroup
+                {
+                    Name = group.Name,
+                    ErrorType = group.ErrorType,
+                    // Null (no version metadata anywhere) keeps the emitter-level default stamp.
+                    ApiVersion = versions.Count == 1 ? versions[0] : null,
+                    Endpoints = group.Endpoints
+                }
+            ];
+        }
+
+        var result = versions
+            .Select(
+                version => new ManifestGroup
+                {
+                    Name = group.Name + "V" + VersionSuffix(version),
+                    ErrorType = group.ErrorType,
+                    ApiVersion = version,
+                    Endpoints = group.Endpoints
+                        .Where(e => e.ApiVersions.Any(v => VersionKey(v) == version))
+                        .ToList()
+                })
+            .ToList();
+
+        var unversioned = group.Endpoints.Where(e => e.ApiVersions.Count == 0).ToList();
+        if (unversioned.Count > 0)
+        {
+            result.Add(
+                new ManifestGroup
+                {
+                    Name = group.Name,
+                    ErrorType = group.ErrorType,
+                    ApiVersion = null,
+                    Endpoints = unversioned
+                });
+        }
+
+        return result;
+    }
+
+    /// <summary>Canonical comparison form of an API version, so <c>"2"</c> and <c>"2.0"</c> match (Asp.Versioning treats them equal).</summary>
+    private static string VersionKey(string version)
+    {
+        if (Version.TryParse(version.Trim(), out var parsed))
+        {
+            return parsed.Minor > 0
+                ? $"{parsed.Major}.{parsed.Minor}"
+                : parsed.Major.ToString(CultureInfo.InvariantCulture);
+        }
+
+        return version.Trim();
+    }
+
+    /// <summary>An identifier-safe suffix for group names (e.g. <c>"2"</c> → <c>"2"</c>, <c>"2.1"</c> → <c>"2_1"</c>).</summary>
+    private static string VersionSuffix(string versionKey)
+    {
+        return new string(versionKey.Select(c => char.IsLetterOrDigit(c) ? c : '_').ToArray());
+    }
+
+    private static void EnsureUniqueGroupNames(List<ManifestGroup> groups)
+    {
+        // Splitting can collide with an explicit WithServiceAgentGroup name (e.g. a pre-existing "AccusationV2"
+        // group next to a split-out "Accusation" + V2). That cannot be silently resolved; fail like the exporter does.
+        var duplicates = groups.GroupBy(g => g.Name, StringComparer.OrdinalIgnoreCase)
+            .Where(g => g.Count() > 1)
+            .Select(g => g.Key)
+            .ToList();
+        if (duplicates.Count > 0)
+        {
+            throw new InvalidOperationException(
+                "API-version splitting produced duplicate group names ("
+                + string.Join(", ", duplicates)
+                + "). Rename the colliding WithServiceAgentGroup or unify the route groups.");
+        }
+    }
+
     private void BuildPocoTables(EndpointManifest manifest)
     {
         var reserved = new HashSet<string>(StringComparer.Ordinal) { "ServiceAgentExtensions" };
@@ -130,11 +270,12 @@ internal sealed class ServiceAgentEmitter
             renderer.Render(group.ErrorType);
         }
 
+        var apiVersion = group.ApiVersion ?? ApiVersion;
         var clusters = ClusterEndpoints(group.Endpoints);
         var plans = new List<MethodPlan>();
         foreach (var cluster in clusters)
         {
-            plans.AddRange(BuildPlansForCluster(cluster, renderer));
+            plans.AddRange(BuildPlansForCluster(cluster, renderer, apiVersion));
         }
 
         // C# requires required parameters before optional ones; stable-partition so this holds regardless of how
@@ -211,7 +352,10 @@ internal sealed class ServiceAgentEmitter
         return string.Join('/', segments);
     }
 
-    private List<MethodPlan> BuildPlansForCluster(List<ManifestEndpoint> cluster, ClrTypeRenderer renderer)
+    private List<MethodPlan> BuildPlansForCluster(
+        List<ManifestEndpoint> cluster,
+        ClrTypeRenderer renderer,
+        string apiVersion)
     {
         var canonical = cluster.OrderByDescending(e => e.Route.Count(c => c == '{')).First();
         var name = DeriveMethodName(canonical.RequestTypeName);
@@ -220,7 +364,7 @@ internal sealed class ServiceAgentEmitter
         var plans = new List<MethodPlan>();
 
         // Primary method (GET item/list/paged, or a command).
-        var primary = BuildPrimaryPlan(canonical, name, nullableRouteParams, renderer);
+        var primary = BuildPrimaryPlan(canonical, name, nullableRouteParams, renderer, apiVersion);
         plans.Add(primary);
 
         // HEAD companion for single-item queries that enabled it. Guard on the skip flag (BuildPrimaryPlan returns
@@ -229,7 +373,7 @@ internal sealed class ServiceAgentEmitter
         if (canonical is { IsQuery: true, EnableHead: true, ResponseShape: ResponseShape.Item }
             && primary is { IsSkipped: false })
         {
-            plans.Add(BuildHeadPlan(canonical, name, nullableRouteParams, renderer));
+            plans.Add(BuildHeadPlan(canonical, name, nullableRouteParams, renderer, apiVersion));
         }
 
         return plans;
@@ -239,11 +383,12 @@ internal sealed class ServiceAgentEmitter
         ManifestEndpoint endpoint,
         string name,
         HashSet<string> nullableRouteParams,
-        ClrTypeRenderer renderer)
+        ClrTypeRenderer renderer,
+        string apiVersion)
     {
         var paramNames = new HashSet<string>(StringComparer.Ordinal);
 
-        var (urlExpr, routeParams, urlDiagnostic) = BuildUrlExpression(endpoint, nullableRouteParams);
+        var (urlExpr, routeParams, urlDiagnostic) = BuildUrlExpression(endpoint, nullableRouteParams, apiVersion);
         if (urlDiagnostic is not null)
         {
             _diagnostics.Add($"Skipped '{name}' ({endpoint.HttpMethod} {endpoint.Route}): {urlDiagnostic}.");
@@ -323,10 +468,11 @@ internal sealed class ServiceAgentEmitter
         ManifestEndpoint endpoint,
         string name,
         HashSet<string> nullableRouteParams,
-        ClrTypeRenderer renderer)
+        ClrTypeRenderer renderer,
+        string apiVersion)
     {
         var paramNames = new HashSet<string>(StringComparer.Ordinal);
-        var (urlExpr, routeParams, _) = BuildUrlExpression(endpoint, nullableRouteParams);
+        var (urlExpr, routeParams, _) = BuildUrlExpression(endpoint, nullableRouteParams, apiVersion);
         var queryParams = endpoint.Parameters.Where(p => p.Source == ParameterSource.Query && !IsPagingProperty(p.Name))
             .ToList();
         var signature = BuildQuerySignature(routeParams, queryParams, false, renderer, paramNames);
@@ -541,7 +687,8 @@ internal sealed class ServiceAgentEmitter
 
     private (string UrlExpression, List<RouteParam> RouteParams, string? Diagnostic) BuildUrlExpression(
         ManifestEndpoint endpoint,
-        HashSet<string> nullableRouteParams)
+        HashSet<string> nullableRouteParams,
+        string apiVersion)
     {
         var route = endpoint.Route;
         var routeParams = new List<RouteParam>();
@@ -567,7 +714,7 @@ internal sealed class ServiceAgentEmitter
                 // the configured version rather than treated as a missing parameter.
                 if (IsVersionToken(tokenName, constraint))
                 {
-                    sb.Append(ApiVersion);
+                    sb.Append(apiVersion);
                     continue;
                 }
 

@@ -44,6 +44,8 @@ Options:
 | `--api-project` | Path to the API `.csproj` or its directory. |
 | `--output` | Directory to write the generated `.cs` files into (the client project). |
 | `--namespace` | Namespace for the generated types. |
+| `--base-url` | Bake this base URL into the generated `AddXxxService` extensions (otherwise each takes a `baseUri` argument). |
+| `--api-version` | Emit only endpoints declared for this API version (e.g. `--api-version 2`), as one un-suffixed `IXxxService` per group. |
 | `--clean` | Remove previously generated files in `--output` before writing. |
 
 The client project must reference `Cnblogs.Architecture.Ddd.Cqrs.ServiceAgent` (the base class + `AddServiceAgent`)
@@ -72,7 +74,8 @@ Endpoint shapes handled:
 - Mixed route-scalar + body signatures.
 - Nullable-route expansion (`MapNullableRouteParameter.Enable`) collapsed into a single method that substitutes
   `"-"` for missing values.
-- Route-group API-version tokens (`{version:apiVersion}`) substituted with the configured version (default `1`).
+- Route-group API-version tokens (`{version:apiVersion}`) substituted with the endpoint's declared API version
+  (falling back to `1` for endpoints without version metadata).
 
 ## Grouping
 
@@ -85,6 +88,18 @@ v1.MapGroup("/api/v1/store").WithServiceAgentGroup("Store");
 ```
 
 A group with conflicting error types, or two groups resolving to the same name, are reported as errors.
+
+## Multiple API versions
+
+When the API registers versioned endpoints (`.HasApiVersion(...)` / `[ApiVersion]`), each endpoint's declared
+versions are exported to the manifest, and the `{version:apiVersion}` route token is stamped with the endpoint's
+own version instead of a hard-coded one.
+
+- **Default (no option):** all endpoints are emitted. A group whose endpoints span several API versions is split
+  into one agent per version — e.g. `IAccusationV1Service` + `IAccusationV2Service` — each calling its own
+  `/api/v1/...` / `/api/v2/...` routes. A group within a single version keeps the un-suffixed name.
+- **`--api-version 2`:** only endpoints declaring version 2 (or carrying no version metadata) are emitted, as one
+  un-suffixed `IAccusationService`; endpoints of other versions are dropped with a warning.
 
 ## Limitations
 
