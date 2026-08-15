@@ -71,11 +71,19 @@ public class EndpointManifestBuilderTests
     }
 
     private static async Task<EndpointManifest> BuildManifestAsync(
-        Action<WebApplication> mapEndpoints)
+        Action<WebApplication> mapEndpoints,
+        bool useApiVersioning = false)
     {
         var builder = WebApplication.CreateBuilder();
         // Bind an ephemeral port so parallel WebApplication-based test classes don't fight for the default port.
         builder.WebHost.UseUrls("http://127.0.0.1:0");
+        if (useApiVersioning)
+        {
+            // NewVersionedApi() endpoints finalize against the versioning services; register them like the API
+            // projects that use them do.
+            builder.Services.AddCnblogsApiVersioning();
+        }
+
         var app = builder.Build();
         mapEndpoints(app);
 
@@ -154,6 +162,44 @@ public class EndpointManifestBuilderTests
         Assert.Equal(ParameterSource.Query, found.Source);
         Assert.Equal("Boolean", found.ClrType.Name);
         Assert.Null(found.RouteToken);
+    }
+
+    [Fact]
+    public async Task Build_VersionedEndpoints_ExportDeclaredApiVersionsAsync()
+    {
+        // Arrange — mirrors the CnblogsReport shape: the same surface mapped under v1 and v2 versioned groups.
+        // Act
+        var manifest = await BuildManifestAsync(
+            app =>
+            {
+                var apis = app.NewVersionedApi();
+                var v1 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(1);
+                v1.MapQuery<SingleQuery>("accusations/{stringId:int}");
+                var v2 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(2);
+                v2.MapQuery<SingleQuery>("accusations/{stringId:int}");
+            },
+            useApiVersioning: true);
+
+        // Assert — each endpoint carries its group's declared version (as a plain major string).
+        var endpoints = manifest.Groups.SelectMany(g => g.Endpoints)
+            .Where(e => e.RequestTypeName == nameof(SingleQuery))
+            .ToList();
+        Assert.Equal(2, endpoints.Count);
+        Assert.Contains(endpoints, e => e.ApiVersions.SequenceEqual(["1"]));
+        Assert.Contains(endpoints, e => e.ApiVersions.SequenceEqual(["2"]));
+    }
+
+    [Fact]
+    public async Task Build_UnversionedEndpoint_ExportsEmptyApiVersionsAsync()
+    {
+        // Act
+        var manifest = await BuildManifestAsync(
+            app => app.MapQuery<SingleQuery>("apps/{appId}/strings/{stringId:int}/value"));
+
+        // Assert — no versioning metadata on the endpoint means an empty version list (the generator falls back to
+        // its default stamp for these).
+        var endpoint = SingleEndpoint(manifest, nameof(SingleQuery));
+        Assert.Empty(endpoint.ApiVersions);
     }
 
     [Fact]

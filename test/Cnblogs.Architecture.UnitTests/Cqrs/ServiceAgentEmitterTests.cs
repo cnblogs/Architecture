@@ -19,7 +19,8 @@ public class ServiceAgentEmitterTests
         ClrTypeRef responseType,
         List<ManifestParameter> parameters,
         bool enableHead = false,
-        List<string>? nullableRoutes = null) =>
+        List<string>? nullableRoutes = null,
+        List<string>? apiVersions = null) =>
         new()
         {
             HttpMethod = "GET",
@@ -31,7 +32,8 @@ public class ServiceAgentEmitterTests
             RequestTypeName = requestTypeName,
             Parameters = parameters,
             EnableHead = enableHead,
-            NullableRouteParameters = nullableRoutes ?? []
+            NullableRouteParameters = nullableRoutes ?? [],
+            ApiVersions = apiVersions ?? []
         };
 
     private static ManifestEndpoint Command(
@@ -42,7 +44,8 @@ public class ServiceAgentEmitterTests
         ClrTypeRef? responseType,
         ClrTypeRef? payloadType,
         List<ManifestParameter> parameters,
-        PayloadContract? payloadContract = null) =>
+        PayloadContract? payloadContract = null,
+        List<string>? apiVersions = null) =>
         new()
         {
             HttpMethod = verb,
@@ -54,13 +57,19 @@ public class ServiceAgentEmitterTests
             PayloadType = payloadType,
             PayloadContract = payloadContract,
             RequestTypeName = requestTypeName,
-            Parameters = parameters
+            Parameters = parameters,
+            ApiVersions = apiVersions ?? []
         };
 
     private static string EmitClass(params ManifestGroup[] groups)
     {
+        return EmitClass(new ServiceAgentEmitter(), groups);
+    }
+
+    private static string EmitClass(ServiceAgentEmitter emitter, params ManifestGroup[] groups)
+    {
         var manifest = new EndpointManifest { Groups = groups.ToList() };
-        var files = new ServiceAgentEmitter().Emit(manifest, "Cnblogs.Vip.ServiceAgent");
+        var files = emitter.Emit(manifest, "Cnblogs.Vip.ServiceAgent");
         return files.First(f => f.FileName.EndsWith("Service.cs", StringComparison.Ordinal) && !f.FileName.StartsWith("I", StringComparison.Ordinal) && !f.IsExtensionsFile).Content;
     }
 
@@ -332,5 +341,205 @@ public class ServiceAgentEmitterTests
         // Assert — exactly one POCO file for the shared command body type.
         Assert.Single(files, f => f.FileName.EndsWith("Payload.cs", StringComparison.Ordinal));
         Assert.Single(files, f => f.FileName == "CreateBlogPayload.cs");
+    }
+
+    [Fact]
+    public void Emit_SingleApiVersion_KeepsUnsuffixedNameAndStampsVersion()
+    {
+        // Arrange — every endpoint declares v2: one un-suffixed agent, and the {version:apiVersion} token stamped
+        // with the declared version (not the historical default "1").
+        var emitter = new ServiceAgentEmitter();
+
+        // Act
+        var files = emitter.Emit(
+            new EndpointManifest
+            {
+                Groups =
+                [
+                    new ManifestGroup
+                    {
+                        Name = "Accusation",
+                        ErrorType = Error("AccusationError"),
+                        Endpoints =
+                        [
+                            Query(
+                                "/api/v{version:apiVersion}/accusations",
+                                "ListAccusationQuery",
+                                ResponseShape.PagedList,
+                                new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("AccusationDto")] },
+                                [QueryParam("ReporterId", Sys("Guid"), nullable: true)],
+                                apiVersions: ["2"])
+                        ]
+                    }
+                ]
+            },
+            "Cnblogs.Report.ServiceAgent");
+
+        // Assert — the un-suffixed pair exists and the URL uses the declared version.
+        Assert.Contains(files, f => f.FileName == "IAccusationService.cs");
+        Assert.Contains(files, f => f.FileName == "AccusationService.cs");
+        var cls = files.First(f => f.FileName == "AccusationService.cs").Content;
+        Assert.Contains("\"/api/v2/accusations\"", cls);
+        Assert.DoesNotContain("/api/v1/", cls);
+    }
+
+    [Fact]
+    public void Emit_MultipleApiVersions_SplitsIntoSuffixedGroups()
+    {
+        // Arrange — the same group spans v1 and v2 endpoints (the default, no-option path).
+        var v1Endpoint = Query(
+            "/api/v{version:apiVersion}/accusations/{id:int}",
+            "GetAccusationQuery",
+            ResponseShape.Item,
+            Dto("AccusationDto"),
+            [Route("Id", Sys("Int32"), "id")],
+            apiVersions: ["1"]);
+        var v2Endpoint = Query(
+            "/api/v{version:apiVersion}/accusations",
+            "ListAccusationQuery",
+            ResponseShape.PagedList,
+            new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("AccusationDto")] },
+            [QueryParam("ReporterId", Sys("Guid"), nullable: true)],
+            apiVersions: ["2"]);
+
+        // Act
+        var files = new ServiceAgentEmitter().Emit(
+            new EndpointManifest
+            {
+                Groups =
+                [
+                    new ManifestGroup { Name = "Accusation", ErrorType = Error("AccusationError"), Endpoints = [v1Endpoint, v2Endpoint] }
+                ]
+            },
+            "Cnblogs.Report.ServiceAgent");
+
+        // Assert — one suffixed pair per version, each stamped with its own URL version.
+        Assert.Contains(files, f => f.FileName == "IAccusationV1Service.cs");
+        Assert.Contains(files, f => f.FileName == "IAccusationV2Service.cs");
+        var v1Cls = files.First(f => f.FileName == "AccusationV1Service.cs").Content;
+        var v2Cls = files.First(f => f.FileName == "AccusationV2Service.cs").Content;
+        Assert.Contains("\"/api/v1/accusations/{id}\"", v1Cls);
+        Assert.Contains("\"/api/v2/accusations\"", v2Cls);
+
+        // The DI extensions register each split agent under its suffixed name.
+        var ext = files.First(f => f.IsExtensionsFile).Content;
+        Assert.Contains("AddAccusationV1Service(", ext);
+        Assert.Contains("AddAccusationV2Service(", ext);
+    }
+
+    [Fact]
+    public void Emit_RequestedApiVersion_FiltersEndpointsAndKeepsUnsuffixedName()
+    {
+        // Arrange — --api-version 2: only v2 endpoints are emitted, as one un-suffixed IAccusationService.
+        var v1Endpoint = Query(
+            "/api/v{version:apiVersion}/accusations/{id:int}",
+            "GetAccusationQuery",
+            ResponseShape.Item,
+            Dto("AccusationDto"),
+            [Route("Id", Sys("Int32"), "id")],
+            apiVersions: ["1"]);
+        var v2Endpoint = Query(
+            "/api/v{version:apiVersion}/accusations",
+            "ListAccusationQuery",
+            ResponseShape.PagedList,
+            new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("AccusationDto")] },
+            [QueryParam("ReporterId", Sys("Guid"), nullable: true)],
+            apiVersions: ["2"]);
+        var emitter = new ServiceAgentEmitter { RequestedApiVersion = "2" };
+
+        // Act
+        var files = emitter.Emit(
+            new EndpointManifest
+            {
+                Groups =
+                [
+                    new ManifestGroup { Name = "Accusation", ErrorType = Error("AccusationError"), Endpoints = [v1Endpoint, v2Endpoint] }
+                ]
+            },
+            "Cnblogs.Report.ServiceAgent");
+
+        // Assert — the un-suffixed pair (per the requirement), the v1 endpoint dropped with a warning.
+        Assert.Contains(files, f => f.FileName == "IAccusationService.cs");
+        Assert.DoesNotContain(files, f => f.FileName.EndsWith("V1Service.cs", StringComparison.Ordinal));
+        var cls = files.First(f => f.FileName == "AccusationService.cs").Content;
+        Assert.Contains("\"/api/v2/accusations\"", cls);
+        Assert.DoesNotContain("GetAccusationAsync", cls);
+        Assert.Contains(
+            emitter.Diagnostics,
+            d => d.Contains("not declaring API version '2'", StringComparison.Ordinal));
+    }
+
+    [Fact]
+    public void Emit_RequestedApiVersion_KeepsUnversionedEndpoints()
+    {
+        // Arrange — an endpoint without any version metadata (e.g. a plain MapQuery outside versioned groups)
+        // stays in the requested-version output; it falls back to the emitter default stamp.
+        var unversioned = Query("/api/v{version:apiVersion}/health", "GetHealthQuery", ResponseShape.Item, Sys("String"), [], apiVersions: []);
+        var v1Endpoint = Query(
+            "/api/v{version:apiVersion}/accusations/{id:int}",
+            "GetAccusationQuery",
+            ResponseShape.Item,
+            Dto("AccusationDto"),
+            [Route("Id", Sys("Int32"), "id")],
+            apiVersions: ["1"]);
+        var emitter = new ServiceAgentEmitter { RequestedApiVersion = "2" };
+
+        // Act
+        var files = emitter.Emit(
+            new EndpointManifest
+            {
+                Groups =
+                [
+                    new ManifestGroup { Name = "Accusation", ErrorType = Error("AccusationError"), Endpoints = [v1Endpoint, unversioned] }
+                ]
+            },
+            "Cnblogs.Report.ServiceAgent");
+
+        // Assert
+        var cls = files.First(f => f.FileName == "AccusationService.cs").Content;
+        Assert.Contains("GetHealthAsync", cls);
+    }
+
+    [Fact]
+    public void Emit_RequestedApiVersion_NormalizesMinorVersions()
+    {
+        // Arrange — "2.0" and "2" are the same Asp.Versioning version; --api-version 2 must match a declared "2.0".
+        var endpoint = Query(
+            "/api/v{version:apiVersion}/accusations",
+            "ListAccusationQuery",
+            ResponseShape.PagedList,
+            new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("AccusationDto")] },
+            [],
+            apiVersions: ["2.0"]);
+        var emitter = new ServiceAgentEmitter { RequestedApiVersion = "2" };
+
+        // Act
+        var files = emitter.Emit(
+            new EndpointManifest { Groups = [new ManifestGroup { Name = "Accusation", Endpoints = [endpoint] }] },
+            "Cnblogs.Report.ServiceAgent");
+
+        // Assert — the endpoint survives the filter.
+        var cls = files.First(f => f.FileName == "AccusationService.cs").Content;
+        Assert.Contains("ListAccusationAsync", cls);
+    }
+
+    [Fact]
+    public void Emit_NoVersionMetadata_DefaultsToVersionOneStamp()
+    {
+        // Arrange — no endpoint declares versions (plain route groups without HasApiVersion): the legacy behavior
+        // (stamp "1") is preserved.
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Query("/api/v{version:apiVersion}/products/{id:int}", "GetVipProductQuery", ResponseShape.Item, Dto("VipProductDto"), [Route("Id", Sys("Int32"), "id")])
+                ]
+            });
+
+        // Assert
+        Assert.Contains("\"/api/v1/products/{id}\"", cls);
     }
 }

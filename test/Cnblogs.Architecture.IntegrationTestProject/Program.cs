@@ -56,6 +56,11 @@ v1.MapCommand(
     (int id, UpdatePayload payload) => new UpdateCommand(id, payload.NeedValidationError, payload.NeedExecutionError));
 v1.MapCommand<DeleteCommand>("strings/{id:int}");
 
+// v2 mirrors part of the v1 surface, so generated agents exercise the multi-version split path.
+var v2 = apis.MapGroup("/api/v{version:apiVersion}").HasApiVersion(2);
+v2.MapQuery<ListStringsQuery>("strings");
+v2.MapQuery<GetArticleQuery>("articles/{id:int}");
+
 // generic command map
 v1.MapPostCommand<CreateCommand>("generic-map/strings");
 v1.MapPutCommand<UpdateCommand>("generic-map/strings");

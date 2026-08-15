@@ -14,4 +14,5 @@ internal sealed class ManifestEndpoint
     public List<ManifestParameter> Parameters { get; set; } = [];
     public List<string> NullableRouteParameters { get; set; } = [];
     public bool EnableHead { get; set; }
+    public List<string> ApiVersions { get; set; } = [];
 }

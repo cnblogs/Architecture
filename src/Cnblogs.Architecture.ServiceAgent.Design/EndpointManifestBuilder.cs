@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
+using Asp.Versioning;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Microsoft.AspNetCore.Routing;
 
@@ -79,8 +80,26 @@ public static class EndpointManifestBuilder
             RequestTypeName = descriptor.RequestType.Name,
             Parameters = descriptor.Parameters.Select(BuildParameter).ToList(),
             NullableRouteParameters = descriptor.NullableRouteParameters.ToList(),
-            EnableHead = descriptor.EnableHead
+            EnableHead = descriptor.EnableHead,
+            ApiVersions = GetApiVersions(endpoint)
         };
+    }
+
+    private static List<string> GetApiVersions(RouteEndpoint endpoint)
+    {
+        // Asp.Versioning attaches its endpoint metadata when the endpoint is mapped under a versioned group or
+        // controller; endpoints without it are unversioned (exported with an empty version list).
+        var metadata = endpoint.Metadata.GetMetadata<ApiVersionMetadata>();
+        if (metadata is null || metadata.IsApiVersionNeutral)
+        {
+            return [];
+        }
+
+        return metadata.Map(ApiVersionMapping.Explicit | ApiVersionMapping.Implicit)
+            .DeclaredApiVersions
+            .Select(v => v.ToString("VVV", CultureInfo.InvariantCulture))
+            .Distinct(StringComparer.Ordinal)
+            .ToList();
     }
 
     private static ManifestParameter BuildParameter(EndpointParameterDescriptor parameter)
