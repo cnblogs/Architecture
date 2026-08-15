@@ -55,17 +55,13 @@ public class ServiceAgentExporterEndToEndTests
             // writes the manifest and then calls StopApplication, so the host should stop on its own.
             await app.StartAsync();
 
-            // Wait for the manifest to appear on disk (the exporter writes synchronously inside the
-            // ApplicationStarted callback, so the file is usually already there; poll as a safety net).
-            var deadline = DateTime.UtcNow.AddSeconds(15);
-            while (!File.Exists(path) && DateTime.UtcNow < deadline)
-            {
-                await Task.Delay(50);
-            }
+            // Wait for the manifest to appear on disk fully written (the exporter creates the file before its
+            // content is flushed; File.Exists alone can race an empty read — observed on Linux CI).
+            await WaitForManifestAsync(path);
 
             // Assert — the file must exist.
             Assert.True(
-                File.Exists(path),
+                IsManifestWritten(path),
                 $"Service-agent manifest was not written within the deadline. Expected path: {path}. The export pipeline (env-var gate + ApplicationStarted hook + writer) did not run.");
 
             var json = await File.ReadAllTextAsync(path);
@@ -131,16 +127,12 @@ public class ServiceAgentExporterEndToEndTests
 
             // Act
             await app.StartAsync();
-            var deadline = DateTime.UtcNow.AddSeconds(15);
-            while (!File.Exists(path) && DateTime.UtcNow < deadline)
-            {
-                await Task.Delay(50);
-            }
 
             // Assert — the hosting-startup path (the one the dotnet-cnblogs-sa tool relies on) must register the
             // hosted service and write the manifest.
+            await WaitForManifestAsync(path);
             Assert.True(
-                File.Exists(path),
+                IsManifestWritten(path),
                 "Hosting-startup activation did not write the manifest; the [assembly: HostingStartup] path is broken.");
             var json = await File.ReadAllTextAsync(path);
             var manifest = JsonSerializer.Deserialize<EndpointManifest>(
@@ -233,5 +225,29 @@ public class ServiceAgentExporterEndToEndTests
         // Assert
         var count = services.Count(d => d.ImplementationType == typeof(ServiceAgentExporterHostedService));
         Assert.Equal(1, count);
+    }
+
+    private static async Task WaitForManifestAsync(string path)
+    {
+        // The exporter writes via File.WriteAllText, which creates the file before the content lands; a reader that
+        // stops at File.Exists can observe a zero-byte file (no forced locking on Linux). Wait for non-empty content.
+        var deadline = DateTime.UtcNow.AddSeconds(15);
+        while (!IsManifestWritten(path) && DateTime.UtcNow < deadline)
+        {
+            await Task.Delay(50);
+        }
+    }
+
+    private static bool IsManifestWritten(string path)
+    {
+        try
+        {
+            return File.Exists(path) && new FileInfo(path).Length > 0;
+        }
+        catch (IOException)
+        {
+            // The writer may still hold the handle; treat as not-yet-written and keep polling.
+            return false;
+        }
     }
 }
