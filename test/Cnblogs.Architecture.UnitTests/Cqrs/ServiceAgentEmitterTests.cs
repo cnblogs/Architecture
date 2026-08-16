@@ -150,6 +150,57 @@ public class ServiceAgentEmitterTests
     }
 
     [Fact]
+    public void Emit_ArrayQueryParameter_UsesAddRangeInsteadOfAdd()
+    {
+        // Arrange — an int[] query parameter must bind as a repeated query key (AddRange), not stringify the array.
+        var cls = EmitClass(new ManifestGroup
+        {
+            Name = "Vip",
+            ErrorType = Error("VipError"),
+            Endpoints =
+            [
+                Query(
+                    "/api/v1/products",
+                    "ListProductsQuery",
+                    ResponseShape.List,
+                    new() { Namespace = "System.Collections.Generic", Name = "List", GenericArguments = [Dto("VipProductDto")] },
+                    [QueryParam("Ids", new ClrTypeRef { IsArray = true, ArrayRank = 1, GenericArguments = [Sys("Int32")] })])
+            ]
+        });
+
+        // Assert
+        Assert.Contains("ListProductsAsync(int[] ids)", cls);
+        Assert.Contains("AddRange(\"ids\", ids)", cls);
+    }
+
+    [Fact]
+    public void Emit_ListQueryParameter_UsesAddRangeInsteadOfAdd()
+    {
+        // Arrange — List<string> binds as a repeated query key too.
+        var cls = EmitClass(new ManifestGroup
+        {
+            Name = "Vip",
+            ErrorType = Error("VipError"),
+            Endpoints =
+            [
+                Query(
+                    "/api/v1/products",
+                    "ListProductsQuery",
+                    ResponseShape.List,
+                    new() { Namespace = "System.Collections.Generic", Name = "List", GenericArguments = [Dto("VipProductDto")] },
+                    [
+                        QueryParam("Tags", new() { Namespace = "System.Collections.Generic", Name = "List", GenericArguments = [Sys("String")] }),
+                        QueryParam("IncludeInactive", Sys("Boolean"))
+                    ])
+            ]
+        });
+
+        // Assert — collections use AddRange; scalars keep Add.
+        Assert.Contains("AddRange(\"tags\", tags)", cls);
+        Assert.Contains("Add(\"includeInactive\", includeInactive)", cls);
+    }
+
+    [Fact]
     public void Emit_PostCommandWithResult_GeneratesPostCommandAsync()
     {
         var cls = EmitClass(new ManifestGroup

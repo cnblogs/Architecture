@@ -503,6 +503,32 @@ internal sealed class ServiceAgentEmitter
                || string.Equals(name, "OrderByString", StringComparison.OrdinalIgnoreCase);
     }
 
+    /// <summary>
+    ///     Whether a query parameter binds as a repeated query key (arrays and the common list interfaces), so the
+    ///     generated call uses <c>QueryStringBuilder.AddRange</c> instead of <c>Add</c>. Multi-rank arrays are excluded:
+    ///     they do not implement <c>IEnumerable&lt;T&gt;</c>, so <c>AddRange</c>'s type inference would fail.
+    /// </summary>
+    private static bool IsCollection(ClrTypeRef type)
+    {
+        if (type.IsArray)
+        {
+            return type.ArrayRank <= 1;
+        }
+
+        if (type.GenericArguments.Length == 0)
+        {
+            return false;
+        }
+
+        var fullName = type.Namespace.Length > 0 ? type.Namespace + "." + type.Name : type.Name;
+        return fullName is "System.Collections.Generic.List"
+            or "System.Collections.Generic.IList"
+            or "System.Collections.Generic.ICollection"
+            or "System.Collections.Generic.IEnumerable"
+            or "System.Collections.Generic.IReadOnlyList"
+            or "System.Collections.Generic.IReadOnlyCollection";
+    }
+
     private List<MethodParam> BuildCommandSignature(
         List<RouteParam> routeParams,
         List<ManifestParameter> queryParams,
@@ -592,7 +618,7 @@ internal sealed class ServiceAgentEmitter
         var @default = parameter is { HasDefaultValue: true, DefaultValueLiteral: not null }
             ? " = " + parameter.DefaultValueLiteral
             : (parameter.IsNullable ? " = null" : null);
-        return new MethodParam(name, type, @default, ToCamelCase(parameter.Name));
+        return new MethodParam(name, type, @default, ToCamelCase(parameter.Name), IsCollection(parameter.ClrType));
     }
 
     private static MethodParam BuildBodyParam(
@@ -758,7 +784,11 @@ internal sealed class ServiceAgentEmitter
         var builder = new StringBuilder("new QueryStringBuilder()");
         foreach (var query in queryParams)
         {
-            builder.Append(".Add(\"").Append(query.WireKey).Append("\", ").Append(query.Name).Append(')');
+            // Collection parameters expand into repeated query keys via AddRange; Add would stringify the
+            // collection itself (e.g. "?ids=System.Int32[]").
+            var addMethod = query.IsCollection ? "AddRange" : "Add";
+            builder.Append('.').Append(addMethod).Append("(\"").Append(query.WireKey).Append("\", ")
+                .Append(query.Name).Append(')');
         }
 
         builder.Append(".Build()");
@@ -1040,7 +1070,12 @@ internal sealed class ServiceAgentEmitter
 
     private sealed record PocoDefinition(string Name, List<PayloadProperty> Properties);
 
-    private sealed record MethodParam(string Name, string Type, string? Default, string? WireKey = null);
+    private sealed record MethodParam(
+        string Name,
+        string Type,
+        string? Default,
+        string? WireKey = null,
+        bool IsCollection = false);
 
     private sealed record MethodPlan
     {
