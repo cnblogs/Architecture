@@ -58,12 +58,20 @@ internal sealed class ServiceAgentEmitter
     /// </summary>
     public string? BaseUrl { get; init; }
 
+    /// <summary>
+    ///     When set, every endpoint group is merged into a single service named after this value (Pascal-cased), so
+    ///     <c>bill</c> produces one <c>IBillService</c> covering all endpoints. Supplied via the tool's
+    ///     <c>--app-name</c> option; merging fails when the groups use different error types.
+    /// </summary>
+    public string? AppName { get; init; }
+
     /// <summary>Emit all source files for the manifest, using <paramref name="namespace" /> for the generated types.</summary>
     public List<EmittedFile> Emit(EndpointManifest manifest, string @namespace)
     {
         _diagnostics.Clear();
         _pocoNameByBodyType.Clear();
         _pocoDefinitions.Clear();
+        manifest = MergeGroupsIntoApp(manifest);
         manifest = ApplyApiVersionPolicy(manifest);
         BuildPocoTables(manifest);
         var files = new List<EmittedFile>();
@@ -97,6 +105,75 @@ internal sealed class ServiceAgentEmitter
     }
 
     /// <summary>
+    ///     With <see cref="AppName" /> set, fold all groups into one named after the app (Pascal-cased) so a
+    ///     single-purpose API generates exactly one service pair regardless of how the exporter auto-grouped the
+    ///     endpoints. Mixing error types cannot map onto the single generic base class, so that fails like the
+    ///     exporter does for mixed groups. Runs before the API-version policy, so a merged <c>Bill</c> app whose
+    ///     endpoints span versions still splits into <c>BillV1</c>/<c>BillV2</c> as usual.
+    /// </summary>
+    private EndpointManifest MergeGroupsIntoApp(EndpointManifest manifest)
+    {
+        if (AppName is null)
+        {
+            return manifest;
+        }
+
+        var name = ToPascalCase(AppName);
+        if (name.Length == 0)
+        {
+            throw new InvalidOperationException($"--app-name '{AppName}' contains no usable characters.");
+        }
+
+        var errorTypes = manifest.Groups
+            .Select(g => g.ErrorType)
+            .Where(t => t is not null)
+            .Select(t => t!)
+            .DistinctBy(TypeKey)
+            .ToList();
+        if (errorTypes.Count > 1)
+        {
+            throw new InvalidOperationException(
+                "--app-name merges all groups into one service, but the manifest contains different error types ("
+                + string.Join(", ", errorTypes.Select(TypeKey))
+                + "). Unify the error types or drop --app-name.");
+        }
+
+        return new EndpointManifest
+        {
+            SchemaVersion = manifest.SchemaVersion,
+            Groups =
+            [
+                new ManifestGroup
+                {
+                    Name = name,
+                    ErrorType = errorTypes.FirstOrDefault(),
+                    Endpoints = manifest.Groups.SelectMany(g => g.Endpoints).ToList()
+                }
+            ]
+        };
+    }
+
+    /// <summary>Pascal-case a free-form app name: split on non-alphanumerics, capitalize each part (<c>my_app</c> → <c>MyApp</c>).</summary>
+    private static string ToPascalCase(string input)
+    {
+        var parts = input.Split(['-', '_', ' ', '.', ':'], StringSplitOptions.RemoveEmptyEntries);
+        return string.Concat(
+            parts.Select(p => p.Length == 1
+                ? char.ToUpperInvariant(p[0]).ToString()
+                : char.ToUpperInvariant(p[0]) + p.Substring(1)));
+    }
+
+    /// <summary>Identity of a type reference for error-type comparison (namespace + name + generic arguments).</summary>
+    private static string TypeKey(ClrTypeRef type)
+    {
+        var ns = type.Namespace.Length > 0 ? type.Namespace + "." : string.Empty;
+        var args = type.GenericArguments.Length > 0
+            ? "<" + string.Join(",", type.GenericArguments.Select(TypeKey)) + ">"
+            : string.Empty;
+        return ns + type.Name + args;
+    }
+
+    /// <summary>
     ///     Apply the API-version policy to the manifest: with <see cref="RequestedApiVersion" /> set, drop endpoints
     ///     not declaring that version; otherwise split each group spanning multiple declared versions into one group
     ///     per version (suffixed <c>XxxV2</c>), so the generated types do not collide. Each resulting group carries
@@ -125,8 +202,7 @@ internal sealed class ServiceAgentEmitter
             var dropped = manifest.Groups.Sum(g => g.Endpoints.Count) - groups.Sum(g => g.Endpoints.Count);
             if (dropped > 0)
             {
-                _diagnostics.Add(
-                    $"Dropped {dropped} endpoint(s) not declaring API version '{RequestedApiVersion}'.");
+                _diagnostics.Add($"Dropped {dropped} endpoint(s) not declaring API version '{RequestedApiVersion}'.");
             }
         }
         else
@@ -164,16 +240,15 @@ internal sealed class ServiceAgentEmitter
         }
 
         var result = versions
-            .Select(
-                version => new ManifestGroup
-                {
-                    Name = group.Name + "V" + VersionSuffix(version),
-                    ErrorType = group.ErrorType,
-                    ApiVersion = version,
-                    Endpoints = group.Endpoints
-                        .Where(e => e.ApiVersions.Any(v => VersionKey(v) == version))
-                        .ToList()
-                })
+            .Select(version => new ManifestGroup
+            {
+                Name = group.Name + "V" + VersionSuffix(version),
+                ErrorType = group.ErrorType,
+                ApiVersion = version,
+                Endpoints = group.Endpoints
+                    .Where(e => e.ApiVersions.Any(v => VersionKey(v) == version))
+                    .ToList()
+            })
             .ToList();
 
         var unversioned = group.Endpoints.Where(e => e.ApiVersions.Count == 0).ToList();
@@ -441,9 +516,20 @@ internal sealed class ServiceAgentEmitter
         else
         {
             var bodyTypeOverride = ResolveBodyTypeOverride(endpoint, bodyParam);
-            signature = BuildCommandSignature(routeParams, queryParams, bodyParam, bodyTypeOverride, renderer, paramNames);
+            signature = BuildCommandSignature(
+                routeParams,
+                queryParams,
+                bodyParam,
+                bodyTypeOverride,
+                renderer,
+                paramNames);
             var fullUrl = AppendQuery(urlExpr, signature);
-            var (cmdReturn, cmdCall, cmdReason) = BuildCommandCall(endpoint, fullUrl, bodyParam, bodyTypeOverride, renderer);
+            var (cmdReturn, cmdCall, cmdReason) = BuildCommandCall(
+                endpoint,
+                fullUrl,
+                bodyParam,
+                bodyTypeOverride,
+                renderer);
             if (cmdReason is not null)
             {
                 _diagnostics.Add($"Skipped '{name}' ({endpoint.HttpMethod} {endpoint.Route}): {cmdReason}.");

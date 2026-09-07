@@ -10,7 +10,8 @@ public class ServiceAgentEmitterTests
 
     private static ClrTypeRef Dto(string name) => new() { Namespace = "Cnblogs.Vip.Application.Dto", Name = name };
 
-    private static ClrTypeRef Error(string name) => new() { Namespace = "Cnblogs.Vip.Application.Dto.Errors", Name = name };
+    private static ClrTypeRef Error(string name)
+        => new() { Namespace = "Cnblogs.Vip.Application.Dto.Errors", Name = name };
 
     private static ManifestEndpoint Query(
         string route,
@@ -20,8 +21,8 @@ public class ServiceAgentEmitterTests
         List<ManifestParameter> parameters,
         bool enableHead = false,
         List<string>? nullableRoutes = null,
-        List<string>? apiVersions = null) =>
-        new()
+        List<string>? apiVersions = null)
+        => new()
         {
             HttpMethod = "GET",
             HttpMethods = ["GET"],
@@ -45,8 +46,8 @@ public class ServiceAgentEmitterTests
         ClrTypeRef? payloadType,
         List<ManifestParameter> parameters,
         PayloadContract? payloadContract = null,
-        List<string>? apiVersions = null) =>
-        new()
+        List<string>? apiVersions = null)
+        => new()
         {
             HttpMethod = verb,
             HttpMethods = [verb],
@@ -70,7 +71,10 @@ public class ServiceAgentEmitterTests
     {
         var manifest = new EndpointManifest { Groups = groups.ToList() };
         var files = emitter.Emit(manifest, "Cnblogs.Vip.ServiceAgent");
-        return files.First(f => f.FileName.EndsWith("Service.cs", StringComparison.Ordinal) && !f.FileName.StartsWith("I", StringComparison.Ordinal) && !f.IsExtensionsFile).Content;
+        return files.First(f
+            => f.FileName.EndsWith("Service.cs", StringComparison.Ordinal)
+               && !f.FileName.StartsWith("I", StringComparison.Ordinal)
+               && !f.IsExtensionsFile).Content;
     }
 
     private static string EmitExtensions(params ManifestGroup[] groups)
@@ -85,27 +89,58 @@ public class ServiceAgentEmitterTests
         return files.First(f => f.IsExtensionsFile).Content;
     }
 
-    private static ManifestParameter Route(string name, ClrTypeRef type, string? token = null, bool nullable = false) =>
-        new() { Name = name, Source = ParameterSource.Route, ClrType = type, RouteToken = token ?? name.ToLowerInvariant(), IsNullable = nullable };
+    private static ManifestParameter Route(string name, ClrTypeRef type, string? token = null, bool nullable = false)
+        => new()
+        {
+            Name = name,
+            Source = ParameterSource.Route,
+            ClrType = type,
+            RouteToken = token ?? name.ToLowerInvariant(),
+            IsNullable = nullable
+        };
 
-    private static ManifestParameter QueryParam(string name, ClrTypeRef type, bool nullable = false, string? defaultLiteral = null, bool hasDefault = false) =>
-        new() { Name = name, Source = ParameterSource.Query, ClrType = type, IsNullable = nullable, DefaultValueLiteral = defaultLiteral, HasDefaultValue = hasDefault };
+    private static ManifestParameter QueryParam(
+        string name,
+        ClrTypeRef type,
+        bool nullable = false,
+        string? defaultLiteral = null,
+        bool hasDefault = false)
+        => new()
+        {
+            Name = name,
+            Source = ParameterSource.Query,
+            ClrType = type,
+            IsNullable = nullable,
+            DefaultValueLiteral = defaultLiteral,
+            HasDefaultValue = hasDefault
+        };
 
-    private static ManifestParameter Body(string name, ClrTypeRef type) =>
-        new() { Name = name, Source = ParameterSource.Body, ClrType = type };
+    private static ManifestParameter Body(string name, ClrTypeRef type)
+        => new()
+        {
+            Name = name,
+            Source = ParameterSource.Body,
+            ClrType = type
+        };
 
     [Fact]
     public void Emit_QueryItem_GeneratesGetItemAsyncCall()
     {
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints =
-            [
-                Query("/api/v1/products/{id:int}", "GetVipProductQuery", ResponseShape.Item, Dto("VipProductDto"), [Route("Id", Sys("Int32"), "id")])
-            ]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Query(
+                        "/api/v1/products/{id:int}",
+                        "GetVipProductQuery",
+                        ResponseShape.Item,
+                        Dto("VipProductDto"),
+                        [Route("Id", Sys("Int32"), "id")])
+                ]
+            });
 
         Assert.Contains("Task<VipProductDto?> GetVipProductAsync(int id)", cls);
         Assert.Contains("GetItemAsync<VipProductDto>($\"/api/v1/products/{id}\")", cls);
@@ -116,12 +151,26 @@ public class ServiceAgentEmitterTests
     [Fact]
     public void Emit_QueryList_GeneratesListItemsAsyncCall()
     {
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints = [Query("/api/v1/rules", "ListRulesQuery", ResponseShape.List, new() { Namespace = "System.Collections.Generic", Name = "List", GenericArguments = [Sys("String")] }, [])]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Query(
+                        "/api/v1/rules",
+                        "ListRulesQuery",
+                        ResponseShape.List,
+                        new()
+                        {
+                            Namespace = "System.Collections.Generic",
+                            Name = "List",
+                            GenericArguments = [Sys("String")]
+                        },
+                        [])
+                ]
+            });
 
         Assert.Contains("Task<List<string>> ListRulesAsync()", cls);
         Assert.Contains("ListItemsAsync<List<string>>(\"/api/v1/rules\")", cls);
@@ -130,43 +179,77 @@ public class ServiceAgentEmitterTests
     [Fact]
     public void Emit_QueryPagedList_GeneratesPagedSignature()
     {
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints =
-            [
-                Query(
-                    "/api/v1/products",
-                    "ListProductsQuery",
-                    ResponseShape.PagedList,
-                    new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("VipProductDto")] },
-                    [QueryParam("PagingParams", new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagingParams" }), QueryParam("OrderByString", Sys("String"), nullable: true)])
-            ]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Query(
+                        "/api/v1/products",
+                        "ListProductsQuery",
+                        ResponseShape.PagedList,
+                        new()
+                        {
+                            Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions",
+                            Name = "PagedList",
+                            GenericArguments = [Dto("VipProductDto")]
+                        },
+                        [
+                            QueryParam(
+                                "PagingParams",
+                                new()
+                                {
+                                    Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions",
+                                    Name = "PagingParams"
+                                }),
+                            QueryParam("OrderByString", Sys("String"), nullable: true)
+                        ])
+                ]
+            });
 
-        Assert.Contains("Task<PagedList<VipProductDto>> ListProductsAsync(int? pageIndex = null, int? pageSize = null, string? orderByString = null)", cls);
-        Assert.Contains("ListPagedItemsAsync<VipProductDto>(\"/api/v1/products\", pageIndex, pageSize, orderByString)", cls);
+        Assert.Contains(
+            "Task<PagedList<VipProductDto>> ListProductsAsync(int? pageIndex = null, int? pageSize = null, string? orderByString = null)",
+            cls);
+        Assert.Contains(
+            "ListPagedItemsAsync<VipProductDto>(\"/api/v1/products\", pageIndex, pageSize, orderByString)",
+            cls);
     }
 
     [Fact]
     public void Emit_ArrayQueryParameter_UsesAddRangeInsteadOfAdd()
     {
         // Arrange — an int[] query parameter must bind as a repeated query key (AddRange), not stringify the array.
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints =
-            [
-                Query(
-                    "/api/v1/products",
-                    "ListProductsQuery",
-                    ResponseShape.List,
-                    new() { Namespace = "System.Collections.Generic", Name = "List", GenericArguments = [Dto("VipProductDto")] },
-                    [QueryParam("Ids", new ClrTypeRef { IsArray = true, ArrayRank = 1, GenericArguments = [Sys("Int32")] })])
-            ]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Query(
+                        "/api/v1/products",
+                        "ListProductsQuery",
+                        ResponseShape.List,
+                        new()
+                        {
+                            Namespace = "System.Collections.Generic",
+                            Name = "List",
+                            GenericArguments = [Dto("VipProductDto")]
+                        },
+                        [
+                            QueryParam(
+                                "Ids",
+                                new ClrTypeRef
+                                {
+                                    IsArray = true,
+                                    ArrayRank = 1,
+                                    GenericArguments = [Sys("Int32")]
+                                })
+                        ])
+                ]
+            });
 
         // Assert
         Assert.Contains("ListProductsAsync(int[] ids)", cls);
@@ -177,23 +260,36 @@ public class ServiceAgentEmitterTests
     public void Emit_ListQueryParameter_UsesAddRangeInsteadOfAdd()
     {
         // Arrange — List<string> binds as a repeated query key too.
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints =
-            [
-                Query(
-                    "/api/v1/products",
-                    "ListProductsQuery",
-                    ResponseShape.List,
-                    new() { Namespace = "System.Collections.Generic", Name = "List", GenericArguments = [Dto("VipProductDto")] },
-                    [
-                        QueryParam("Tags", new() { Namespace = "System.Collections.Generic", Name = "List", GenericArguments = [Sys("String")] }),
-                        QueryParam("IncludeInactive", Sys("Boolean"))
-                    ])
-            ]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Query(
+                        "/api/v1/products",
+                        "ListProductsQuery",
+                        ResponseShape.List,
+                        new()
+                        {
+                            Namespace = "System.Collections.Generic",
+                            Name = "List",
+                            GenericArguments = [Dto("VipProductDto")]
+                        },
+                        [
+                            QueryParam(
+                                "Tags",
+                                new()
+                                {
+                                    Namespace = "System.Collections.Generic",
+                                    Name = "List",
+                                    GenericArguments = [Sys("String")]
+                                }),
+                            QueryParam("IncludeInactive", Sys("Boolean"))
+                        ])
+                ]
+            });
 
         // Assert — collections use AddRange; scalars keep Add.
         Assert.Contains("AddRange(\"tags\", tags)", cls);
@@ -203,26 +299,50 @@ public class ServiceAgentEmitterTests
     [Fact]
     public void Emit_PostCommandWithResult_GeneratesPostCommandAsync()
     {
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints = [Command("POST", "/api/v1/products", "CreateProductCommand", ResponseShape.Item, Dto("VipProductDto"), Dto("CreateProductPayload"), [Body("payload", Dto("CreateProductPayload"))])]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Command(
+                        "POST",
+                        "/api/v1/products",
+                        "CreateProductCommand",
+                        ResponseShape.Item,
+                        Dto("VipProductDto"),
+                        Dto("CreateProductPayload"),
+                        [Body("payload", Dto("CreateProductPayload"))])
+                ]
+            });
 
-        Assert.Contains("Task<CommandResponse<VipProductDto, VipError>> CreateProductAsync(CreateProductPayload payload)", cls);
+        Assert.Contains(
+            "Task<CommandResponse<VipProductDto, VipError>> CreateProductAsync(CreateProductPayload payload)",
+            cls);
         Assert.Contains("PostCommandAsync<VipProductDto, CreateProductPayload>(\"/api/v1/products\", payload)", cls);
     }
 
     [Fact]
     public void Emit_DeleteCommandWithoutPayload_GeneratesDeleteCommandAsync()
     {
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints = [Command("DELETE", "/api/v1/strings/{id:int}", "DeleteStringCommand", ResponseShape.None, null, null, [Route("Id", Sys("Int32"), "id")])]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Command(
+                        "DELETE",
+                        "/api/v1/strings/{id:int}",
+                        "DeleteStringCommand",
+                        ResponseShape.None,
+                        null,
+                        null,
+                        [Route("Id", Sys("Int32"), "id")])
+                ]
+            });
 
         Assert.Contains("Task<CommandResponse<VipError>> DeleteStringAsync(int id)", cls);
         Assert.Contains("DeleteCommandAsync($\"/api/v1/strings/{id}\")", cls);
@@ -235,16 +355,35 @@ public class ServiceAgentEmitterTests
         var nulled = "/api/v1/apps/-/strings/-/value";
         var nullableRoutes = new List<string> { "appId", "stringId" };
 
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints =
-            [
-                Query(full, "GetStringQuery", ResponseShape.Item, Sys("String"), [Route("AppId", Sys("String"), "appId", nullable: true), Route("StringId", Sys("Int32"), "stringId", nullable: true)], nullableRoutes: nullableRoutes),
-                Query(nulled, "GetStringQuery", ResponseShape.Item, Sys("String"), [Route("AppId", Sys("String"), "appId", nullable: true), Route("StringId", Sys("Int32"), "stringId", nullable: true)], nullableRoutes: nullableRoutes)
-            ]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Query(
+                        full,
+                        "GetStringQuery",
+                        ResponseShape.Item,
+                        Sys("String"),
+                        [
+                            Route("AppId", Sys("String"), "appId", nullable: true),
+                            Route("StringId", Sys("Int32"), "stringId", nullable: true)
+                        ],
+                        nullableRoutes: nullableRoutes),
+                    Query(
+                        nulled,
+                        "GetStringQuery",
+                        ResponseShape.Item,
+                        Sys("String"),
+                        [
+                            Route("AppId", Sys("String"), "appId", nullable: true),
+                            Route("StringId", Sys("Int32"), "stringId", nullable: true)
+                        ],
+                        nullableRoutes: nullableRoutes)
+                ]
+            });
 
         // Exactly one GetStringAsync method (the two expanded routes collapse).
         Assert.Single(Regex.Matches(cls, "GetStringAsync\\("));
@@ -256,15 +395,22 @@ public class ServiceAgentEmitterTests
     [Fact]
     public void Emit_EnableHead_GeneratesHasMethod()
     {
-        var cls = EmitClass(new ManifestGroup
-        {
-            Name = "Vip",
-            ErrorType = Error("VipError"),
-            Endpoints =
-            [
-                Query("/api/v1/products/{id:int}", "GetProductQuery", ResponseShape.Item, Dto("VipProductDto"), [Route("Id", Sys("Int32"), "id")], enableHead: true)
-            ]
-        });
+        var cls = EmitClass(
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints =
+                [
+                    Query(
+                        "/api/v1/products/{id:int}",
+                        "GetProductQuery",
+                        ResponseShape.Item,
+                        Dto("VipProductDto"),
+                        [Route("Id", Sys("Int32"), "id")],
+                        enableHead: true)
+                ]
+            });
 
         Assert.Contains("Task<bool> HasProductAsync(int id)", cls);
         Assert.Contains("HasItemAsync($\"/api/v1/products/{id}\")", cls);
@@ -274,12 +420,26 @@ public class ServiceAgentEmitterTests
     public void Emit_Extensions_RegistersAllGroups()
     {
         var ext = EmitExtensions(
-            new ManifestGroup { Name = "Vip", ErrorType = Error("VipError"), Endpoints = [] },
-            new ManifestGroup { Name = "Store", ErrorType = Error("StoreError"), Endpoints = [] });
+            new ManifestGroup
+            {
+                Name = "Vip",
+                ErrorType = Error("VipError"),
+                Endpoints = []
+            },
+            new ManifestGroup
+            {
+                Name = "Store",
+                ErrorType = Error("StoreError"),
+                Endpoints = []
+            });
 
         // One AddXxxService method per group, each taking a baseUri argument (no --base-url supplied).
-        Assert.Contains("public static IServiceCollection AddVipService(this IServiceCollection services, string baseUri)", ext);
-        Assert.Contains("public static IServiceCollection AddStoreService(this IServiceCollection services, string baseUri)", ext);
+        Assert.Contains(
+            "public static IServiceCollection AddVipService(this IServiceCollection services, string baseUri)",
+            ext);
+        Assert.Contains(
+            "public static IServiceCollection AddStoreService(this IServiceCollection services, string baseUri)",
+            ext);
         Assert.Contains("AddServiceAgent<IVipService, VipService>(baseUri)", ext);
         Assert.Contains("AddServiceAgent<IStoreService, StoreService>(baseUri)", ext);
         Assert.DoesNotContain("AddServiceAgents", ext);
@@ -290,7 +450,12 @@ public class ServiceAgentEmitterTests
     {
         var ext = EmitExtensions(
             new ServiceAgentEmitter { BaseUrl = "http://corp_api" },
-            new ManifestGroup { Name = "Corp", ErrorType = Error("CorpError"), Endpoints = [] });
+            new ManifestGroup
+            {
+                Name = "Corp",
+                ErrorType = Error("CorpError"),
+                Endpoints = []
+            });
 
         Assert.Contains("public static IServiceCollection AddCorpService(this IServiceCollection services)", ext);
         Assert.Contains("AddServiceAgent<ICorpService, CorpService>(\"http://corp_api\")", ext);
@@ -302,14 +467,20 @@ public class ServiceAgentEmitterTests
     {
         // Arrange — the command lives in the Application layer; the view lives in a contracts layer (a distinct namespace,
         // so we can assert the command's namespace is dropped while the view's is kept).
-        var commandType = new ClrTypeRef { Namespace = "Cnblogs.Blog.Application.Commands", Name = "CreateBlogCommand" };
+        var commandType =
+            new ClrTypeRef { Namespace = "Cnblogs.Blog.Application.Commands", Name = "CreateBlogCommand" };
         var viewType = new ClrTypeRef { Namespace = "Cnblogs.Blog.Contracts", Name = "BlogDto" };
         var contract = new PayloadContract
         {
             Properties =
             [
                 new PayloadProperty { Name = "Title", ClrType = Sys("String") },
-                new PayloadProperty { Name = "Summary", ClrType = Sys("String"), IsNullable = true }
+                new PayloadProperty
+                {
+                    Name = "Summary",
+                    ClrType = Sys("String"),
+                    IsNullable = true
+                }
             ]
         };
 
@@ -363,7 +534,8 @@ public class ServiceAgentEmitterTests
     {
         // Arrange — the same command type mapped at two routes must share one POCO (a duplicate class declaration
         // would not compile in the shared namespace).
-        var commandType = new ClrTypeRef { Namespace = "Cnblogs.Blog.Application.Commands", Name = "CreateBlogCommand" };
+        var commandType =
+            new ClrTypeRef { Namespace = "Cnblogs.Blog.Application.Commands", Name = "CreateBlogCommand" };
         var contract = new PayloadContract
         {
             Properties = [new PayloadProperty { Name = "Title", ClrType = Sys("String") }]
@@ -381,8 +553,24 @@ public class ServiceAgentEmitterTests
                         ErrorType = Error("BlogError"),
                         Endpoints =
                         [
-                            Command("POST", "/api/blogs", "CreateBlogCommand", ResponseShape.None, null, commandType, [Body("payload", commandType)], payloadContract: contract),
-                            Command("POST", "/api/v2/blogs", "CreateBlogCommand", ResponseShape.None, null, commandType, [Body("payload", commandType)], payloadContract: contract)
+                            Command(
+                                "POST",
+                                "/api/blogs",
+                                "CreateBlogCommand",
+                                ResponseShape.None,
+                                null,
+                                commandType,
+                                [Body("payload", commandType)],
+                                payloadContract: contract),
+                            Command(
+                                "POST",
+                                "/api/v2/blogs",
+                                "CreateBlogCommand",
+                                ResponseShape.None,
+                                null,
+                                commandType,
+                                [Body("payload", commandType)],
+                                payloadContract: contract)
                         ]
                     }
                 ]
@@ -417,7 +605,12 @@ public class ServiceAgentEmitterTests
                                 "/api/v{version:apiVersion}/accusations",
                                 "ListAccusationQuery",
                                 ResponseShape.PagedList,
-                                new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("AccusationDto")] },
+                                new()
+                                {
+                                    Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions",
+                                    Name = "PagedList",
+                                    GenericArguments = [Dto("AccusationDto")]
+                                },
                                 [QueryParam("ReporterId", Sys("Guid"), nullable: true)],
                                 apiVersions: ["2"])
                         ]
@@ -449,7 +642,12 @@ public class ServiceAgentEmitterTests
             "/api/v{version:apiVersion}/accusations",
             "ListAccusationQuery",
             ResponseShape.PagedList,
-            new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("AccusationDto")] },
+            new()
+            {
+                Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions",
+                Name = "PagedList",
+                GenericArguments = [Dto("AccusationDto")]
+            },
             [QueryParam("ReporterId", Sys("Guid"), nullable: true)],
             apiVersions: ["2"]);
 
@@ -459,7 +657,12 @@ public class ServiceAgentEmitterTests
             {
                 Groups =
                 [
-                    new ManifestGroup { Name = "Accusation", ErrorType = Error("AccusationError"), Endpoints = [v1Endpoint, v2Endpoint] }
+                    new ManifestGroup
+                    {
+                        Name = "Accusation",
+                        ErrorType = Error("AccusationError"),
+                        Endpoints = [v1Endpoint, v2Endpoint]
+                    }
                 ]
             },
             "Cnblogs.Report.ServiceAgent");
@@ -493,7 +696,12 @@ public class ServiceAgentEmitterTests
             "/api/v{version:apiVersion}/accusations",
             "ListAccusationQuery",
             ResponseShape.PagedList,
-            new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("AccusationDto")] },
+            new()
+            {
+                Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions",
+                Name = "PagedList",
+                GenericArguments = [Dto("AccusationDto")]
+            },
             [QueryParam("ReporterId", Sys("Guid"), nullable: true)],
             apiVersions: ["2"]);
         var emitter = new ServiceAgentEmitter { RequestedApiVersion = "2" };
@@ -504,7 +712,12 @@ public class ServiceAgentEmitterTests
             {
                 Groups =
                 [
-                    new ManifestGroup { Name = "Accusation", ErrorType = Error("AccusationError"), Endpoints = [v1Endpoint, v2Endpoint] }
+                    new ManifestGroup
+                    {
+                        Name = "Accusation",
+                        ErrorType = Error("AccusationError"),
+                        Endpoints = [v1Endpoint, v2Endpoint]
+                    }
                 ]
             },
             "Cnblogs.Report.ServiceAgent");
@@ -525,7 +738,13 @@ public class ServiceAgentEmitterTests
     {
         // Arrange — an endpoint without any version metadata (e.g. a plain MapQuery outside versioned groups)
         // stays in the requested-version output; it falls back to the emitter default stamp.
-        var unversioned = Query("/api/v{version:apiVersion}/health", "GetHealthQuery", ResponseShape.Item, Sys("String"), [], apiVersions: []);
+        var unversioned = Query(
+            "/api/v{version:apiVersion}/health",
+            "GetHealthQuery",
+            ResponseShape.Item,
+            Sys("String"),
+            [],
+            apiVersions: []);
         var v1Endpoint = Query(
             "/api/v{version:apiVersion}/accusations/{id:int}",
             "GetAccusationQuery",
@@ -541,7 +760,12 @@ public class ServiceAgentEmitterTests
             {
                 Groups =
                 [
-                    new ManifestGroup { Name = "Accusation", ErrorType = Error("AccusationError"), Endpoints = [v1Endpoint, unversioned] }
+                    new ManifestGroup
+                    {
+                        Name = "Accusation",
+                        ErrorType = Error("AccusationError"),
+                        Endpoints = [v1Endpoint, unversioned]
+                    }
                 ]
             },
             "Cnblogs.Report.ServiceAgent");
@@ -559,7 +783,12 @@ public class ServiceAgentEmitterTests
             "/api/v{version:apiVersion}/accusations",
             "ListAccusationQuery",
             ResponseShape.PagedList,
-            new() { Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions", Name = "PagedList", GenericArguments = [Dto("AccusationDto")] },
+            new()
+            {
+                Namespace = "Cnblogs.Architecture.Ddd.Infrastructure.Abstractions",
+                Name = "PagedList",
+                GenericArguments = [Dto("AccusationDto")]
+            },
             [],
             apiVersions: ["2.0"]);
         var emitter = new ServiceAgentEmitter { RequestedApiVersion = "2" };
@@ -586,11 +815,127 @@ public class ServiceAgentEmitterTests
                 ErrorType = Error("VipError"),
                 Endpoints =
                 [
-                    Query("/api/v{version:apiVersion}/products/{id:int}", "GetVipProductQuery", ResponseShape.Item, Dto("VipProductDto"), [Route("Id", Sys("Int32"), "id")])
+                    Query(
+                        "/api/v{version:apiVersion}/products/{id:int}",
+                        "GetVipProductQuery",
+                        ResponseShape.Item,
+                        Dto("VipProductDto"),
+                        [Route("Id", Sys("Int32"), "id")])
                 ]
             });
 
         // Assert
         Assert.Contains("\"/api/v1/products/{id}\"", cls);
+    }
+
+    [Fact]
+    public void Emit_AppName_MergesAllGroupsIntoSingleService()
+    {
+        // Arrange — a command group derived from the error type plus a segment-derived batchGet group: exactly the
+        // split that --app-name exists to undo.
+        var commandGroup = new ManifestGroup
+        {
+            Name = "Bill",
+            ErrorType = Error("BillError"),
+            Endpoints =
+            [
+                Command(
+                    "POST",
+                    "/api/v1/bills",
+                    "CreateBillCommand",
+                    ResponseShape.None,
+                    null,
+                    Dto("CreateBillPayload"),
+                    [Body("payload", Dto("CreateBillPayload"))])
+            ]
+        };
+        var batchGetGroup = new ManifestGroup
+        {
+            Name = "Bills",
+            Endpoints =
+            [
+                Query(
+                    "/api/v1/bills:batchGet",
+                    "BatchGetBillQuery",
+                    ResponseShape.List,
+                    new()
+                    {
+                        Namespace = "System.Collections.Generic",
+                        Name = "List",
+                        GenericArguments = [Dto("BillDto")]
+                    },
+                    [
+                        QueryParam(
+                            "Ids",
+                            new ClrTypeRef
+                            {
+                                IsArray = true,
+                                ArrayRank = 1,
+                                GenericArguments = [Sys("Int32")]
+                            })
+                    ])
+            ]
+        };
+        var emitter = new ServiceAgentEmitter { AppName = "bill" };
+
+        // Act
+        var files = emitter.Emit(
+            new EndpointManifest { Groups = [commandGroup, batchGetGroup] },
+            "Cnblogs.Vip.ServiceAgent");
+
+        // Assert — one merged pair; the per-group files are gone.
+        Assert.Contains(files, f => f.FileName == "IBillService.cs");
+        Assert.Contains(files, f => f.FileName == "BillService.cs");
+        Assert.DoesNotContain(files, f => f.FileName == "IBillsService.cs");
+        Assert.DoesNotContain(files, f => f.FileName == "BillsService.cs");
+        var cls = files.First(f => f.FileName == "BillService.cs").Content;
+        Assert.Contains("CreateBillAsync", cls);
+        Assert.Contains("BatchGetBillAsync", cls);
+        Assert.Contains(": CqrsServiceAgent<BillError>(httpClient)", cls);
+        var ext = files.First(f => f.IsExtensionsFile).Content;
+        Assert.Contains("AddBillService(", ext);
+        Assert.DoesNotContain("AddBillsService", ext);
+        Assert.DoesNotContain("AddVipService", ext);
+    }
+
+    [Fact]
+    public void Emit_AppName_NormalizesSeparatorsToPascalCase()
+    {
+        // Act
+        var files = new ServiceAgentEmitter { AppName = "my_app" }
+            .Emit(new EndpointManifest { Groups = [new ManifestGroup { Name = "Vip", Endpoints = [] }] }, "Ns");
+
+        // Assert
+        Assert.Contains(files, f => f.FileName == "IMyAppService.cs");
+        Assert.Contains(files, f => f.FileName == "MyAppService.cs");
+    }
+
+    [Fact]
+    public void Emit_AppName_MixedErrorTypes_ThrowsInvalidOperationException()
+    {
+        // Arrange — merging two groups backed by different error types cannot pick one generic base class.
+        var groups = new[]
+        {
+            new ManifestGroup
+            {
+                Name = "Bill",
+                ErrorType = Error("BillError"),
+                Endpoints = []
+            },
+            new ManifestGroup
+            {
+                Name = "Store",
+                ErrorType = Error("StoreError"),
+                Endpoints = []
+            }
+        };
+
+        // Act
+        void Act()
+            => _ = new ServiceAgentEmitter { AppName = "bill" }
+                .Emit(new EndpointManifest { Groups = [.. groups] }, "Ns");
+
+        // Assert
+        Assert.Throws<InvalidOperationException>(Act);
     }
 }

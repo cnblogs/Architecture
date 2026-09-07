@@ -49,10 +49,13 @@ public static class EndpointManifestBuilder
         return new EndpointManifest { Groups = BuildGroups(records) };
     }
 
-    private static ManifestEndpoint BuildEndpoint(RouteEndpoint endpoint, CqrsEndpointDescriptor descriptor, string route)
+    private static ManifestEndpoint BuildEndpoint(
+        RouteEndpoint endpoint,
+        CqrsEndpointDescriptor descriptor,
+        string route)
     {
         var methods = endpoint.Metadata.GetMetadata<IHttpMethodMetadata>()?.HttpMethods.ToList()
-            ?? [descriptor.HttpMethod];
+                      ?? [descriptor.HttpMethod];
         var primary = methods.Count > 0 ? methods[0] : descriptor.HttpMethod;
 
         return new ManifestEndpoint
@@ -270,10 +273,28 @@ public static class EndpointManifestBuilder
                 continue;
             }
 
-            return part;
+            return StripCustomVerbSuffix(part);
         }
 
         return string.Empty;
+    }
+
+    /// <summary>
+    ///     Strip a trailing custom-verb suffix (<c>bills:batchGet</c> → <c>bills</c>) so an endpoint with a custom verb
+    ///     on its first route segment groups with the plain resource endpoints under the same segment. Constraint
+    ///     colons inside route tokens (e.g. <c>{id:int}</c>) are left intact — the suffix there closes with a
+    ///     <c>}</c> and is not a plain identifier.
+    /// </summary>
+    private static string StripCustomVerbSuffix(string segment)
+    {
+        var colon = segment.LastIndexOf(':');
+        if (colon < 0)
+        {
+            return segment;
+        }
+
+        var verb = segment[(colon + 1)..];
+        return verb.Length > 0 && verb.All(char.IsLetterOrDigit) ? segment[..colon] : segment;
     }
 
     private static string? RenderDefaultLiteral(object? value)

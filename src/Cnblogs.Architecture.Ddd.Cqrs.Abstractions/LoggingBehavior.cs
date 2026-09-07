@@ -35,7 +35,7 @@ public partial class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TR
         return result;
     }
 
-    [LoggerMessage(LogLevel.Debug, "Handling {request}")]
+    [LoggerMessage(LogLevel.Debug, "Handling {Request}")]
     partial void LogHandlingRequest(TRequest request);
 
     [LoggerMessage(LogLevel.Debug, "Handled {Request}")]

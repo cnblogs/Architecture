@@ -55,7 +55,7 @@ public partial class LockableRequestBehavior<TRequest, TResponse> : IPipelineBeh
         }
     }
 
-    [LoggerMessage(LogLevel.Error, "Acquire Distribution Lock Failed, Request: {@request}, LockKey: {@lockLey}")]
+    [LoggerMessage(LogLevel.Error, "Acquire Distribution Lock Failed, Request: {@Request}, LockKey: {@LockLey}")]
     partial void LogAcquireDistributionLockFailed(
         TRequest request,
         string lockLey,

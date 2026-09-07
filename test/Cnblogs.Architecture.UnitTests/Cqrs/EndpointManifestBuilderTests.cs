@@ -133,8 +133,8 @@ public class EndpointManifestBuilderTests
     public async Task Build_SingleGetQuery_ExpandsParametersAndCarriesRouteAsync()
     {
         // Act
-        var manifest = await BuildManifestAsync(
-            app => app.MapQuery<SingleQuery>("apps/{appId}/strings/{stringId:int}/value"));
+        var manifest =
+            await BuildManifestAsync(app => app.MapQuery<SingleQuery>("apps/{appId}/strings/{stringId:int}/value"));
 
         // Assert
         var endpoint = SingleEndpoint(manifest, nameof(SingleQuery));
@@ -193,8 +193,8 @@ public class EndpointManifestBuilderTests
     public async Task Build_UnversionedEndpoint_ExportsEmptyApiVersionsAsync()
     {
         // Act
-        var manifest = await BuildManifestAsync(
-            app => app.MapQuery<SingleQuery>("apps/{appId}/strings/{stringId:int}/value"));
+        var manifest =
+            await BuildManifestAsync(app => app.MapQuery<SingleQuery>("apps/{appId}/strings/{stringId:int}/value"));
 
         // Assert — no versioning metadata on the endpoint means an empty version list (the generator falls back to
         // its default stamp for these).
@@ -206,8 +206,7 @@ public class EndpointManifestBuilderTests
     public async Task Build_PostCommand_AttachesBodyPayloadAndErrorTypeAsync()
     {
         // Act
-        var manifest = await BuildManifestAsync(
-            app => app.MapPostCommand<CreateCommand>("items"));
+        var manifest = await BuildManifestAsync(app => app.MapPostCommand<CreateCommand>("items"));
 
         // Assert
         var endpoint = SingleEndpoint(manifest, nameof(CreateCommand));
@@ -232,8 +231,7 @@ public class EndpointManifestBuilderTests
     public async Task Build_PostCommandWithBodyAsCommand_AttachesPayloadContractAsync()
     {
         // Act
-        var manifest = await BuildManifestAsync(
-            app => app.MapPostCommand<CreateBlogCommand>("blogs"));
+        var manifest = await BuildManifestAsync(app => app.MapPostCommand<CreateBlogCommand>("blogs"));
 
         // Assert — the contract mirrors the command's settable properties (names, types, nullability).
         var endpoint = SingleEndpoint(manifest, nameof(CreateBlogCommand));
@@ -261,13 +259,12 @@ public class EndpointManifestBuilderTests
     public async Task Build_CommandsSharingSegment_JoinOneGroupByErrorSuffixAsync()
     {
         // Act — three commands under the "items" segment all use TestError, plus a query on the same segment.
-        var manifest = await BuildManifestAsync(
-            app =>
-            {
-                app.MapPostCommand<CreateCommand>("items");
-                app.MapDeleteCommand<DeleteCommand>("items/{id:int}");
-                app.MapQuery<SingleQuery>("items/{appId}/strings/{stringId:int}/value");
-            });
+        var manifest = await BuildManifestAsync(app =>
+        {
+            app.MapPostCommand<CreateCommand>("items");
+            app.MapDeleteCommand<DeleteCommand>("items/{id:int}");
+            app.MapQuery<SingleQuery>("items/{appId}/strings/{stringId:int}/value");
+        });
 
         // Assert — all four endpoints land in a single group named "Test" (TestError minus the "Error" suffix).
         var group = Assert.Single(manifest.Groups);
@@ -278,11 +275,42 @@ public class EndpointManifestBuilderTests
     }
 
     [Fact]
+    public async Task Build_CustomVerbOnFirstSegment_JoinsSameResourceGroupAsync()
+    {
+        // Act — a batchGet query carrying a custom verb on its first route segment, next to commands under the
+        // plain "bills" segment.
+        var manifest = await BuildManifestAsync(app =>
+        {
+            app.MapPostCommand<CreateCommand>("bills");
+            app.MapQuery<SingleQuery>("api/v1/bills:batchGet");
+        });
+
+        // Assert — the custom-verb suffix is stripped for grouping, so both endpoints land in one group.
+        var group = Assert.Single(manifest.Groups);
+        Assert.Equal("Test", group.Name);
+        Assert.Equal(2, group.Endpoints.Count);
+        Assert.Contains(group.Endpoints, e => e.Route == "api/v1/bills:batchGet");
+        Assert.Contains(group.Endpoints, e => e.Route == "bills");
+    }
+
+    [Fact]
+    public async Task Build_CustomVerbQueryWithoutCommand_UsesPlainSegmentNameAsync()
+    {
+        // Act — a custom-verb query on a segment with no commands.
+        var manifest = await BuildManifestAsync(app => app.MapQuery<SingleQuery>("api/v1/bills:batchGet"));
+
+        // Assert — the group is named after the segment without the verb suffix, and it has no error type.
+        var group = Assert.Single(manifest.Groups);
+        Assert.Equal("Bills", group.Name);
+        Assert.Null(group.ErrorType);
+        Assert.Single(group.Endpoints);
+    }
+
+    [Fact]
     public async Task Build_QueryWithoutMatchingCommandSegment_GetsOwnSegmentGroupWithNullErrorAsync()
     {
         // Act — a query on a segment with no commands.
-        var manifest = await BuildManifestAsync(
-            app => app.MapQuery<SingleQuery>("metrics/{appId}/totals"));
+        var manifest = await BuildManifestAsync(app => app.MapQuery<SingleQuery>("metrics/{appId}/totals"));
 
         // Assert — the group is named after the first segment, and it has no error type.
         var group = Assert.Single(manifest.Groups);
@@ -295,14 +323,13 @@ public class EndpointManifestBuilderTests
     public async Task Build_ExplicitServiceAgentGroup_WinsOverSegmentInferenceAsync()
     {
         // Act — tag the route group with an explicit name.
-        var manifest = await BuildManifestAsync(
-            app =>
-            {
-                var group = app.MapGroup("api/items");
-                group.WithServiceAgentGroup("Custom");
-                group.MapQuery<SingleQuery>("apps/{appId}/strings/{stringId:int}/value");
-                group.MapPostCommand<CreateCommand>("new");
-            });
+        var manifest = await BuildManifestAsync(app =>
+        {
+            var group = app.MapGroup("api/items");
+            group.WithServiceAgentGroup("Custom");
+            group.MapQuery<SingleQuery>("apps/{appId}/strings/{stringId:int}/value");
+            group.MapPostCommand<CreateCommand>("new");
+        });
 
         // Assert
         var group0 = Assert.Single(manifest.Groups);
@@ -316,14 +343,13 @@ public class EndpointManifestBuilderTests
         // Act — two commands with different error types, both tagged with the same explicit group name.
         Task<EndpointManifest> Act()
         {
-            return BuildManifestAsync(
-                app =>
-                {
-                    var group = app.MapGroup("api/items");
-                    group.WithServiceAgentGroup("Mixed");
-                    group.MapPostCommand<MixedCommand1>("a");
-                    group.MapPostCommand<MixedCommand2>("b");
-                });
+            return BuildManifestAsync(app =>
+            {
+                var group = app.MapGroup("api/items");
+                group.WithServiceAgentGroup("Mixed");
+                group.MapPostCommand<MixedCommand1>("a");
+                group.MapPostCommand<MixedCommand2>("b");
+            });
         }
 
         // Assert
