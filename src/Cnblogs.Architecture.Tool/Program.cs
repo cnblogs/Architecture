@@ -56,6 +56,9 @@ static void PrintUsage()
           --api-version  Emit only endpoints declared for this API version, as one un-suffixed IXxxService per group.
                          Omitted: every version is emitted; a group spanning several versions is split into
                          IXxxV1Service / IXxxV2Service / ... per version.
+          --app-name     Merge every endpoint group into one service named after this value (Pascal-cased, e.g.
+                         bill → IBillService), instead of one service per auto-derived group. Fails when the
+                         groups would need different error types.
 
         Requires the API project to reference the Cnblogs.Architecture.ServiceAgent.Design package.
         """);
@@ -67,6 +70,7 @@ static GenerateOptions? ParseOptions(string[] args)
     string? output = null;
     string? baseUrl = null;
     string? apiVersion = null;
+    string? appName = null;
     var ns = "Generated.ServiceAgents";
     var clean = false;
     for (var i = 0; i < args.Length; i++)
@@ -88,6 +92,9 @@ static GenerateOptions? ParseOptions(string[] args)
             case "--api-version":
                 apiVersion = Next(args, ref i);
                 break;
+            case "--app-name":
+                appName = Next(args, ref i);
+                break;
             case "--clean":
                 clean = true;
                 break;
@@ -103,7 +110,7 @@ static GenerateOptions? ParseOptions(string[] args)
         return null;
     }
 
-    return new GenerateOptions(apiProject, output, ns, clean, baseUrl, apiVersion);
+    return new GenerateOptions(apiProject, output, ns, clean, baseUrl, apiVersion, appName);
 }
 
 static string? Next(string[] args, ref int i)
@@ -127,7 +134,9 @@ static async Task<int> RunGenerateAsync(GenerateOptions options)
         return 4;
     }
 
-    var manifestPath = Path.Combine(Path.GetTempPath(), "cnblogs-sa-manifest-" + Guid.NewGuid().ToString("N") + ".json");
+    var manifestPath = Path.Combine(
+        Path.GetTempPath(),
+        "cnblogs-sa-manifest-" + Guid.NewGuid().ToString("N") + ".json");
     Directory.CreateDirectory(options.Output);
     var runEnv = new Dictionary<string, string?>
     {
@@ -139,7 +148,9 @@ static async Task<int> RunGenerateAsync(GenerateOptions options)
     };
 
     Console.WriteLine($"Exporting endpoints from {apiProjectPath} ...");
-    var exitCode = await RunDotnetAsync(["run", "--project", apiProjectPath, "--no-build", "--no-launch-profile"], runEnv);
+    var exitCode = await RunDotnetAsync(
+        ["run", "--project", apiProjectPath, "--no-build", "--no-launch-profile"],
+        runEnv);
     if (exitCode != 0)
     {
         Console.Error.WriteLine($"Running the API project failed (exit code {exitCode}). Check the output above.");
@@ -148,7 +159,8 @@ static async Task<int> RunGenerateAsync(GenerateOptions options)
 
     if (!File.Exists(manifestPath))
     {
-        Console.Error.WriteLine("The API project did not write an endpoint manifest. Ensure it references the Cnblogs.Architecture.ServiceAgent.Design package.");
+        Console.Error.WriteLine(
+            "The API project did not write an endpoint manifest. Ensure it references the Cnblogs.Architecture.ServiceAgent.Design package.");
         return 6;
     }
 
@@ -160,7 +172,12 @@ static async Task<int> RunGenerateAsync(GenerateOptions options)
         CleanGeneratedFiles(options.Output);
     }
 
-    var emitter = new ServiceAgentEmitter { BaseUrl = options.BaseUrl, RequestedApiVersion = options.ApiVersion };
+    var emitter = new ServiceAgentEmitter
+    {
+        BaseUrl = options.BaseUrl,
+        RequestedApiVersion = options.ApiVersion,
+        AppName = options.AppName
+    };
     var files = emitter.Emit(manifest, options.Namespace);
     foreach (var diagnostic in emitter.Diagnostics)
     {

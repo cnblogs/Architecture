@@ -4,4 +4,5 @@ internal sealed record GenerateOptions(
     string Namespace,
     bool Clean,
     string? BaseUrl,
-    string? ApiVersion);
+    string? ApiVersion,
+    string? AppName);
