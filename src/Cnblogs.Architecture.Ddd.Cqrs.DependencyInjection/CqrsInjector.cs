@@ -6,7 +6,6 @@ using MediatR;
 using Microsoft.Extensions.Caching.Hybrid;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 
@@ -85,6 +84,8 @@ public class CqrsInjector
         Action<IHybridCacheBuilder>? builderAction = null)
     {
         AddCacheBehaviorPipeline();
+        Services.TryAddTransient<IRequestHandler<InvalidCacheRequest>, InvalidCacheRequestHandler>();
+        Services.TryAddTransient<IRequestHandler<InvalidCacheGroupsRequest>, InvalidCacheRequestHandler>();
         setupAction ??= h => h.ReportTagMetrics = false;
         var builder = Services.AddHybridCache(setupAction);
         builderAction?.Invoke(builder);

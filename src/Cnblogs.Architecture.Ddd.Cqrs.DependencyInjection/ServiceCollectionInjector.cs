@@ -11,11 +11,6 @@ namespace Microsoft.Extensions.DependencyInjection;
 /// </summary>
 public static class ServiceCollectionInjector
 {
-    private static readonly Assembly[] CqrsAssemblies =
-    [
-        typeof(CqrsInjector).Assembly, typeof(InvalidCacheGroupsRequest).Assembly
-    ];
-
     /// <summary>
     ///     添加 Cqrs 支持。
     /// </summary>
@@ -41,8 +36,11 @@ public static class ServiceCollectionInjector
     {
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-        // mediator needs at least one assembly to inject from
-        assemblies = assemblies.Length == 0 ? CqrsAssemblies : [.. assemblies, .. CqrsAssemblies];
+        if (assemblies.Length == 0)
+        {
+            // mediator needs at least one assembly to inject from
+            assemblies = [typeof(CqrsInjector).Assembly];
+        }
 
         configuration ??= cfg => cfg.RegisterGenericHandlers = true;
         services.AddMediatR(cfg =>
