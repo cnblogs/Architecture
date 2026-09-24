@@ -2,7 +2,6 @@ using System.Reflection;
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
 using MediatR;
-using Microsoft.AspNetCore.Builder;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.Extensions.DependencyInjection;
@@ -12,6 +11,11 @@ namespace Microsoft.Extensions.DependencyInjection;
 /// </summary>
 public static class ServiceCollectionInjector
 {
+    private static readonly Assembly[] CqrsAssemblies =
+    [
+        typeof(CqrsInjector).Assembly, typeof(InvalidCacheGroupsRequest).Assembly
+    ];
+
     /// <summary>
     ///     添加 Cqrs 支持。
     /// </summary>
@@ -37,11 +41,8 @@ public static class ServiceCollectionInjector
     {
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-        if (assemblies.Length == 0)
-        {
-            // mediator needs at least one assembly to inject from
-            assemblies = [typeof(CqrsInjector).Assembly];
-        }
+        // mediator needs at least one assembly to inject from
+        assemblies = assemblies.Length == 0 ? CqrsAssemblies : [.. assemblies, .. CqrsAssemblies];
 
         configuration ??= cfg => cfg.RegisterGenericHandlers = true;
         services.AddMediatR(cfg =>
