@@ -20,7 +20,8 @@
           "**/*.{md,yml}"
         ],
         "exclude": [
-          "_site/**"
+          "_site/**",
+          "README.md"
         ]
       }
     ],
@@ -37,8 +38,8 @@
       "modern"
     ],
     "globalMetadata": {
-      "_appName": "Cnblogs.Architexture Docs",
-      "_appTitle": "Cnblogs.Architexture Docs",
+      "_appName": "Cnblogs.Architecture Docs",
+      "_appTitle": "Cnblogs.Architecture Docs",
       "_enableSearch": true,
       "pdf": true
     }

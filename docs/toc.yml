@@ -1,4 +1,6 @@
 - name: Introduction
   href: introduction.md
-- name: Getting Started
-  href: getting-started.md
+- name: Framework Guide
+  href: framework.md
+- name: How-to
+  href: how-to/

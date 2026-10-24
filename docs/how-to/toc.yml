@@ -1,0 +1,16 @@
+- name: 定义聚合根与领域事件
+  href: define-aggregate.md
+- name: 实现命令
+  href: implement-command.md
+- name: 实现查询
+  href: implement-query.md
+- name: 暴露 HTTP API
+  href: expose-api.md
+- name: 生成与使用 ServiceAgent
+  href: setup-service-agent.md
+- name: 查询缓存
+  href: cache-queries.md
+- name: 用 Enricher 聚合外部数据
+  href: enrich-query-results.md
+- name: 发布与订阅集成事件
+  href: publish-integration-events.md
