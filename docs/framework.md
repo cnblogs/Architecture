@@ -436,4 +436,3 @@ app.MapAgent<ArticlesAgent>("/agents/articles");   // POST { "prompt": "..." }
 | 给查询加缓存与失效 | [cache-queries](how-to/cache-queries.md) |
 | 用 Enricher 聚合外部数据 | [enrich-query-results](how-to/enrich-query-results.md) |
 | 发布/订阅集成事件 | [publish-integration-events](how-to/publish-integration-events.md) |
-| 老项目反模式与现代化 | [migrate-legacy-anti-patterns](how-to/migrate-legacy-anti-patterns.md) |

@@ -114,8 +114,6 @@ public record CreateInvoiceCommand(/* ... */)
 2. 在 Web/Api 项目**新增**一个编排用的命令/查询，其 Handler 调 Application 层的多个命令/查询；
 3. 大段重复代码（>50 行）才考虑提取 Service/扩展方法，不要封装简单的查询条件。
 
-为什么这条规则重要、老项目违反后长什么样，见 [migrate-legacy-anti-patterns](migrate-legacy-anti-patterns.md)。
-
 ## 6. 单元测试（AAA + InMemory + NSubstitute）
 
 ```csharp

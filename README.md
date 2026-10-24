@@ -47,9 +47,9 @@ v1.MapCommand("articles", ([FromBody] CreateArticlePayload p)  // POST /api/v1/a
   [实现查询](docs/how-to/implement-query.md)、
   [暴露 HTTP API](docs/how-to/expose-api.md)、
   [生成与使用 ServiceAgent](docs/how-to/setup-service-agent.md)、
-  [查询缓存](docs/how-to/cache-queries.md)~~~~、
+  [查询缓存](docs/how-to/cache-queries.md)、
   [用 Enricher 聚合外部数据](docs/how-to/enrich-query-results.md)、
-  [发布与订阅集成事件](docs/how-to/publish-integration-events.md)、
+  [发布与订阅集成事件](docs/how-to/publish-integration-events.md)
 
 ## License
 
