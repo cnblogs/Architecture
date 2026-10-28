@@ -26,4 +26,20 @@ public interface INavigationRepository<TEntity, TKey> : IRepository<TEntity, TKe
     /// <param name="includes">Include strings.</param>
     /// <returns>The entity with key equals to <paramref name="key"/>.</returns>
     Task<TEntity?> GetAsync(TKey key, IEnumerable<string> includes);
+
+    /// <summary>
+    ///     通过主键批量获取实体以供修改。
+    /// </summary>
+    /// <param name="keys">实体主键列表。</param>
+    /// <param name="includes">要额外加载的其他实体。</param>
+    /// <returns>主键匹配的实体列表，不含未找到的主键对应的项。</returns>
+    Task<List<TEntity>> GetRangeAsync(IEnumerable<TKey> keys, params Expression<Func<TEntity, object?>>[] includes);
+
+    /// <summary>
+    ///     通过主键批量获取实体以供修改。
+    /// </summary>
+    /// <param name="keys">实体主键列表。</param>
+    /// <param name="includes">要额外加载的其他实体。</param>
+    /// <returns>主键匹配的实体列表，不含未找到的主键对应的项。</returns>
+    Task<List<TEntity>> GetRangeAsync(IEnumerable<TKey> keys, IEnumerable<string> includes);
 }

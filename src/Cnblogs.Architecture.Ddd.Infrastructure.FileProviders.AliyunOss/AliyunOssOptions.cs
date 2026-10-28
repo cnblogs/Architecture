@@ -1,5 +1,3 @@
-using AlibabaCloud.OSS.V2.Models;
-
 namespace Cnblogs.Architecture.Ddd.Infrastructure.FileProviders.AliyunOss;
 
 /// <summary>

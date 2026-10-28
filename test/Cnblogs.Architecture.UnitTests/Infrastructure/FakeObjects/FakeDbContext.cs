@@ -19,5 +19,7 @@ public class FakeDbContext(DbContextOptions options) : DbContext(options)
 
         modelBuilder.Entity<FakeTag>().HasKey(x => x.Id);
         modelBuilder.Entity<FakeTag>().Property(x => x.Id).ValueGeneratedOnAdd();
+
+        modelBuilder.Entity<FakeArchive>().HasKey(x => x.Id);
     }
 }

@@ -32,7 +32,7 @@ public class Corporation : Entity<int>, IAggregateRoot
 - 属性 `private set`，对外只暴露行为方法——这是聚合不变量的第一道防线。
 - 实体还没有 Id 就要发事件时，用延迟生成器 `AddDomainEvent(id => new XxxCreatedDomainEvent(id))`，事件在派发时才用实际 Id 构造。
 - 子实体（如 `CorporationMember : Entity<int>`）不需要 `IAggregateRoot`，通过聚合根的导航集合持有。
-- 软删除直接置 `Deleted = true`（基类属性），查询过滤交给 EF QueryFilter（见第 5 步）。
+- 软删除调用仓储的 `DeleteAsync` / `DeleteRangeAsync` 即可，默认把 `Deleted` 置为 `true`（需真正删除时传 `softDelete: false`）；聚合内部移除子实体时也可以直接置 `Deleted = true`。查询过滤交给 EF QueryFilter（见第 5 步）。
 
 ### 2. 把状态变更写成聚合方法，并在方法内记录领域事件
 

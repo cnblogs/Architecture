@@ -1,5 +1,7 @@
 ﻿using Cnblogs.Architecture.Ddd.Domain.Abstractions;
+using Cnblogs.Architecture.Ddd.Infrastructure.MongoDb;
 using Cnblogs.Architecture.UnitTests.Infrastructure.FakeObjects;
+using MediatR;
 using MongoDB.Driver;
 using NSubstitute;
 
@@ -53,7 +55,7 @@ public class MongoBaseRepositoryTests
     }
 
     [Fact]
-    public async Task DeleteAsync_WithDomainEvent_SaveThenPublishAsync()
+    public async Task DeleteAsync_SoftDeleteWithDomainEvent_SaveThenPublishAsync()
     {
         // Arrange
         var repository = new TestMongoRepository();
@@ -65,10 +67,118 @@ public class MongoBaseRepositoryTests
 
         // Assert
         Assert.NotNull(response);
+        Assert.True(response.Deleted);
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
+            .Received(1)
+            .ReplaceOneAsync(
+                Arg.Any<FilterDefinition<FakeBlog>>(),
+                Arg.Any<FakeBlog>(),
+                Arg.Any<ReplaceOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
+            .Received(0)
+            .DeleteOneAsync(Arg.Any<FilterDefinition<FakeBlog>>(), Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received().Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
+    }
+
+    [Fact]
+    public async Task DeleteAsync_HardDeleteWithDomainEvent_SaveThenPublishAsync()
+    {
+        // Arrange
+        var repository = new TestMongoRepository();
+        var blog = new FakeBlog();
+        blog.AddDomainEvent(new FakeDomainEvent(1, 1));
+
+        // Act
+        var response = await repository.DeleteAsync(blog, softDelete: false);
+
+        // Assert
+        Assert.NotNull(response);
+        Assert.False(response.Deleted);
         await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty)
             .Received(1)
             .DeleteOneAsync(Arg.Any<FilterDefinition<FakeBlog>>(), Arg.Any<CancellationToken>());
         await repository.MediatorMock.Received().Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
+    }
+
+    [Fact]
+    public async Task DeleteRangeAsync_SoftDeleteWithDomainEvent_SaveThenPublishAsync()
+    {
+        // Arrange
+        var repository = new TestMongoRepository();
+        var blogs = Enumerable.Range(0, 10).Select(_ => new FakeBlog()).ToList();
+        blogs.ForEach(x => x.AddDomainEvent(new FakeDomainEvent(1, 1)));
+
+        // Act
+        var response = await repository.DeleteRangeAsync(blogs);
+
+        // Assert
+        Assert.Equal(blogs.Count, response.Count);
+        Assert.All(response, x => Assert.True(x.Deleted));
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
+            .BulkWriteAsync(
+                Arg.Any<IEnumerable<WriteModel<FakeBlog>>>(),
+                Arg.Any<BulkWriteOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(0)
+            .DeleteManyAsync(Arg.Any<FilterDefinition<FakeBlog>>(), Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(blogs.Count)
+            .Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
+    }
+
+    [Fact]
+    public async Task DeleteRangeAsync_HardDeleteWithDomainEvent_SaveThenPublishAsync()
+    {
+        // Arrange
+        var repository = new TestMongoRepository();
+        var blogs = Enumerable.Range(0, 10).Select(_ => new FakeBlog()).ToList();
+        blogs.ForEach(x => x.AddDomainEvent(new FakeDomainEvent(1, 1)));
+
+        // Act
+        var response = await repository.DeleteRangeAsync(blogs, softDelete: false);
+
+        // Assert
+        Assert.Equal(blogs.Count, response.Count);
+        Assert.All(response, x => Assert.False(x.Deleted));
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(1)
+            .DeleteManyAsync(Arg.Any<FilterDefinition<FakeBlog>>(), Arg.Any<CancellationToken>());
+        await repository.MongoDbContext.MongoDatabaseMock.GetCollection<FakeBlog>(string.Empty).Received(0)
+            .BulkWriteAsync(
+                Arg.Any<IEnumerable<WriteModel<FakeBlog>>>(),
+                Arg.Any<BulkWriteOptions>(),
+                Arg.Any<CancellationToken>());
+        await repository.MediatorMock.Received(blogs.Count)
+            .Publish(Arg.Any<IDomainEvent>(), Arg.Any<CancellationToken>());
+    }
+
+    [Fact]
+    public async Task DeleteAsync_EntityNotSoftDeletable_ThrowAsync()
+    {
+        // Arrange
+        var repository = new MongoBaseRepository<FakeMongoDbContext, FakeArchive, int>(
+            new FakeMongoDbContext(),
+            Substitute.For<IMediator>());
+
+        // Act
+        var act = () => repository.DeleteAsync(new FakeArchive());
+
+        // Assert
+        await Assert.ThrowsAsync<InvalidOperationException>(act);
+    }
+
+    [Fact]
+    public async Task DeleteRangeAsync_EntityNotSoftDeletable_ThrowAsync()
+    {
+        // Arrange
+        var repository = new MongoBaseRepository<FakeMongoDbContext, FakeArchive, int>(
+            new FakeMongoDbContext(),
+            Substitute.For<IMediator>());
+
+        // Act
+        var act = () => repository.DeleteRangeAsync([new FakeArchive()]);
+
+        // Assert
+        await Assert.ThrowsAsync<InvalidOperationException>(act);
     }
 
     [Fact]

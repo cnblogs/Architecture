@@ -76,7 +76,7 @@ public class FakeBlog : Entity<int>, IAggregateRoot
 ```
 
 - `Entity<TKey>`：继承自 `Entity`，带 `TKey Id`。推荐所有新实体都继承它。
-- `Entity`：自带 `Deleted`（软删除标记）、`DateAdded`、`DateUpdated`，更新前会自动刷新 `DateUpdated`。软删除的查询过滤需要在 EF 配置中自行添加 `HasQueryFilter(x => x.Deleted == false)`。
+- `Entity`：自带 `Deleted`（软删除标记）、`DateAdded`、`DateUpdated`，更新前会自动刷新 `DateUpdated`。仓储的 `DeleteAsync` / `DeleteRangeAsync` 默认软删除（置 `Deleted = true`，传 `softDelete: false` 执行硬删除），查询过滤需要在 EF 配置中自行添加 `HasQueryFilter(x => x.Deleted == false)`。
 - `EntityBase`：无默认属性的最小基类，仅用于兼容存量表；新实体不要使用。
 - `Entity<TKey>.AddDomainEvent(Func<TKey, IDomainEvent> generator)`：延迟生成领域事件——在实体尚未落库、还没有 Id 时使用，事件在读取 `DomainEvents` 时才用实际 Id 构造。
 - `IAggregateRoot`：空标记接口，仓储接口约束聚合根。
@@ -95,8 +95,8 @@ public record ChildAddedEvent(int ParentId, int ChildId) : DomainEvent;
 
 | 接口 | 适用场景 |
 | --- | --- |
-| `IRepository<TEntity, TKey>` | 基础 CRUD；`NoTrackingQueryable` 供 Handler 中的只读查询使用 |
-| `INavigationRepository<TEntity, TKey>` | 额外支持 `GetAsync(key, params Expression<Func<TEntity, object?>>[] includes)`，按需加载导航属性（支持过滤导航属性） |
+| `IRepository<TEntity, TKey>` | 基础 CRUD 与批量 API：`GetRangeAsync(keys)` 按主键批量获取，`AddRangeAsync` / `UpdateRangeAsync` / `DeleteRangeAsync` 批量写入；`DeleteAsync` / `DeleteRangeAsync` 默认软删除，传 `softDelete: false` 才执行硬删除；`NoTrackingQueryable` 供 Handler 中的只读查询使用 |
+| `INavigationRepository<TEntity, TKey>` | 额外支持带 `includes` 的 `GetAsync(key, includes)` 与 `GetRangeAsync(keys, includes)`（强类型表达式或字符串路径），按需加载导航属性（支持过滤导航属性） |
 | `ISqlRepository<TEntity, TKey>` | 额外支持原生 SQL（`SqlQuery` / `ExecuteSqlAsync`） |
 | `IUnitOfWork<TEntity, TKey>` | 手动控制提交时机；`Add/Update/Delete` 仅暂存，`SaveEntitiesAsync()` 提交并派发领域事件 |
 
@@ -125,8 +125,9 @@ public class BlogRepository(IMediator mediator, BlogDbContext context)
 
 `BaseRepository<TContext, TEntity, TKey>` 的行为要点：
 
-- `GetAsync(key, includes)` 支持强类型 Include（可对导航属性使用 `Where` 过滤）和字符串路径（`"Posts.Tags"`）两种形式。
+- `GetAsync(key, includes)` 与 `GetRangeAsync(keys, includes)` 支持强类型 Include（可对导航属性使用 `Where` 过滤）和字符串路径（`"Posts.Tags"`）两种形式。
 - `AddAsync/UpdateAsync/DeleteAsync` 先 `SaveChangesAsync`，再通过注入的 `IMediator` 派发领域事件。
+- `DeleteAsync` / `DeleteRangeAsync` 默认软删除：把 `Deleted` 置为 `true` 并保存 UPDATE（要求实体继承 `Entity`，否则抛 `InvalidOperationException`；未跟踪的实体会被自动 Attach）。传 `softDelete: false` 才执行 DELETE。两种方式保存后都会解除跟踪，行为一致。
 - `UnitOfWork.SaveChangesAsync()` 只提交不派发事件；`SaveEntitiesAsync()` 先派发事件再提交。
 - `protected virtual Task BeforeDispatchDomainEventAsync(...)` 是派发前的钩子，可用于事件持久化（outbox）或日志。
 - `QueryableExtensions.AggregateIncludes(...)` 将 Include 列表串成查询。

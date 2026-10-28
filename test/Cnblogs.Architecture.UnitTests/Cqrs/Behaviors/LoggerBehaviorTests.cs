@@ -29,6 +29,7 @@ public class LoggerBehaviorTests
             Arg.Any<Func<object, Exception?, string>>());
     }
 
+    // ReSharper disable once ContextualLoggerProblem
     private class TestLogger<T>(ILogger<T> logger) : ILogger<T>
     {
         // ReSharper disable once ContextualLoggerProblem
