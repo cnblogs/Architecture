@@ -514,6 +514,96 @@ public class EnricherBehaviorTests
         Assert.Throws<InvalidOperationException>(() =>
             cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(EnricherB)]));
     }
+
+    [Fact]
+    public async Task MultipleInterfaces_SingleItemResponse_EnrichesBothTargetsAsync()
+    {
+        // Arrange
+        var post = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
+        var comment = new FakeCommentDto(1, "content");
+        var enricher = new MultiInterfaceEnricher();
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(MultiInterfaceEnricher)).Returns(enricher);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(MultiInterfaceEnricher)]);
+        cache.BuildEnrichPlan(typeof(FakeCommentDto), [typeof(MultiInterfaceEnricher)]);
+        var postBehavior = CreateBehavior<FakeEnrichableRequest<FakePostDto>, FakePostDto>(sp, cache);
+        var commentBehavior = CreateBehavior<FakeEnrichableRequest<FakeCommentDto>, FakeCommentDto>(sp, cache);
+
+        // Act
+        await postBehavior.Handle(
+            new FakeEnrichableRequest<FakePostDto>(),
+            _ => Task.FromResult<FakePostDto?>(post),
+            CancellationToken.None);
+        await commentBehavior.Handle(
+            new FakeEnrichableRequest<FakeCommentDto>(),
+            _ => Task.FromResult<FakeCommentDto?>(comment),
+            CancellationToken.None);
+
+        // Assert — each target is enriched via its own IEnricher<T> closure
+        Assert.Single(enricher.EnrichedPosts);
+        Assert.Same(post, enricher.EnrichedPosts[0]);
+        Assert.Single(enricher.EnrichedComments);
+        Assert.Same(comment, enricher.EnrichedComments[0]);
+    }
+
+    [Fact]
+    public async Task MultipleInterfaces_ListResponse_BulkEnrichesBothTargetsAsync()
+    {
+        // Arrange
+        var post = new FakePostDto(1, DateTimeOffset.Now, DateTimeOffset.Now);
+        var comment = new FakeCommentDto(1, "content");
+        var enricher = new MultiInterfaceEnricher();
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(MultiInterfaceEnricher)).Returns(enricher);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(typeof(FakePostDto), [typeof(MultiInterfaceEnricher)]);
+        cache.BuildEnrichPlan(typeof(FakeCommentDto), [typeof(MultiInterfaceEnricher)]);
+        var postBehavior = CreateBehavior<FakeEnrichableRequest<List<FakePostDto>>, List<FakePostDto>>(sp, cache);
+        var commentBehavior =
+            CreateBehavior<FakeEnrichableRequest<List<FakeCommentDto>>, List<FakeCommentDto>>(sp, cache);
+
+        // Act
+        await postBehavior.Handle(
+            new FakeEnrichableRequest<List<FakePostDto>>(),
+            _ => Task.FromResult<List<FakePostDto>?>([post]),
+            CancellationToken.None);
+        await commentBehavior.Handle(
+            new FakeEnrichableRequest<List<FakeCommentDto>>(),
+            _ => Task.FromResult<List<FakeCommentDto>?>([comment]),
+            CancellationToken.None);
+
+        // Assert
+        Assert.Single(enricher.EnrichedPosts);
+        Assert.Same(post, enricher.EnrichedPosts[0]);
+        Assert.Single(enricher.EnrichedComments);
+        Assert.Same(comment, enricher.EnrichedComments[0]);
+    }
+
+    [Fact]
+    public async Task EnrichAfter_InterfaceBasedEnrichers_OrdersForConcreteTargetAsync()
+    {
+        // Arrange
+        var log = new List<string>();
+        var a = new InterfaceEnricherA { ExecutionLog = log };
+        var b = new InterfaceEnricherB { ExecutionLog = log };
+        var sp = Substitute.For<IServiceProvider>();
+        sp.GetService(typeof(InterfaceEnricherA)).Returns(a);
+        sp.GetService(typeof(InterfaceEnricherB)).Returns(b);
+        var cache = new EnricherMappingCache();
+        cache.BuildEnrichPlan(typeof(FakeContractDto), [typeof(InterfaceEnricherA), typeof(InterfaceEnricherB)]);
+        var behavior = CreateBehavior<FakeEnrichableRequest<FakeContractDto>, FakeContractDto>(sp, cache);
+        var dto = new FakeContractDto();
+
+        // Act
+        await behavior.Handle(
+            new FakeEnrichableRequest<FakeContractDto>(),
+            _ => Task.FromResult<FakeContractDto?>(dto),
+            CancellationToken.None);
+
+        // Assert — dependencies declared on interface-based enrichers still apply per concrete type
+        Assert.Equal(["InterfaceEnricherA", "InterfaceEnricherB"], log);
+    }
 }
 
 public record FakeObjectResponse<T>(T? Result) : IObjectResponse
