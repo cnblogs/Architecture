@@ -31,7 +31,7 @@ public class EnricherMappingCache
     public void BuildEnrichPlan(Type targetType, ICollection<Type> enricherTypes)
     {
         // ReSharper disable once HeapView.CanAvoidClosure
-        _enricherPlans.GetOrAdd(targetType, _ => CompileEnricherPlan(enricherTypes));
+        _enricherPlans.GetOrAdd(targetType, _ => CompileEnricherPlan(targetType, enricherTypes));
     }
 
     internal List<EnricherStage>? GetEnricherPlan(Type elementType)
@@ -40,7 +40,7 @@ public class EnricherMappingCache
         return success ? list : null;
     }
 
-    private static List<EnricherStage> CompileEnricherPlan(ICollection<Type> enricherTypes)
+    private static List<EnricherStage> CompileEnricherPlan(Type targetType, ICollection<Type> enricherTypes)
     {
         if (enricherTypes.Count == 0)
         {
@@ -48,19 +48,15 @@ public class EnricherMappingCache
         }
 
         var typeSet = enricherTypes.ToHashSet();
-        var descriptors = typeSet.ToDictionary(t => t, CreateDescriptor);
+        var descriptors = typeSet.ToDictionary(t => t, t => CreateDescriptor(t, targetType));
         var inDegree = typeSet.ToDictionary(x => x, _ => 0);
         var adjacencyList = typeSet.ToDictionary(x => x, _ => new List<Type>());
-
-        // Resolve the enricher interface for type checking
-        var elementType = descriptors.Values.First().EnrichMethod.GetParameters()[0].ParameterType;
-        var enricherType = typeof(IEnricher<>).MakeGenericType(elementType);
 
         // Build edges from EnrichAfterAttribute
         foreach (var type in typeSet)
         {
             var attrs = type.GetCustomAttributes<EnrichAfterAttribute>();
-            foreach (var dep in attrs.SelectMany(x => x.DependencyTypes).Where(x => x.IsAssignableTo(enricherType)))
+            foreach (var dep in attrs.SelectMany(x => x.DependencyTypes).Where(x => IsEnricherFor(x, targetType)))
             {
                 if (typeSet.Contains(dep))
                 {
@@ -79,14 +75,35 @@ public class EnricherMappingCache
         return BuildDag(typeSet, descriptors, inDegree, adjacencyList);
     }
 
-    private static EnricherDescriptor CreateDescriptor(Type enricherType)
+    private static EnricherDescriptor CreateDescriptor(Type enricherType, Type targetType)
     {
-        var enricherInterface = enricherType.GetInterfaces()
-            .First(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEnricher<>));
+        // An enricher may implement multiple IEnricher<T> closures, pick the one matching the
+        // element type, preferring the exact closure over base interface/abstract closures.
+        var enricherInterface = GetApplicableEnricherInterfaces(enricherType, targetType)
+            .OrderByDescending(i => i.GetGenericArguments()[0] == targetType)
+            .FirstOrDefault();
+        if (enricherInterface is null)
+        {
+            throw new InvalidOperationException(
+                $"'{enricherType}' does not implement 'IEnricher<{targetType.Name}>' nor any compatible closure.");
+        }
+
         return new EnricherDescriptor(
             enricherType,
             enricherInterface.GetMethod("EnrichAsync")!,
             enricherInterface.GetMethod("BulkEnrichAsync")!);
+    }
+
+    private static bool IsEnricherFor(Type enricherType, Type targetType)
+    {
+        return GetApplicableEnricherInterfaces(enricherType, targetType).Any();
+    }
+
+    private static IEnumerable<Type> GetApplicableEnricherInterfaces(Type enricherType, Type targetType)
+    {
+        return enricherType.GetInterfaces()
+            .Where(i => i.IsGenericType && i.GetGenericTypeDefinition() == typeof(IEnricher<>))
+            .Where(i => targetType.IsAssignableTo(i.GetGenericArguments()[0]));
     }
 
     private static List<EnricherStage> BuildDag(

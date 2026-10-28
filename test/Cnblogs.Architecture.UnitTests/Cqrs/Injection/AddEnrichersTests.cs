@@ -27,6 +27,22 @@ public class AddEnrichersTests
         }
     }
 
+    // ReSharper disable once UnusedType.Global
+    public class MultiTargetEnricher : IEnricher<UserDto>, IEnricher<AdminDto>
+    {
+        public bool AllowParallel => false;
+
+        public Task EnrichAsync(UserDto model, CancellationToken cancellationToken = default)
+        {
+            return Task.CompletedTask;
+        }
+
+        public Task EnrichAsync(AdminDto model, CancellationToken cancellationToken = default)
+        {
+            return Task.CompletedTask;
+        }
+    }
+
     [Fact]
     public void InterfaceEnricher_InterfaceBasedEnricher_PlanBuiltForConcreteTypes()
     {
@@ -54,6 +70,22 @@ public class AddEnrichersTests
         // Act
         var sp = services.BuildServiceProvider();
         var enricher = sp.GetService<TrackingEnricher>();
+
+        // Assert
+        Assert.NotNull(enricher);
+    }
+
+    [Fact]
+    public void MultiInterfaceEnricher_ImplementsMultipleClosures_PlansBuiltForAllTargets()
+    {
+        // Arrange
+        var services = new ServiceCollection();
+        var injector = services.AddCqrs(typeof(AddEnrichersTests).Assembly);
+
+        // Act — plan pre-warm resolves EnrichAsync/BulkEnrichAsync per target without error
+        injector.AddEnrichers(new List<Type> { typeof(MultiTargetEnricher) });
+        var sp = services.BuildServiceProvider();
+        var enricher = sp.GetService<MultiTargetEnricher>();
 
         // Assert
         Assert.NotNull(enricher);
