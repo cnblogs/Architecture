@@ -42,6 +42,12 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     public IUnitOfWork<TEntity, TKey> UnitOfWork => this;
 
     /// <inheritdoc />
+    public Task<List<TEntity>> GetRangeAsync(IEnumerable<TKey> keys)
+    {
+        return Context.Set<TEntity>().Where(x => keys.Contains(x.Id)).ToListAsync();
+    }
+
+    /// <inheritdoc />
     public IQueryable<T> GetNoTrackingQueryable<T>()
         where T : class
     {
@@ -65,6 +71,65 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
         return entities;
     }
 
+    /// <inheritdoc />
+    public async Task<TEntity> DeleteAsync(TEntity entity, bool softDelete = true)
+    {
+        if (softDelete == false)
+        {
+            Context.Remove(entity);
+            await SaveEntitiesInternalAsync();
+            return entity;
+        }
+
+        if (entity is not Entity ent)
+        {
+            throw new InvalidOperationException("The given entity is not soft-deletable");
+        }
+
+        // 实体可能未被跟踪（例如由外部构造），Attach 后修改 Deleted 才会生成 UPDATE。
+        Context.Attach(entity);
+        ent.Deleted = true;
+        await SaveEntitiesInternalAsync();
+
+        // Deleted 状态的实体在 SaveChanges 后会被 EF 自动解除跟踪，软删除保持同样的行为。
+        Context.Entry(entity).State = EntityState.Detached;
+        return entity;
+    }
+
+    /// <inheritdoc />
+    public async Task<List<TEntity>> DeleteRangeAsync(IEnumerable<TEntity> entities, bool softDelete = true)
+    {
+        var list = entities as List<TEntity> ?? [.. entities];
+        if (softDelete == false)
+        {
+            Context.RemoveRange(list);
+            await SaveEntitiesInternalAsync();
+            return list;
+        }
+
+        if (list.Any(x => x is not Entity))
+        {
+            throw new InvalidOperationException("The given entity is not soft-deletable");
+        }
+
+        // 实体可能未被跟踪（例如由外部构造），Attach 后修改 Deleted 才会生成 UPDATE。
+        Context.AttachRange(list);
+        foreach (var ent in list.Cast<Entity>())
+        {
+            ent.Deleted = true;
+        }
+
+        await SaveEntitiesInternalAsync();
+
+        // Deleted 状态的实体在 SaveChanges 后会被 EF 自动解除跟踪，软删除保持同样的行为。
+        foreach (var entity in list)
+        {
+            Context.Entry(entity).State = EntityState.Detached;
+        }
+
+        return list;
+    }
+
     /// <inheritdoc cref="IRepository{TEntity,TKey}.GetAsync" />
     public async Task<TEntity?> GetAsync(TKey key)
     {
@@ -84,6 +149,20 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     }
 
     /// <inheritdoc />
+    public Task<List<TEntity>> GetRangeAsync(
+        IEnumerable<TKey> keys,
+        params Expression<Func<TEntity, object?>>[] includes)
+    {
+        return Context.Set<TEntity>().Where(x => keys.Contains(x.Id)).AggregateIncludes(includes).ToListAsync();
+    }
+
+    /// <inheritdoc />
+    public Task<List<TEntity>> GetRangeAsync(IEnumerable<TKey> keys, IEnumerable<string> includes)
+    {
+        return Context.Set<TEntity>().Where(x => keys.Contains(x.Id)).AggregateIncludes(includes).ToListAsync();
+    }
+
+    /// <inheritdoc />
     public async Task<TEntity> UpdateAsync(TEntity entity)
     {
         await SaveEntitiesInternalAsync();
@@ -95,14 +174,6 @@ public abstract class BaseRepository<TContext, TEntity, TKey>
     {
         await SaveEntitiesInternalAsync();
         return entities;
-    }
-
-    /// <inheritdoc />
-    public async Task<TEntity> DeleteAsync(TEntity entity)
-    {
-        Context.Remove(entity);
-        await SaveEntitiesInternalAsync();
-        return entity;
     }
 
     /// <inheritdoc />

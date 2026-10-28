@@ -98,6 +98,7 @@ public static class EndpointManifestBuilder
             return [];
         }
 
+        // ReSharper disable once BitwiseOperatorOnEnumWithoutFlags
         return metadata.Map(ApiVersionMapping.Explicit | ApiVersionMapping.Implicit)
             .DeclaredApiVersions
             .Select(v => v.ToString("VVV", CultureInfo.InvariantCulture))

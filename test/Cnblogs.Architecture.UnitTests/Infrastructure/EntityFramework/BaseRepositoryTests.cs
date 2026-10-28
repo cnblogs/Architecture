@@ -35,13 +35,19 @@ public class BaseRepositoryTests
         Assert.Equivalent(entity.Posts, got.Posts);
     }
 
-    private static FakeDbContext GetFakeDbContext()
+    private static FakeDbContext GetFakeDbContext(
+        string dbName = nameof(BaseRepositoryTests),
+        bool ensureDeleted = true)
     {
-        var options = new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase(nameof(BaseRepositoryTests))
+        var options = new DbContextOptionsBuilder<FakeDbContext>().UseInMemoryDatabase(dbName)
             .Options;
         var context = new FakeDbContext(options);
-        context.Database.EnsureDeleted();
-        context.Database.EnsureCreated();
+        if (ensureDeleted)
+        {
+            context.Database.EnsureDeleted();
+            context.Database.EnsureCreated();
+        }
+
         return context;
     }
 
@@ -94,6 +100,206 @@ public class BaseRepositoryTests
         // Assert
         Assert.NotNull(got);
         Assert.Equivalent(entity.Posts, got.Posts);
+    }
+
+    [Fact]
+    public async Task GetRangeAsync_Keys_ReturnMatchedEntitiesAsync()
+    {
+        // Arrange
+        var blogs = new List<FakeBlog> { new() { Title = "1" }, new() { Title = "2" }, new() { Title = "3" } };
+        var db = GetFakeDbContext();
+        await db.AddRangeAsync(blogs);
+        await db.SaveChangesAsync();
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
+
+        // Act
+        var got = await repository.GetRangeAsync(blogs.Take(2).Select(x => x.Id));
+
+        // Assert
+        Assert.Equivalent(blogs.Take(2).ToList(), got);
+    }
+
+    [Fact]
+    public async Task GetRangeAsync_KeysNotInStore_ReturnEmptyListAsync()
+    {
+        // Arrange
+        var db = GetFakeDbContext();
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
+
+        // Act
+        var got = await repository.GetRangeAsync([1, 2]);
+
+        // Assert
+        Assert.Empty(got);
+    }
+
+    [Fact]
+    public async Task GetRangeAsync_Include_LoadsNavigationAsync()
+    {
+        // Arrange
+        var blogs = new List<FakeBlog> { new() { Posts = [new FakePost()] }, new() { Posts = [new FakePost()] } };
+        const string dbName = nameof(GetRangeAsync_Include_LoadsNavigationAsync);
+        var seedingDb = GetFakeDbContext(dbName);
+        await seedingDb.AddRangeAsync(blogs);
+        await seedingDb.SaveChangesAsync();
+        var repository = new TestRepository(Substitute.For<IMediator>(), GetFakeDbContext(dbName, false));
+
+        // Act
+        var got = await repository.GetRangeAsync(blogs.Select(x => x.Id), x => x.Posts);
+
+        // Assert
+        Assert.Equivalent(blogs.Select(x => x.Id).ToList(), got.Select(x => x.Id).ToList());
+        Assert.All(got, x => Assert.NotEmpty(x.Posts));
+    }
+
+    [Fact]
+    public async Task GetRangeAsync_StringBasedInclude_LoadsNavigationAsync()
+    {
+        // Arrange
+        var blogs = new List<FakeBlog> { new() { Posts = [new FakePost()] }, new() { Posts = [new FakePost()] } };
+        const string dbName = nameof(GetRangeAsync_StringBasedInclude_LoadsNavigationAsync);
+        var seedingDb = GetFakeDbContext(dbName);
+        await seedingDb.AddRangeAsync(blogs);
+        await seedingDb.SaveChangesAsync();
+        var repository = new TestRepository(Substitute.For<IMediator>(), GetFakeDbContext(dbName, false));
+
+        // Act
+        var got = await repository.GetRangeAsync(blogs.Select(x => x.Id), new List<string> { nameof(FakeBlog.Posts) });
+
+        // Assert
+        Assert.Equivalent(blogs.Select(x => x.Id).ToList(), got.Select(x => x.Id).ToList());
+        Assert.All(got, x => Assert.NotEmpty(x.Posts));
+    }
+
+    [Fact]
+    public async Task DeleteAsync_SoftDelete_SetDeletedAsync()
+    {
+        // Arrange
+        var db = GetFakeDbContext();
+        var blog = new FakeBlog();
+        await db.AddAsync(blog);
+        await db.SaveChangesAsync();
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
+
+        // Act
+        var deleted = await repository.DeleteAsync(blog);
+
+        // Assert
+        Assert.True(deleted.Deleted);
+        Assert.Equal(EntityState.Detached, db.Entry(blog).State);
+        var stored = await db.Set<FakeBlog>().AsNoTracking().SingleAsync(x => x.Id == blog.Id);
+        Assert.True(stored.Deleted);
+    }
+
+    [Fact]
+    public async Task DeleteAsync_HardDelete_RemoveEntityAsync()
+    {
+        // Arrange
+        var db = GetFakeDbContext();
+        var blog = new FakeBlog();
+        await db.AddAsync(blog);
+        await db.SaveChangesAsync();
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
+
+        // Act
+        var deleted = await repository.DeleteAsync(blog, softDelete: false);
+
+        // Assert
+        Assert.False(deleted.Deleted);
+        Assert.Equal(EntityState.Detached, db.Entry(blog).State);
+        var stored = await db.Set<FakeBlog>().AsNoTracking().FirstOrDefaultAsync(x => x.Id == blog.Id);
+        Assert.Null(stored);
+    }
+
+    [Fact]
+    public async Task DeleteAsync_UntrackedEntity_SoftDeleteStillSavedAsync()
+    {
+        // Arrange
+        const string dbName = nameof(DeleteAsync_UntrackedEntity_SoftDeleteStillSavedAsync);
+        var seedingDb = GetFakeDbContext(dbName);
+        var blog = new FakeBlog();
+        await seedingDb.AddAsync(blog);
+        await seedingDb.SaveChangesAsync();
+        var db = GetFakeDbContext(dbName, false);
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
+        var untracked = new FakeBlog { Id = blog.Id };
+
+        // Act
+        await repository.DeleteAsync(untracked);
+
+        // Assert
+        Assert.Equal(EntityState.Detached, db.Entry(untracked).State);
+        var stored = await db.Set<FakeBlog>().AsNoTracking().SingleAsync(x => x.Id == blog.Id);
+        Assert.True(stored.Deleted);
+    }
+
+    [Fact]
+    public async Task DeleteRangeAsync_SoftDelete_SetDeletedAsync()
+    {
+        // Arrange
+        var blogs = new List<FakeBlog> { new(), new(), new() };
+        var db = GetFakeDbContext();
+        await db.AddRangeAsync(blogs);
+        await db.SaveChangesAsync();
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
+
+        // Act
+        var deleted = await repository.DeleteRangeAsync(blogs.Take(2));
+
+        // Assert
+        Assert.Equal(2, deleted.Count);
+        Assert.All(deleted, x => Assert.True(x.Deleted));
+        Assert.All(deleted, x => Assert.Equal(EntityState.Detached, db.Entry(x).State));
+        var stored = await db.Set<FakeBlog>().AsNoTracking().ToListAsync();
+        Assert.Equal(2, stored.Count(x => x.Deleted));
+        Assert.Single(stored, x => x.Deleted == false);
+    }
+
+    [Fact]
+    public async Task DeleteRangeAsync_HardDelete_RemoveEntitiesAsync()
+    {
+        // Arrange
+        var blogs = new List<FakeBlog> { new(), new(), new() };
+        var db = GetFakeDbContext();
+        await db.AddRangeAsync(blogs);
+        await db.SaveChangesAsync();
+        var repository = new TestRepository(Substitute.For<IMediator>(), db);
+
+        // Act
+        var deleted = await repository.DeleteRangeAsync(blogs.Take(2), softDelete: false);
+
+        // Assert
+        Assert.Equal(2, deleted.Count);
+        Assert.All(deleted, x => Assert.Equal(EntityState.Detached, db.Entry(x).State));
+        var stored = await db.Set<FakeBlog>().AsNoTracking().ToListAsync();
+        var storedIds = stored.Select(x => x.Id).ToList();
+        Assert.Equivalent(blogs.Skip(2).Select(x => x.Id).ToList(), storedIds);
+    }
+
+    [Fact]
+    public async Task DeleteAsync_EntityNotSoftDeletable_ThrowAsync()
+    {
+        // Arrange
+        var repository = new TestArchiveRepository(Substitute.For<IMediator>(), GetFakeDbContext());
+
+        // Act
+        var act = () => repository.DeleteAsync(new FakeArchive());
+
+        // Assert
+        await Assert.ThrowsAsync<InvalidOperationException>(act);
+    }
+
+    [Fact]
+    public async Task DeleteRangeAsync_EntityNotSoftDeletable_ThrowAsync()
+    {
+        // Arrange
+        var repository = new TestArchiveRepository(Substitute.For<IMediator>(), GetFakeDbContext());
+
+        // Act
+        var act = () => repository.DeleteRangeAsync([new FakeArchive()]);
+
+        // Assert
+        await Assert.ThrowsAsync<InvalidOperationException>(act);
     }
 
     [Fact]

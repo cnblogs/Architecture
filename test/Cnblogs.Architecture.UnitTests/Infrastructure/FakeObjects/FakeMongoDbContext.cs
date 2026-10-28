@@ -33,6 +33,8 @@ public class FakeMongoDbContext : MongoContext
         MongoDatabaseMock.Client.Returns(MongoClientMock);
         MongoDatabaseMock.GetCollection<FakeBlog>(Arg.Any<string>())
             .Returns(Substitute.For<IMongoCollection<FakeBlog>>());
+        MongoDatabaseMock.GetCollection<FakeArchive>(Arg.Any<string>())
+            .Returns(Substitute.For<IMongoCollection<FakeArchive>>());
     }
 
     /// <inheritdoc />
@@ -41,6 +43,7 @@ public class FakeMongoDbContext : MongoContext
         builder.Entity<FakeBlog>("fakeBlog");
         builder.Entity<FakePost>("fakePost");
         builder.Entity<FakeTag>("fakeTag");
+        builder.Entity<FakeArchive>("fakeArchive");
     }
 
     private static IMongoContextOptions MockOptions()

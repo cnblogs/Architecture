@@ -67,20 +67,72 @@ public class MongoBaseRepository<TContext, TEntity, TKey> : IRepository<TEntity,
     }
 
     /// <inheritdoc />
-    public async Task<TEntity> DeleteAsync(TEntity entity)
+    public async Task<TEntity> DeleteAsync(TEntity entity, bool softDelete = true)
     {
         var collection = Context.Set<TEntity>();
         EnsureBeforeUpdateCalled(entity);
         var domainEvents = ExtractDomainEvents(entity);
-        await collection.DeleteOneAsync(Builders<TEntity>.Filter.Eq(x => x.Id, entity.Id));
+        if (softDelete)
+        {
+            if (entity is not Entity ent)
+            {
+                throw new InvalidOperationException("The given entity is not soft-deletable");
+            }
+
+            ent.Deleted = true;
+            await collection.ReplaceOneAsync(Builders<TEntity>.Filter.Eq(x => x.Id, entity.Id), entity);
+        }
+        else
+        {
+            await collection.DeleteOneAsync(Builders<TEntity>.Filter.Eq(x => x.Id, entity.Id));
+        }
+
         await DispatchDomainEventsAsync(domainEvents);
         return entity;
+    }
+
+    /// <inheritdoc />
+    public async Task<List<TEntity>> DeleteRangeAsync(IEnumerable<TEntity> entities, bool softDelete = true)
+    {
+        var collection = Context.Set<TEntity>();
+        var list = entities.ToList();
+        list.ForEach(EnsureBeforeUpdateCalled);
+        var domainEvents = list.Where(x => x.DomainEvents != null).SelectMany(x => ExtractDomainEvents(x)!).ToList();
+        if (softDelete)
+        {
+            if (list.Any(x => x is not Entity))
+            {
+                throw new InvalidOperationException("The given entity is not soft-deletable");
+            }
+
+            foreach (var ent in list.Cast<Entity>())
+            {
+                ent.Deleted = true;
+            }
+
+            var updates =
+                list.Select(x => new ReplaceOneModel<TEntity>(Builders<TEntity>.Filter.Eq(y => y.Id, x.Id), x));
+            await collection.BulkWriteAsync(updates);
+        }
+        else
+        {
+            await collection.DeleteManyAsync(Builders<TEntity>.Filter.In(x => x.Id, list.Select(x => x.Id)));
+        }
+
+        await DispatchDomainEventsAsync(domainEvents);
+        return list;
     }
 
     /// <inheritdoc cref="IRepository{TEntity,TKey}.GetAsync" />
     public async Task<TEntity?> GetAsync(TKey key)
     {
         return await Context.Set<TEntity>().Find(Builders<TEntity>.Filter.Eq(x => x.Id, key)).FirstOrDefaultAsync();
+    }
+
+    /// <inheritdoc />
+    public async Task<List<TEntity>> GetRangeAsync(IEnumerable<TKey> keys)
+    {
+        return await Context.Set<TEntity>().Find(Builders<TEntity>.Filter.In(x => x.Id, keys)).ToListAsync();
     }
 
     /// <inheritdoc />
