@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>
+Expose opted-in CQRS Commands and Queries as Model Context Protocol (MCP) tools over the Streamable HTTP transport, dispatched in-process over MediatR's IMediator. Reuses the tool set built by AddAgentFramework(); tool calls run through the same validation/logging/cache/lock/enricher pipeline as MapCommand/MapQuery. Call MapMcp() to serve the tools; the endpoint coexists with MapCommand/MapQuery/MapAgent.
+Commonly used types:
+Cnblogs.Architecture.Ddd.Cqrs.Mcp.CqrsMcpOptions
+Cnblogs.Architecture.Ddd.Cqrs.Mcp.CqrsInjectorExtensions
+Cnblogs.Architecture.Ddd.Cqrs.Mcp.CqrsMcpServerBuilderExtensions
+    </Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.Abstractions\Cnblogs.Architecture.Ddd.Cqrs.Abstractions.csproj" />
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.AgentFramework\Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.csproj" />
+    <ProjectReference Include="..\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection\Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ModelContextProtocol.AspNetCore" Version="2.4.0" />
+  </ItemGroup>
+
+</Project>
