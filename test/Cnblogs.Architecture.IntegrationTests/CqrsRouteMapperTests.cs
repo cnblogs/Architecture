@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject.Application.Commands;
 using Microsoft.AspNetCore.Mvc.Testing;

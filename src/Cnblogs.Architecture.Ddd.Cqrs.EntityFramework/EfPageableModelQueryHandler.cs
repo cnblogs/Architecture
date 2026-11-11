@@ -13,6 +13,4 @@ public abstract class EfPageableModelQueryHandler<TQuery, TEntity, TModel>
     : EfPageableQueryHandler<TQuery, TEntity, TModel>,
         IPageableModelQueryHandler<TQuery, TModel>
     where TModel : IModel
-    where TQuery : IPageableModelQuery<TModel>
-{
-}
+    where TQuery : IPageableModelQuery<TModel>;
