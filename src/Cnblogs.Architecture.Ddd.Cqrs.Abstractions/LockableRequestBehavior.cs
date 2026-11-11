@@ -9,26 +9,13 @@ namespace Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
 /// </summary>
 /// <typeparam name="TRequest">The type of request.</typeparam>
 /// <typeparam name="TResponse">The type of response.</typeparam>
-public partial class LockableRequestBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public partial class LockableRequestBehavior<TRequest, TResponse>(
+    IDistributedLockProvider distributedLockProvider,
+    ILogger<LockableRequestBehavior<TRequest, TResponse>> logger)
+    : IPipelineBehavior<TRequest, TResponse>
     where TRequest : ILockableRequest, IRequest<TResponse>
     where TResponse : ILockableResponse, new()
 {
-    private readonly IDistributedLockProvider _distributedLockProvider;
-    private readonly ILogger<LockableRequestBehavior<TRequest, TResponse>> _logger;
-
-    /// <summary>
-    ///     Create a new <see cref="LockableRequestBehavior{TRequest, TResponse}" /> instance.
-    /// </summary>
-    /// <param name="distributedLockProvider">Distributed lock provider.</param>
-    /// <param name="logger">log provider.</param>
-    public LockableRequestBehavior(
-        IDistributedLockProvider distributedLockProvider,
-        ILogger<LockableRequestBehavior<TRequest, TResponse>> logger)
-    {
-        _distributedLockProvider = distributedLockProvider;
-        _logger = logger;
-    }
-
     /// <inheritdoc />
     public async Task<TResponse> Handle(
         TRequest request,
@@ -41,7 +28,7 @@ public partial class LockableRequestBehavior<TRequest, TResponse> : IPipelineBeh
             TimeSpan? expiresIn = request is IConfigurableLockableRequest configurableLockableRequest
                 ? configurableLockableRequest.ExpiresIn
                 : null;
-            var response = await _distributedLockProvider.ExecuteWithLockAsync(
+            var response = await distributedLockProvider.ExecuteWithLockAsync(
                 request.GetLockKey(),
                 async () => await next(cancellationToken),
                 expiresIn);
@@ -50,13 +37,14 @@ public partial class LockableRequestBehavior<TRequest, TResponse> : IPipelineBeh
         }
         catch (AcquireDistributionLockFailedException e)
         {
-            LogAcquireDistributionLockFailed(request, e.LockKey, e);
+            LogAcquireDistributionLockFailed(logger, request, e.LockKey, e);
             return new TResponse { IsConcurrentError = true, LockAcquired = false };
         }
     }
 
     [LoggerMessage(LogLevel.Error, "Acquire Distribution Lock Failed, Request: {@Request}, LockKey: {LockLey}")]
     partial void LogAcquireDistributionLockFailed(
+        ILogger logger,
         TRequest request,
         string lockLey,
         AcquireDistributionLockFailedException acquireDistributionLockFailedException);
