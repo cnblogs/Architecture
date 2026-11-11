@@ -1,6 +1,7 @@
 using System.Reflection;
 using Cnblogs.Architecture.Ddd.Cqrs.AgentFramework;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
+using Cnblogs.Architecture.Ddd.Cqrs.Mcp;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.Ddd.EventBus.Dapr;
 using Cnblogs.Architecture.IntegrationTestProject;
@@ -19,6 +20,7 @@ builder.Services.AddCqrs(Assembly.GetExecutingAssembly(), typeof(TestIntegration
     .AddEventBus(o => o.UseDapr(Constants.AppName))
     .AddEnrichers()
     .AddAgentFramework()
+    .AddMcp()
     .AddDefaultDateTimeAndRandomProvider();
 
 builder.Services.AddControllers().AddCqrsModelBinderProvider().AddLongToStringJsonConverter();
@@ -72,6 +74,11 @@ app.Subscribe<TestIntegrationEvent>();
 // POST { "prompt": "..." } to /agents/articles and the typed ArticlesAgent orchestrates its allowed [AgentTool]-tagged Commands/Queries.
 // TODO: register an IChatClient (default or keyed) for the endpoint to resolve and actually run the agent.
 app.MapAgent<ArticlesAgent>("/agents/articles");
+
+// MCP entry point: exposes the same [AgentTool]-tagged Commands/Queries as MCP tools over Streamable HTTP,
+// coexisting with the MapCommand/MapQuery HTTP endpoints and the agent endpoint above. Tool calls dispatch
+// in-process via IMediator, with the request-scoped services of each MCP request.
+app.MapMcp("/mcp");
 
 app.Run();
 

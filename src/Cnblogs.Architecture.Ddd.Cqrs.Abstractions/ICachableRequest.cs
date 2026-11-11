@@ -47,7 +47,7 @@ public interface ICachableRequest
     /// <returns>The cache key for current request.</returns>
     string CacheKey()
     {
-        return string.Join('-', GetCacheKeyParameters().Select(p => p?.ToString()?.ToLower()));
+        return string.Join('-', GetCacheKeyParameters().Select(p => p?.ToString()?.ToLowerInvariant()));
     }
 
     /// <summary>

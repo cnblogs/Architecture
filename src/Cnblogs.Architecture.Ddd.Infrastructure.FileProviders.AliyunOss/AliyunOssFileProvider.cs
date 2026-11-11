@@ -90,9 +90,4 @@ public class AliyunOssFileProvider(Client ossClient, IOptions<AliyunOssOptions> 
                 $"[{nameof(AliyunOssFileProvider)}] Delete file failed, fileName: {filename}, statusCode: {response.StatusCode}, requestId: {response.RequestId}, message: {response.Status}");
         }
     }
-
-    private static FileNotFoundException NewFileNotFoundException(string path)
-    {
-        return new FileNotFoundException($"[{nameof(AliyunOssFileProvider)}] File not found", path);
-    }
 }

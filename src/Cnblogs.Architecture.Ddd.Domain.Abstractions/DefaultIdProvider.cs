@@ -1,4 +1,5 @@
-﻿using IdGen;
+﻿using System.Globalization;
+using IdGen;
 
 namespace Cnblogs.Architecture.Ddd.Domain.Abstractions;
 
@@ -30,7 +31,7 @@ public class DefaultIdProvider(IDateTimeProvider dateTimeProvider, DefaultIdProv
     {
         eigen = Math.Abs(eigen % 1000);
         var now = dateTimeProvider.Now();
-        var secondKey = long.Parse(now.ToString("yyyyMMddHHmmss"));
+        var secondKey = long.Parse(now.ToString("yyyyMMddHHmmss", CultureInfo.InvariantCulture));
         var time = secondKey * 100000;
 
         EnsureSecondReset(secondKey);
@@ -76,7 +77,7 @@ public class DefaultIdProvider(IDateTimeProvider dateTimeProvider, DefaultIdProv
             SpinWait.SpinUntil(() =>
             {
                 var now = dateTimeProvider.Now();
-                return long.Parse(now.ToString("yyyyMMddHHmmss")) != Volatile.Read(ref _currentSecond);
+                return long.Parse(now.ToString("yyyyMMddHHmmss", CultureInfo.InvariantCulture)) != Volatile.Read(ref _currentSecond);
             });
 
             return NextReadable(eigen);

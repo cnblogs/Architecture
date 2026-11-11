@@ -8,7 +8,7 @@ public static class CacheMockExtensions
     public static ICacheProvider MockCacheValue<T>(this ICacheProvider mock, string key, T value)
     {
         mock.GetOrCreateAsync(
-                key.ToLower(),
+                key.ToLowerInvariant(),
                 Arg.Any<Func<CancellationToken, ValueTask<T>>>(),
                 Arg.Any<TimeSpan?>(),
                 Arg.Any<TimeSpan?>(),
