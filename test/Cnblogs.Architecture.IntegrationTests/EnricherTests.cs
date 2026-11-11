@@ -1,5 +1,4 @@
-﻿using System.Net.Http.Json;
-using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
+﻿using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject.Models;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
 using Microsoft.AspNetCore.Mvc.Testing;

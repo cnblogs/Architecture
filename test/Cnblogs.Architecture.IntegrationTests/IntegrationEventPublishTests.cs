@@ -1,5 +1,4 @@
 using System.Net;
-using System.Net.Http.Json;
 using Cnblogs.Architecture.Ddd.EventBus.Abstractions;
 using Cnblogs.Architecture.IntegrationTestProject.Payloads;
 using Cnblogs.Architecture.TestIntegrationEvents;
