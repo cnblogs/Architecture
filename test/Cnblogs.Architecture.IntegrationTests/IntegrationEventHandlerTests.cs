@@ -39,13 +39,29 @@ public class IntegrationEventHandlerTests(ITestOutputHelper testOutputHelper)
 
         // Assert
         Assert.True(response.IsSuccessStatusCode);
-        var messages =
-            InMemorySink.Instance.LogEvents
-                .Where(x => x.MessageTemplate.Text == LogTemplates.HandledIntegratonEvent)
-                .ToList();
+        // InMemorySink exposes a lock-free live view of its internal list; background log writes from the still-running
+        // test app can race with enumeration, so snapshot with retries instead of enumerating the live view directly.
+        var messages = (await SnapshotLogEventsAsync())
+            .Where(x => x.MessageTemplate.Text == LogTemplates.HandledIntegratonEvent)
+            .ToList();
         var msg = Assert.Single(messages)!;
         var value = msg.Properties["event"] as StructureValue;
         Assert.NotNull(value);
         Assert.Contains(value.Properties, prop => prop.Name == "Id" && prop.Value.ToString() == @event.Id.ToString());
+    }
+
+    private static async Task<List<LogEvent>> SnapshotLogEventsAsync()
+    {
+        for (var attempt = 0; ; attempt++)
+        {
+            try
+            {
+                return [.. InMemorySink.Instance.LogEvents];
+            }
+            catch (InvalidOperationException) when (attempt < 10)
+            {
+                await Task.Delay(50);
+            }
+        }
     }
 }
