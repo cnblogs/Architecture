@@ -1,5 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <PropertyGroup>
+    <!-- Generate XML docs so record-bound MCP tools can read <summary>/<param> comments from the test commands/queries. -->
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore\Cnblogs.Architecture.Ddd.Cqrs.AspNetCore.csproj" />
     <ProjectReference Include="..\..\src\Cnblogs.Architecture.Ddd.Cqrs.AgentFramework\Cnblogs.Architecture.Ddd.Cqrs.AgentFramework.csproj" />

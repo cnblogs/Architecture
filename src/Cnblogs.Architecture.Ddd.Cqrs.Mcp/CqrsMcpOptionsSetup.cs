@@ -1,41 +1,28 @@
-using Cnblogs.Architecture.Ddd.Cqrs.AgentFramework;
 using Microsoft.Extensions.Options;
+
 using ModelContextProtocol.Server;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.Mcp;
 
 /// <summary>
-///     Wraps the CQRS agent tools from <see cref="CqrsToolSet" /> as MCP tools and adds them to
-///     <see cref="McpServerOptions.ToolCollection" />. The MCP server invokes each wrapped tool with the request-scoped
-///     <c>IServiceProvider</c>, so tool calls open their own scope and dispatch through <c>IMediator</c> as usual.
+///     Adds the tools from <see cref="CqrsMcpToolCollection" /> to <see cref="McpServerOptions.ToolCollection" />. In the
+///     default stateless mode the MCP server rebuilds <see cref="McpServerOptions" /> per request, so tools registered
+///     during endpoint mapping are picked up automatically.
 /// </summary>
-internal sealed class CqrsMcpOptionsSetup(CqrsToolSet toolSet, IOptions<CqrsMcpOptions> cqrsMcpOptions)
-    : IConfigureOptions<McpServerOptions>
+internal sealed class CqrsMcpOptionsSetup(CqrsMcpToolCollection toolCollection) : IConfigureOptions<McpServerOptions>
 {
     /// <inheritdoc />
     public void Configure(McpServerOptions options)
     {
-        var filter = cqrsMcpOptions.Value.RequestFilter;
-        var annotateReadOnly = cqrsMcpOptions.Value.AnnotateQueriesAsReadOnly;
-        var toolCollection = options.ToolCollection ?? [];
-        foreach (var (requestType, function) in toolSet.ByRequestType)
+        var toolCollectionToAdd = options.ToolCollection ?? [];
+        foreach (var tool in toolCollection.Tools)
         {
-            if (filter is not null && filter(requestType) == false)
-            {
-                continue;
-            }
-
-            toolCollection.TryAdd(McpServerTool.Create(
-                function,
-                new McpServerToolCreateOptions
-                {
-                    ReadOnly = annotateReadOnly && CqrsRequestInspector.GetKind(requestType) == RequestKind.Query,
-                }));
+            toolCollectionToAdd.TryAdd(tool);
         }
 
-        if (toolCollection.IsEmpty == false)
+        if (toolCollectionToAdd.IsEmpty == false)
         {
-            options.ToolCollection = toolCollection;
+            options.ToolCollection = toolCollectionToAdd;
         }
     }
 }

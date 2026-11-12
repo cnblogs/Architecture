@@ -1,3 +1,4 @@
+using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using System.Reflection;
 
 namespace Cnblogs.Architecture.Ddd.Cqrs.AgentFramework;

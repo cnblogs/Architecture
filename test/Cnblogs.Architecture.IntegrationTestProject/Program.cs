@@ -1,4 +1,5 @@
 using System.Reflection;
+using System.Security.Claims;
 using Cnblogs.Architecture.Ddd.Cqrs.AgentFramework;
 using Cnblogs.Architecture.Ddd.Cqrs.AspNetCore;
 using Cnblogs.Architecture.Ddd.Cqrs.Mcp;
@@ -75,9 +76,20 @@ app.Subscribe<TestIntegrationEvent>();
 // TODO: register an IChatClient (default or keyed) for the endpoint to resolve and actually run the agent.
 app.MapAgent<ArticlesAgent>("/agents/articles");
 
-// MCP entry point: exposes the same [AgentTool]-tagged Commands/Queries as MCP tools over Streamable HTTP,
-// coexisting with the MapCommand/MapQuery HTTP endpoints and the agent endpoint above. Tool calls dispatch
-// in-process via IMediator, with the request-scoped services of each MCP request.
+// MCP tools: delegate-first, the same style as MapCommand/MapQuery above. The ClaimsPrincipal parameter is
+// injected by the framework (hidden from the tool schema), so the model cannot forge it; the record-bound
+// overload flattens the query's constructor parameters into the schema automatically.
+var articles = app.MapMcpToolGroup("articles");
+articles.MapMcpTool("get", (int id) => new GetArticleQuery(id), "Get an article by id.");
+articles.MapMcpTool<GetArticleQuery>("get_by_record"); // description/param docs come from the record's XML doc
+articles.MapMcpTool(
+    "create",
+    (ClaimsPrincipal user, string title) => new CreateArticleCommand(title),
+    "Create an article.");
+
+// MCP entry point: serves the tools above over Streamable HTTP, coexisting with the MapCommand/MapQuery
+// endpoints and the agent endpoint. Tool calls dispatch in-process via IMediator, with the request-scoped
+// services of each MCP request.
 app.MapMcp("/mcp");
 
 app.Run();

@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 
 using Cnblogs.Architecture.Ddd.Cqrs.Abstractions;
+using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 using MediatR;
 using Microsoft.Extensions.AI;
 
