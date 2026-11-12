@@ -1,4 +1,5 @@
 using Cnblogs.Architecture.Ddd.Cqrs.DependencyInjection;
+using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
 using Microsoft.Extensions.AI;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,4 +1,5 @@
 using Cnblogs.Architecture.Ddd.Cqrs.AgentFramework;
+using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
 namespace Cnblogs.Architecture.UnitTests.Cqrs.AgentFramework;
 

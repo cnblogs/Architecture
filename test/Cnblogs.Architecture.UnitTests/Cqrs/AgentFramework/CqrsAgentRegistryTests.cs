@@ -1,4 +1,5 @@
 using Cnblogs.Architecture.Ddd.Cqrs.AgentFramework;
+using Cnblogs.Architecture.Ddd.Infrastructure.Abstractions;
 
 using Microsoft.Extensions.AI;
 
